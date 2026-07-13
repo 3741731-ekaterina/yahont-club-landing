@@ -222,38 +222,21 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 /* ============ БЛОК: ЧТО ТАКОЕ КЛУБ ============ */
 .club-value{
   text-align:center;max-width:640px;margin:0 auto 50px;padding:22px 26px;border:1px solid var(--border);
-  border-radius:var(--radius-md);background:rgba(255,255,255,.02);cursor:pointer;transition:border-color .25s ease, background .25s ease;
+  border-radius:var(--radius-md);background:rgba(255,255,255,.02);
 }
-.club-value:hover{border-color:var(--accent2)}
 .club-value p{color:var(--text-secondary);font-size:15.5px}
-.club-value .more{
-  max-height:0;overflow:hidden;transition:max-height .4s ease, margin-top .4s ease;color:var(--text-secondary);font-size:14.5px;text-align:left;
-}
-.club-value.open .more{max-height:200px;margin-top:14px}
-.club-value .toggle-hint{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:12.5px;color:var(--accent2);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.club-value .toggle-hint svg{width:12px;height:12px;transition:transform .3s ease}
-.club-value.open .toggle-hint svg{transform:rotate(180deg)}
 
 .bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .bento-card{
   position:relative;background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-md);
-  padding:26px 22px 22px;transition:transform .3s ease, border-color .3s ease, background .3s ease;overflow:hidden;
+  padding:26px 22px 22px;overflow:hidden;
 }
-.bento-card::after{
-  content:"";position:absolute;inset:0;background:radial-gradient(140px 140px at 90% -10%, rgba(217,123,63,.18), transparent 60%);
-  opacity:0;transition:opacity .3s ease;
-}
-.bento-card:hover{transform:translateY(-6px);border-color:var(--accent2)}
-.bento-card:hover::after{opacity:1}
-.bento-card.is-open{border-color:var(--accent2);background:var(--surface-2)}
 .bento-num{
   width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
   background:rgba(217,123,63,.12);color:var(--accent2);font-weight:800;font-size:14px;margin-bottom:16px;
 }
 .bento-card h4{font-family:var(--font-body);font-size:16.5px;font-weight:700;margin-bottom:8px;line-height:1.35}
 .bento-card p{font-size:13.8px;color:var(--text-secondary);line-height:1.5}
-.bento-arrow{position:absolute;left:16px;bottom:14px;width:22px;height:22px;color:var(--text-muted);transition:transform .3s ease, color .3s ease}
-.bento-card:hover .bento-arrow, .bento-card.is-open .bento-arrow{color:var(--accent2);transform:rotate(90deg)}
 
 /* ============ АУДИТОРИЯ: ТАБЫ ============ */
 .tabs-switch{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
@@ -369,10 +352,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 .course-duration .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
 .module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .module-item{border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:18px 20px;background:rgba(255,255,255,.015)}
-.module-item .m-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}
+.module-item .m-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}
 .module-item .m-name{font-weight:700;font-size:14.5px}
 .module-item .m-count{flex:none;font-size:11.5px;color:var(--text-muted);white-space:nowrap}
-.module-item .m-result{font-size:13.3px;color:var(--text-secondary);line-height:1.5}
+.module-item .m-lessons,.module-item .m-tools{font-size:13.3px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+.module-item .m-lessons b,.module-item .m-tools b{color:var(--text);font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.4px;display:block;margin-bottom:4px}
+.module-item .m-result{font-size:13.3px;color:var(--text-secondary);line-height:1.5;padding-top:10px;border-top:1px dashed var(--border-soft)}
+.module-item .m-result b{color:var(--accent2);font-weight:700}
 .course-all-cta{text-align:center;margin-top:20px}
 
 /* ============ ПРАВИЛА КУРСОВ ============ */
@@ -679,21 +665,19 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <div class="eyebrow" style="justify-content:center"><span></span>Что входит</div>
       <h2 class="section-title">Что такое клуб финансового аутсорсинга «Яхонт»?</h2>
     </div>
-    <button class="club-value reveal" id="clubValueToggle">
+    <div class="club-value reveal">
       <p>Это место, где за 5000 ₽ в месяц вы получаете то, что на рынке стоит сотни тысяч рублей.</p>
-      <div class="toggle-hint">Узнать подробнее <svg width="12" height="12"><use href="#ic-chevron"/></svg></div>
-      <div class="more">На рынке услуги, аналогичные наполнению клуба — 8 обучающих курсов, наставничество, профессиональное сообщество и регулярные разборы с экспертом — оцениваются в сотни тысяч рублей. В клубе «Яхонт» это доступно по цене одной консультации, без потери качества и поддержки на всём пути.</div>
-    </button>
+    </div>
 
     <div class="bento-grid reveal">
-      <div class="bento-card"><div class="bento-num">01</div><h4>8 обучающих курсов</h4><p>Которые прошли 1000+ человек, 97% получили сильный результат</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">02</div><h4>250+ практических уроков</h4><p>С заданиями как в реальных проектах</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">03</div><h4>300+ готовых инструментов</h4><p>Таблицы, шаблоны, ИИ-агенты, промты, скрипты и многое другое</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">04</div><h4>Индивидуальный трек обучения</h4><p>По итогам тестирования на входе в клуб</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы с приглашёнными экспертами</h4><p>Финучёт, HR, развитие соцсетей, финмодели, психология и др.</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">06</div><h4>Созвоны с Екатериной Яхонтовой</h4><p>4 раза в месяц по программам обучающих курсов</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">07</div><h4>Чат вакансий</h4><p>Регулярно пополняется, чтобы вы не тратили время на самостоятельные поиски</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
-      <div class="bento-card"><div class="bento-num">08</div><h4>Сообщество без конкуренции</h4><p>Поддерживающее окружение коллег, обмен опытом и взгляд со стороны на вашу ситуацию</p><svg class="bento-arrow" viewBox="0 0 24 24"><use href="#ic-arrow"/></svg></div>
+      <div class="bento-card"><div class="bento-num">01</div><h4>8 обучающих курсов</h4><p>Которые прошли 1000+ человек, 97% получили сильный результат</p></div>
+      <div class="bento-card"><div class="bento-num">02</div><h4>250+ практических уроков</h4><p>С заданиями как в реальных проектах</p></div>
+      <div class="bento-card"><div class="bento-num">03</div><h4>300+ готовых инструментов</h4><p>Таблицы, шаблоны, ИИ-агенты, промты, скрипты и многое другое</p></div>
+      <div class="bento-card"><div class="bento-num">04</div><h4>Индивидуальный трек обучения</h4><p>По итогам тестирования на входе в клуб</p></div>
+      <div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы с приглашёнными экспертами</h4><p>Финучёт, HR, развитие соцсетей, финмодели, психология и др.</p></div>
+      <div class="bento-card"><div class="bento-num">06</div><h4>Созвоны с Екатериной Яхонтовой</h4><p>4 раза в месяц по программам обучающих курсов</p></div>
+      <div class="bento-card"><div class="bento-num">07</div><h4>Чат вакансий</h4><p>Регулярно пополняется, чтобы вы не тратили время на самостоятельные поиски</p></div>
+      <div class="bento-card"><div class="bento-num">08</div><h4>Сообщество без конкуренции</h4><p>Поддерживающее окружение коллег, обмен опытом и взгляд со стороны на вашу ситуацию</p></div>
     </div>
   </div>
 </section>
@@ -704,6 +688,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     <div class="section-head reveal">
       <div class="eyebrow" style="justify-content:center"><span></span>Для кого клуб</div>
       <h2 class="section-title">Кому точно надо быть в клубе?</h2>
+      <p class="section-sub">Жмите по кнопкам ниже, чтобы узнать, что клуб даст конкретно вам</p>
     </div>
 
     <div class="tabs-switch reveal" id="audienceTabs">
@@ -886,13 +871,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <div class="track-panel" id="t3">
         <div class="desc">
           <span class="track-name">Эксперт</span>
-          Вы — опытный финансист, который уверенно внедряет управленческий учёт и использует ИИ в работе. Ваша точка роста — повысить ценность и стоимость своих услуг за счёт навыков финансового анализа и финансового моделирования, а также выстроить систему привлечения клиентов, при которой уже вы выбираете, с кем работать.
+          Вы — финансист с опытом, используете в работе нейросети. Ваша точка роста — повышение стоимости и количества проектов через систему привлечения клиентов, рост эффективности и готовность браться за сложные задачи.
         </div>
         <ol class="course-sequence">
           <li>Практикум по финансовому анализу</li>
-          <li>Создание финансовых моделей с 0</li>
-          <li>Системные продажи для финансиста</li>
           <li>Нейросети для финансиста</li>
+          <li>Системные продажи для финансиста</li>
+          <li>Создание финансовых моделей с 0</li>
           <li>Автоматизация управленческого учёта</li>
         </ol>
       </div>
@@ -952,11 +937,31 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">8 недель</div><div class="lbl">срок обучения</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 1. Зачем нужен финдир и услуги финучёта</span><span class="m-count">5 уроков</span></div><p class="m-result">Знаете, зачем клиенту услуги финучёта, как их продать и как выстроить работу на этапе оказания услуг.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 2. Отчёт ДДС</span><span class="m-count">4 урока</span></div><p class="m-result">Навык ведения ДДС, формирования платёжного календаря и понимание, какие боли клиента он закрывает.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 3. Отчёт о прибылях и убытках</span><span class="m-count">4 урока</span></div><p class="m-result">Навык составления ОПиУ и понимание, какие задачи он решает.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 4. Управленческий баланс</span><span class="m-count">4 урока</span></div><p class="m-result">Навык составления управленческого баланса и работы с оборотным капиталом.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 5. Финансовый анализ + ИИ-технологии</span><span class="m-count">8 уроков</span></div><p class="m-result">Навык проведения финансового анализа по всем отчётам, в том числе при помощи ИИ, и презентации итогов клиенту.</p></div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Зачем нужен финдир и услуги финучёта</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Роль финансового директора на аутсорсе · Диагностика клиента как первый этап продажи · Как продать услугу управленческого учёта через боли и потребности клиента · Организация работы на удалёнке · О чём договориться с клиентом до начала работы</p>
+            <p class="m-result"><b>Результат:</b> знаете, зачем клиенту услуги финучёта, как эти услуги продать и как выстроить работу на этапе оказания услуг. Готовы получать твёрдую базу, чтобы потом её применить на реальных проектах.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Отчёт ДДС</span><span class="m-count">4 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Составление справочника для ДДС (теория) · Платёжный календарь: внедрение и назначение · Подробные шаги внедрения отчёта клиенту · Настройка взаимосвязи платёжного календаря с ДДС</p>
+            <p class="m-result"><b>Результат:</b> навык ведения ДДС и организации его сбора. Навык формирования платёжного календаря и понимание, какие боли можно закрыть платёжным календарём.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Отчёт о прибылях и убытках</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Отчёт ОПиУ (PnL) и его назначение · Учёт кредитов и налогов · Окончательная сборка ОПиУ · Зарплатная ведомость и учёт основных средств · Учёт сделок: ДДС как источник информации</p>
+            <p class="m-result"><b>Результат:</b> навык составления Отчёта о прибылях и убытках. Понимание, какие цели и задачи решает ОПиУ.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. Управленческий баланс</span><span class="m-count">4 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Зачем управленческий баланс бизнесу и его источники информации · Как добиться сходимости баланса · Сбор первого управленческого баланса · Оборотный капитал: что это и как им управлять</p>
+            <p class="m-result"><b>Результат:</b> навык составления управленческого баланса.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Финансовый анализ + ИИ-технологии</span><span class="m-count">8 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Виды финансового анализа: вертикальный и горизонтальный · Показатели ликвидности и финансовой устойчивости · Структура промпта для финансового анализа · Gamma: краткий обзор инструмента · Факторный и план-фактный анализ. Практика выполнения · Презентация итогов финансового анализа клиенту · Практикум: анализ отчёта · Практикум: собираем презентацию под клиента</p>
+            <p class="m-result"><b>Результат:</b> навык проведения финансового анализа по всем отчётам и во всех вариантах. Навык проводить финанализ при помощи ИИ.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -968,13 +973,48 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">6 недель</div><div class="lbl">срок обучения</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 1. Вводный</span><span class="m-count">4 урока</span></div><p class="m-result">Оцифрована точка А, поставлена понятная достижимая цель.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 2. Услуги, упаковка, цены</span><span class="m-count">8 уроков</span></div><p class="m-result">Вы понятны и заметны потенциальным клиентам, услуги упакованы и обоснованы по цене.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 3. Продажи: базовый пакет инструментов</span><span class="m-count">6 уроков</span></div><p class="m-result">Уверенность на продающих встречах и в переписке, знание юридически безопасных условий.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 4. Поиск клиентов: с 0 до 3–5 заявок в месяц</span><span class="m-count">7 уроков</span></div><p class="m-result">Запущено 4–5 каналов привлечения клиентов, стабильный поток заявок.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 5. Клиенты через личный бренд</span><span class="m-count">6 уроков</span></div><p class="m-result">Клиенты идут на ваше имя и готовы платить дороже, чем «ноу-нейм» коллегам.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 6. Техники переговоров</span><span class="m-count">6 уроков</span></div><p class="m-result">Умеете отстаивать свои условия, согласовывать повышение оплаты и расставлять границы.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 7. Команда и делегирование</span><span class="m-count">4 урока</span></div><p class="m-result">Из аутсорсера-одиночки — в эксперта со своей командой.</p></div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Вводный</span><span class="m-count">4 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Приветствие от автора · Точка А. Постановка цели · Зачем финансист нужен бизнесу? Глазами предпринимателя · Зачем бухгалтер нужен бизнесу? Глазами предпринимателя</p>
+            <p class="m-lessons"><b>Инструменты</b>Чек-лист самодиагностики «Точка А» · Конспекты уроков · Чек-лист «Зачем финдир бизнесу» · Чек-лист «Зачем бухгалтер бизнесу»</p>
+            <p class="m-result"><b>Результат:</b> оцифрована точка А, поставлена понятная достижимая цель, настроены работать на результат.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Услуги, упаковка, цены</span><span class="m-count">8 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Зачем финансисту личный бренд · Как подготовиться к привлечению клиентов · Анализ рынка и целевой аудитории с ИИ · Формирование услуг · Упаковка экспертности · Упаковка экспертности с ИИ · Упаковка услуг с ИИ · Ценообразование</p>
+            <p class="m-lessons"><b>Инструменты</b>Промт для продающего резюме · Промт для описания профиля и постов · Промт для упаковки кейсов · Промт для структуры продающей презентации · Инструкция по оформлению презентации в Gamma · Промты для упаковки услуг · Образец упаковки услуг · Презентация упакованных услуг в Gamma · Калькулятор стоимости услуг финансиста</p>
+            <p class="m-result"><b>Результат:</b> вы понятны и заметны потенциальным клиентам. Ваши услуги нужны рынку, и за них готовы достойно платить, без «а почему такая цена».</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Продажи: базовый пакет инструментов</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Юридические аспекты работы на аутсорсе · Проведение диагностики и переговоры с ИИ · Скрипт продаж для входящих заявок по телефону и в переписке · Скрипт привлечения клиентов по партнёрке · Страхи и ошибки в продажах · Отработка возражений</p>
+            <p class="m-lessons"><b>Инструменты</b>Шаблон договора с инструкцией · Регистрация ИП через Тинькофф · Образец диагностической карты (2 шт) · Чек-лист для диагностики клиента · Скрипт продаж для входящих заявок · Скрипт привлечения клиентов по партнёрке · Таблица отработки возражений</p>
+            <p class="m-result"><b>Результат:</b> уверенность на продающих встречах и в переписке, знание юридически безопасных условий сотрудничества.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. Поиск клиентов: с 0 до 3–5 заявок в месяц</span><span class="m-count">8 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>HH.ru · Сарафанное радио · Партнёрская программа · Привлечение клиентов в соцсетях · Чаты в Telegram · Запуск Telegram-канала с 0 · Как с 0 набрать аудиторию в соцсетях и превратить её в клиентов · Организация привлечения клиентов: от хаоса к ежедневным действиям</p>
+            <p class="m-lessons"><b>Инструменты</b>Промт для упаковки профиля на HH.ru · Скрипт отклика на вакансию · Пример резюме · Шаблон договора о передаче клиентов по партнёрке · Шаблон базы партнёров · КП для партнёров · Промты для продающих постов · Контент-стратегия для Telegram-канала с ИИ · ИИ для фотосессии · Схема прогрева от подписки до заявки · Список чатов с потенциальными клиентами · Скрипт первого сообщения клиенту · Пример встраивания привлечения клиентов в рабочий график</p>
+            <p class="m-result"><b>Результат:</b> запущено 4–5 каналов привлечения клиентов, стабильно 5–6 заявок в месяц. Привлечение клиентов занимает 1 час в день, основную часть работы делает ИИ.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Клиенты через личный бренд</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Статьи и публикации с ИИ · Воронка клиентов с Инстаграм* · Взаимная реклама · Бизнес-мероприятия · Бизнес-сообщества и клубы по подписке · Выступления с ИИ</p>
+            <p class="m-lessons"><b>Инструменты</b>Гайд по созданию статей · Промты для написания статей · Схема воронки в Нельзяграм · Инструкция «Как создавать Reels» · Список источников бизнес-мероприятий · Промты для сценария выступления</p>
+            <p class="m-result"><b>Результат:</b> клиенты идут на ваше имя и доверяют с первых секунд, готовы платить дороже, чем «ноу-нейм» коллегам.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 6. Техники переговоров</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Как просить долг за неоплаченный труд · Запрос на повышение оплаты в найме и на аутсорсе · Работа на износ и переработки · Холодные продажи: как написать клиенту первым · Как договориться на аутсорс, если в вакансии написано «найм» · Клиент на встрече сказал «да», после встречи молчит — что делать</p>
+            <p class="m-lessons"><b>Инструменты</b>11 готовых скриптов переговоров: от «призыва закрыть финансовые обязательства» до «сотрудничества на ваших условиях»</p>
+            <p class="m-result"><b>Результат:</b> умеете отстаивать свои условия, согласовывать повышение оплаты и расставлять границы с клиентом.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 7. Команда и делегирование</span><span class="m-count">4 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Финмодель команды, или как не остаться без денег · Структура команды · Как упаковать ваши знания в методологию · Поиск помощника, коммуникация команды и клиента</p>
+            <p class="m-lessons"><b>Инструменты</b>Финмодель для масштабирования · Оргструктура команды · Опросник по организации команды · Промт для технологии оказания услуг · Промт «Оформление инструкций» · Промт «Обучение команды» · Промт «Карта развития команды»</p>
+            <p class="m-result"><b>Результат:</b> из аутсорсера-одиночки — в эксперта со своей командой.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -986,13 +1026,48 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">6 недель</div><div class="lbl">срок обучения</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 1. Базовые возможности ИИ</span><span class="m-count">5 уроков</span></div><p class="m-result">Чёткая структура работы с ИИ — безопасно, без риска слить данные.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 2. Работа с документацией</span><span class="m-count">6 уроков</span></div><p class="m-result">Обработка документов, договоров и сверок за минуты, а не часы.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 3. Финансовый анализ и отчёты с ИИ</span><span class="m-count">5 уроков</span></div><p class="m-result">Финансовый анализ в 5 раз быстрее.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 4. ИИ-маркетинг для финансиста</span><span class="m-count">7 уроков</span></div><p class="m-result">Упакованные услуги, экспертность и кейсы.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 5. Клиенты с соцсетей с ИИ</span><span class="m-count">8 уроков</span></div><p class="m-result">Регулярные заявки с соцсетей при затратах не более 40 минут в день на контент.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 6. Продажи услуг с ИИ</span><span class="m-count">4 урока</span></div><p class="m-result">Продающие встречи заканчиваются подписанием договора и оплатой.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 7. Автоматизация управленки с ИИ</span><span class="m-count">5 уроков</span></div><p class="m-result">Отчёты заполняются автоматически, ручное разнесение операций — в прошлом.</p></div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Базовые возможности ИИ</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Обзор инструментов GPT, Машарпт, Gemini · Безопасность, конфиденциальность, этика · Что такое промпт: анатомия запроса · Диагностика: где рутинные задачи? · Промпты под задачи финансиста: отчёт, КП, пост</p>
+            <p class="m-lessons"><b>Инструменты</b>Чек-лист нейросетей · Чек-лист хорошего промпта · Шаблон для анализа рутинных задач · Таблица шаблонов готовых промптов</p>
+            <p class="m-result"><b>Результат:</b> чёткая структура работы с ИИ — безопасно, без риска слить данные. Свобода от задач, которые никто не любит.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Работа с документацией</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Работа с шаблонами документа · Проверка договоров и выявление рисков · Проведение сверок при помощи ИИ · Сверка ЕНС при помощи ИИ · Обработка требований ИФНС через ИИ · Сверка актов взаиморасчётов с ИИ</p>
+            <p class="m-lessons"><b>Инструменты</b>Промт «ИИ-операционист для работы с шаблонами» · Шаблон документа в .docx · ИИ-юрист для проверки договоров · Промт агента для проверки договоров</p>
+            <p class="m-result"><b>Результат:</b> обработка документов за минуты, сверка актов и составление договоров — за секунды, минимум ошибок.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Финансовый анализ и отчёты с ИИ</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Как GPT «читает» отчёт: логика и порядок · Написание формул для Google и Excel с ИИ · Работа с массивами: отчёт за 10 минут, не 3 часа · Структура промпта для финансового анализа · Практикум: анализ отчёта</p>
+            <p class="m-lessons"><b>Инструменты</b>Инструкция финансового анализа с ИИ · Промт для написания формул · Промт для финанализа с примерами · ИИ-агент для анализа отчётности · Промт для обработки данных в отчётах</p>
+            <p class="m-result"><b>Результат:</b> финансовый анализ в 5 раз быстрее. Из операциониста — в надёжного партнёра.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. ИИ-маркетинг для финансиста</span><span class="m-count">7 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Анализ аудитории с ИИ · Стратегия привлечения клиентов · Gamma: краткий обзор инструмента · Как работает связка GPT + Gamma · Упаковка экспертности · Упаковка услуг с ИИ · Упаковка кейсов</p>
+            <p class="m-lessons"><b>Инструменты</b>ИИ-копирайтер · ИИ-ассистент «Упаковка кейсов» · Промт для анализа аудитории · Промты для упаковки кейсов и услуг · Промт по упаковке экспертности</p>
+            <p class="m-result"><b>Результат:</b> услуги упакованы. По первому взгляду на соцсети и профиль предприниматель считывает в вас профессионала.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Клиенты с соцсетей с ИИ</span><span class="m-count">8 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Как вести соцсети с помощью ИИ · Контент-стратегия для Telegram-канала · Продающие посты с ИИ · Обзор нейросети для нейрофотосессии · Структура промпта для нужного результата · Создаём свой ИИ-аватар · Как улучшить качество фото · Как оживить фотографию</p>
+            <p class="m-lessons"><b>Инструменты</b>Промт для контент-стратегии · Промпты для постов и сценариев выступлений · Инструкции по созданию фото и видео с ИИ</p>
+            <p class="m-result"><b>Результат:</b> регулярные заявки с соцсетей. На контент уходит не более 40 минут в день.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 6. Продажи услуг с ИИ</span><span class="m-count">4 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Персональный AI-ассистент для операционных задач и продаж · Расшифровка встречи и выявление сути · Создаём своё КП при помощи ИИ · Продающее выступление: структура</p>
+            <p class="m-lessons"><b>Инструменты</b>Готовые промты для КП и презентации · Порядок создания AI-ассистентов для переговоров · ИИ-тренер по продажам · Примеры решения задач с AI-ассистентом</p>
+            <p class="m-result"><b>Результат:</b> продающие встречи заканчиваются подписанием договора и оплатой.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 7. Автоматизация управленки с ИИ</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Парсинг выписок через скрипт ИИ · Создание приложения по обработке документов · Автоматическая генерация аналитической записки через Telegram · Настройка правил для автоматического разнесения операций · Настройка автоматизации через ИИ-сервис</p>
+            <p class="m-lessons"><b>Инструменты</b>Промт для аналитической записки · Шаблон «Журнал операций» · Промты для автоматизации Excel и Google Таблиц · Инструкции для автоматического разнесения операций</p>
+            <p class="m-result"><b>Результат:</b> отчёты заполняются автоматически, ручное разнесение операций — в прошлом.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1004,11 +1079,27 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">2 недели</div><div class="lbl">срок обучения</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 1. Вертикальный и горизонтальный анализ</span></div><p class="m-result">Владеете основными видами анализа, умеете анализировать показатели, а не просто «называть цифры».</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 2. Факторный и план-фактный анализ</span></div><p class="m-result">Делаете точные прогнозы развития бизнеса и оцениваете риски.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 3. Показатели ликвидности и устойчивости</span></div><p class="m-result">Оцениваете финансовую устойчивость компании и видите, за счёт чего её стабилизировать.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 4. Презентация итогов клиенту</span></div><p class="m-result">Уверенно презентуете итоги анализа, говорите на одном языке с предпринимателем.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 5. Финансовый анализ с ИИ</span></div><p class="m-result">Сокращаете время на анализ в 5 раз, делегируя процессы нейросетям.</p></div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 1. Вертикальный и горизонтальный анализ</span></div>
+            <p class="m-result"><b>Результат:</b> владеете основными видами анализа, умеете анализировать показатели, а не просто «называть цифры».</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 2. Факторный и план-фактный анализ</span></div>
+            <p class="m-result"><b>Результат:</b> владеете продвинутыми видами финансового анализа, умеете делать точные прогнозы развития бизнеса и оценивать риски.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 3. Показатели ликвидности и устойчивости</span></div>
+            <p class="m-result"><b>Результат:</b> оцениваете финансовую устойчивость компании и видите, за счёт чего её стабилизировать.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 4. Презентация итогов клиенту</span></div>
+            <p class="m-result"><b>Результат:</b> уверенно презентуете итоги анализа, говорите на одном языке с предпринимателем, в вас видят сильного специалиста-партнёра.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 5. Анализ отчётности с Claude Cowork</span></div>
+            <p class="m-lessons"><b>Также в уроке</b>Структура промта для финансового анализа · Практикум: анализ отчёта · Gamma: краткий обзор инструмента для презентации финанализа · Практикум: собираем презентацию под клиента</p>
+            <p class="m-result"><b>Результат:</b> сокращаете время на анализ в 5 раз, делегируя процессы нейросетям. Владение базой финанализа обязательно.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1020,11 +1111,20 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">2 недели</div><div class="lbl">14 уроков</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Знакомство с финмоделью и сбор данных</span><span class="m-count">ур. 1–2</span></div><p class="m-result">Понимаете, как модель становится инструментом бизнеса, умеете собирать данные у клиента.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Воронка продаж, расходы, оборотный капитал</span><span class="m-count">ур. 3–5</span></div><p class="m-result">Строите структуру выручки, распределяете затраты, считаете точку безубыточности.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">ДДС, баланс, точки роста</span><span class="m-count">ур. 6–9</span></div><p class="m-result">Собираете отчётность модели и находите скрытые возможности для клиента.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Инвестиционные показатели</span><span class="m-count">ур. 10–11</span></div><p class="m-result">Строите инвестиционные модели и решаете соответствующие запросы бизнеса.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Графики, цена услуги, презентация</span><span class="m-count">ур. 12–14</span></div><p class="m-result">Понимаете ценообразование услуги и презентуете модель так, чтобы клиент видел её ценность.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 1. Знакомство с финансовой моделью</span></div><p class="m-result"><b>Результат:</b> понимаете, что такое финансовая модель, как она становится инструментом бизнеса и какие вопросы раскрывает.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 2. Сбор данных для финмодели</span></div><p class="m-result"><b>Результат:</b> умеете проводить интервью с клиентом и собирать данные, даже если кажется, что их нет.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 3. Воронка продаж</span></div><p class="m-result"><b>Результат:</b> умеете строить и визуализировать структуру выручки.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 4. Переменные и постоянные расходы</span></div><p class="m-result"><b>Результат:</b> проходите путь от переменных расходов до чистой прибыли, распределяете затраты и определяете ключевые факторы влияния на прибыль.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 5. Оборотный капитал и точка безубыточности</span></div><p class="m-result"><b>Результат:</b> понимаете влияние оборотного капитала и умеете считать точку безубыточности.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 6. Отчёт о движении денег</span></div><p class="m-result"><b>Результат:</b> составляете ДДС и определяете вероятность кассовых разрывов.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 7. Сборка баланса</span></div><p class="m-result"><b>Результат:</b> используете формулы для автоматизации, точности и актуальности данных.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 8. Поиск точек роста</span></div><p class="m-result"><b>Результат:</b> учитесь «играть» с финансовой моделью, видеть скрытые возможности и давать клиенту ценные рекомендации.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 9. Аналитическая записка</span></div><p class="m-result"><b>Результат:</b> составляете понятную аналитическую записку к финансовой модели по шаблонам и техникам курса.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 10. Инвестиционные показатели</span></div><p class="m-result"><b>Результат:</b> разбираетесь в инвестиционных показателях и понимаете, как применять их при построении инвестиционной финмодели.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 11. Практика расчёта инвестиционных показателей</span></div><p class="m-result"><b>Результат:</b> строите инвестиционные модели и решаете запросы бизнеса, связанные с финансовым моделированием.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 12. Графики</span></div><p class="m-result"><b>Результат:</b> отображаете данные в понятном виде, показываете перспективу развития бизнеса и усиливаете услугу наглядной картинкой.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 13. Ценообразование услуг финмоделирования</span></div><p class="m-result"><b>Результат:</b> понимаете, как установить цену на услугу построения финансовой модели и как донести ценность клиенту.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 14. Презентация финансовой модели</span></div><p class="m-result"><b>Результат:</b> презентуете финансовую модель клиенту так, чтобы он видел важность и ценность вашей аналитической работы.</p></div>
         </div>
       </div>
     </div>
@@ -1036,12 +1136,36 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">8 недель</div><div class="lbl">срок обучения</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 1. Зачем нужен финдир и услуги финучёта</span><span class="m-count">6 уроков</span></div><p class="m-result">Умеете доносить ценность ведения проектов на базе сервисов.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 2. Отчёт ДДС в сервисах</span><span class="m-count">6 уроков</span></div><p class="m-result">Навык сборки отчёта ДДС на базе Финтабло и ПланФакт.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 3. Платёжный календарь</span><span class="m-count">5 уроков</span></div><p class="m-result">Помогаете клиенту управлять деньгами на опережение, а не только учитывать факт.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 4. ОПиУ в сервисах</span><span class="m-count">5 уроков</span></div><p class="m-result">Навык формирования ОПиУ в Финтабло и ПланФакт.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 5. Отчёт Баланс в сервисах</span><span class="m-count">5 уроков</span></div><p class="m-result">Навык построения и работы с отчётом Баланс в сервисах.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 6. Финансовое планирование</span><span class="m-count">4 урока</span></div><p class="m-result">Навык составления БДДС и БДР в соответствии с целями бизнеса.</p></div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Зачем нужен финдир и услуги финучёта</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Роль финансового директора на аутсорсе · Диагностика клиента как первый этап продажи · Как обосновать стоимость сервиса и услуги внедрения · Зачем бизнесу сервисы, если у клиента уже есть 1С · О чём договориться с клиентом до начала работы · Партнёрские программы Финтабло и ПланФакта</p>
+            <p class="m-result"><b>Результат:</b> знаете, зачем клиенту услуги финучёта, как их продать и как выстроить работу. Умеете доносить ценность ведения проектов на базе сервисов.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Отчёт ДДС в сервисах</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Что такое ДДС и его источники информации · ДДС в Финтабло: порядок построения · Настройка и логика работы сервиса ПланФакт · Настройка и логика работы сервиса Финтабло · Автоматическая сверка оборотов, реализация ДДС в ПланФакт · ДДС в ПланФакт: порядок построения</p>
+            <p class="m-result"><b>Результат:</b> навык сборки отчёта ДДС на базе сервисов Финтабло и ПланФакт.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Платёжный календарь</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Что такое платёжный календарь и его назначение · Как на основании факта спланировать данные и собрать инфо от клиента · Практика внедрения ПК в ПланФакт · Как проанализировать денежные потоки при помощи ИИ · Практика внедрения ПК в Финтабло</p>
+            <p class="m-result"><b>Результат:</b> помогаете клиенту управлять деньгами на опережение, а не только учитывать факт.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. ОПиУ в сервисах</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Источники и логика признания: кассовый и начисленный метод · Основные средства и НДС, амортизация, начисление налогов · Практика построения ОПиУ в ПланФакт · Расходы и зарплата: отражение, учёт, налоги · Практика построения ОПиУ в Финтабло</p>
+            <p class="m-result"><b>Результат:</b> навык формирования ОПиУ в сервисах Финтабло и ПланФакт.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Отчёт Баланс в сервисах</span><span class="m-count">5 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Зачем бизнесу управленческий баланс · Логика отражения активов и обязательств · Типовые ошибки и проверка корректности · Как баланс связан с ДДС и ОПиУ · Настройка баланса в Финтабло и ПланФакт</p>
+            <p class="m-result"><b>Результат:</b> навык построения и работы с отчётом Баланс в сервисах.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 6. Финансовое планирование</span><span class="m-count">4 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Что такое БДДС и БДР · БДР в Финтабло и ПланФакт · БДДС в Финтабло и ПланФакт · Заявки на оплату</p>
+            <p class="m-result"><b>Результат:</b> навык составления БДДС и БДР в соответствии с целями бизнеса.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1053,11 +1177,26 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">1 неделя</div><div class="lbl">срок обучения</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 1. Введение в Google-таблицы</span></div><p class="m-result">Знакомство с интерфейсом и логикой работы.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 2. Основы работы с данными</span></div><p class="m-result">Перенос данных, форматирование, фильтрация, выпадающие списки.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 3. Формулы и функции</span></div><p class="m-result">ВПР, ИНДЕКС+ПОИСКПОЗ, UNIQUE, FILTER, СУММЕСЛИМН и другие.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 4. Анализ данных и визуализация</span></div><p class="m-result">Сводные таблицы, графики и диаграммы.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Модуль 5. Автоматизация</span></div><p class="m-result">Функция IMPORTRANGE и связка таблиц между собой.</p></div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Введение в Google-таблицы</span><span class="m-count">2 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Приветствие от автора · Интерфейс Google Таблиц</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Основы работы с данными</span><span class="m-count">9 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Перенос данных из Excel в Google Таблицы и наоборот · Как сделать копию файла на свой диск · Создание нового листа, формат ячеек · Как быстро удалить ненужные знаки, которые мешают работе · Перенос ячеек/столбцов и их группировка · Выпадающие списки в таблице · Ошибка в выпадающих списках · Фильтрация данных · Примечания и чем они отличаются от комментариев</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Формулы и функции</span><span class="m-count">6 уроков</span></div>
+            <p class="m-lessons"><b>Уроки</b>Функции ВПР и ИНДЕКС+ПОИСКПОЗ · Условное форматирование · Функции UNIQUE и FILTER · Формула ЕСЛИ и МЕСЯЦ · Функция СУММЕСЛИМН · Функция ТРАНСП</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. Анализ данных и визуализация</span><span class="m-count">2 урока</span></div>
+            <p class="m-lessons"><b>Уроки</b>Сводные таблицы · Графики и диаграммы</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Автоматизация</span><span class="m-count">1 урок</span></div>
+            <p class="m-lessons"><b>Уроки</b>Функция IMPORTRANGE</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1069,13 +1208,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
           <div class="course-duration"><div class="val">2 недели</div><div class="lbl">7 инструментов</div></div>
         </div>
         <div class="module-grid">
-          <div class="module-item"><div class="m-head"><span class="m-name">Шаблоны договоров</span></div><p class="m-result">Структура, формулировки, защита границ ответственности.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Калькулятор стоимости + видео-разбор</span></div><p class="m-result">Как считать цену, аргументировать и не демпинговать.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Сценарий первой продающей встречи</span></div><p class="m-result">Какие вопросы задавать и как выявлять «боль» клиента.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Чек-лист диагностики клиента</span></div><p class="m-result">Структура разговора, логика сбора данных, фиксация выводов.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Примеры коммерческих предложений</span></div><p class="m-result">Структура, формулировки, акценты на ценности.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Упаковка кейсов</span></div><p class="m-result">Как описывать результаты и усиливать доверие клиента.</p></div>
-          <div class="module-item"><div class="m-head"><span class="m-name">Бонус: ИИ для быстрого КП</span></div><p class="m-result">Собираете сильное коммерческое предложение за 15–20 минут.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">1. Шаблоны договоров</span></div><p class="m-lessons"><b>Внутри</b>структура · формулировки · защита границ ответственности</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">2. Калькулятор стоимости + видео-разбор</span></div><p class="m-lessons"><b>Внутри</b>как считать цену · как аргументировать · как не демпинговать</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">3. Сценарий первой продающей встречи + урок</span></div><p class="m-lessons"><b>Внутри</b>какие вопросы задавать · что не спрашивать · как выявлять «боль»</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">4. Чек-лист диагностики клиента</span></div><p class="m-lessons"><b>Внутри</b>структура разговора · логика сбора данных · фиксация выводов</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">5. Примеры коммерческих предложений</span></div><p class="m-lessons"><b>Внутри</b>структура · формулировки · акценты на ценности</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">6. Урок по упаковке кейсов</span></div><p class="m-lessons"><b>Внутри</b>как описывать результаты · как формулировать ценность · как усиливать доверие</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">7. Бонус: ИИ для быстрого КП</span></div><p class="m-lessons"><b>Внутри</b>как за 15–20 минут собрать сильное коммерческое предложение · готовые промты</p></div>
         </div>
       </div>
     </div>
@@ -1246,12 +1385,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-now"><span class="val" id="priceNow1">4 000</span><span class="cur">₽ / мес.</span></div>
         <div class="price-permonth">&nbsp;</div>
         <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener" class="btn btn-outline btn-block">Купить</a>
+        <script id="1c1c40acf1b7374c5d6f9da9ce74620260bc7cbc" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629607"></script>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
           <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
           <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
           <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
-          <li><svg><use href="#ic-check"/></svg>Чат участников и чат вакансий</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
         </ul>
       </div>
 
@@ -1264,14 +1404,16 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-now"><span class="val" id="priceNow2">11 500</span><span class="cur">₽ / 3 мес.</span></div>
         <div class="price-permonth" id="pricePerMonth2">≈ 3 833 ₽ / мес.</div>
         <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener" class="btn btn-primary btn-block">Купить</a>
+        <script id="e49eb80ebb89a0414f33947a337ae6f36d5c75d7" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629608"></script>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
           <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
           <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
-          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал, чат участников и вакансий</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
         </ul>
         <ul class="price-feats bonus">
-          <span class="bonus-label">Плюс бонусы за период</span>
+          <span class="bonus-label">Специальные возможности тарифа</span>
           <li><svg><use href="#ic-check"/></svg>Групповые разборы с Екатериной 2 раза в месяц</li>
           <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов клуба</li>
           <li><svg><use href="#ic-check"/></svg>Дорожная карта на 150 / 300 / 500 тыс. ₽</li>
@@ -1289,14 +1431,16 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-now"><span class="val" id="priceNow3">22 500</span><span class="cur">₽ / 6 мес.</span></div>
         <div class="price-permonth" id="pricePerMonth3">≈ 3 750 ₽ / мес.</div>
         <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener" class="btn btn-outline btn-block">Купить</a>
+        <script id="007051fa695a6622d0b58be8ce87a73a55850e8b" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629611"></script>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
           <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
           <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
-          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал, чат участников и вакансий</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
         </ul>
         <ul class="price-feats bonus">
-          <span class="bonus-label">Плюс бонусы за период</span>
+          <span class="bonus-label">Специальные возможности тарифа</span>
           <li><svg><use href="#ic-check"/></svg>Групповые разборы с Екатериной 2 раза в месяц</li>
           <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов клуба</li>
           <li><svg><use href="#ic-check"/></svg>Дорожная карта на 150 / 300 / 500 тыс. ₽</li>
@@ -1319,7 +1463,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <div class="payment-card"><div class="ic"><svg><use href="#ic-card"/></svg></div><h4>По карте</h4><p>Оплата картой онлайн</p></div>
       <div class="payment-card"><div class="ic"><svg><use href="#ic-invoice"/></svg></div><h4>По счёту</h4><p>Для ИП и юрлиц</p></div>
       <div class="payment-card"><div class="ic"><svg><use href="#ic-split"/></svg></div><h4>Долями</h4><p>Яндекс Сплит</p></div>
-      <div class="payment-card"><div class="ic"><svg><use href="#ic-install"/></svg></div><h4>В рассрочку</h4><p>Для тарифа на 6 месяцев</p></div>
+      <div class="payment-card"><div class="ic"><svg><use href="#ic-install"/></svg></div><h4>Внутренняя рассрочка</h4><p>2 платежа для тарифа на 6 месяцев: 50% сразу, 50% через месяц</p></div>
     </div>
     <div class="contact-cta reveal">
       <div>
@@ -1401,31 +1545,55 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     <div class="faq-list reveal" id="faqList">
       <div class="faq-item">
         <button class="faq-q"><span>Чем клуб отличается от курсов?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>В отличие от разового курса, клуб — это система: индивидуальный трек из 8 курсов, который подстраивается под ваш уровень, доступ ко всем курсам и 300+ инструментам, живое профессиональное сообщество, регулярные мастер-классы и разборы с Екатериной, чат вакансий. Вы не остаётесь один на один с материалом — вы становитесь частью среды, которая поддерживает вас на всём пути от обучения до первых клиентов.</p></div>
+        <div class="faq-a"><p>Курс — это разовое обучение на 1–3 месяца по одному из направлений. Клуб — доступ в формате ежемесячной подписки к 8 курсам (последовательное открытие), мастер-классам и сообществу коллег. У вас нет необходимости тратить деньги на новые курсы — всё необходимое для построения карьеры в финансовом аутсорсинге вы получаете в одном месте.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Я оплатил(а) клуб, что дальше?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>Сразу после оплаты вы получаете доступ к боту клуба, закрытому каналу и сообществу в Telegram. В боте активируется подписка и открывается доступ к обучающей платформе, где вы проходите тестирование на определение навыков — по его итогам вам назначается один из 3 треков обучения.</p></div>
+        <div class="faq-a"><p>После оплаты вы попадаете в бот для активации подписки, вступаете в закрытый канал и закрытое сообщество в Telegram. Далее на обучающей платформе вы знакомитесь с правилами прохождения обучения и проходите обязательное тестирование, по итогам которого определяется трек вашего обучения в клубе на ближайшие 6–12 месяцев.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Почему не открываются все 8 курсов сразу?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>Курсы открываются последовательно, в порядке вашего трека — так вы проходите обучение без хаоса и расфокуса, только по актуальным для вас темам. Чтобы получить доступ к следующему курсу, нужно завершить текущий: пройти тестирование и выполнить более 50% заданий. Если вы проходите курс медленнее программы, по истечении рекомендованного срока следующий курс всё равно откроется.</p></div>
+        <div class="faq-a"><p>Когда есть доступ ко всем инструментам сразу — начинается хаос. Вы пытаетесь изучать всё и сразу, получаете переутомление и стресс из-за многозадачности и в конечном итоге всё бросаете. Индивидуальный трек с последовательным открытием курсов — это возможность пройти все необходимые обучения в комфортном режиме, без расфокуса, стресса и хаотичных действий.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Если не смогу присутствовать на мастер-классах и встречах — будет запись?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>Да. График всех мероприятий вы получаете заранее, 1-го числа месяца, а сами события проходят в одни и те же дни и время, поэтому их легко спланировать. Если пропустили эфир — запись остаётся доступной на платформе клуба.</p></div>
+        <div class="faq-a"><p>Да, все мастер-классы и созвоны будут в записи на обучающей платформе. Расписание событий вы будете знать заранее и при желании сможете адаптировать ваш график под мастер-классы, которые для вас наиболее важны.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>У меня нет времени на ежедневное обучение. Мне подойдёт клуб?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Программа клуба построена для работающих специалистов, а не для тех, кто готов по 8 часов в день уделять обучению. 4 часа в неделю на обучение будет более чем достаточно.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Я пока не финансист, но очень хочу им стать. Мне подойдёт клуб?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да, клуб рассчитан на специалистов любого уровня. После тестирования на входе вам откроется трек «Специалист», где вы сначала освоите базу в управленческом учёте и только потом займётесь привлечением клиентов, освоением нейросетей, финмоделирования и автоматизации.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Я финансист с опытом, не первый год на рынке. Я найду в клубе для себя что-то новое и ценное?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да, в клубе для специалистов вашего уровня предложены обучения по привлечению клиентов и продажам, нейросетям, автоматизации учёта, финанализу и финмоделям. Ваш результат от клуба — оптимизация рабочей нагрузки за счёт автоматизации и ИИ, усиленные услуги, выстроенная система привлечения клиентов.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Мне 50+ лет, смогу ли я в этом возрасте осилить обучение в клубе?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да! В финансовом аутсорсинге возраст не показатель. Обучения не направлены на конкретный возраст. Строить карьеру финансиста частной практики может кто угодно вне зависимости от цифры в паспорте.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Какие способы оплаты доступны?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>Оплата картой, по счёту, долями через Яндекс Сплит, а для тарифа на 6 месяцев — в рассрочку. Если возникнут вопросы с оформлением, можно написать в Telegram или MAX — Екатерина поможет разобраться.</p></div>
+        <div class="faq-a"><p>Доступна оплата по карте (принимаем карты со всех стран мира), по счёту (для российских ИП и ООО), долями Яндекс Сплит. При оплате тарифа на 6 месяцев возможна внутренняя рассрочка на 2 части — 1 платёж сразу, второй через месяц.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Будет ли автосписание оплаты?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>Нет, автоматическое списание не подключается. Доступ действует ровно на оплаченный период (1, 3 или 6 месяцев), а продлевать участие или нет — решаете только вы.</p></div>
+        <div class="faq-a"><p>В личном кабинете вы сможете выбрать опцию автосписания. Как её подключить и отключить, расскажем в клубе.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Как отменить подписку?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
-        <div class="faq-a"><p>Так как автопродление не используется, отменять формально нечего — по окончании оплаченного периода доступ просто не продлевается автоматически. Если решите не продолжать, ничего дополнительно делать не нужно.</p></div>
+        <div class="faq-a"><p>Для этого достаточно не оплачивать следующий период. Если не уверены, что у вас отключена автооплата, напишите мне в Telegram или MAX (контакты ниже) — и я вам помогу.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Что будет, если я забуду продлить подписку?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Вы вылетите из клуба, повторное вступление возможно при следующем окне продаж клуба. Чтобы этого не случилось, мы заранее отправляем уведомление о необходимости продлить подписку посредством оплаты.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Почему нет рассрочки от банка?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Вы покупаете клуб с ежемесячной подпиской — растягивать оплату ежемесячной подписки на несколько месяцев некорректно. Пакеты на 3 и 6 месяцев также предполагают единоразовую оплату, за счёт этого вы получаете сниженную цену и уникальные бонусы. При оплате 6 месяцев допустимо взять внутреннюю рассрочку на 2 части (50% сразу, 50% через 4 недели).</p></div>
       </div>
     </div>
   </div>
@@ -1520,23 +1688,6 @@ const io = new IntersectionObserver((entries)=>{
   });
 }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
 revealEls.forEach(el => io.observe(el));
-
-/* ---------- Универсальный toggle-аккордеон ---------- */
-function toggleClass(el, cls){ el.classList.toggle(cls); }
-
-/* Блок "Что такое клуб" — раскрытие пояснения */
-document.getElementById('clubValueToggle').addEventListener('click', function(){
-  this.classList.toggle('open');
-});
-
-/* Карточки блока 2 — визуальный клик-отклик */
-document.querySelectorAll('.bento-card').forEach(card=>{
-  card.addEventListener('click', ()=>{
-    const wasOpen = card.classList.contains('is-open');
-    document.querySelectorAll('.bento-card').forEach(c=>c.classList.remove('is-open'));
-    if(!wasOpen) card.classList.add('is-open');
-  });
-});
 
 /* ---------- Табы аудитории ---------- */
 document.querySelectorAll('#audienceTabs .tab-btn').forEach(btn=>{
@@ -1643,6 +1794,18 @@ document.getElementById('reviewsNext').addEventListener('click', ()=> scroller.s
   }
   render();
   setInterval(render, 1000);
+})();
+
+/* ---------- Автовысота для встраивания через iframe (Тильда) ---------- */
+(function(){
+  if(window.self === window.top) return;
+  function sendHeight(){
+    window.parent.postMessage({ type: 'yahont-resize', height: document.documentElement.scrollHeight }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  new ResizeObserver(sendHeight).observe(document.documentElement);
+  setTimeout(sendHeight, 500);
 })();
 </script>
 </body>
