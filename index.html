@@ -532,7 +532,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 /* ============ АДАПТИВ ============ */
 @media (max-width:1080px){
   .hero-grid{grid-template-columns:1fr}
-  .hero-visual{order:-1;max-width:380px;margin:0 auto 20px}
+  .hero-visual{max-width:280px;margin:28px auto 0}
   .steps-row{grid-template-columns:repeat(3,1fr)}
   .founder-section{grid-template-columns:1fr}
   .benefit-banner{grid-template-columns:1fr}
@@ -552,21 +552,24 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   .section{padding:74px 0}
   .bento-grid{grid-template-columns:repeat(2,1fr)}
   .courses-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-row{grid-template-columns:repeat(2,1fr)}
+  .steps-row{grid-template-columns:1fr}
   .stat-strip{grid-template-columns:1fr}
-  .module-grid{grid-template-columns:1fr}
+  .module-grid{grid-template-columns:1fr !important}
   .unique-grid{grid-template-columns:1fr}
   .benefit-list{grid-template-columns:1fr}
   .footer-top{flex-direction:column;gap:26px}
   .hero-float-card{position:static;margin-top:16px;max-width:none}
   .hero-float-stat{position:static;display:inline-flex;margin-bottom:10px}
-  .hero-portrait{max-width:280px;margin:0 auto}
+  .hero-visual{max-width:150px;margin:20px auto 0}
+  .hero-portrait{max-width:150px;margin:0 auto}
   .hero-cta{flex-direction:column}
   .hero-cta .btn{width:100%}
   .contact-cta{flex-direction:column;align-items:flex-start}
   .payment-grid{grid-template-columns:1fr}
   .course-detail-inner{padding:24px}
   .course-detail-top{flex-direction:column}
+  .founder-quote blockquote{font-size:15px;line-height:1.5}
+  .founder-quote{padding:26px 24px}
 }
 </style>
 </head>
@@ -1172,23 +1175,23 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="module-grid">
           <div class="module-item">
             <div class="m-head"><span class="m-name">Модуль 1. Введение в Google-таблицы</span><span class="m-count">2 урока</span></div>
-            <p class="m-lessons"><b>Уроки</b>Приветствие от автора · Интерфейс Google Таблиц</p>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Приветствие от автора</li><li>Интерфейс Google Таблиц</li></ul></div>
           </div>
           <div class="module-item">
             <div class="m-head"><span class="m-name">Модуль 2. Основы работы с данными</span><span class="m-count">9 уроков</span></div>
-            <p class="m-lessons"><b>Уроки</b>Перенос данных из Excel в Google Таблицы и наоборот · Как сделать копию файла на свой диск · Создание нового листа, формат ячеек · Как быстро удалить ненужные знаки, которые мешают работе · Перенос ячеек/столбцов и их группировка · Выпадающие списки в таблице · Ошибка в выпадающих списках · Фильтрация данных · Примечания и чем они отличаются от комментариев</p>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Перенос данных из Excel в Google Таблицы и наоборот</li><li>Как сделать копию файла на свой диск</li><li>Создание нового листа, формат ячеек</li><li>Как быстро удалить ненужные знаки, которые мешают работе</li><li>Перенос ячеек/столбцов и их группировка</li><li>Выпадающие списки в таблице</li><li>Ошибка в выпадающих списках</li><li>Фильтрация данных</li><li>Примечания и чем они отличаются от комментариев</li></ul></div>
           </div>
           <div class="module-item">
             <div class="m-head"><span class="m-name">Модуль 3. Формулы и функции</span><span class="m-count">6 уроков</span></div>
-            <p class="m-lessons"><b>Уроки</b>Функции ВПР и ИНДЕКС+ПОИСКПОЗ · Условное форматирование · Функции UNIQUE и FILTER · Формула ЕСЛИ и МЕСЯЦ · Функция СУММЕСЛИМН · Функция ТРАНСП</p>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Функции ВПР и ИНДЕКС+ПОИСКПОЗ</li><li>Условное форматирование</li><li>Функции UNIQUE и FILTER</li><li>Формула ЕСЛИ и МЕСЯЦ</li><li>Функция СУММЕСЛИМН</li><li>Функция ТРАНСП</li></ul></div>
           </div>
           <div class="module-item">
             <div class="m-head"><span class="m-name">Модуль 4. Анализ данных и визуализация</span><span class="m-count">2 урока</span></div>
-            <p class="m-lessons"><b>Уроки</b>Сводные таблицы · Графики и диаграммы</p>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Сводные таблицы</li><li>Графики и диаграммы</li></ul></div>
           </div>
           <div class="module-item">
             <div class="m-head"><span class="m-name">Модуль 5. Автоматизация</span><span class="m-count">1 урок</span></div>
-            <p class="m-lessons"><b>Уроки</b>Функция IMPORTRANGE</p>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Функция IMPORTRANGE</li></ul></div>
           </div>
         </div>
       </div>
