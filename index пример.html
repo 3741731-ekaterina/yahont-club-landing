@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нейросети для финансиста — курс Екатерины Яхонтовой | Донабор до 15 июня</title>
+<meta name="description" content="7-модульный практический курс по AI для CFO, аналитиков и бухгалтеров. Автоматизируйте рутину без программирования. 120+ выпускников. Донабор до 15 июня.">
+<meta property="og:title" content="Нейросети для финансиста — курс для CFO и аналитиков">
+<meta property="og:description" content="7 модулей — и вы автоматизируете то, на что раньше уходили дни. Без программирования.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Course","name":"Нейросети для финансиста","description":"7-модульный практический курс по применению AI в финансовой работе","provider":{"@type":"Person","name":"Екатерина Яхонтова"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","startDate":"2026-06-08"},"offers":{"@type":"Offer","availability":"https://schema.org/LimitedAvailability"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120"}}
+</script>
+<style>
+/* ── VARIABLES ── */
+:root {
+  --bg: #0D0D24;
+  --bg-card: #13143A;
+  --bg-nested: #161830;
+  --blue: #4D9FFF;
+  --violet: #7959AD;
+  --magenta: #C330BE;
+  --emerald: #00D4AA;
+  --white: #FFFFFF;
+  --body: #ECF0FF;
+  --muted: #9AAACE;
+  --grad-cta: linear-gradient(135deg, #5E3D9A, #A022A0);
+  --grad-text: linear-gradient(90deg, #fff 0%, #C330BE 60%, #7959AD 100%);
+  --shadow-cta: 0 0 28px rgba(195,48,190,0.38);
+  --shadow-cta-hover: 0 0 44px rgba(195,48,190,0.58);
+  --border: rgba(255,255,255,0.07);
+  --border-blue: rgba(77,159,255,0.2);
+  --r: 16px;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);background:linear-gradient(180deg,#0D0D24 0%,#0F0E2E 35%,#0C1030 65%,#0D0D24 100%);background-attachment:fixed;color:var(--body);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;font-weight:450;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:var(--white);line-height:1.2}
+h1{font-size:clamp(36px,5vw,68px);font-weight:700}
+h2{font-size:clamp(28px,3.5vw,48px);font-weight:700}
+h3{font-size:clamp(18px,2vw,26px);font-weight:600}
+.mono{font-family:'DM Mono',monospace}
+
+/* animated gradient text */
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.grad-text{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-anim{
+  background:linear-gradient(90deg,#fff 0%,#4D9FFF 20%,#C330BE 40%,#7959AD 60%,#00D4AA 80%,#fff 100%);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:gradShift 6s ease infinite;
+}
+
+/* section-tag with pulse dot */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.section-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--violet);letter-spacing:.05em;margin-bottom:14px;
+  text-transform:uppercase;
+}
+.section-tag::before{
+  content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;
+  background:var(--magenta);
+  animation:pulse 2.2s ease-in-out infinite;
+  box-shadow:0 0 8px var(--magenta);
+}
+
+/* section title underline */
+.section-title{margin-bottom:12px;position:relative;display:inline-block}
+.section-title::after{
+  content:'';position:absolute;bottom:-6px;left:0;
+  height:2px;width:0;border-radius:2px;
+  background:var(--grad-cta);
+  transition:width .9s cubic-bezier(.22,1,.36,1) .3s;
+}
+.reveal.visible .section-title::after,.reveal-left.visible .section-title::after{width:64px}
+
+.section-sub{color:var(--body);font-size:17px;max-width:560px;opacity:.82}
+
+/* ── PROGRESS BAR ── */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--grad-cta);z-index:9999;width:0%;transition:width .1s}
+
+/* ── BUTTONS ── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--grad-cta);color:#fff;
+  padding:14px 28px;border-radius:10px;
+  font-weight:600;font-size:16px;
+  box-shadow:var(--shadow-cta);
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  white-space:nowrap;position:relative;overflow:hidden;
+}
+/* shimmer sweep */
+.btn-primary::after{
+  content:'';position:absolute;top:-50%;left:-75%;
+  width:50%;height:200%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  transform:skewX(-20deg);
+  transition:left .55s ease;
+}
+.btn-primary:hover::after{left:130%}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-cta-hover)}
+.btn-primary:active{transform:scale(.97)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(77,159,255,.4);color:var(--blue);
+  padding:13px 26px;border-radius:10px;
+  font-weight:500;font-size:16px;
+  transition:all .3s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+}
+.btn-secondary::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(77,159,255,0);
+  transition:background .3s;
+}
+.btn-secondary:hover{border-color:rgba(77,159,255,.85);transform:translateY(-2px)}
+.btn-secondary:hover::after{background:rgba(77,159,255,.06)}
+
+/* ── CONTAINER ── */
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+
+/* ── GLASS CARD ── */
+.glass{
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-48px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(48px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.reveal-right.visible{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+/* ═══════════════════════════════════
+   NAVBAR
+═══════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:16px 0;
+  transition:background .4s,backdrop-filter .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+#navbar.scrolled{
+  background:rgba(7,7,26,.85);
+  backdrop-filter:blur(20px);
+  border-color:var(--border);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo{
+  font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;
+  color:var(--white);
+}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--muted);font-size:15px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{padding:10px 20px;font-size:14px}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
+
+/* ═══════════════════════════════════
+   HERO
+═══════════════════════════════════ */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding-top:80px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+}
+/* orbs */
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+  animation:orbFloat 8s ease-in-out infinite;
+}
+.orb-1{width:500px;height:500px;background:rgba(77,159,255,.07);top:-100px;right:15%;animation-delay:0s}
+.orb-2{width:400px;height:400px;background:rgba(121,89,173,.08);bottom:-80px;right:30%;animation-delay:-4s}
+/* dot grid */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(77,159,255,.03) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:48px;
+  align-items:center;
+  min-height:calc(100vh - 80px);
+  width:100%;
+}
+.hero-content{padding:60px 0;display:flex;flex-direction:column;gap:28px;max-width:560px;position:relative;z-index:2}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(121,89,173,.22);border:1px solid rgba(121,89,173,.4);
+  padding:8px 16px;border-radius:40px;
+  color:#fff;font-size:14px;font-weight:500;
+  width:fit-content;
+}
+.hero-tag::before{content:'✦';color:var(--magenta)}
+.hero-h1{line-height:1.1}
+.hero-h1 .accent{
+  background:linear-gradient(90deg,#fff 0%,#C330BE 30%,#7959AD 55%,#4D9FFF 80%,#fff 100%);
+  background-size:250% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:gradShift 7s ease infinite;
+}
+.hero-sub{font-size:18px;color:var(--muted);max-width:500px;line-height:1.7}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-social{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-size:13px;color:var(--muted);
+}
+.hero-social .stars{color:#FFC107}
+.hero-social .dot{opacity:.4}
+.hero-timer{
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+}
+.timer-label{font-size:13px;color:var(--muted);margin-right:4px}
+.timer-unit{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  background:var(--bg-card);border:1px solid var(--border-blue);
+  border-radius:10px;padding:10px 14px;min-width:64px;
+}
+.timer-num{font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:var(--blue);line-height:1}
+.timer-sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+/* Hero visual — styled photo card */
+.hero-visual{
+  position:relative;
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  padding:48px 0;
+}
+.hero-photo-frame{
+  position:relative;
+  width:100%;
+  height:min(680px,76vh);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(77,159,255,.14),
+    0 32px 80px rgba(0,0,0,.55),
+    0 0 120px rgba(121,89,173,.10);
+}
+.hero-photo-frame img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:50% 12%;
+  display:block;
+}
+.hero-photo-frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to bottom, transparent 45%, rgba(7,7,26,.92) 100%),
+    linear-gradient(to right, rgba(7,7,26,.12) 0%, transparent 35%);
+}
+
+/* Floating AI tools — inside photo frame at bottom */
+@keyframes toolFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.hero-tools{
+  position:absolute;bottom:20px;left:16px;right:16px;
+  display:flex;flex-wrap:wrap;gap:8px;
+  z-index:3;
+}
+.tool-float{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(8,8,25,.82);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:12px;padding:8px 14px;
+  cursor:default;
+  animation:toolFloat calc(2.8s + var(--i, 0) * .5s) ease-in-out infinite;
+  animation-delay:calc(var(--i, 0) * .35s);
+  transition:border-color .25s,box-shadow .25s;
+  white-space:nowrap;
+}
+.tool-float:hover{border-color:rgba(255,255,255,.24);box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.tool-icon{
+  width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.tool-icon svg{width:18px;height:18px}
+.tool-name{font-size:13px;font-weight:600;color:var(--white);font-family:'Space Grotesk',sans-serif}
+
+/* ═══════════════════════════════════
+   TRUST BAR
+═══════════════════════════════════ */
+#trust{
+  padding:48px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.trust-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:0;
+}
+.trust-item{
+  text-align:center;padding:24px 16px;
+  border-right:1px solid var(--border);
+}
+.trust-item:last-child{border-right:none}
+.trust-num{
+  font-family:'DM Mono',monospace;
+  font-size:clamp(20px,2vw,32px);
+  font-weight:500;color:var(--emerald);
+  line-height:1;margin-bottom:8px;
+}
+.trust-num.blue{color:var(--blue)}
+.trust-label{font-size:14px;color:var(--muted);line-height:1.4}
+
+/* ═══════════════════════════════════
+   PAIN
+═══════════════════════════════════ */
+.pain-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:48px;
+}
+.pain-card{
+  padding:28px 24px;border-radius:var(--r);
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .35s;
+  cursor:default;position:relative;overflow:hidden;
+}
+.pain-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  border-color:rgba(121,89,173,.5);
+  box-shadow:0 20px 48px rgba(121,89,173,.18),0 0 0 1px rgba(121,89,173,.2);
+}
+.pain-card::before{
+  content:'';position:absolute;inset:0;border-radius:var(--r);
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(121,89,173,.08),transparent 60%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.pain-card:hover::before{opacity:1}
+.pain-icon{font-size:28px;margin-bottom:14px}
+.pain-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--white);margin-bottom:8px}
+.pain-text{font-size:15px;color:var(--body);line-height:1.6;opacity:.85}
+.pain-footer{text-align:center;margin-top:48px}
+.pain-footer p{font-size:22px;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--white);margin-bottom:20px}
+
+/* ═══════════════════════════════════
+   BEFORE / AFTER
+═══════════════════════════════════ */
+.ba-grid{
+  display:grid;grid-template-columns:1fr 48px 1fr;
+  gap:0;margin-top:48px;
+  border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--border);
+}
+.ba-col{padding:32px 28px;display:flex;flex-direction:column;gap:20px}
+.ba-before{background:rgba(255,80,80,.04)}
+.ba-after{background:rgba(0,212,170,.04)}
+.ba-header{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;
+  padding-bottom:16px;border-bottom:1px solid var(--border);
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.ba-header.before{color:#FF6B6B}
+.ba-header.after{color:var(--emerald)}
+.ba-row{
+  display:flex;flex-direction:column;gap:4px;
+  font-size:15px;
+}
+.ba-main{color:var(--body)}
+.ba-note{font-size:12px;color:var(--muted)}
+.ba-arrow-col{
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  gap:32px;background:var(--bg-card);
+  border-left:1px solid var(--border);
+  border-right:1px solid var(--border);
+}
+.ba-arrow{color:var(--violet);font-size:20px;opacity:.7}
+
+/* ═══════════════════════════════════
+   CURRICULUM
+═══════════════════════════════════ */
+.cur-meta{
+  display:flex;gap:32px;flex-wrap:wrap;margin:32px 0 48px;
+}
+.cur-meta-item{
+  display:flex;flex-direction:column;gap:4px;text-align:center;
+  background:var(--bg-card);border:1px solid var(--border-blue);
+  border-radius:12px;padding:16px 24px;
+}
+.cur-meta-num{font-family:'DM Mono',monospace;font-size:26px;color:var(--blue);font-weight:500}
+.cur-meta-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+.cur-modules{display:flex;flex-direction:column;gap:8px}
+.cur-module{
+  border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;
+  transition:border-color .3s;
+}
+.cur-module.open{border-color:rgba(121,89,173,.4)}
+.cur-module-head{
+  display:flex;align-items:center;gap:16px;
+  padding:22px 24px;cursor:pointer;
+  background:var(--bg-card);
+  transition:background .2s;
+  user-select:none;
+}
+.cur-module-head:hover{background:rgba(255,255,255,.05)}
+.cur-num{
+  font-family:'DM Mono',monospace;font-size:12px;
+  color:var(--magenta);font-weight:500;
+  background:rgba(195,48,190,.12);
+  border:1px solid rgba(195,48,190,.25);
+  border-radius:6px;padding:3px 10px;white-space:nowrap;
+}
+.cur-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:var(--white);flex:1}
+.cur-arrow{
+  color:var(--muted);font-size:18px;
+  transition:transform .3s;flex-shrink:0;
+}
+.cur-module.open .cur-arrow{transform:rotate(180deg)}
+.cur-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s ease;
+}
+.cur-body-inner{
+  padding:0 24px 24px;
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
+.cur-result{
+  font-size:13px;color:var(--muted);
+  background:rgba(0,212,170,.06);
+  border:1px solid rgba(0,212,170,.15);
+  border-radius:10px;padding:12px 16px;
+  margin-bottom:0;
+  grid-column:1/-1;
+  line-height:1.6;
+}
+.cur-result strong{color:var(--emerald);font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px}
+.cur-lessons h4,.cur-tools h4{
+  font-size:12px;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--muted);margin-bottom:12px;
+}
+.cur-lessons ul,.cur-tools ul{
+  display:flex;flex-direction:column;gap:8px;
+}
+.cur-lessons li{
+  font-size:14px;color:var(--body);
+  display:flex;gap:8px;
+}
+.cur-lessons li::before{content:counter(li-counter)".";color:var(--violet);font-weight:600;min-width:18px;counter-increment:li-counter}
+.cur-lessons ul{counter-reset:li-counter}
+.cur-tools li{
+  font-size:13px;color:var(--body);
+  display:flex;gap:8px;align-items:flex-start;
+}
+.cur-tools li::before{content:'→';color:var(--blue);flex-shrink:0}
+.cur-tools strong{color:var(--white)}
+
+/* ═══════════════════════════════════
+   FOR WHOM
+═══════════════════════════════════ */
+.fw-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:48px;
+}
+.fw-card{
+  padding:24px 22px;
+  border:1px solid var(--border);border-radius:var(--r);
+  background:rgba(255,255,255,.025);
+  display:flex;gap:14px;
+  transition:border-color .3s,transform .3s;
+}
+.fw-card:hover{border-color:rgba(77,159,255,.3);transform:translateY(-3px)}
+.fw-check{
+  flex-shrink:0;width:22px;height:22px;
+  background:rgba(0,212,170,.15);border:1px solid rgba(0,212,170,.3);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--emerald);margin-top:2px;
+}
+.fw-text{font-size:15px;color:var(--body);line-height:1.6}
+.fw-not{
+  margin-top:40px;padding:28px 32px;
+  border:1px solid var(--border);border-radius:var(--r);
+  background:rgba(255,255,255,.02);
+}
+.fw-not h3{font-size:16px;color:var(--muted);margin-bottom:16px;font-family:'Space Grotesk',sans-serif}
+.fw-not ul{display:flex;flex-direction:column;gap:8px}
+.fw-not li{font-size:14px;color:var(--muted);display:flex;gap:10px}
+.fw-not li::before{content:'—';color:rgba(255,100,100,.5)}
+
+/* ═══════════════════════════════════
+   ABOUT
+═══════════════════════════════════ */
+.about-grid{
+  display:grid;grid-template-columns:420px 1fr;
+  gap:64px;align-items:start;margin-top:48px;
+}
+.about-photo-wrap{
+  position:relative;
+}
+.about-photo-img{
+  width:100%;border-radius:20px;
+  box-shadow:0 0 60px rgba(77,159,255,.15);
+}
+.about-photo-placeholder{
+  width:100%;height:480px;border-radius:20px;
+  background:linear-gradient(135deg,var(--bg-card),rgba(77,159,255,.2));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:14px;
+}
+.about-glow{
+  position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
+  width:80%;height:40px;
+  background:radial-gradient(ellipse,rgba(77,159,255,.3),transparent 70%);
+  filter:blur(12px);
+}
+.about-name{
+  font-size:clamp(24px,2.5vw,32px);font-weight:700;
+  font-family:'Space Grotesk',sans-serif;color:var(--white);
+  margin-bottom:4px;
+}
+.about-role{font-size:15px;color:var(--violet);margin-bottom:24px}
+.about-bio{font-size:16px;color:var(--body);line-height:1.8;margin-bottom:32px}
+.about-bio p{margin-bottom:16px}
+.about-bio p:last-child{margin-bottom:0}
+.about-facts{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  margin-bottom:32px;
+}
+.about-fact{
+  text-align:center;padding:16px 8px;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:12px;
+}
+.about-fact-num{
+  font-family:'DM Mono',monospace;font-size:28px;
+  color:var(--blue);font-weight:500;line-height:1;
+  margin-bottom:6px;
+}
+.about-fact-label{font-size:11px;color:var(--muted);line-height:1.4}
+.about-tools{display:flex;flex-wrap:wrap;gap:8px}
+.tool-tag{
+  font-size:13px;padding:6px 14px;
+  background:rgba(77,159,255,.08);
+  border:1px solid rgba(77,159,255,.2);
+  border-radius:40px;color:var(--blue);
+}
+
+/* ═══════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════ */
+.test-grid-wrap{
+  position:relative;
+  overflow:hidden;
+}
+.test-grid-wrap::before,.test-grid-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;
+}
+.test-grid-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.test-grid-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.test-grid{
+  display:flex;
+  gap:16px;margin-top:48px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -ms-overflow-style:none;scrollbar-width:none;
+  cursor:grab;
+  padding:8px 8px 20px;
+}
+.test-grid::-webkit-scrollbar{display:none}
+.test-grid:active{cursor:grabbing}
+.test-card{
+  flex-shrink:0;
+  width:min(420px,82vw);
+  scroll-snap-align:start;
+  padding:28px 24px;border-radius:var(--r);
+  background:rgba(255,255,255,.035);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;gap:16px;
+  transition:border-color .3s,transform .3s;
+}
+.test-card:hover{border-color:rgba(121,89,173,.45);transform:translateY(-6px);box-shadow:0 24px 48px rgba(121,89,173,.15)}
+.test-card.featured{
+  border-color:rgba(121,89,173,.3);
+  background:rgba(121,89,173,.06);
+}
+.test-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.test-avatar-wrap{display:flex;align-items:center;gap:12px}
+.test-avatar{
+  width:52px;height:52px;border-radius:50%;
+  object-fit:cover;object-position:center top;
+  border:2px solid rgba(121,89,173,.4);
+  flex-shrink:0;
+}
+.test-avatar-fallback{
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--magenta));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;color:#fff;flex-shrink:0;
+  border:2px solid rgba(121,89,173,.4);
+}
+.test-name{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;
+  font-size:16px;color:var(--white);
+}
+.test-role{font-size:13px;color:var(--muted);margin-top:2px}
+.test-stars{color:#FFC107;font-size:14px;letter-spacing:2px;white-space:nowrap}
+.test-quote{
+  font-size:15px;color:var(--body);line-height:1.7;
+  border-left:3px solid var(--violet);padding-left:16px;
+  font-style:italic;
+}
+.test-quote.main{font-size:16px;border-color:var(--magenta)}
+.test-results{
+  display:flex;flex-direction:column;gap:8px;
+  padding:16px;background:rgba(0,212,170,.05);
+  border:1px solid rgba(0,212,170,.15);border-radius:10px;
+}
+.test-result-row{
+  display:flex;gap:10px;align-items:flex-start;font-size:13px;
+}
+.result-before{color:rgba(255,100,100,.7);flex:1}
+.result-arrow{color:var(--violet);flex-shrink:0}
+.result-after{color:var(--emerald);flex:1;font-weight:500}
+.test-extra{font-size:15px;color:var(--body);line-height:1.7}
+.test-footer{
+  margin-top:48px;text-align:center;
+  font-size:18px;font-family:'Space Grotesk',sans-serif;
+  font-weight:600;color:var(--white);
+  display:flex;flex-direction:column;gap:20px;align-items:center;
+}
+
+/* ── REVIEW SCREENSHOTS ── */
+.reviews-scroll-wrap{overflow:hidden;position:relative}
+.reviews-scroll-wrap::before,.reviews-scroll-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.reviews-scroll-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.reviews-scroll-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+.reviews-scroll{
+  display:flex;gap:16px;
+  overflow-x:auto;padding:8px 40px 20px;
+  scroll-snap-type:x mandatory;
+  -ms-overflow-style:none;scrollbar-width:none;
+  cursor:grab;
+}
+.reviews-scroll:active{cursor:grabbing}
+.reviews-scroll::-webkit-scrollbar{display:none}
+.review-screenshot{
+  flex-shrink:0;width:280px;height:auto;
+  border-radius:12px;
+  border:1px solid var(--border);
+  scroll-snap-align:start;
+  transition:transform .3s,box-shadow .3s;
+  object-fit:cover;
+  cursor:zoom-in;
+}
+.review-screenshot:hover{transform:scale(1.03);box-shadow:0 8px 32px rgba(121,89,173,.2)}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:9000;
+  background:rgba(4,4,18,.92);
+  backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;
+  cursor:zoom-out;
+  padding:20px;
+}
+#lightbox.open{display:flex}
+#lightbox img{
+  max-width:min(92vw,640px);
+  max-height:92vh;
+  border-radius:16px;
+  box-shadow:0 0 80px rgba(0,0,0,.7);
+  object-fit:contain;
+  cursor:default;
+  animation:lbIn .2s ease;
+}
+@keyframes lbIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+#lightbox-close{
+  position:fixed;top:20px;right:24px;
+  font-size:28px;color:rgba(255,255,255,.7);
+  cursor:pointer;line-height:1;z-index:9001;
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+#lightbox-close:hover{background:rgba(255,255,255,.2)}
+#lightbox-nav{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  display:flex;gap:12px;z-index:9001;
+}
+.lb-btn{
+  padding:10px 22px;border-radius:40px;
+  background:rgba(255,255,255,.12);color:#fff;
+  font-size:20px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.15);
+  transition:background .2s;
+}
+.lb-btn:hover{background:rgba(255,255,255,.22)}
+#lightbox-counter{
+  padding:10px 16px;border-radius:40px;
+  background:rgba(0,0,0,.4);color:rgba(255,255,255,.6);
+  font-size:13px;font-family:'DM Mono',monospace;
+  display:flex;align-items:center;
+}
+@media(max-width:768px){
+  .review-screenshot{width:220px}
+}
+
+/* ═══════════════════════════════════
+   PRICING
+═══════════════════════════════════ */
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;margin-top:48px;max-width:900px;margin-left:auto;margin-right:auto;
+}
+.pricing-card{
+  padding:32px;border-radius:var(--r);
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;gap:20px;
+  position:relative;
+}
+.pricing-card.popular{
+  border-color:rgba(121,89,173,.5);
+  box-shadow:0 0 40px rgba(121,89,173,.12);
+}
+.pricing-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--grad-cta);color:#fff;
+  font-size:12px;font-weight:600;padding:4px 16px;border-radius:40px;
+  white-space:nowrap;
+}
+.pricing-name{
+  font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;
+  color:var(--white);
+}
+.pricing-old{font-size:16px;color:var(--muted);text-decoration:line-through;margin-bottom:4px}
+.pricing-price{
+  font-family:'DM Mono',monospace;font-size:36px;font-weight:500;
+  color:var(--magenta);line-height:1;
+}
+.pricing-price span{font-size:20px}
+.pricing-section-title{
+  font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);margin-bottom:10px;margin-top:4px;
+}
+.pricing-list{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.pricing-item{
+  display:flex;gap:10px;font-size:14px;color:var(--body);
+  align-items:flex-start;line-height:1.5;
+}
+.pricing-item .icon{flex-shrink:0;font-size:13px;margin-top:1px}
+.pricing-item.yes .icon{color:var(--emerald)}
+.pricing-item.no{color:rgba(154,170,206,0.35);text-decoration:line-through}
+.pricing-item.no .icon{color:rgba(255,255,255,.15)}
+.pricing-divider{border:none;border-top:1px solid var(--border);margin:4px 0}
+.pricing-cta{margin-top:auto}
+.pricing-cta .btn-primary{width:100%;justify-content:center}
+.pricing-guarantee{
+  text-align:center;margin-top:32px;
+  display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+}
+.pricing-guarantee span{
+  font-size:14px;color:var(--muted);
+  display:flex;align-items:center;gap:6px;
+}
+.pricing-guarantee span::before{content:'✓';color:var(--emerald)}
+.pricing-note{
+  text-align:center;margin-top:16px;
+  font-size:13px;color:var(--muted);font-style:italic;
+}
+
+/* ── PAYMENT METHODS ── */
+.payment-methods{margin-top:40px;text-align:center}
+.payment-methods-title{font-size:18px;font-weight:600;color:var(--white);margin-bottom:20px;font-family:'Space Grotesk',sans-serif}
+.payment-methods-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  max-width:900px;margin:0 auto;
+}
+.payment-method-item{
+  display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:20px 16px;
+  transition:border-color .3s,transform .3s;
+}
+.payment-method-item:hover{border-color:rgba(77,159,255,.3);transform:translateY(-3px)}
+.payment-method-icon{font-size:28px}
+.payment-method-item strong{font-size:14px;color:var(--white);display:block}
+.payment-method-sub{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+@media(max-width:768px){.payment-methods-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ═══════════════════════════════════
+   FAQ
+═══════════════════════════════════ */
+.faq-list{
+  max-width:780px;margin:48px auto 0;
+  display:flex;flex-direction:column;gap:8px;
+}
+.faq-item{
+  border:1px solid var(--border);border-radius:12px;overflow:hidden;
+}
+.faq-item.open{border-color:rgba(77,159,255,.3)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px 24px;cursor:pointer;
+  background:var(--bg-card);
+  font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;
+  color:var(--white);
+  transition:background .2s;user-select:none;
+}
+.faq-q:hover{background:rgba(255,255,255,.04)}
+.faq-icon{
+  flex-shrink:0;width:24px;height:24px;
+  border:1px solid var(--border-blue);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue);font-size:14px;
+  transition:transform .3s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease;
+}
+.faq-a-inner{
+  padding:0 24px 20px;
+  font-size:15px;color:var(--muted);line-height:1.8;
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+
+/* ═══════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════ */
+#final-cta{
+  padding:120px 0;position:relative;overflow:hidden;
+  text-align:center;
+}
+.final-cta-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(121,89,173,.25) 0%,rgba(7,7,26,1) 60%);
+  z-index:0;
+}
+.final-cta-photo{
+  position:absolute;right:0;top:0;bottom:0;
+  width:45%;object-fit:cover;object-position:center top;
+  opacity:.3;
+}
+.final-cta-photo-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to right,var(--bg) 30%,rgba(7,7,26,.6) 100%);
+}
+.final-cta-inner{
+  position:relative;z-index:2;
+  max-width:680px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:28px;
+}
+.final-cta-h2{
+  font-size:clamp(28px,4vw,52px);font-weight:700;
+  font-family:'Space Grotesk',sans-serif;color:var(--white);
+  line-height:1.25;
+}
+.final-cta-sub{font-size:18px;color:var(--muted)}
+.final-cta-timer{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.final-cta-guarantee{
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:center;
+  font-size:13px;color:var(--muted);
+}
+.final-cta-guarantee span::before{content:'✓ ';color:var(--emerald)}
+.final-cta-tg{
+  font-size:15px;color:var(--muted);
+}
+.final-cta-tg a{color:var(--blue);border-bottom:1px solid rgba(77,159,255,.3);padding-bottom:1px}
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+#footer{
+  padding:48px 0 32px;
+  border-top:1px solid var(--border);
+}
+.footer-top{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:48px;align-items:start;margin-bottom:40px;
+}
+.footer-logo{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;
+  color:var(--white);margin-bottom:6px;
+}
+.footer-logo span{color:var(--blue)}
+.footer-tagline{font-size:14px;color:var(--muted);margin-bottom:20px}
+.footer-tg a{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--blue);font-size:14px;
+  border:1px solid rgba(77,159,255,.25);
+  padding:8px 16px;border-radius:40px;
+  transition:background .2s;
+}
+.footer-tg a:hover{background:rgba(77,159,255,.08)}
+.footer-nav{display:flex;flex-direction:column;gap:10px}
+.footer-nav a{font-size:14px;color:var(--muted);transition:color .2s}
+.footer-nav a:hover{color:var(--white)}
+.footer-cta{text-align:right}
+.footer-bottom{
+  display:flex;flex-wrap:wrap;gap:16px;
+  justify-content:space-between;align-items:center;
+  padding-top:24px;border-top:1px solid var(--border);
+}
+.footer-copy{font-size:13px;color:var(--muted)}
+.footer-docs{display:flex;flex-wrap:wrap;gap:16px}
+.footer-docs a{font-size:12px;color:var(--muted);transition:color .2s;border-bottom:1px solid transparent}
+.footer-docs a:hover{color:var(--body);border-color:var(--muted)}
+
+/* ═══════════════════════════════════
+   MOBILE STICKY CTA
+═══════════════════════════════════ */
+#sticky-cta{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;
+  background:rgba(7,7,26,.95);backdrop-filter:blur(16px);
+  border-top:1px solid var(--border);
+  padding:12px 20px;
+  align-items:center;justify-content:space-between;gap:12px;
+}
+#sticky-cta .btn-primary{flex:1;justify-content:center;padding:12px 16px;font-size:15px}
+#sticky-cta .date{font-size:13px;color:var(--muted);white-space:nowrap}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;min-height:auto}
+  .hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-photo-wrap{max-width:360px;margin:0 auto}
+  .test-grid{padding-left:20px;padding-right:20px}
+  .pricing-grid{grid-template-columns:1fr;max-width:480px}
+  .footer-top{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .footer-cta{grid-column:1/-1;text-align:left}
+  .trust-grid{grid-template-columns:repeat(3,1fr)}
+  .trust-item:nth-child(3){border-right:none}
+  .trust-item:nth-child(4){border-top:1px solid var(--border);border-right:1px solid var(--border)}
+  .trust-item:nth-child(5){border-top:1px solid var(--border);border-right:none}
+  .cur-body-inner{grid-template-columns:1fr}
+}
+
+@media(max-width:768px){
+  .section{padding:64px 0}
+  .pain-grid{grid-template-columns:1fr 1fr}
+  .fw-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .ba-arrow-col{flex-direction:row;padding:12px;justify-content:center;border:none;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .about-facts{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr}
+  .footer-cta{display:none}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-burger{display:flex}
+}
+@media(max-width:480px){
+  .pain-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .hero-btns .btn-secondary{display:none}
+  .footer-docs{flex-direction:column;gap:10px}
+}
+/* ── CURSOR GLOW ── */
+@media(hover:hover){
+  #cursor-glow{
+    position:fixed;pointer-events:none;z-index:1;
+    width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(121,89,173,.07) 0%,transparent 70%);
+    transform:translate(-50%,-50%);
+    opacity:0;transition:opacity .5s;
+    will-change:transform;
+  }
+}
+
+/* ── FLOATING NUMBERS in trust bar ── */
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.trust-num{animation:floatUp 4s ease-in-out infinite}
+.trust-item:nth-child(2) .trust-num{animation-delay:.7s}
+.trust-item:nth-child(3) .trust-num{animation-delay:1.4s}
+.trust-item:nth-child(4) .trust-num{animation-delay:2.1s}
+
+/* ── PRICING CARD HOVER ── */
+.pricing-card{transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s}
+.pricing-card:hover{transform:translateY(-8px);box-shadow:0 32px 64px rgba(0,0,0,.35)}
+.pricing-card.popular:hover{box-shadow:0 32px 64px rgba(121,89,173,.25)}
+
+/* ── FAQ hover ── */
+.faq-item{transition:border-color .3s,transform .3s}
+.faq-item:hover{transform:translateX(4px)}
+
+/* ── MODULE HOVER ── */
+.cur-module{transition:border-color .3s,box-shadow .3s}
+.cur-module:hover{box-shadow:0 4px 24px rgba(121,89,173,.1)}
+
+/* ── TOOL TAG HOVER ── */
+.tool-tag{transition:all .2s}
+.tool-tag:hover{background:rgba(77,159,255,.18);border-color:rgba(77,159,255,.5);transform:translateY(-2px)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+
+/* ── HERO TAGS ── */
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;}
+
+/* ── NOT JUST A COURSE ── */
+.njc-list{display:flex;flex-direction:column;max-width:860px;margin:0 auto}
+.njc-item{
+  display:grid;grid-template-columns:80px 1fr;gap:32px;
+  align-items:flex-start;padding:28px 0;
+  border-bottom:1px solid var(--border);
+}
+.njc-item:last-child{border-bottom:none}
+.njc-num{
+  font-size:44px;font-weight:900;
+  background:linear-gradient(135deg,var(--violet),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-family:'DM Mono',monospace;line-height:1;padding-top:6px;
+}
+.njc-text{font-size:16px;line-height:1.7;color:var(--text);padding-top:8px}
+@media(max-width:600px){.njc-item{grid-template-columns:48px 1fr;gap:16px}.njc-num{font-size:28px}}
+
+/* ── WHAT'S INCLUDED ── */
+.included-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:40px;
+}
+.included-card{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px;
+}
+.included-icon{font-size:24px;flex-shrink:0}
+.included-text{font-size:15px;line-height:1.65;color:var(--body)}
+@media(max-width:768px){.included-grid{grid-template-columns:1fr}}
+
+/* ── HOW IT WORKS ── */
+.hiw-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:40px;
+}
+.hiw-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px 24px;
+}
+.hiw-num{
+  font-size:36px;font-weight:800;
+  color:var(--blue);opacity:.4;
+  font-family:'DM Mono',monospace;
+  margin-bottom:12px;
+}
+.hiw-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px}
+.hiw-text{font-size:14px;line-height:1.65;color:var(--muted)}
+@media(max-width:768px){.hiw-grid{grid-template-columns:1fr}}
+
+/* ── CONTACTS ── */
+.contacts-block{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:48px;
+  align-items:center;
+  background:var(--bg-card);
+  border:1px solid var(--border-blue);
+  border-radius:28px;
+  padding:48px;
+}
+.contacts-photo{
+  width:100%;
+  border-radius:20px;
+  object-fit:cover;
+  aspect-ratio:3/4;
+}
+.contacts-title{font-size:clamp(28px,3vw,42px);font-weight:800;color:var(--white);margin-bottom:16px}
+.contacts-sub{font-size:17px;color:var(--muted);line-height:1.6;margin-bottom:28px}
+.contacts-btns{display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:768px){.contacts-block{grid-template-columns:1fr;padding:28px}.contacts-photo{max-width:200px;margin:0 auto}}
+
+/* ── NETWORK CANVAS BACKGROUND ── */
+#network-canvas{position:fixed;inset:0;z-index:-1;pointer-events:none;width:100%;height:100%}
+
+/* ── PAYMENT MODAL ── */
+.payment-modal{
+  visibility:hidden;opacity:0;pointer-events:none;
+  position:fixed;inset:0;z-index:3000;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(7,7,26,.88);backdrop-filter:blur(10px);
+  transition:opacity .3s,visibility .3s;
+}
+.payment-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+.payment-modal-inner{position:relative;background:#fff;border-radius:20px;padding:12px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+.payment-modal-close{position:absolute;top:10px;right:14px;background:rgba(0,0,0,.08);border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1}
+
+/* ── SECTION TITLE UNIFIED COLOR ── */
+section .section-title{color:#A47ED6}
+</style>
+</head>
+<body>
+<canvas id="network-canvas" aria-hidden="true"></canvas>
+
+<!-- PROGRESS -->
+<div id="progress"></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo"><span>{</span> нейросети для финансиста <span>}</span></a>
+      <div class="nav-links">
+        <a href="#curriculum">Программа</a>
+        <a href="#testimonials">Результаты</a>
+        <a href="#about">Об авторе</a>
+        <a href="#pricing">Стоимость</a>
+        <a href="#testimonials">Отзывы</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <a href="#pricing" class="btn-primary nav-cta">Занять место →</a>
+      <div class="nav-burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content reveal">
+        <div class="hero-tags">
+          <div class="hero-tag">Онлайн-курс</div>
+          <div class="hero-tag">Донабор до 15 июня</div>
+          <div class="hero-tag">Длительность 6 недель</div>
+        </div>
+        <h1 class="hero-h1">
+          <span class="accent">Нейросети<br>для финансиста</span>
+        </h1>
+        <p class="hero-sub">Нейросети не заменят финансиста и бухгалтера. Но заменят того, кто их не использует. Внедрите нейросети в вашу работу, чтобы делегировать им 50% задач, освободить 4 часа в день и сохранить конкурентоспособность на рынке.</p>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn-primary">Занять место на курсе →</a>
+          <a href="#curriculum" class="btn-secondary">Смотреть программу ↓</a>
+        </div>
+        <div class="hero-social">
+          <span class="stars">★★★★★</span>
+          <span class="dot">·</span>
+          <span>120+ финансистов прошли курс</span>
+          <span class="dot">·</span>
+          <span>Донабор до 15 июня</span>
+        </div>
+        <div class="hero-timer">
+          <span class="timer-label">До конца донабора:</span>
+          <div class="timer-unit"><div class="timer-num mono" id="t-days">--</div><div class="timer-sub">дней</div></div>
+          <div class="timer-unit"><div class="timer-num mono" id="t-hours">--</div><div class="timer-sub">часов</div></div>
+          <div class="timer-unit"><div class="timer-num mono" id="t-min">--</div><div class="timer-sub">минут</div></div>
+          <div class="timer-unit"><div class="timer-num mono" id="t-sec">--</div><div class="timer-sub">секунд</div></div>
+        </div>
+      </div>
+      <!-- Photo card with tool icons -->
+      <div class="hero-visual reveal" style="transition-delay:.15s">
+        <div class="hero-photo-frame">
+          <img src="1.png" alt="Екатерина Яхонтова — эксперт курса" onerror="this.style.display='none'">
+          <div class="hero-tools" aria-hidden="true">
+            <div class="tool-float" style="--i:0">
+              <div class="tool-icon" style="background:#10A37F">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M22.28 9.56a5.37 5.37 0 0 0-.46-4.41 5.44 5.44 0 0 0-5.85-2.6A5.43 5.43 0 0 0 11.9 1a5.44 5.44 0 0 0-5.19 3.77 5.43 5.43 0 0 0-3.63 2.63 5.44 5.44 0 0 0 .67 6.38 5.37 5.37 0 0 0 .46 4.41 5.44 5.44 0 0 0 5.85 2.6A5.43 5.43 0 0 0 14.1 23a5.44 5.44 0 0 0 5.19-3.77 5.43 5.43 0 0 0 3.63-2.63 5.44 5.44 0 0 0-.64-6.04zm-8.18 11.47a4.03 4.03 0 0 1-2.58-.94l.13-.07 4.28-2.47a.71.71 0 0 0 .36-.62v-6.04l1.81 1.04a.07.07 0 0 1 .04.05v4.99a4.04 4.04 0 0 1-4.04 4.06zM3.97 17.93a4.03 4.03 0 0 1-.48-2.71l.13.08 4.28 2.47a.71.71 0 0 0 .71 0l5.23-3.02v2.08a.07.07 0 0 1-.03.06l-4.33 2.5a4.04 4.04 0 0 1-5.51-1.46zM3.1 8.13a4.02 4.02 0 0 1 2.1-1.77v5.08a.71.71 0 0 0 .36.62l5.23 3.02-1.81 1.04a.07.07 0 0 1-.07.01L4.6 13.6A4.04 4.04 0 0 1 3.1 8.13zm14.84 3.47-5.23-3.02 1.81-1.04a.07.07 0 0 1 .07-.01l4.31 2.49a4.04 4.04 0 0 1-.63 7.29v-5.08a.71.71 0 0 0-.33-.63zm1.8-2.72-.13-.08-4.27-2.49a.71.71 0 0 0-.71 0L9.4 9.33V7.25a.07.07 0 0 1 .03-.06l4.32-2.49a4.04 4.04 0 0 1 6 4.18zM8.48 12.85 6.67 11.8a.07.07 0 0 1-.04-.05V6.76a4.04 4.04 0 0 1 6.63-3.1l-.13.07-4.28 2.47a.71.71 0 0 0-.36.62l-.01 6.03zm.98-2.12 2.33-1.34 2.33 1.34v2.68l-2.33 1.34-2.33-1.34v-2.68z"/></svg>
+              </div>
+              <span class="tool-name">ChatGPT</span>
+            </div>
+            <div class="tool-float" style="--i:1">
+              <div class="tool-icon" style="background:#1A1A2E;border:1px solid rgba(255,255,255,.18)">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="tool-name">Cursor</span>
+            </div>
+            <div class="tool-float" style="--i:2">
+              <div class="tool-icon" style="background:#1C4ED8">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+              </div>
+              <span class="tool-name">DeepSeek</span>
+            </div>
+            <div class="tool-float" style="--i:3">
+              <div class="tool-icon" style="background:#CC785C">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-5h2v2h-2zm0-8h2v6h-2z"/></svg>
+              </div>
+              <span class="tool-name">Claude</span>
+            </div>
+            <div class="tool-float" style="--i:4">
+              <div class="tool-icon" style="background:linear-gradient(135deg,#4285F4,#9B72CB,#D96570)">
+                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
+              </div>
+              <span class="tool-name">Gemini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <div class="trust-num blue" data-countup="120" data-suffix="+">0+</div>
+        <div class="trust-label">Финансистов<br>прошли курс</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay:.1s">
+        <div class="trust-num" data-countup-float="4.9" data-suffix=" / 5">0</div>
+        <div class="trust-label">Средняя оценка<br>курса</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay:.2s">
+        <div class="trust-num blue" data-countup="7">0</div>
+        <div class="trust-label">Модулей —<br>45 практических уроков</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay:.3s">
+        <div class="trust-num" data-countup="50" data-suffix="+">0</div>
+        <div class="trust-label">Готовых<br>инструментов</div>
+      </div>
+      <div class="trust-item reveal" style="transition-delay:.4s">
+        <div class="trust-num" data-countup="0">0</div>
+        <div class="trust-label">Технических знаний<br>не требуется</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NOT JUST A COURSE ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:700px;margin:0 auto 56px">
+      <h2 class="section-title" style="font-size:clamp(24px,3vw,42px)">ЭТО НЕ ПРОСТО «ЕЩЕ ОДИН КУРС ПО НЕЙРОСЕТЯМ»</h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto">А твёрдая методология и системный подход<br>к применению нейросетей.<br>То, что сделает вас ТОПом на рынке бухгалтеров и финансистов.</p>
+    </div>
+    <div class="njc-list reveal" style="margin-top:0">
+      <div class="njc-item">
+        <div class="njc-num">01</div>
+        <div class="njc-text">Требования рынка к специалистам растут быстрее, чем появляются прикладные решения</div>
+      </div>
+      <div class="njc-item">
+        <div class="njc-num">02</div>
+        <div class="njc-text">Там, где ещё вчера можно было решить задачу «по-старому», сегодня это оборачивается нарушенными сроками, ошибками и финансовыми потерями для ваших клиентов</div>
+      </div>
+      <div class="njc-item">
+        <div class="njc-num">03</div>
+        <div class="njc-text">Преуспевают те, кто первыми интегрируют новые инструменты — соединяют бухучёт, финучёт и AI в единую систему, где каждое решение отвечает вызовам рынка 2026 года</div>
+      </div>
+      <div class="njc-item">
+        <div class="njc-num">04</div>
+        <div class="njc-text">Остаться на месте и не использовать ИИ — значит отстать навсегда</div>
+      </div>
+      <div class="njc-item">
+        <div class="njc-num">05</div>
+        <div class="njc-text">Рынок не будет ждать. Время переходить на новый уровень компетенций сейчас — уровень, где вы владеете ИИ как профи</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <a href="#pricing" class="btn-primary">Записаться на обучение →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOR WHOM ═══ -->
+<section id="for-whom" class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">Этот курс для вас, если вы финансовый директор, бухгалтер, главбух или финменеджер</h2>
+    </div>
+    <div class="fw-grid">
+      <div class="fw-card reveal"><div class="fw-check">✓</div><div class="fw-text">Рутина отнимает 60%+ рабочего времени, работаете 24/7, уже воротит от бумажек и ручных операций</div></div>
+      <div class="fw-card reveal" style="transition-delay:.1s"><div class="fw-check">✓</div><div class="fw-text">Не понимаете, с чего начать применять нейросети и какие задачи им можно доверить</div></div>
+      <div class="fw-card reveal" style="transition-delay:.2s"><div class="fw-check">✓</div><div class="fw-text">Пробовали сами разобраться с ИИ. Хаотичных действий много, а как применять без готового промта, чтобы не получился «бред» — так и не поняли</div></div>
+      <div class="fw-card reveal"><div class="fw-check">✓</div><div class="fw-text">Чувствуете себя хуже коллег, которые уже освоили ИИ и справляются с задачами быстрее и лучше</div></div>
+      <div class="fw-card reveal" style="transition-delay:.1s"><div class="fw-check">✓</div><div class="fw-text">Доход не растёт, так как физически не можете взять больше 2–3 проектов, где и так завал по задачам</div></div>
+      <div class="fw-card reveal" style="transition-delay:.2s"><div class="fw-check">✓</div><div class="fw-text">Хотите повысить скорость и качество работы, высвободиться от операционных задач, больше уделять времени себе и семье</div></div>
+      <div class="fw-card reveal"><div class="fw-check">✓</div><div class="fw-text">Боитесь брать крупных клиентов: кажется, завалитесь работой, накосячите по срокам</div></div>
+      <div class="fw-card reveal" style="transition-delay:.1s"><div class="fw-check">✓</div><div class="fw-text">Нет новых клиентов, доход не растёт: возьмёте больше — разорвёт. Повысите цены — уйдут</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BEFORE / AFTER ═══ -->
+<section id="transformation" class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title" style="text-transform:uppercase;font-size:clamp(14px,1.5vw,18px);font-weight:600;letter-spacing:.05em">До и после курса</h2>
+    </div>
+    <div class="ba-grid reveal">
+      <div class="ba-col ba-before">
+        <div class="ba-header before">До курса — реальные страхи</div>
+        <div class="ba-row"><div class="ba-main">«Боюсь, ИИ придумает чушь, а мне потом отвечать перед ФНС»</div></div>
+        <div class="ba-row"><div class="ba-main">«Не знаю, с чего начать. Зарегистрироваться в ChatGPT — и что дальше?»</div></div>
+        <div class="ba-row"><div class="ba-main">«Загружаю ОСВ, а он выдаёт общие фразы — не знаю как его "настроить"»</div></div>
+        <div class="ba-row"><div class="ba-main">«Проверяю работу ИИ и трачу столько же времени, сколько сэкономил»</div></div>
+        <div class="ba-row"><div class="ba-main">«Рутина съедает вечера, стратегия и семья — в конце очереди»</div></div>
+        <div class="ba-row"><div class="ba-main">«Боюсь брать крупных клиентов — боюсь не справиться»</div></div>
+      </div>
+      <div class="ba-arrow-col">
+        <div class="ba-arrow">→</div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-arrow">→</div>
+      </div>
+      <div class="ba-col ba-after">
+        <div class="ba-header after">После курса — конкретные результаты</div>
+        <div class="ba-row"><div class="ba-main">Знаете, как давать ИИ точный контекст — он не «галлюцинирует», работает как инструмент</div></div>
+        <div class="ba-row"><div class="ba-main">Системный подход к применению нейросетей, набор готовых промтов, инструкций и алгоритмов всегда под рукой</div></div>
+        <div class="ba-row"><div class="ba-main">ИИ-агент анализирует отчётность и выдаёт готовые выводы за минуты, не часы</div></div>
+        <div class="ba-row"><div class="ba-main">ИИ выдаёт чистый результат с первого раза — вы знаете, как правильно ставить задачу</div></div>
+        <div class="ba-row"><div class="ba-main">50% рутины делегировано нейросети — вечера снова ваши</div></div>
+        <div class="ba-row"><div class="ba-main">Повышаете ценность услуг, берёте сложные проекты — ИИ страхует и ускоряет</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CURRICULUM ═══ -->
+<section id="curriculum" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">ПРОГРАММА КУРСА</h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto">От «Что такое ИИ» до «50% задач выполняет нейросеть» — каждый модуль = конкретный рабочий результат. Без теории ради теории.</p>
+    </div>
+    <div class="cur-meta reveal" style="justify-content:center">
+      <div class="cur-meta-item"><div class="cur-meta-num">7</div><div class="cur-meta-label">Модулей</div></div>
+      <div class="cur-meta-item"><div class="cur-meta-num">45</div><div class="cur-meta-label">Уроков</div></div>
+      <div class="cur-meta-item"><div class="cur-meta-num">50+</div><div class="cur-meta-label">Готовых<br>инструментов</div></div>
+      <div class="cur-meta-item"><div class="cur-meta-num">0</div><div class="cur-meta-label">Знаний<br>программирования</div></div>
+    </div>
+    <div class="cur-modules reveal">
+
+      <!-- M1 -->
+      <div class="cur-module open">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">01</span>
+          <span class="cur-title">Базовые возможности ИИ</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body" style="max-height:600px">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Результат модуля</strong>Чёткая структура работы с ИИ. Безопасно, без риска слить данные. ИИ больше не пишет ерунду. Свобода от задач, которые никто не любит.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Обзор инструментов GPT, Машагpt, Gemini</li><li>Безопасность, конфиденциальность, этика</li><li>Что такое промт: анатомия запроса</li><li>Диагностика: где у тебя рутинные задачи?</li><li>Промты под задачи финансиста: отчёт, КП, пост</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li>Чек-лист нейросетей</li><li>Чек-лист хорошего промта</li><li>Шаблон для анализа рутинных задач</li><li>Гугл-таблица шаблонов готовых промптов</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M2 -->
+      <div class="cur-module">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">02</span>
+          <span class="cur-title">Работа с документацией</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Финдир получает</strong>Обработка документов за минуты, минимум ошибок. <strong style="color:var(--emerald);font-size:inherit">Бухгалтер получает:</strong> договоры без налоговых рисков, сверки — за секунды.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Урок по работе с шаблонами документа</li><li>Проверка договоров и выявление рисков</li><li>Проведение сверок при помощи ИИ</li><li>Сверка ЕНС при помощи ИИ</li><li>Обработка требований ИФНС через ИИ</li><li>Сверка актов взаиморасчётов с ИИ</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li>Промт: <strong>АИ-операционист для работы с шаблонами</strong></li><li>Шаблон документа в .docx</li><li><strong>ИИ-юрист</strong> для проверки договоров на риски</li><li>Промт агента для проверки договоров</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M3 -->
+      <div class="cur-module">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">03</span>
+          <span class="cur-title">Финансовый анализ и ведение отчётов с ИИ</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Результат модуля</strong>Финансовый анализ в 5 раз быстрее. Бухгалтер использует ИИ для анализа налоговой нагрузки — из операциониста становится надёжным партнёром.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Как GPT «читает» отчёт: логика и порядок</li><li>Написание формул для Гугл и Excel с ИИ</li><li>Работа с массивами: отчёт за 10 минут, не 3 часа</li><li>Структура промпта для финансового анализа</li><li>Практикум: анализ отчёта</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li>Инструкция финансового анализа с ИИ</li><li>Промт для написания формул</li><li>Промт для финанализа + готовые примеры</li><li><strong>ИИ Агент для анализа отчётности</strong></li><li>Промт для обработки данных в отчётах</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M4 -->
+      <div class="cur-module">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">04</span>
+          <span class="cur-title">ИИ Маркетинг для финансиста и бухгалтера</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Результат модуля</strong>Ваши услуги упакованы. По первому взгляду на соцсети и профиль предприниматель считывает в вас профессионала.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Анализ аудитории с ИИ</li><li>Стратегия привлечения клиентов</li><li>Gamma: краткий обзор инструмента</li><li>Как работает связка GPT + Gamma</li><li>Упаковка экспертности</li><li>Упаковка услуг с ИИ</li><li>Упаковка кейсов</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li><strong>АИ копирайтер</strong></li><li><strong>АИ ассистент «Упаковка кейсов»</strong></li><li>Промт для анализа аудитории</li><li>Промты для упаковки кейсов и услуг</li><li>Промт по упаковке экспертности</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M5 -->
+      <div class="cur-module">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">05</span>
+          <span class="cur-title">Клиенты с соцсетей с ИИ</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Результат модуля</strong>Регулярные заявки с соцсетей. На контент уходит не более 40 минут в день. Получаете результат в виде потенциальных клиентов.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Как вести соцсети с помощью ИИ</li><li>Контент-стратегия для телеграм-канала</li><li>Продающие посты с ИИ. Готовые промпты</li><li>Обзор нейросети для нейрофотосессии</li><li>Структура промпта для нужного промта</li><li>Создаём свой ИИ аватар</li><li>Как улучшить качество фото</li><li>Как оживить фотографию</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li>Промт для контент-стратегии</li><li>Промты для постов и сценариев выступлений</li><li>Инструкции по созданию фото и видео с ИИ</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M6 -->
+      <div class="cur-module">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">06</span>
+          <span class="cur-title">Продажи услуг с ИИ</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Результат модуля</strong>Продающие встречи заканчиваются подписанием договора и оплатой. Клиент видит, что вы можете закрыть его боль, и понимает, за что платит.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Персональный AI-ассистент для операционных задач и продаж</li><li>Расшифровка встречи и выявление сути</li><li>Создаём своё КП при помощи ИИ</li><li>Продающее выступление. Структура.</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li>Готовые промты для КП и презентации</li><li>Порядок создания АИ-ассистентов для переговоров</li><li><strong>АИ тренер по продажам</strong></li><li>Примеры решения задач с AI-ассистентом</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- M7 -->
+      <div class="cur-module">
+        <div class="cur-module-head" onclick="toggleModule(this)">
+          <span class="cur-num">07</span>
+          <span class="cur-title">Автоматизация управленки при помощи ИИ</span>
+          <span class="cur-arrow">▾</span>
+        </div>
+        <div class="cur-body">
+          <div class="cur-body-inner">
+            <div class="cur-result"><strong>Финдир получает</strong>Отчёты заполняются автоматически. Ручное разнесение операций — в прошлом. <strong style="color:var(--emerald);font-size:inherit">Бухгалтер получает:</strong> данные в удобный формат, повышаете стоимость услуг.</div>
+            <div class="cur-lessons"><h4>Уроки</h4><ul><li>Парсинг выписок через скрипт ИИ</li><li>Создание приложения по обработке документов</li><li>Автоматическая генерация аналитической записки через Telegram</li><li>Настройка правил для автоматического разнесения операций</li><li>Настройка автоматизации через ИИ-сервис</li></ul></div>
+            <div class="cur-tools"><h4>Инструменты</h4><ul><li>Промт для аналитической записки</li><li>Шаблон «Журнал операций»</li><li>Промты для автоматизации Excel и Google Таблиц</li><li>Инструкции для автоматического разнесения операций</li></ul></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cur-modules -->
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a href="#pricing" class="btn-primary">Занять место на курсе →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT'S INCLUDED ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Что входит в обучение</h2>
+    </div>
+    <div class="included-grid">
+      <div class="included-card reveal">
+        <div class="included-icon">📚</div>
+        <div class="included-text"><strong>7 модулей (45 уроков + 50+ инструментов)</strong> — на их прохождение у вас будет 6 недель + от 6 месяцев доступа</div>
+      </div>
+      <div class="included-card reveal" style="transition-delay:.1s">
+        <div class="included-icon">🤖</div>
+        <div class="included-text"><strong>Нейросети для решения всех задач финансиста:</strong> финанализ, ответы на требования ФНС, упаковка услуг, проведение переговоров, продажи услуг</div>
+      </div>
+      <div class="included-card reveal" style="transition-delay:.2s">
+        <div class="included-icon">▶️</div>
+        <div class="included-text">Подробные уроки, которые работают по принципу <strong>«смотри, повторяй, получай результат»</strong></div>
+      </div>
+      <div class="included-card reveal">
+        <div class="included-icon">⚡</div>
+        <div class="included-text"><strong>Готовые промты и АИ-агенты</strong> — не надо ничего изобретать самому. Берёте и применяете</div>
+      </div>
+      <div class="included-card reveal" style="transition-delay:.1s">
+        <div class="included-icon">💬</div>
+        <div class="included-text">Поддержка в чате от Екатерины и приглашённого эксперта по автоматизации финучёта с ИИ</div>
+      </div>
+      <div class="included-card reveal" style="transition-delay:.2s">
+        <div class="included-icon">✅</div>
+        <div class="included-text">Проверка заданий Екатериной — получаете обратную связь по своей работе</div>
+      </div>
+      <div class="included-card reveal">
+        <div class="included-icon">🎥</div>
+        <div class="included-text">Живые созвоны с ответами на ваши вопросы — все остаётся в записи</div>
+      </div>
+      <div class="included-card reveal" style="grid-column:1/-1;background:rgba(0,212,170,.05);border-color:rgba(0,212,170,.2)">
+        <div class="included-icon">📅</div>
+        <div class="included-text"><strong>Удобный график обучения без отрыва от вашей основной работы.</strong> Учитесь по принципу «изучил — применил — получил результат — освободил время от рутины»</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Как проходит обучение</h2>
+    </div>
+    <div class="hiw-grid">
+      <div class="hiw-card reveal">
+        <div class="hiw-num">01</div>
+        <div class="hiw-title">Уроки в записи</div>
+        <div class="hiw-text">Смотрите когда удобно — утром, в обед или вечером. Каждый урок 20–30 минут, конкретно и по делу</div>
+      </div>
+      <div class="hiw-card reveal" style="transition-delay:.1s">
+        <div class="hiw-num">02</div>
+        <div class="hiw-title">Модули открываются еженедельно</div>
+        <div class="hiw-text">Последовательная структура помогает усвоить материал и сразу применять в работе — без перегрузки</div>
+      </div>
+      <div class="hiw-card reveal" style="transition-delay:.2s">
+        <div class="hiw-num">03</div>
+        <div class="hiw-title">Чат потока — каждый день</div>
+        <div class="hiw-text">Чат работает ежедневно кроме выходных. Задаёте вопросы, делитесь результатами, получаете ответы</div>
+      </div>
+      <div class="hiw-card reveal">
+        <div class="hiw-num">04</div>
+        <div class="hiw-title">Живые созвоны по четвергам</div>
+        <div class="hiw-text">Раз в неделю, по четвергам в 13:00 МСК — разбор вопросов с Екатериной. Все записи остаются доступны</div>
+      </div>
+      <div class="hiw-card reveal" style="transition-delay:.1s">
+        <div class="hiw-num">05</div>
+        <div class="hiw-title">Проверка заданий</div>
+        <div class="hiw-text">Екатерина лично проверяет домашние задания и даёт развёрнутую обратную связь</div>
+      </div>
+      <div class="hiw-card reveal" style="transition-delay:.2s">
+        <div class="hiw-num">06</div>
+        <div class="hiw-title">Понятный темп — 3–4 часа в неделю</div>
+        <div class="hiw-text">Курс рассчитан на занятых специалистов. 6 недель обучения — и вы работаете по-новому</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section id="pricing" class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title" style="font-size:clamp(36px,5vw,72px)">ТАРИФЫ</h2>
+      <p class="section-sub" style="margin:0 auto">Выберите свой формат · Инвестиция, которая окупается с первого применения</p>
+    </div>
+    <div class="pricing-grid reveal">
+
+      <!-- STANDARD -->
+      <div class="pricing-card">
+        <div><div class="pricing-name">Стандарт</div></div>
+        <div><div class="pricing-old">69 900 ₽</div><div class="pricing-price">44 900 <span>₽</span></div></div>
+        <hr class="pricing-divider">
+        <div>
+          <div class="pricing-section-title">Модули курса</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 1. Базовые возможности ИИ</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 2. Работа с документацией</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 3. Финансовый анализ с ИИ</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 4. ИИ Маркетинг</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 5. Клиенты с соцсетей</div>
+            <div class="pricing-item no"><span class="icon">✗</span>Модуль 6. Продажи услуг</div>
+            <div class="pricing-item no"><span class="icon">✗</span>Модуль 7. Автоматизация управленки при помощи ИИ</div>
+          </div>
+          <div class="pricing-section-title">Поддержка</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>4 созвона с Екатериной Яхонтовой</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Проверка заданий во время курса</div>
+          </div>
+          <div class="pricing-section-title">ИИ-инструменты</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ копирайтер</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ ассистент «Упаковка кейсов»</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ Агент для анализа отчётности</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ юрист для проверки документов</div>
+            <div class="pricing-item no"><span class="icon">✗</span>ИИ-тренер по продажам</div>
+            <div class="pricing-item no"><span class="icon">✗</span>Нейронаставник по личному росту</div>
+          </div>
+          <div class="pricing-section-title">Доступ</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>6 месяцев доступ к курсу</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Общий чат участников</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Проверка ДЗ от Екатерины</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Сертификат об окончании курса</div>
+          </div>
+        </div>
+        <div class="pricing-cta"><button onclick="openPayment('standard')" class="btn-primary" style="width:100%;justify-content:center;cursor:pointer;border:none">Записаться на курс →</button></div>
+      </div>
+
+      <!-- BUSINESS -->
+      <div class="pricing-card popular">
+        <div class="pricing-badge">⭐ Популярный выбор</div>
+        <div><div class="pricing-name">Бизнес</div></div>
+        <div><div class="pricing-old">89 900 ₽</div><div class="pricing-price">54 900 <span>₽</span></div></div>
+        <hr class="pricing-divider">
+        <div>
+          <div class="pricing-section-title">Все 7 модулей курса</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 1. Базовые возможности ИИ</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 2. Работа с документацией</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 3. Финансовый анализ с ИИ</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 4. ИИ Маркетинг</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 5. Клиенты с соцсетей</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 6. Продажи услуг с ИИ</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Модуль 7. Автоматизация управленки при помощи ИИ</div>
+          </div>
+          <div class="pricing-section-title">Поддержка</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>6 созвонов с Екатериной Яхонтовой</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Проверка заданий во время курса</div>
+          </div>
+          <div class="pricing-section-title">Все ИИ-инструменты</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ копирайтер</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ ассистент «Упаковка кейсов»</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ Агент для анализа отчётности</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ агент для проверки документов</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>ИИ-тренер по продажам</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Нейронаставник по личному росту финансиста</div>
+          </div>
+          <div class="pricing-section-title">Доступ</div>
+          <div class="pricing-list">
+            <div class="pricing-item yes"><span class="icon">✓</span><strong>9 месяцев</strong> доступ к курсу</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Общий чат участников</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Проверка ДЗ от Екатерины</div>
+            <div class="pricing-item yes"><span class="icon">✓</span>Сертификат об окончании курса</div>
+          </div>
+        </div>
+        <div class="pricing-cta"><button onclick="openPayment('business')" class="btn-primary" style="width:100%;justify-content:center;cursor:pointer;border:none">Записаться на курс →</button></div>
+      </div>
+
+    </div>
+    <div class="pricing-guarantee reveal">
+      <span>Рассрочка без переплат</span>
+      <span>Оплата картой / переводом</span>
+    </div>
+    <p class="pricing-note">Стоимость курса = 2–3 часа вашего рабочего времени. Экономия после курса — сотни часов в год.</p>
+    <div class="payment-methods reveal">
+      <h3 class="payment-methods-title">Способы оплаты</h3>
+      <div class="payment-methods-grid">
+        <div class="payment-method-item">
+          <div class="payment-method-icon">💳</div>
+          <div><strong>По карте</strong><div class="payment-method-sub">Принимает карты со всего мира</div></div>
+        </div>
+        <div class="payment-method-item">
+          <div class="payment-method-icon">📄</div>
+          <div><strong>По счёту</strong><div class="payment-method-sub">Для ИП и ООО из России</div></div>
+        </div>
+        <div class="payment-method-item">
+          <div class="payment-method-icon">📅</div>
+          <div><strong>В рассрочку</strong><div class="payment-method-sub">Более 5 банков, до 12 месяцев</div></div>
+        </div>
+        <div class="payment-method-item">
+          <div class="payment-method-icon">🔵</div>
+          <div><strong>Долями</strong><div class="payment-method-sub">Яндекс Сплит</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">Екатерина Яхонтова</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo-wrap reveal">
+        <img src="2.png" alt="Екатерина Яхонтова" class="about-photo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="about-photo-placeholder" style="display:none">Фото автора</div>
+        <div class="about-glow"></div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="about-role">Финансовый эксперт · 18+ лет в финансах · Автор курса</div>
+        <div class="about-bio">
+          <p><strong style="color:var(--white)">Я — финансист, а не IT-специалист. Это важно.</strong></p>
+          <p>Более 18 лет я работала с финансами изнутри: управленческий учёт, финансовый анализ, финансовые модели для бизнеса. Я знаю, что такое собирать бюджет из 300 статей вручную. Знаю, как болит глаз от Excel-формул в 3 часа ночи перед советом директоров.</p>
+          <p>Два года назад я начала внедрять AI в финансовую работу — и это изменило всё. Теперь я передаю этот опыт финансистам, которые хотят работать иначе.</p>
+          <p>Всё, что в курсе — это задачи из реальной финансовой практики. Не теория. Не «для программистов». <strong style="color:var(--white)">Для вас.</strong></p>
+        </div>
+        <div class="about-facts">
+          <div class="about-fact"><div class="about-fact-num">18+</div><div class="about-fact-label">лет в<br>финансах</div></div>
+          <div class="about-fact"><div class="about-fact-num">120+</div><div class="about-fact-label">финансистов<br>уже прошли</div></div>
+          <div class="about-fact"><div class="about-fact-num">7</div><div class="about-fact-label">модулей<br>45 уроков</div></div>
+          <div class="about-fact"><div class="about-fact-num">0</div><div class="about-fact-label">строк кода —<br>не нужно</div></div>
+        </div>
+        <div class="about-tools">
+          <span class="tool-tag">ChatGPT</span><span class="tool-tag">Claude</span><span class="tool-tag">Gemini</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">Apps Script</span><span class="tool-tag">n8n</span><span class="tool-tag">Make</span><span class="tool-tag">Gamma</span><span class="tool-tag">AI-агенты</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">Что говорят финансисты,<br>которые уже прошли курс</h2>
+      <p class="section-sub">Конкретные цифры и результаты — от реальных студентов</p>
+    </div>
+    <div class="test-grid-wrap">
+    <div class="test-grid">
+
+      <!-- Olga - featured -->
+      <div class="test-card featured reveal">
+        <div class="test-head">
+          <div class="test-avatar-wrap">
+            <img src="Ольга Пахолкова.jpg" alt="Ольга Пахолкова" class="test-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="test-avatar-fallback" style="display:none">О</div>
+            <div><div class="test-name">Ольга Пахолкова</div><div class="test-role">Главный экономист · Стаж 20+ лет</div></div>
+          </div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+        <div class="test-quote main">«Я не проживаю ни дня, чтобы не сделать что-нибудь с помощью AI. И это говорит человек, который до курса использовал нейросети только чтобы рассказать сон DeepSeek'у.»</div>
+        <div class="test-results">
+          <div class="test-result-row"><div class="result-before">Бюджет из 300+ статей — неделя</div><div class="result-arrow">→</div><div class="result-after">Одна кнопка. Несколько секунд.</div></div>
+          <div class="test-result-row"><div class="result-before">2 дня на сверку данных</div><div class="result-arrow">→</div><div class="result-after">Загрузила, выпила кофе — готово</div></div>
+          <div class="test-result-row"><div class="result-before">Поздний бюджет в 11 вечера — стресс</div><div class="result-arrow">→</div><div class="result-after">20 секунд — ночь проспала спокойно</div></div>
+        </div>
+        <div class="test-extra">«Когда в январе слетели все данные при переходе систем — я просто загрузила данные, написала промпт, и AI нашёл все расхождения, пока я пила кофе. Буквально.»</div>
+        <a href="https://rutube.ru/video/2a29c3290252526e9e1b45bc3aae682c/" target="_blank" class="btn-secondary" style="margin-top:16px;font-size:14px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px">▶ Смотреть видео с кейсом Ольги</a>
+      </div>
+
+      <!-- Liliya -->
+      <div class="test-card reveal" style="transition-delay:.1s">
+        <div class="test-head">
+          <div class="test-avatar-wrap">
+            <img src="Лилия малова.jpg" alt="Лилия Малова" class="test-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="test-avatar-fallback" style="display:none">Л</div>
+            <div><div class="test-name">Лилия Малова</div><div class="test-role">Финансовый директор</div></div>
+          </div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+        <div class="test-quote">«Идти на курс — однозначно.»</div>
+        <div class="test-extra">До: использовала AI регулярно, но хаотично — без системы и результата.<br><br>После: автоматизировала аналитические записки, научилась писать скрипты, освоила базовые навыки вайбкодинга.<br><br>«Освоила AI-агента по финанализу и Cursor. Теперь это часть моей ежедневной работы — не эксперимент.»</div>
+      </div>
+
+      <!-- Valeria -->
+      <div class="test-card reveal" style="transition-delay:.2s">
+        <div class="test-head">
+          <div class="test-avatar-wrap">
+            <img src="Валерия Никитина.jpg" alt="Валерия Никитина" class="test-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="test-avatar-fallback" style="display:none">В</div>
+            <div><div class="test-name">Валерия Никитина</div><div class="test-role">Стратегическое сопровождение бизнеса</div></div>
+          </div>
+          <div class="test-stars">★★★★☆</div>
+        </div>
+        <div class="test-quote">«Идти обязательно — если не понимаете, что такое AI на самом деле, если у вас много рутины.»</div>
+        <div class="test-extra">До: применяла AI хаотично.<br><br>Получила: научилась делать AI-агентов, разобралась с промптами, доработала и упаковала свои услуги.<br><br>«Момент "вау": написание больших кодов без знания программирования и возможность сразу внедрить в работу.»</div>
+      </div>
+
+      <!-- Maria Ermakova -->
+      <div class="test-card reveal" style="grid-column:1/-1;transition-delay:.3s">
+        <div class="test-head">
+          <div class="test-avatar-wrap">
+            <img src="Мария Ермакова.png" alt="Мария Ермакова" class="test-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="test-avatar-fallback" style="display:none">М</div>
+            <div>
+              <div class="test-name"><a href="https://t.me/provediuchet" target="_blank" style="color:inherit;border-bottom:1px solid rgba(77,159,255,.35);padding-bottom:1px">Мария Ермакова</a></div>
+              <div class="test-role">Финансовый директор · <a href="https://t.me/provediuchet" target="_blank" style="color:var(--blue);font-size:12px">@provediuchet</a></div>
+            </div>
+          </div>
+          <div class="test-stars">★★★★★</div>
+        </div>
+        <div class="test-quote">«До курса нейросети были для меня чем-то из области фантастики. Теперь это мой личный ассистент — и с формулами, и с анализом, и с контентом для канала.»</div>
+        <div class="test-results">
+          <div class="test-result-row"><div class="result-before">Сверка реестра 890 строк — 4–5 часов</div><div class="result-arrow">→</div><div class="result-after">35 минут с первого промта</div></div>
+          <div class="test-result-row"><div class="result-before">Сложные формулы — искала в интернете, копировала</div><div class="result-arrow">→</div><div class="result-after">Пишет сама с первого раза. «Мне теперь ничего не страшно»</div></div>
+          <div class="test-result-row"><div class="result-before">Telegram-канал — не решалась вести</div><div class="result-arrow">→</div><div class="result-after">Пишет несколько раз в неделю с помощью ИИ</div></div>
+        </div>
+        <div class="test-extra">«Написала скрипт для своего сайта — квиз, который подбирает клиенту нужный продукт. Без знания программирования. После курса я даже не представляла, что это вообще возможно.»<br><br>Совет коллегам: «Думать не надо — без нейросети уже не получится работать так же эффективно. Это колоссальная экономия времени и поддержка в уверенности в себе.»</div>
+        <a href="https://rutube.ru/video/private/6a8f444802dfba817db100fbae93d6af/?p=qwT4inwtLQtCH0pYZxL-Sg" target="_blank" class="btn-secondary" style="margin-top:16px;font-size:14px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px">▶ Смотреть видео с кейсом Марии</a>
+      </div>
+
+    </div>
+    </div><!-- /test-grid-wrap -->
+    <div class="test-footer reveal">
+      <span>120+ финансистов уже автоматизировали свою работу</span>
+      <a href="#pricing" class="btn-primary" style="color:#fff">Хочу такой же результат →</a>
+    </div>
+
+    <!-- Скриншоты отзывов -->
+    <div class="reviews-scroll-wrap reveal" style="margin-top:48px">
+      <p style="font-size:20px;font-weight:700;color:var(--white);margin-bottom:20px;text-align:center">Отзывы студентов</p>
+      <div class="reviews-scroll">
+        <img src="Отзыв 1.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="отзыв 2.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 3.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 4.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 5.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="отзыв 6.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 7.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 8.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 9.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 10.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 11.jpg" alt="Отзыв студента" class="review-screenshot">
+        <img src="Отзыв 12.jpg" alt="Отзыв студента" class="review-screenshot">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section id="final-cta">
+  <div class="final-cta-bg"></div>
+  <img src="3.png" alt="" class="final-cta-photo" onerror="this.style.display='none'">
+  <div class="final-cta-photo-overlay"></div>
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <h2 class="final-cta-h2" style="font-size:clamp(30px,4.5vw,60px);white-space:normal;max-width:900px"><span style="white-space:nowrap">AI не заменит финансиста.</span><br><span class="grad-text" style="white-space:normal">Но заменит того, кто им<br>не умеет пользоваться.</span></h2>
+      <p class="final-cta-sub">Донабор до 15 июня · Осталось 20 мест</p>
+      <div class="final-cta-timer">
+        <div class="timer-unit"><div class="timer-num mono" id="t2-days">--</div><div class="timer-sub">дней</div></div>
+        <div class="timer-unit"><div class="timer-num mono" id="t2-hours">--</div><div class="timer-sub">часов</div></div>
+        <div class="timer-unit"><div class="timer-num mono" id="t2-min">--</div><div class="timer-sub">минут</div></div>
+        <div class="timer-unit"><div class="timer-num mono" id="t2-sec">--</div><div class="timer-sub">секунд</div></div>
+      </div>
+      <a href="https://t.me/yakhontova_finance" target="_blank" class="btn-primary" style="font-size:18px;padding:16px 36px">Занять место на курсе →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" class="section" style="padding-top:0">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <h2 class="section-title">Частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Мне нужно знать программирование?<span class="faq-icon">+</span></div>
+        <div class="faq-a" style="max-height:200px"><div class="faq-a-inner">Нет. Курс создан специально для финансистов без IT-бэкграунда. Вы научитесь работать с AI-инструментами и писать скрипты через AI — без знания кода. Именно так студенты автоматизируют задачи, которые раньше занимали дни.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Как проходит обучение?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Уроки в записи — смотрите когда удобно, по 20–30 минут. Модули открываются каждую неделю, чтобы вы усваивали материал в хорошем темпе. Чат потока работает ежедневно кроме выходных. Живые созвоны — раз в неделю по четвергам в 13:00 МСК (остаются в записи). Обратная связь от автора курса по заданиям. 3–4 часа в неделю — достаточно для уверенного прохождения.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Я уже использую ChatGPT — мне подойдёт?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Зависит от того, как вы его используете. Если хаотично — пробовали, но без системы, или используете только для текстов — курс даст структуру и сотни конкретных финансовых применений. Также на курсе мы работаем с Apps-скриптами и AI-агентами — это уровень выше базового ChatGPT.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Будет ли сертификат?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Да, именной сертификат о прохождении курса. Можно добавить в ваше портфолио и резюме как подтверждение AI-компетенций.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Что если материал устареет?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Базовый принцип не меняется так быстро. То, что вы получите здесь — применяете годами, и спокойно адаптируете вашу твёрдую базу к новым инструментам, которые будут появляться на рынке.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Возможен ли возврат средств?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Мы уверены в качестве курса и не держим силой. Возврат средств возможен в течение 7 дней после старта согласно условиям оферты. Напишите Екатерине в личные сообщения — и мы всё обсудим.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Чем этот курс отличается от других курсов по нейросетям?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Большинство AI-курсов ведут IT-специалисты и объясняют на абстрактных примерах. Этот курс ведёт финансист — всё содержание заточено под реальные задачи: управленческую отчётность, бюджетирование, финансовый анализ, сверку данных. Вы изучаете только то, что применимо в вашей работе.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACTS ═══ -->
+<section id="contacts" class="section" style="padding-top:0">
+  <div class="container">
+    <div class="contacts-block reveal">
+      <div class="contacts-photo-wrap">
+        <img src="2.png" alt="Екатерина Яхонтова" class="contacts-photo" onerror="this.style.display='none'">
+      </div>
+      <div class="contacts-content">
+        <h2 class="contacts-title">Остались вопросы?</h2>
+        <p class="contacts-sub">Напишите мне в личные сообщения — отвечу на всё и помогу выбрать подходящий формат</p>
+        <div class="contacts-btns">
+          <a href="https://t.me/yakhontova_finance" target="_blank" class="btn-primary">Написать Екатерине в Telegram →</a>
+          <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_blank" class="btn-secondary">Написать в Max</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span>{</span> Нейросети для финансиста <span>}</span></div>
+        <div class="footer-tagline">Курс Екатерины Яхонтовой</div>
+        <div class="footer-tg"><a href="https://t.me/yakhontova_finance" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          @yakhontova_finance
+        </a></div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#curriculum">Программа</a>
+        <a href="#about">Об авторе</a>
+        <a href="#testimonials">Отзывы</a>
+        <a href="#pricing">Стоимость</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="footer-cta" style="text-align:right">
+        <a href="#pricing" class="btn-primary">Занять место →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Екатерина Яхонтова · Все права защищены</div>
+      <div class="footer-docs">
+        <a href="https://disk.yandex.ru/i/cmz36rgtz848UA" target="_blank">Политика обработки персональных данных</a>
+        <a href="https://disk.yandex.ru/i/hG8EL0jriKnSLA" target="_blank">Согласие на обработку данных</a>
+        <a href="https://disk.yandex.ru/i/2Yby1XfgYDg7fw" target="_blank">Согласие на рассылку</a>
+        <a href="https://docs.google.com/document/d/1gwsv9EOYaH-MmpP4UD--0i1aY79nIDgblSSU-J_En4Y/edit?usp=sharing" target="_blank">Оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ PAYMENT MODALS ═══ -->
+<div class="payment-modal" id="pm-standard" onclick="if(event.target===this)closePayment('standard')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" onclick="closePayment('standard')">✕</button>
+    <script id="324d908ebb0b4b83de0f18adbd8257f6b1e8eeab" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1571253"></script>
+  </div>
+</div>
+<div class="payment-modal" id="pm-business" onclick="if(event.target===this)closePayment('business')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" onclick="closePayment('business')">✕</button>
+    <script id="047cc5da13f6e23225873faf0883fbf8799b0f9c" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1571250"></script>
+  </div>
+</div>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div id="lightbox">
+  <span id="lightbox-close" title="Закрыть (Esc)">✕</span>
+  <img id="lightbox-img" src="" alt="Отзыв">
+  <div id="lightbox-nav">
+    <button class="lb-btn" id="lb-prev">‹</button>
+    <span id="lightbox-counter">1 / 12</span>
+    <button class="lb-btn" id="lb-next">›</button>
+  </div>
+</div>
+
+<!-- ═══ MOBILE STICKY ═══ -->
+<div id="sticky-cta">
+  <a href="#pricing" class="btn-primary">Занять место →</a>
+  <span class="date">Донабор до 15 июня</span>
+</div>
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+// Payment modal
+function openPayment(type){
+  var modal = document.getElementById('pm-'+type);
+  if(!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePayment(type){
+  var modal = document.getElementById('pm-'+type);
+  if(modal) modal.classList.remove('open');
+  document.body.style.overflow='';
+}
+// Close payment modal on Escape
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePayment('standard');closePayment('business')}});
+
+/* ── NETWORK CANVAS ANIMATION ── */
+(function(){
+  var cv = document.getElementById('network-canvas');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var W, H, nodes = [];
+  var N = 70, MAX_D = 160;
+  function resize(){
+    W = cv.width = window.innerWidth;
+    H = cv.height = window.innerHeight;
+  }
+  function init(){
+    nodes = [];
+    for(var i=0;i<N;i++){
+      nodes.push({
+        x:Math.random()*W, y:Math.random()*H,
+        vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+        r:Math.random()*1.8+.8
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<nodes.length;i++){
+      for(var j=i+1;j<nodes.length;j++){
+        var dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+        var d=Math.sqrt(dx*dx+dy*dy);
+        if(d<MAX_D){
+          var a=(1-d/MAX_D)*.12;
+          ctx.strokeStyle='rgba(100,160,255,'+a+')';
+          ctx.lineWidth=.6;
+          ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();
+        }
+      }
+      var n=nodes[i];
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(130,170,255,.45)';ctx.fill();
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0||n.x>W) n.vx*=-1;
+      if(n.y<0||n.y>H) n.vy*=-1;
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); init(); draw();
+  window.addEventListener('resize',function(){resize();init();});
+})();
+
+/* ── PROGRESS BAR ── */
+const progressBar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  progressBar.style.width = pct + '%';
+});
+
+/* ── NAVBAR ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+/* ── BURGER (mobile) ── */
+const burger = document.getElementById('burger');
+const navLinks = document.querySelector('.nav-links');
+burger && burger.addEventListener('click', () => {
+  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  navLinks.style.flexDirection = 'column';
+  navLinks.style.position = 'absolute';
+  navLinks.style.top = '64px';
+  navLinks.style.left = '0';
+  navLinks.style.right = '0';
+  navLinks.style.background = 'rgba(7,7,26,.97)';
+  navLinks.style.padding = '20px 24px';
+  navLinks.style.gap = '20px';
+  navLinks.style.borderBottom = '1px solid rgba(255,255,255,.07)';
+});
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  if(window.innerWidth < 768) navLinks.style.display = 'none';
+}));
+
+/* ── SCROLL ANIMATIONS ── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => revealObserver.observe(el));
+
+/* stagger grid children automatically */
+document.querySelectorAll('.pain-grid,.fw-grid,.test-grid,.trust-grid').forEach(grid => {
+  Array.from(grid.children).forEach((child, i) => {
+    if(!child.style.transitionDelay) child.style.transitionDelay = (i * 0.09) + 's';
+  });
+});
+
+/* ── COUNTUP ── */
+function animateCountUp(el) {
+  const target = parseFloat(el.dataset.countup || el.dataset.countupFloat || 0);
+  const isFloat = 'countupFloat' in el.dataset;
+  const suffix = el.dataset.suffix || '';
+  const dur = 1800;
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = isFloat ? (target * ease).toFixed(1) : Math.round(target * ease);
+    el.textContent = val + suffix;
+    if(p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const countupObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      animateCountUp(e.target);
+      countupObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-countup],[data-countup-float]').forEach(el => countupObserver.observe(el));
+
+/* ── COUNTDOWN TIMER ── */
+const TARGET = new Date('2026-06-15T00:00:00').getTime();
+function updateTimer() {
+  const now = Date.now();
+  const diff = TARGET - now;
+  if(diff <= 0) {
+    ['t-days','t-hours','t-min','t-sec','t2-days','t2-hours','t2-min','t2-sec'].forEach(id => {
+      const el = document.getElementById(id); if(el) el.textContent = '00';
+    });
+    return;
+  }
+  const days  = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins  = Math.floor((diff % 3600000) / 60000);
+  const secs  = Math.floor((diff % 60000) / 1000);
+  const pad = n => String(n).padStart(2,'0');
+  [['t-days','t2-days',days],['t-hours','t2-hours',hours],['t-min','t2-min',mins],['t-sec','t2-sec',secs]].forEach(([id1,id2,val]) => {
+    const e1 = document.getElementById(id1); const e2 = document.getElementById(id2);
+    if(e1) e1.textContent = pad(val);
+    if(e2) e2.textContent = pad(val);
+  });
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+
+/* ── CURRICULUM ACCORDION ── */
+function toggleModule(head) {
+  const module = head.parentElement;
+  const body = module.querySelector('.cur-body');
+  const isOpen = module.classList.contains('open');
+  // close all
+  document.querySelectorAll('.cur-module.open').forEach(m => {
+    m.classList.remove('open');
+    m.querySelector('.cur-body').style.maxHeight = '0';
+  });
+  if(!isOpen) {
+    module.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 40 + 'px';
+  }
+}
+
+/* ── LIGHTBOX ── */
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
+  const lbCounter = document.getElementById('lightbox-counter');
+  let imgs = [], cur = 0;
+
+  function open(index){
+    cur = index;
+    lbImg.src = imgs[cur].src;
+    lbImg.alt = imgs[cur].alt;
+    lbCounter.textContent = (cur+1) + ' / ' + imgs.length;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  function prev(){ open((cur - 1 + imgs.length) % imgs.length); }
+  function next(){ open((cur + 1) % imgs.length); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    imgs = Array.from(document.querySelectorAll('.review-screenshot'));
+    imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
+  });
+
+  lbClose.addEventListener('click', close);
+  lb.addEventListener('click', e => { if(e.target === lb) close(); });
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); prev(); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); next(); });
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+  });
+  // touch swipe
+  let tx = 0;
+  lbImg.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+  lbImg.addEventListener('touchend', e => {
+    const diff = tx - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 50) diff > 0 ? next() : prev();
+  });
+})();
+
+/* ── PARALLAX ── */
+(function(){
+  const heroPhoto = document.querySelector('.hero-photo-frame img');
+  const orb1 = document.querySelector('.orb-1');
+  const orb2 = document.querySelector('.orb-2');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if(ticking) return;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if(y < window.innerHeight * 1.5) {
+        if(heroPhoto) heroPhoto.style.transform = `translateY(${y * 0.12}px)`;
+        if(orb1) orb1.style.transform = `translateY(${y * 0.07}px)`;
+        if(orb2) orb2.style.transform = `translateY(${y * -0.05}px)`;
+      }
+      ticking = false;
+    });
+    ticking = true;
+  });
+})();
+
+/* ── CURSOR GLOW ── */
+(function(){
+  const isMouse = window.matchMedia('(hover:hover)').matches;
+  if(!isMouse) return;
+  const glow = document.createElement('div');
+  glow.id = 'cursor-glow';
+  document.body.appendChild(glow);
+  let cx=0,cy=0,tx=0,ty=0;
+  document.addEventListener('mousemove', e => { tx=e.clientX; ty=e.clientY; glow.style.opacity='1'; });
+  document.addEventListener('mouseleave', () => glow.style.opacity='0');
+  (function lerp(){
+    cx+=(tx-cx)*.08; cy+=(ty-cy)*.08;
+    glow.style.left=cx+'px'; glow.style.top=cy+'px';
+    requestAnimationFrame(lerp);
+  })();
+})();
+
+/* ── CARD TILT ── */
+(function(){
+  document.querySelectorAll('.pain-card,.test-card,.pricing-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      card.style.transform = `perspective(600px) rotateY(${x*6}deg) rotateX(${-y*5}deg) translateY(-4px)`;
+      // for spotlight
+      const pct_x = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
+      const pct_y = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
+      card.style.setProperty('--mx', pct_x + '%');
+      card.style.setProperty('--my', pct_y + '%');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+/* ── DRAG SCROLL FOR REVIEWS & TESTIMONIALS ── */
+(function(){
+  ['.reviews-scroll','.test-grid'].forEach(sel=>{
+  const el = document.querySelector(sel);
+  if(!el) return;
+  let isDown=false,startX,scrollLeft;
+  el.addEventListener('mousedown',e=>{isDown=true;el.classList.add('active');startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft});
+  el.addEventListener('mouseleave',()=>isDown=false);
+  el.addEventListener('mouseup',()=>isDown=false);
+  el.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*1.5});
+  // touch swipe
+  let tx=0;
+  el.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+  el.addEventListener('touchend',e=>{const diff=tx-e.changedTouches[0].clientX;if(Math.abs(diff)>30)el.scrollLeft+=diff*1.2},{passive:true});
+  });
+})();
+
+/* ── FAQ ACCORDION ── */
+function toggleFaq(qEl) {
+  const item = qEl.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0';
+  });
+  if(!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+</script>
+</body>
+</html>
