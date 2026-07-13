@@ -532,7 +532,9 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 /* ============ АДАПТИВ ============ */
 @media (max-width:1080px){
   .hero-grid{grid-template-columns:1fr}
-  .hero-visual{max-width:280px;margin:28px auto 0}
+  .hero-visual{margin:28px auto 0}
+  .hero-portrait img{max-width:280px;margin:0 auto;display:block}
+  .hero-float-card{max-width:340px;margin:16px auto 0}
   .steps-row{grid-template-columns:repeat(3,1fr)}
   .founder-section{grid-template-columns:1fr}
   .benefit-banner{grid-template-columns:1fr}
@@ -558,10 +560,11 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   .unique-grid{grid-template-columns:1fr}
   .benefit-list{grid-template-columns:1fr}
   .footer-top{flex-direction:column;gap:26px}
-  .hero-float-card{position:static;margin-top:16px;max-width:none}
+  .hero-float-card{position:static;margin:16px auto 0;max-width:280px}
   .hero-float-stat{position:static;display:inline-flex;margin-bottom:10px}
-  .hero-visual{max-width:150px;margin:20px auto 0}
-  .hero-portrait{max-width:150px;margin:0 auto}
+  .hero-visual{margin:20px auto 0}
+  .hero-portrait{max-width:none}
+  .hero-portrait img{max-width:150px;margin:0 auto;display:block}
   .hero-cta{flex-direction:column}
   .hero-cta .btn{width:100%}
   .contact-cta{flex-direction:column;align-items:flex-start}
