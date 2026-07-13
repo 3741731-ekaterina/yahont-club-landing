@@ -336,7 +336,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 .module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .module-item{border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:18px 20px;background:rgba(255,255,255,.015)}
 .module-item .m-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}
-.module-item .m-name{font-weight:700;font-size:14.5px}
+.module-item .m-name{font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px}
+.module-item .m-icon{width:20px;height:20px;object-fit:contain;flex:none}
 .module-item .m-count{flex:none;font-size:11.5px;color:var(--text-muted);white-space:nowrap}
 .module-item .m-lessons,.module-item .m-tools{margin-bottom:12px}
 .module-item .m-lessons b,.module-item .m-tools b{color:var(--accent2);font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.4px;display:block;margin-bottom:6px}
@@ -426,11 +427,21 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 .price-now .cur{font-size:20px;color:var(--text-secondary)}
 .price-permonth{font-size:12.5px;color:var(--accent2);font-weight:700;margin-bottom:26px}
 .price-card .btn{margin-bottom:26px}
-.gc-widget{width:100%;max-width:100%;margin-bottom:26px;overflow:hidden}
-.gc-widget iframe{width:100% !important;max-width:100% !important}
-.gc-widget a,.gc-widget button{
-  display:flex !important;width:100% !important;max-width:100% !important;box-sizing:border-box !important;
-  justify-content:center;align-items:center;text-align:center;
+.payment-modal{
+  visibility:hidden;opacity:0;pointer-events:none;
+  position:fixed;inset:0;z-index:3000;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(10,6,6,.88);backdrop-filter:blur(10px);
+  transition:opacity .3s ease, visibility .3s ease;
+}
+.payment-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+.payment-modal-inner{
+  position:relative;background:#fff;border-radius:20px;padding:12px;max-width:560px;width:100%;
+  max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);
+}
+.payment-modal-close{
+  position:absolute;top:10px;right:14px;background:rgba(0,0,0,.08);border:none;width:32px;height:32px;
+  border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1;
 }
 .price-feats{margin-bottom:18px}
 .price-feats li{display:flex;gap:10px;font-size:13.6px;margin-bottom:12px;line-height:1.5;color:var(--text-secondary)}
@@ -801,15 +812,15 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       </div>
       <div class="module-grid" style="grid-template-columns:repeat(3,1fr)">
         <div class="module-item">
-          <div class="m-head"><span class="m-name">Бот клуба</span></div>
+          <div class="m-head"><span class="m-name"><img class="m-icon" src="камень вместо буквы О.png" alt="">Бот клуба</span></div>
           <p class="m-result">Источник информации, напоминания о предстоящих событиях, быстрая обратная связь от эксперта, контроль доступов к обучению и другим ресурсам.</p>
         </div>
         <div class="module-item">
-          <div class="m-head"><span class="m-name">Канал</span></div>
+          <div class="m-head"><span class="m-name"><img class="m-icon" src="камень вместо буквы О.png" alt="">Канал</span></div>
           <p class="m-result">Информационная среда, где каждый день выходят подкасты, разборы кейсов, экспертные публикации, статьи, анонсы мастер-классов и обновлений клуба.</p>
         </div>
         <div class="module-item">
-          <div class="m-head"><span class="m-name">Сообщество</span></div>
+          <div class="m-head"><span class="m-name"><img class="m-icon" src="камень вместо буквы О.png" alt="">Сообщество</span></div>
           <p class="m-result">Закрытый чат в Telegram, структурированный по разделам: обучение, общение, вакансии. Быстрые ответы на вопросы и энергия единомышленников.</p>
         </div>
       </div>
@@ -1372,9 +1383,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-old" id="priceOld1">5 000 ₽</div>
         <div class="price-now"><span class="val" id="priceNow1">4 000</span><span class="cur">₽ / мес.</span></div>
         <div class="price-permonth">&nbsp;</div>
-        <div class="gc-widget">
-          <script id="1c1c40acf1b7374c5d6f9da9ce74620260bc7cbc" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629607"></script>
-        </div>
+        <button onclick="openPayment('start')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
           <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
@@ -1392,9 +1401,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-old" id="priceOld2">13 500 ₽</div>
         <div class="price-now"><span class="val" id="priceNow2">11 500</span><span class="cur">₽ / 3 мес.</span></div>
         <div class="price-permonth" id="pricePerMonth2">≈ 3 833 ₽ / мес.</div>
-        <div class="gc-widget">
-          <script id="e49eb80ebb89a0414f33947a337ae6f36d5c75d7" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629608"></script>
-        </div>
+        <button onclick="openPayment('growth')" class="btn btn-primary btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
           <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
@@ -1420,9 +1427,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-old" id="priceOld3">25 500 ₽</div>
         <div class="price-now"><span class="val" id="priceNow3">22 500</span><span class="cur">₽ / 6 мес.</span></div>
         <div class="price-permonth" id="pricePerMonth3">≈ 3 750 ₽ / мес.</div>
-        <div class="gc-widget">
-          <script id="007051fa695a6622d0b58be8ce87a73a55850e8b" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629611"></script>
-        </div>
+        <button onclick="openPayment('breakthrough')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
           <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
@@ -1648,8 +1653,44 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   </div>
 </footer>
 
+<!-- ============ МОДАЛЬНЫЕ ОКНА ОПЛАТЫ (GetCourse) ============ -->
+<div class="payment-modal" id="pm-start" onclick="if(event.target===this)closePayment('start')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" onclick="closePayment('start')">✕</button>
+    <script id="1c1c40acf1b7374c5d6f9da9ce74620260bc7cbc" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629607"></script>
+  </div>
+</div>
+<div class="payment-modal" id="pm-growth" onclick="if(event.target===this)closePayment('growth')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" onclick="closePayment('growth')">✕</button>
+    <script id="e49eb80ebb89a0414f33947a337ae6f36d5c75d7" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629608"></script>
+  </div>
+</div>
+<div class="payment-modal" id="pm-breakthrough" onclick="if(event.target===this)closePayment('breakthrough')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" onclick="closePayment('breakthrough')">✕</button>
+    <script id="007051fa695a6622d0b58be8ce87a73a55850e8b" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629611"></script>
+  </div>
+</div>
+
 <script>
 document.documentElement.classList.add('js-ready');
+
+/* ---------- Модалки оплаты GetCourse ---------- */
+function openPayment(type){
+  var modal = document.getElementById('pm-' + type);
+  if(!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePayment(type){
+  var modal = document.getElementById('pm-' + type);
+  if(modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ closePayment('start'); closePayment('growth'); closePayment('breakthrough'); }
+});
 
 /* ---------- Прогресс-бар скролла + шапка ---------- */
 const progressBar = document.getElementById('progressBar');
