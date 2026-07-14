@@ -1261,7 +1261,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <p>Проконсультироваться по вопросам обучения в клубе можно в Telegram или MAX.</p>
       </div>
       <div class="contact-buttons">
-        <a href="https://t.me/yakhontova_finance" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
+        <a href="https://telegram.me/yakhontova_finance" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
         <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
       </div>
     </div>
@@ -1477,7 +1477,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <p>Напишите мне — помогу во всём разобраться.</p>
       </div>
       <div class="contact-buttons">
-        <a href="https://t.me/yakhontova_finance" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
+        <a href="https://telegram.me/yakhontova_finance" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
         <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
       </div>
     </div>
@@ -1613,7 +1613,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <h2>Остались вопросы?</h2>
       <p>Напишите мне в личные сообщения — помогу разобраться, какой период участия в клубе вам выбрать, как эффективно проходить обучение, отвечу на все вопросы и помогу с оформлением.</p>
       <div class="contact-buttons">
-        <a href="https://t.me/yakhontova_finance" rel="noopener" class="btn btn-primary"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Написать в Telegram</a>
+        <a href="https://telegram.me/yakhontova_finance" rel="noopener" class="btn btn-primary"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Написать в Telegram</a>
         <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener" class="btn btn-outline"><img class="ic-img" src="max-logo.png" alt="MAX">Написать в MAX</a>
       </div>
     </div>
@@ -1644,7 +1644,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       </div>
       <div class="footer-col">
         <h5>Связаться</h5>
-        <a href="https://t.me/yakhontova_finance" rel="noopener">Telegram</a>
+        <a href="https://telegram.me/yakhontova_finance" rel="noopener">Telegram</a>
         <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener">MAX</a>
       </div>
     </div>
@@ -1690,19 +1690,52 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 <script>
 document.documentElement.classList.add('js-ready');
 
-/* ---------- Встраивание через iframe (Тильда): состояние видимой области ---------- */
-const inIframe = window.self !== window.top;
-var parentViewport = { top: 0, height: window.innerHeight };
-
-/* Элементы с position:fixed внутри растянутого по контенту iframe центрируются
-   не по видимой части окна, а по всей высоте iframe — позиционируем их вручную
-   через position:absolute + top, используя координаты от родительской страницы */
-function pinFixed(el, top, height){
-  if(!inIframe || !el) return;
-  el.style.position = 'absolute';
-  el.style.top = top + 'px';
-  if(height !== undefined) el.style.height = height + 'px';
+/* ---------- Прогресс-бар скролла + шапка + кнопка «наверх» ---------- */
+const progressBar = document.getElementById('progressBar');
+const header = document.getElementById('siteHeader');
+const backToTop = document.getElementById('backToTop');
+function onScroll(){
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progressBar.style.width = scrolled + '%';
+  header.classList.toggle('scrolled', h.scrollTop > 40);
+  backToTop.classList.toggle('visible', h.scrollTop > 600);
 }
+document.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ---------- Модалки оплаты GetCourse ---------- */
+function openPayment(type){
+  var modal = document.getElementById('pm-' + type);
+  if(!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePayment(type){
+  var modal = document.getElementById('pm-' + type);
+  if(modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ closePayment('start'); closePayment('growth'); closePayment('breakthrough'); }
+});
+
+/* ---------- Мобильное меню ---------- */
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+burgerBtn.addEventListener('click', ()=> mobileNav.classList.add('open'));
+mobileCloseBtn.addEventListener('click', ()=> mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> mobileNav.classList.remove('open')));
+
+/* ---------- Reveal on scroll ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+  });
+}, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+revealEls.forEach(el => io.observe(el));
 
 /* ---------- Счётчики чисел ---------- */
 function animateCounter(el){
@@ -1720,94 +1753,12 @@ function animateCounter(el){
   }
   requestAnimationFrame(tick);
 }
-const counterEls = Array.from(document.querySelectorAll('.counter'));
-const countersDone = new Set();
-function checkCounters(scrollTop, viewportHeight){
-  if(counterEls.length === countersDone.size) return;
-  counterEls.forEach(el => {
-    if(countersDone.has(el)) return;
-    const rect = el.getBoundingClientRect();
-    const elTop = inIframe ? rect.top : rect.top + window.scrollY;
-    if(elTop < scrollTop + viewportHeight * 0.92 && elTop + rect.height > scrollTop){
-      countersDone.add(el);
-      animateCounter(el);
-    }
-  });
-}
-
-const progressBar = document.getElementById('progressBar');
-const header = document.getElementById('siteHeader');
-const backToTop = document.getElementById('backToTop');
-
-function updateScrollUI(scrollTop, viewportHeight){
-  const docHeight = document.documentElement.scrollHeight;
-  const scrollable = Math.max(1, docHeight - viewportHeight);
-  const scrolled = Math.min(100, Math.max(0, (scrollTop / scrollable) * 100));
-  progressBar.style.width = scrolled + '%';
-  header.classList.toggle('scrolled', scrollTop > 40);
-  backToTop.classList.toggle('visible', scrollTop > 600);
-  pinFixed(progressBar, scrollTop);
-  pinFixed(header, scrollTop);
-  if(scrollTop > 600){
-    backToTop.style.position = inIframe ? 'absolute' : 'fixed';
-    if(inIframe) backToTop.style.top = (scrollTop + viewportHeight - 70) + 'px';
-  }
-  checkCounters(scrollTop, viewportHeight);
-}
-
-if(inIframe){
-  window.addEventListener('message', function(e){
-    if (e.data && e.data.type === 'yahont-viewport') {
-      parentViewport.top = e.data.top;
-      parentViewport.height = e.data.height;
-      updateScrollUI(e.data.top, e.data.height);
-    }
-  });
-  window.parent.postMessage({ type: 'yahont-ready' }, '*');
-} else {
-  function onScroll(){
-    updateScrollUI(document.documentElement.scrollTop, window.innerHeight);
-  }
-  document.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-}
-
-/* ---------- Модалки оплаты GetCourse ---------- */
-function openPayment(type){
-  var modal = document.getElementById('pm-' + type);
-  if(!modal) return;
-  pinFixed(modal, parentViewport.top, parentViewport.height);
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closePayment(type){
-  var modal = document.getElementById('pm-' + type);
-  if(modal) modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){ closePayment('start'); closePayment('growth'); closePayment('breakthrough'); }
-});
-
-/* ---------- Мобильное меню ---------- */
-const burgerBtn = document.getElementById('burgerBtn');
-const mobileNav = document.getElementById('mobileNav');
-const mobileCloseBtn = document.getElementById('mobileCloseBtn');
-burgerBtn.addEventListener('click', ()=>{
-  pinFixed(mobileNav, parentViewport.top, parentViewport.height);
-  mobileNav.classList.add('open');
-});
-mobileCloseBtn.addEventListener('click', ()=> mobileNav.classList.remove('open'));
-mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> mobileNav.classList.remove('open')));
-
-/* ---------- Reveal on scroll ---------- */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
+const counterIO = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    if(e.isIntersecting){ animateCounter(e.target); counterIO.unobserve(e.target); }
   });
-}, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
-revealEls.forEach(el => io.observe(el));
+}, {threshold:0.4});
+document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
 
 /* ---------- Табы аудитории ---------- */
 document.querySelectorAll('#audienceTabs .tab-btn').forEach(btn=>{
@@ -1914,31 +1865,6 @@ document.getElementById('reviewsNext').addEventListener('click', ()=> scroller.s
   }
   render();
   setInterval(render, 1000);
-})();
-
-/* ---------- Автовысота для встраивания через iframe (Тильда) ---------- */
-(function(){
-  if(!inIframe) return;
-  function sendHeight(){
-    window.parent.postMessage({ type: 'yahont-resize', height: document.documentElement.scrollHeight }, '*');
-  }
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
-  new ResizeObserver(sendHeight).observe(document.documentElement);
-  setTimeout(sendHeight, 500);
-
-  /* Раз iframe растянут по высоте контента, у него нет своего скролла —
-     переходы по якорям (#anchor) должны прокручивать окно Тильды, а не iframe */
-  document.addEventListener('click', function(e){
-    const a = e.target.closest('a[href^="#"]');
-    if(!a) return;
-    const id = a.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if(!target) return;
-    e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY;
-    window.parent.postMessage({ type: 'yahont-scrollto', top: top }, '*');
-  });
 })();
 </script>
 </body>
