@@ -113,6 +113,16 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 
 /* ============ ШАПКА ============ */
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));width:0%;z-index:1000;transition:width .1s linear}
+.back-to-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;z-index:800;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(120deg,var(--accent-light),var(--accent) 55%,var(--accent-dark));
+  box-shadow:0 10px 26px -6px rgba(181,34,47,.7);
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s ease, transform .3s ease, box-shadow .25s ease;
+}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+.back-to-top:hover{box-shadow:0 14px 32px -6px rgba(217,76,76,.8);transform:translateY(-3px)}
 .site-header{
   position:fixed;top:0;left:0;right:0;z-index:900;
   padding:22px 0;transition:padding .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
@@ -652,7 +662,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     <div class="hero-visual reveal reveal-delay-2">
       <div class="hero-portrait">
         <img src="Екатерина Яхонтова  фото Эксперта.png" alt="Екатерина Яхонтова">
-        <div class="hero-float-stat">1000+ специалистов</div>
+        <div class="hero-float-stat"><span class="counter" data-target="1000" data-suffix="+">0</span> специалистов</div>
         <div class="hero-float-card">
           <div class="name">Екатерина Яхонтова</div>
           <div class="role">Финансист с 18-летним опытом в финансах и экономике, основатель клуба финансового аутсорсинга, автор обучений, которые прошли 1000+ специалистов</div>
@@ -675,9 +685,9 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     </div>
 
     <div class="bento-grid reveal">
-      <div class="bento-card"><div class="bento-num">01</div><h4>8 обучающих курсов</h4><p>Которые прошли 1000+ человек, 97% получили сильный результат</p></div>
-      <div class="bento-card"><div class="bento-num">02</div><h4>250+ практических уроков</h4><p>С заданиями как в реальных проектах</p></div>
-      <div class="bento-card"><div class="bento-num">03</div><h4>300+ готовых инструментов</h4><p>Таблицы, шаблоны, ИИ-агенты, промты, скрипты и многое другое</p></div>
+      <div class="bento-card"><div class="bento-num">01</div><h4><span class="counter" data-target="8">0</span> обучающих курсов</h4><p>Которые прошли 1000+ человек, 97% получили сильный результат</p></div>
+      <div class="bento-card"><div class="bento-num">02</div><h4><span class="counter" data-target="250" data-suffix="+">0</span> практических уроков</h4><p>С заданиями как в реальных проектах</p></div>
+      <div class="bento-card"><div class="bento-num">03</div><h4><span class="counter" data-target="300" data-suffix="+">0</span> готовых инструментов</h4><p>Таблицы, шаблоны, ИИ-агенты, промты, скрипты и многое другое</p></div>
       <div class="bento-card"><div class="bento-num">04</div><h4>Индивидуальный трек обучения</h4><p>По итогам тестирования на входе в клуб</p></div>
       <div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы с приглашёнными экспертами</h4><p>Финучёт, HR, развитие соцсетей, финмодели, психология и др.</p></div>
       <div class="bento-card"><div class="bento-num">06</div><h4>Созвоны с Екатериной Яхонтовой</h4><p>4 раза в месяц по программам обучающих курсов</p></div>
@@ -897,9 +907,9 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <p>Каждый месяц вы получаете:</p>
       </div>
       <div class="stat-strip">
-        <div class="stat-tile"><div class="n">4</div><p>мастер-класса с приглашёнными экспертами</p></div>
-        <div class="stat-tile"><div class="n">4</div><p>встречи с Екатериной на курсах</p></div>
-        <div class="stat-tile"><div class="n">2</div><p>разбора с Екатериной на тарифах «Развитие» (3 мес.) и «Прорыв» (6 мес.)</p></div>
+        <div class="stat-tile"><div class="n"><span class="counter" data-target="4">0</span></div><p>мастер-класса с приглашёнными экспертами</p></div>
+        <div class="stat-tile"><div class="n"><span class="counter" data-target="4">0</span></div><p>встречи с Екатериной на курсах</p></div>
+        <div class="stat-tile"><div class="n"><span class="counter" data-target="2">0</span></div><p>разбора с Екатериной на тарифах «Развитие» (3 мес.) и «Прорыв» (6 мес.)</p></div>
       </div>
       <p class="schedule-note">График мероприятий вы получаете заранее, 1-го числа месяца. События проходят в одни и те же дни и время — легко внести их в расписание.</p>
     </div>
@@ -1251,8 +1261,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <p>Проконсультироваться по вопросам обучения в клубе можно в Telegram или MAX.</p>
       </div>
       <div class="contact-buttons">
-        <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
-        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
+        <a href="https://t.me/yakhontova_finance" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
       </div>
     </div>
   </div>
@@ -1467,8 +1477,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <p>Напишите мне — помогу во всём разобраться.</p>
       </div>
       <div class="contact-buttons">
-        <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
-        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
+        <a href="https://t.me/yakhontova_finance" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
       </div>
     </div>
   </div>
@@ -1513,9 +1523,9 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     <div class="founder-photo reveal">
       <img src="Екатерина Яхонтова  фото Эксперта.png" alt="Екатерина Яхонтова">
       <div class="founder-stats">
-        <div class="stat"><b>18 лет</b><span>в финансах и экономике</span></div>
-        <div class="stat"><b>1000+</b><span>обученных специалистов</span></div>
-        <div class="stat"><b>500 000 ₽+</b><span>доход на услугах финучёта</span></div>
+        <div class="stat"><b><span class="counter" data-target="18">0</span> лет</b><span>в финансах и экономике</span></div>
+        <div class="stat"><b><span class="counter" data-target="1000" data-suffix="+">0</span></b><span>обученных специалистов</span></div>
+        <div class="stat"><b><span class="counter" data-target="500000" data-suffix=" ₽+" data-thousands="true">0</span></b><span>доход на услугах финучёта</span></div>
       </div>
     </div>
     <div class="founder-text reveal">
@@ -1603,8 +1613,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <h2>Остались вопросы?</h2>
       <p>Напишите мне в личные сообщения — помогу разобраться, какой период участия в клубе вам выбрать, как эффективно проходить обучение, отвечу на все вопросы и помогу с оформлением.</p>
       <div class="contact-buttons">
-        <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener" class="btn btn-primary"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Написать в Telegram</a>
-        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_blank" rel="noopener" class="btn btn-outline"><img class="ic-img" src="max-logo.png" alt="MAX">Написать в MAX</a>
+        <a href="https://t.me/yakhontova_finance" rel="noopener" class="btn btn-primary"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Написать в Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener" class="btn btn-outline"><img class="ic-img" src="max-logo.png" alt="MAX">Написать в MAX</a>
       </div>
     </div>
   </div>
@@ -1634,8 +1644,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       </div>
       <div class="footer-col">
         <h5>Связаться</h5>
-        <a href="https://t.me/yakhontova_finance" target="_blank" rel="noopener">Telegram</a>
-        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_blank" rel="noopener">MAX</a>
+        <a href="https://t.me/yakhontova_finance" rel="noopener">Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" rel="noopener">MAX</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1652,6 +1662,10 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     </div>
   </div>
 </footer>
+
+<a href="#hero" class="back-to-top" id="backToTop" aria-label="Наверх">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
 
 <!-- ============ МОДАЛЬНЫЕ ОКНА ОПЛАТЫ (GetCourse) ============ -->
 <div class="payment-modal" id="pm-start" onclick="if(event.target===this)closePayment('start')">
@@ -1676,27 +1690,93 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 <script>
 document.documentElement.classList.add('js-ready');
 
-/* ---------- Модалки оплаты GetCourse ---------- */
+/* ---------- Встраивание через iframe (Тильда): состояние видимой области ---------- */
+const inIframe = window.self !== window.top;
 var parentViewport = { top: 0, height: window.innerHeight };
-if (window.self !== window.top) {
+
+/* Элементы с position:fixed внутри растянутого по контенту iframe центрируются
+   не по видимой части окна, а по всей высоте iframe — позиционируем их вручную
+   через position:absolute + top, используя координаты от родительской страницы */
+function pinFixed(el, top, height){
+  if(!inIframe || !el) return;
+  el.style.position = 'absolute';
+  el.style.top = top + 'px';
+  if(height !== undefined) el.style.height = height + 'px';
+}
+
+/* ---------- Счётчики чисел ---------- */
+function animateCounter(el){
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const thousands = el.dataset.thousands === 'true';
+  const duration = 1400;
+  const start = performance.now();
+  function fmt(n){ return thousands ? Math.round(n).toLocaleString('ru-RU') : Math.round(n); }
+  function tick(now){
+    const p = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt(target * eased) + suffix;
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const counterEls = Array.from(document.querySelectorAll('.counter'));
+const countersDone = new Set();
+function checkCounters(scrollTop, viewportHeight){
+  if(counterEls.length === countersDone.size) return;
+  counterEls.forEach(el => {
+    if(countersDone.has(el)) return;
+    const rect = el.getBoundingClientRect();
+    const elTop = inIframe ? rect.top : rect.top + window.scrollY;
+    if(elTop < scrollTop + viewportHeight * 0.92 && elTop + rect.height > scrollTop){
+      countersDone.add(el);
+      animateCounter(el);
+    }
+  });
+}
+
+const progressBar = document.getElementById('progressBar');
+const header = document.getElementById('siteHeader');
+const backToTop = document.getElementById('backToTop');
+
+function updateScrollUI(scrollTop, viewportHeight){
+  const docHeight = document.documentElement.scrollHeight;
+  const scrollable = Math.max(1, docHeight - viewportHeight);
+  const scrolled = Math.min(100, Math.max(0, (scrollTop / scrollable) * 100));
+  progressBar.style.width = scrolled + '%';
+  header.classList.toggle('scrolled', scrollTop > 40);
+  backToTop.classList.toggle('visible', scrollTop > 600);
+  pinFixed(progressBar, scrollTop);
+  pinFixed(header, scrollTop);
+  if(scrollTop > 600){
+    backToTop.style.position = inIframe ? 'absolute' : 'fixed';
+    if(inIframe) backToTop.style.top = (scrollTop + viewportHeight - 70) + 'px';
+  }
+  checkCounters(scrollTop, viewportHeight);
+}
+
+if(inIframe){
   window.addEventListener('message', function(e){
     if (e.data && e.data.type === 'yahont-viewport') {
       parentViewport.top = e.data.top;
       parentViewport.height = e.data.height;
+      updateScrollUI(e.data.top, e.data.height);
     }
   });
   window.parent.postMessage({ type: 'yahont-ready' }, '*');
+} else {
+  function onScroll(){
+    updateScrollUI(document.documentElement.scrollTop, window.innerHeight);
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 }
+
+/* ---------- Модалки оплаты GetCourse ---------- */
 function openPayment(type){
   var modal = document.getElementById('pm-' + type);
   if(!modal) return;
-  if (window.self !== window.top) {
-    /* iframe растянут по высоте контента, поэтому position:fixed центрируется
-       не по видимой части окна, а по всей высоте iframe — позиционируем вручную */
-    modal.style.position = 'absolute';
-    modal.style.top = parentViewport.top + 'px';
-    modal.style.height = parentViewport.height + 'px';
-  }
+  pinFixed(modal, parentViewport.top, parentViewport.height);
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1709,23 +1789,14 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape'){ closePayment('start'); closePayment('growth'); closePayment('breakthrough'); }
 });
 
-/* ---------- Прогресс-бар скролла + шапка ---------- */
-const progressBar = document.getElementById('progressBar');
-const header = document.getElementById('siteHeader');
-function onScroll(){
-  const h = document.documentElement;
-  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-  progressBar.style.width = scrolled + '%';
-  header.classList.toggle('scrolled', h.scrollTop > 40);
-}
-document.addEventListener('scroll', onScroll, {passive:true});
-onScroll();
-
 /* ---------- Мобильное меню ---------- */
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileNav = document.getElementById('mobileNav');
 const mobileCloseBtn = document.getElementById('mobileCloseBtn');
-burgerBtn.addEventListener('click', ()=> mobileNav.classList.add('open'));
+burgerBtn.addEventListener('click', ()=>{
+  pinFixed(mobileNav, parentViewport.top, parentViewport.height);
+  mobileNav.classList.add('open');
+});
 mobileCloseBtn.addEventListener('click', ()=> mobileNav.classList.remove('open'));
 mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> mobileNav.classList.remove('open')));
 
@@ -1847,7 +1918,7 @@ document.getElementById('reviewsNext').addEventListener('click', ()=> scroller.s
 
 /* ---------- Автовысота для встраивания через iframe (Тильда) ---------- */
 (function(){
-  if(window.self === window.top) return;
+  if(!inIframe) return;
   function sendHeight(){
     window.parent.postMessage({ type: 'yahont-resize', height: document.documentElement.scrollHeight }, '*');
   }
