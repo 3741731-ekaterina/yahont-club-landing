@@ -1677,9 +1677,26 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 document.documentElement.classList.add('js-ready');
 
 /* ---------- Модалки оплаты GetCourse ---------- */
+var parentViewport = { top: 0, height: window.innerHeight };
+if (window.self !== window.top) {
+  window.addEventListener('message', function(e){
+    if (e.data && e.data.type === 'yahont-viewport') {
+      parentViewport.top = e.data.top;
+      parentViewport.height = e.data.height;
+    }
+  });
+  window.parent.postMessage({ type: 'yahont-ready' }, '*');
+}
 function openPayment(type){
   var modal = document.getElementById('pm-' + type);
   if(!modal) return;
+  if (window.self !== window.top) {
+    /* iframe растянут по высоте контента, поэтому position:fixed центрируется
+       не по видимой части окна, а по всей высоте iframe — позиционируем вручную */
+    modal.style.position = 'absolute';
+    modal.style.top = parentViewport.top + 'px';
+    modal.style.height = parentViewport.height + 'px';
+  }
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }

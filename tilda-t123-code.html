@@ -1,13 +1,27 @@
 <iframe id="yahontFrame" src="https://klub-nine.vercel.app/" style="width:100%;height:100vh;border:none;display:block;"></iframe>
 <script>
+var yahontFrame = document.getElementById('yahontFrame');
+
+function yahontSendViewport(){
+  var frameTop = yahontFrame.getBoundingClientRect().top + window.scrollY;
+  var visibleTop = Math.max(0, window.scrollY - frameTop);
+  yahontFrame.contentWindow.postMessage({ type: 'yahont-viewport', top: visibleTop, height: window.innerHeight }, '*');
+}
+window.addEventListener('scroll', yahontSendViewport, { passive: true });
+window.addEventListener('resize', yahontSendViewport);
+window.addEventListener('load', yahontSendViewport);
+
 window.addEventListener('message', function(e){
-  var frame = document.getElementById('yahontFrame');
   if (e.data && e.data.type === 'yahont-resize') {
-    frame.style.height = e.data.height + 'px';
+    yahontFrame.style.height = e.data.height + 'px';
+    yahontSendViewport();
   }
   if (e.data && e.data.type === 'yahont-scrollto') {
-    var frameTop = frame.getBoundingClientRect().top + window.scrollY;
+    var frameTop = yahontFrame.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({ top: frameTop + e.data.top, behavior: 'smooth' });
+  }
+  if (e.data && e.data.type === 'yahont-ready') {
+    yahontSendViewport();
   }
 });
 </script>
