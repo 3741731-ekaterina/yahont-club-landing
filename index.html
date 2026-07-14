@@ -1838,6 +1838,19 @@ document.getElementById('reviewsNext').addEventListener('click', ()=> scroller.s
   window.addEventListener('resize', sendHeight);
   new ResizeObserver(sendHeight).observe(document.documentElement);
   setTimeout(sendHeight, 500);
+
+  /* Раз iframe растянут по высоте контента, у него нет своего скролла —
+     переходы по якорям (#anchor) должны прокручивать окно Тильды, а не iframe */
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if(!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY;
+    window.parent.postMessage({ type: 'yahont-scrollto', top: top }, '*');
+  });
 })();
 </script>
 </body>
