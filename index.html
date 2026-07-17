@@ -1361,23 +1361,12 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <h2 class="section-title">Выберите период вступления</h2>
     </div>
 
-    <div class="countdown-box reveal" id="countdownBox">
-      <span class="cd-label" id="cdLabel">Цена вырастет через:</span>
-      <div class="countdown-timer" id="countdownTimer">
-        <div class="unit"><b id="cdD">00</b><span>дн</span></div>
-        <div class="unit"><b id="cdH">00</b><span>ч</span></div>
-        <div class="unit"><b id="cdM">00</b><span>мин</span></div>
-        <div class="unit"><b id="cdS">00</b><span>сек</span></div>
-      </div>
-    </div>
-
     <div class="pricing-grid reveal">
       <!-- СТАРТ -->
       <div class="price-card">
         <h3>Старт</h3>
         <div class="period">Доступ к клубу на 1 месяц</div>
-        <div class="price-old" id="priceOld1">5 000 ₽</div>
-        <div class="price-now"><span class="val" id="priceNow1">4 000</span><span class="cur">₽ / мес.</span></div>
+        <div class="price-now"><span class="val">5 000</span><span class="cur">₽ / мес.</span></div>
         <div class="price-permonth">&nbsp;</div>
         <button onclick="openPayment('start')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
@@ -1394,9 +1383,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-badge">Популярный выбор</div>
         <h3>Развитие</h3>
         <div class="period">Доступ к клубу на 3 месяца</div>
-        <div class="price-old" id="priceOld2">13 500 ₽</div>
-        <div class="price-now"><span class="val" id="priceNow2">11 500</span><span class="cur">₽ / 3 мес.</span></div>
-        <div class="price-permonth" id="pricePerMonth2">≈ 3 833 ₽ / мес.</div>
+        <div class="price-now"><span class="val">13 500</span><span class="cur">₽ / 3 мес.</span></div>
+        <div class="price-permonth">≈ 4 500 ₽ / мес.</div>
         <button onclick="openPayment('growth')" class="btn btn-primary btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
@@ -1420,9 +1408,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="price-badge">Максимальная выгода</div>
         <h3>Прорыв</h3>
         <div class="period">Доступ к клубу на 6 месяцев</div>
-        <div class="price-old" id="priceOld3">25 500 ₽</div>
-        <div class="price-now"><span class="val" id="priceNow3">22 500</span><span class="cur">₽ / 6 мес.</span></div>
-        <div class="price-permonth" id="pricePerMonth3">≈ 3 750 ₽ / мес.</div>
+        <div class="price-now"><span class="val">24 000</span><span class="cur">₽ / 6 мес.</span></div>
+        <div class="price-permonth">≈ 4 000 ₽ / мес.</div>
         <button onclick="openPayment('breakthrough')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
@@ -1811,61 +1798,6 @@ const scroller = document.getElementById('reviewsScroller');
 document.getElementById('reviewsPrev').addEventListener('click', ()=> scroller.scrollBy({left:-320, behavior:'smooth'}));
 document.getElementById('reviewsNext').addEventListener('click', ()=> scroller.scrollBy({left:320, behavior:'smooth'}));
 
-/* ---------- Таймер и динамическая цена ---------- */
-(function(){
-  const deadline1 = new Date('2026-07-15T18:00:00+03:00');
-  const deadline2 = new Date('2026-07-18T12:00:00+03:00');
-  const tiers = [
-    { start:4000,  dev:11500, brk:22500 }, // до deadline1
-    { start:4500,  dev:12500, brk:24000 }, // до deadline2
-    { start:5000,  dev:13500, brk:25500 }  // финальная цена
-  ];
-  const fmt = n => n.toLocaleString('ru-RU');
-
-  function currentTierIndex(now){
-    if(now < deadline1) return 0;
-    if(now < deadline2) return 1;
-    return 2;
-  }
-
-  function render(){
-    const now = new Date();
-    const idx = currentTierIndex(now);
-    const tier = tiers[idx];
-    const finalTier = tiers[2];
-
-    document.getElementById('priceNow1').textContent = fmt(tier.start);
-    document.getElementById('priceNow2').textContent = fmt(tier.dev);
-    document.getElementById('priceNow3').textContent = fmt(tier.brk);
-
-    document.getElementById('pricePerMonth2').textContent = '≈ ' + fmt(Math.round(tier.dev/3)) + ' ₽ / мес.';
-    document.getElementById('pricePerMonth3').textContent = '≈ ' + fmt(Math.round(tier.brk/6)) + ' ₽ / мес.';
-
-    const oldEls = [document.getElementById('priceOld1'), document.getElementById('priceOld2'), document.getElementById('priceOld3')];
-    if(idx === 2){
-      oldEls.forEach(el => el.style.display = 'none');
-      document.getElementById('countdownBox').style.display = 'none';
-    } else {
-      document.getElementById('priceOld1').textContent = fmt(finalTier.start) + ' ₽';
-      document.getElementById('priceOld2').textContent = fmt(finalTier.dev) + ' ₽';
-      document.getElementById('priceOld3').textContent = fmt(finalTier.brk) + ' ₽';
-
-      const target = idx === 0 ? deadline1 : deadline2;
-      const diff = Math.max(0, target - now);
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cdD').textContent = String(d).padStart(2,'0');
-      document.getElementById('cdH').textContent = String(h).padStart(2,'0');
-      document.getElementById('cdM').textContent = String(m).padStart(2,'0');
-      document.getElementById('cdS').textContent = String(s).padStart(2,'0');
-      document.getElementById('cdLabel').textContent = 'Цена вырастет через (по московскому времени):';
-    }
-  }
-  render();
-  setInterval(render, 1000);
-})();
 </script>
 </body>
 </html>
