@@ -310,7 +310,7 @@ section[id]{scroll-margin-top:96px}
 /* ============ КУРСЫ ============ */
 .founder-quote{
   display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:flex-start;background:linear-gradient(160deg, rgba(181,34,47,.14), rgba(217,123,63,.05));
-  border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:40px 44px;margin-bottom:60px;
+  border:1px solid rgba(217,123,63,.4);border-radius:var(--radius-lg);padding:40px 44px;margin-bottom:60px;
 }
 .founder-quote img{width:74px;height:74px;border-radius:50%;object-fit:cover;border:2px solid var(--accent2)}
 .founder-quote blockquote{font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.55;margin-bottom:14px}
@@ -509,7 +509,7 @@ section[id]{scroll-margin-top:96px}
 }
 
 /* ============ БАЗА ИНСТРУМЕНТОВ ============ */
-.tools-section{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.tools-section{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .tools-video{position:relative}
 .tools-video video{width:100%;border-radius:var(--radius-lg);border:1px solid var(--border-soft);display:block}
 .tools-video::before{
@@ -854,7 +854,10 @@ section[id]{scroll-margin-top:96px}
       </div>
     </div>
 
-    <div class="course-all-cta reveal"><a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+    <div class="course-all-cta reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+      <a href="https://drive.google.com/file/d/1BxZL5mUaBXJkWqeSZk_xqA9nOqRhZdu_/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline btn-wrap-mobile">Пример стратегии</a>
+    </div>
   </div>
 </section>
 
