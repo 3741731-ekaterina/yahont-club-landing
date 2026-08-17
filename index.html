@@ -128,6 +128,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   padding:22px 0;transition:padding .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
   border-bottom:1px solid transparent;
 }
+section[id]{scroll-margin-top:96px}
 .site-header.scrolled{
   padding:13px 0;background:rgba(18,11,11,.86);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border-soft);box-shadow:0 10px 30px rgba(0,0,0,.35);
@@ -220,10 +221,12 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 .club-value-hero b{color:var(--accent2);font-family:var(--font-display);font-weight:700}
 
 .bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.bento-grid-3{grid-template-columns:repeat(3,1fr)}
 .bento-card{
   position:relative;background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-md);
   padding:26px 22px 22px;overflow:hidden;
 }
+.bento-card .btn-sm{margin-top:14px}
 .bento-num{
   width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
   background:rgba(217,123,63,.12);color:var(--accent2);font-weight:800;font-size:14px;margin-bottom:16px;
@@ -260,6 +263,8 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 
 /* ============ ПУТЬ В КЛУБЕ / ЭТАПЫ ============ */
 .steps-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:56px}
+.steps-row-4{grid-template-columns:repeat(4,1fr)}
+.steps-row-3{grid-template-columns:repeat(3,1fr)}
 .step-card{
   background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:26px 20px;
   position:relative;transition:transform .3s ease, border-color .3s ease;
@@ -503,6 +508,14 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   font-family:var(--font-display);font-style:italic;font-size:16.5px;line-height:1.6;
 }
 
+/* ============ БАЗА ИНСТРУМЕНТОВ ============ */
+.tools-section{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.tools-video{position:relative}
+.tools-video video{width:100%;border-radius:var(--radius-lg);border:1px solid var(--border-soft);display:block}
+.tools-video::before{
+  content:"";position:absolute;inset:-24px;background:radial-gradient(circle at 70% 20%, rgba(181,34,47,.28), transparent 60%);z-index:-1;filter:blur(20px);
+}
+
 /* ============ FAQ ============ */
 .faq-list{max-width:820px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--border-soft)}
@@ -547,10 +560,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   .hero-float-card{max-width:340px;margin:16px auto 0}
   .steps-row{grid-template-columns:repeat(3,1fr)}
   .founder-section{grid-template-columns:1fr}
+  .tools-section{grid-template-columns:1fr}
+  .tools-video{order:-1}
   .benefit-banner{grid-template-columns:1fr}
 }
 @media (max-width:900px){
   .main-nav{display:none}
+  .header-ask-btn{display:none}
   .burger{display:flex}
   .audience-card{grid-template-columns:1fr}
   .track-panel.active{grid-template-columns:1fr}
@@ -562,6 +578,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 }
 @media (max-width:680px){
   .section{padding:74px 0}
+  .btn-wrap-mobile{white-space:normal;text-align:center;line-height:1.3;max-width:100%}
   .bento-grid{grid-template-columns:repeat(2,1fr)}
   .courses-grid{grid-template-columns:repeat(2,1fr)}
   .steps-row{grid-template-columns:1fr}
@@ -620,13 +637,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     </a>
     <nav class="main-nav">
       <a href="#club">Что входит</a>
-      <a href="#how-it-works">Как обучаться</a>
-      <a href="#courses">8 курсов в 1 клубе</a>
-      <a href="#pricing">Цены и тарифы</a>
-      <a href="#reviews">Отзывы</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#how-it-works">Ваш путь в клубе</a>
+      <a href="#courses">Курсы и инструменты</a>
+      <a href="#pricing">Цены и тариф</a>
+      <a href="#reviews">Результаты участников</a>
     </nav>
     <div class="header-actions">
+      <a href="#contacts" class="btn btn-outline btn-sm header-ask-btn">Задать вопрос</a>
       <a href="#pricing" class="btn btn-primary btn-sm">Вступить в клуб</a>
       <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
@@ -636,11 +653,11 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" id="mobileCloseBtn" aria-label="Закрыть"><svg width="26" height="26"><use href="#ic-close"/></svg></button>
   <a href="#club">Что входит</a>
-  <a href="#how-it-works">Как обучаться</a>
-  <a href="#courses">8 курсов в 1 клубе</a>
-  <a href="#pricing">Цены и тарифы</a>
-  <a href="#reviews">Отзывы</a>
-  <a href="#contacts">Контакты</a>
+  <a href="#how-it-works">Ваш путь в клубе</a>
+  <a href="#courses">Курсы и инструменты</a>
+  <a href="#pricing">Цены и тариф</a>
+  <a href="#reviews">Результаты участников</a>
+  <a href="#contacts" class="btn btn-outline">Задать вопрос</a>
   <a href="#pricing" class="btn btn-primary">Вступить в клуб</a>
 </div>
 
@@ -650,13 +667,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
     <div class="reveal">
       <div class="eyebrow">Образовательный клуб финансового аутсорсинга</div>
       <h1>Клуб <span class="grad-text">ЯХ<span class="brand-o">О<img class="gem-charm" src="Камень Яхонт мини (фон удален).png" alt=""></span>НТ</span></h1>
-      <p class="lead">Профессиональная среда, где вы построите карьеру финансиста частной практики через готовые решения, индивидуальный трек развития, систему обучения и поддержку для роста.</p>
+      <p class="lead">Профессиональная среда, где вы строите карьеру финансиста частной практики через индивидуальную стратегию, исчерпывающий набор курсов и инструментов, окружение коллег и поддержку для роста.</p>
       <div class="hero-badge-frame">
-        Результат — <b>твёрдые навыки учёта</b>, востребованные услуги, стабильный поток клиентов, применение ИИ и автоматизации для высокой эффективности работы.
+        Это не очередной курс и не подписка для «галочки». Ваш результат — сильные услуги финучёта, система привлечения клиентов, конкурентоспособность на рынке, растущий доход и управляемая нагрузка — без откатов, стресса и постоянного поиска следующего шага.
       </div>
       <div class="hero-cta">
         <a href="#pricing" class="btn btn-primary">Вступить в клуб <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
-        <a href="#how-it-works" class="btn btn-outline">Что входит?</a>
+        <a href="#club" class="btn btn-outline">Что входит?</a>
       </div>
     </div>
     <div class="hero-visual reveal reveal-delay-2">
@@ -673,31 +690,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   <div class="scroll-cue"><span>Листайте</span><span class="dot"></span></div>
 </section>
 
-<!-- ============ БЛОК 2. ЧТО ТАКОЕ КЛУБ ============ -->
-<section class="section" id="club">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow" style="justify-content:center"><span></span>Что входит</div>
-      <h2 class="section-title">Что такое клуб финансового аутсорсинга «Яхонт»?</h2>
-    </div>
-    <div class="club-value club-value-hero reveal">
-      <p>Это место, где за <b>5000 ₽</b> в месяц вы получаете то, что на рынке стоит <b>сотни тысяч рублей</b>.</p>
-    </div>
-
-    <div class="bento-grid reveal">
-      <div class="bento-card"><div class="bento-num">01</div><h4><span class="counter" data-target="8">0</span> обучающих курсов</h4><p>Которые прошли 1000+ человек, 97% получили сильный результат</p></div>
-      <div class="bento-card"><div class="bento-num">02</div><h4><span class="counter" data-target="250" data-suffix="+">0</span> практических уроков</h4><p>С заданиями как в реальных проектах</p></div>
-      <div class="bento-card"><div class="bento-num">03</div><h4><span class="counter" data-target="300" data-suffix="+">0</span> готовых инструментов</h4><p>Таблицы, шаблоны, ИИ-агенты, промты, скрипты и многое другое</p></div>
-      <div class="bento-card"><div class="bento-num">04</div><h4>Индивидуальный трек обучения</h4><p>По итогам тестирования на входе в клуб</p></div>
-      <div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы с приглашёнными экспертами</h4><p>Финучёт, HR, развитие соцсетей, финмодели, психология и др.</p></div>
-      <div class="bento-card"><div class="bento-num">06</div><h4>Созвоны с Екатериной Яхонтовой</h4><p>4 раза в месяц по программам обучающих курсов</p></div>
-      <div class="bento-card"><div class="bento-num">07</div><h4>Чат вакансий</h4><p>Регулярно пополняется, чтобы вы не тратили время на самостоятельные поиски</p></div>
-      <div class="bento-card"><div class="bento-num">08</div><h4>Сообщество без конкуренции</h4><p>Поддерживающее окружение коллег, обмен опытом и взгляд со стороны на вашу ситуацию</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ БЛОК 3. АУДИТОРИЯ ============ -->
+<!-- ============ БЛОК 2. АУДИТОРИЯ ============ -->
 <section class="section" id="audience" style="background:var(--bg-alt)">
   <div class="container">
     <div class="section-head reveal">
@@ -805,20 +798,83 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   </div>
 </section>
 
+<!-- ============ БЛОК 3. ЧТО ТАКОЕ КЛУБ ============ -->
+<section class="section" id="club">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Что входит</div>
+      <h2 class="section-title">Что такое клуб финансового аутсорсинга «Яхонт»?</h2>
+    </div>
+    <div class="club-value club-value-hero reveal">
+      <p>Это место, где за <b>5000 ₽</b> в месяц вы получаете то, что на рынке стоит <b>сотни тысяч рублей</b>.</p>
+    </div>
+
+    <div class="bento-grid bento-grid-3 reveal">
+      <div class="bento-card"><div class="bento-num">01</div><h4>Индивидуальная стратегия</h4><p>Которую я лично составляю под вас. После вступления в клуб вы заполняете анкету и в течение 72 часов получаете дорожную карту на 1 год, разбитую по этапам и действиям.</p></div>
+      <div class="bento-card"><div class="bento-num">02</div><h4>8 обучающих курсов + трек изучения</h4><p>Финансовый учёт на таблицах и сервисах, финмодели, привлечение клиентов, нейросети. Все курсы открываются сразу после оплаты и теста на ваши навыки.</p><a href="#courses" class="btn btn-outline btn-sm">Изучить курсы</a></div>
+      <div class="bento-card"><div class="bento-num">03</div><h4>База инструментов</h4><p>Шаблоны, калькуляторы, сервисы, примеры и инструкции клуба. 100+ инструментов, база пополняется каждый месяц. Удобный поиск и навигация.</p><a href="#tools" class="btn btn-outline btn-sm">Изучить базу инструментов</a></div>
+      <div class="bento-card"><div class="bento-num">04</div><h4>Сообщество и канал в Телеграм</h4><p>В сообществе — поддерживающее окружение коллег, обмен опытом и взгляд со стороны на вашу ситуацию. Есть надёжное плечо рядом, можете попросить помощь и вам никто не откажет. На канале — эксклюзивные материалы, изнанка моих проектов, разборы кейсов.</p></div>
+      <div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы с приглашёнными экспертами</h4><p>Финучёт, HR, развитие соцсетей, финмодели, психология и др. При вступлении в клуб вам доступны записи всех мастер-классов. Расписание известно заранее.</p></div>
+      <div class="bento-card"><div class="bento-num">06</div><h4>Групповые разборы</h4><p>Задача участника — сформулировать запрос. Моя задача — дать подробный план действий на ближайшие 2–3 недели. Даже если разбирают не вас, вы выходите с готовым планом действий для себя.</p></div>
+      <div class="bento-card"><div class="bento-num">07</div><h4>Ветка вакансий</h4><p>Регулярно пополняется, чтобы вы не тратили время на самостоятельные поиски.</p></div>
+      <div class="bento-card"><div class="bento-num">08</div><h4>7 ИИ-агентов</h4><p>Наставник финансистов, финансовый аналитик, юрист, РОП, копирайтер, упаковщик кейсов, методолог проектов по финучёту. То, что сэкономит вам сотни часов и избавит от операционки.</p></div>
+      <div class="bento-card"><div class="bento-num">09</div><h4>«Точка роста» каждый месяц</h4><p>Каждый месяц мы посвящаем прокачке конкретных навыков: составление резюме, поиск клиентов, продажи, финанализ и др. Моя задача — дать вам задание и проверить ваши результаты. Ваша задача — это задание выполнить.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 3.1 ИНДИВИДУАЛЬНАЯ КАРЬЕРНАЯ СТРАТЕГИЯ ============ -->
+<section class="section" id="strategy" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Индивидуальная карьерная стратегия</div>
+      <h2 class="section-title">Инструмент, который превращает подписку на клуб в стабильный профессиональный рост</h2>
+      <p class="section-sub">С конкретными целями и измеримыми результатами на год</p>
+    </div>
+
+    <div class="module-grid reveal" style="grid-template-columns:repeat(2,1fr)">
+      <div class="module-item">
+        <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Формат</span></div>
+        <p class="m-result">Подробная PDF-дорожная карта с этапами, заданиями и перечнем необходимых инструментов. Всё индивидуально — под вашу точку А и точку Б, куда вы реально можете прийти через год.</p>
+      </div>
+      <div class="module-item">
+        <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Как составляется стратегия</span></div>
+        <p class="m-result">Последние 3 года я регулярно проводила групповые разборы и индивидуальные стратегические консультации. Весь свой опыт, компетенции, навыки и методологию я упаковала в готовый алгоритм по составлению стратегии. Ваша задача — заполнить анкету. Моя задача — предоставить необходимые вводные, а затем лично составить и скорректировать вашу стратегию, чтобы она была точной и работала именно на вас.</p>
+      </div>
+    </div>
+
+    <div class="subblock reveal">
+      <div class="subblock-head">
+        <h3>Как получить вашу персональную стратегию на год</h3>
+      </div>
+      <div class="steps-row steps-row-3">
+        <div class="step-card"><div class="num">01</div><h4>Вступить в клуб</h4></div>
+        <div class="step-card"><div class="num">02</div><h4>Заполнить анкету</h4><p>Подробно на обучающей платформе</p></div>
+        <div class="step-card"><div class="num">03</div><h4>Получить стратегию</h4><p>В течение 72 часов</p></div>
+      </div>
+    </div>
+
+    <div class="course-all-cta reveal"><a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+  </div>
+</section>
+
 <!-- ============ БЛОК 4. КАК ПРОХОДИТ ОБУЧЕНИЕ ============ -->
 <section class="section" id="how-it-works">
   <div class="container">
     <div class="section-head reveal">
-      <div class="eyebrow" style="justify-content:center"><span></span>Как обучаться</div>
+      <div class="eyebrow" style="justify-content:center"><span></span>Вы оплатили подписку, что дальше?</div>
       <h2 class="section-title">Ваш путь в клубе</h2>
     </div>
 
-    <div class="steps-row reveal">
-      <div class="step-card"><div class="num">01</div><h4>Вступить в клуб</h4><p>Выбор периода — 1, 3 или 6 месяцев — и оплата. Чем больше срок, тем выгоднее условия.</p></div>
-      <div class="step-card"><div class="num">02</div><h4>Доступ к боту, каналу и сообществу</h4><p>Бот с напоминаниями, информационный канал и закрытое сообщество в Telegram.</p></div>
-      <div class="step-card"><div class="num">03</div><h4>Тестирование и трек</h4><p>После оплаты вы проходите тестирование навыков и попадаете на 1 из 3 треков обучения.</p></div>
-      <div class="step-card"><div class="num">04</div><h4>Обучение по треку</h4><p>Курсы открываются последовательно, согласно вашему уровню — без хаоса и расфокуса.</p></div>
-      <div class="step-card"><div class="num">05</div><h4>Мастер-классы и разборы</h4><p>Регулярные эфиры с экспертами и живые встречи с Екатериной каждый месяц.</p></div>
+    <div class="steps-row steps-row-4 reveal">
+      <div class="step-card"><div class="num">01</div><h4>Доступы к ресурсам клуба</h4><p>Инструкция по доступам придёт на почту и Телеграм. Задача — вступить в Телеграм-бот, информационный канал и закрытое сообщество в Telegram. Перейти в личный кабинет на обучающей платформе, открыть тренинг Клуб Яхонт.</p></div>
+      <div class="step-card"><div class="num">02</div><h4>Трек обучения</h4><p>Пройти тестирование на проф. навыки, по итогам которого получите рекомендованный порядок прохождения курсов. Доступ ко всем курсам и базе инструментов откроется сразу после теста.</p></div>
+      <div class="step-card"><div class="num">03</div><h4>Индивидуальная стратегия на год</h4><p>Заполнить анкету и в течение 72 часов получить от меня дорожную карту развития в финансовом аутсорсинге на 1 год — по этапам и конкретным действиям.</p></div>
+      <div class="step-card"><div class="num">04</div><h4>Режим обучения и дисциплина</h4><p>Выделить в вашем графике 4–5 часов в неделю работе по годовой стратегии — освоить инструменты, получить навыки на курсах, выполнить задачи по привлечению клиентов, внедрить ИИ в работу и т.д. Оптимально — 40 минут в день.</p></div>
+      <div class="step-card"><div class="num">05</div><h4>Участие в сообществе</h4><p>В сообществе (телеграм-группе) вы задаёте любые вопросы мне и коллегам и оперативно получаете обратную связь. Я лично даю обратную связь. У вас есть надёжное плечо рядом и понимание, что вам не откажут в помощи.</p></div>
+      <div class="step-card"><div class="num">06</div><h4>Мастер-классы и созвоны</h4><p>Каждый вторник в 12 мск — тематический мастер-класс, каждый четверг — созвон по инструментам финучёта или ИИ. Расписание на месяц известно заранее, не получается прийти — посмотрите в записи.</p></div>
+      <div class="step-card"><div class="num">07</div><h4>Групповые разборы ваших запросов</h4><p>Формат работы, где на встрече я выбираю 3–5 человек. Задача участника — сформулировать запрос. Моя задача — дать подробный план действий на ближайшие 2–3 недели. 2 раза в месяц для тарифов «Развитие» и «Прорыв».</p></div>
+      <div class="step-card"><div class="num">08</div><h4>Участие в челленджах и марафонах</h4><p>Цель — получить навык или освоить инструмент, который ускорит ваш профессиональный рост. Пример: марафон привлечения клиентов, неделя применения ИИ, задание на упаковку услуг, разборы резюме.</p></div>
     </div>
 
     <!-- Этап 2 подробно -->
@@ -1232,38 +1288,31 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   </div>
 </section>
 
-<!-- ============ БЛОК 6. ЧТО ВАЖНО ЗНАТЬ О КУРСАХ ============ -->
-<section class="section" style="padding-top:70px">
-  <div class="container">
-    <div class="section-head left reveal" style="max-width:640px">
-      <h2 class="section-title" style="font-size:30px">Что важно знать о курсах?</h2>
+<!-- ============ БЛОК 6. БАЗА ИНСТРУМЕНТОВ ============ -->
+<section class="section" id="tools" style="padding-top:70px">
+  <div class="container tools-section">
+    <div class="tools-text reveal">
+      <div class="eyebrow">База инструментов</div>
+      <h2 class="section-title" style="text-align:left">База инструментов финансиста</h2>
+      <p class="section-sub" style="text-align:left;margin:0 0 22px">Удобная платформа, где в одном месте собраны все основные инструменты, которые есть в клубе и которые потребуются вам для работы и построения карьеры.</p>
+      <ul class="check-list gain">
+        <li><svg><use href="#ic-check"/></svg>Более 80 инструментов</li>
+        <li><svg><use href="#ic-check"/></svg>Разбивка по категориям</li>
+        <li><svg><use href="#ic-check"/></svg>Удобная поисковая система</li>
+        <li><svg><use href="#ic-check"/></svg>К каждому инструменту — подробный урок по его применению</li>
+      </ul>
+
+      <div class="founder-quote reveal" style="margin-top:30px;padding:30px 32px">
+        <img src="Для круглешка.png" alt="Екатерина Яхонтова">
+        <div>
+          <blockquote>«Когда у вас десятки инструментов, но все они разбросаны по урокам, и вы не понимаете, что где находится — с вероятностью 99% вы не используете ни одного инструмента. А если что-то понадобится, потратите полдня на поиски. База инструментов — ваша возможность быстро и просто забрать тот инструмент, который нужен для решения рабочей задачи здесь и сейчас, изучить полный урок, как и зачем его применять. Результат — сэкономленное время и использование мощностей клуба на 100%».</blockquote>
+        </div>
+      </div>
+
+      <div class="course-all-cta reveal" style="text-align:left;margin-top:26px"><a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить базу инструментов <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
     </div>
-    <div class="rules-grid reveal">
-      <div class="rule-card">
-        <div class="ic"><svg><use href="#ic-check"/></svg></div>
-        <h4>Результат требует включённости</h4>
-        <p>Сильный результат можно получить только при добросовестном прохождении курсов, соблюдении рекомендованных сроков, выполнении заданий и посещении ZOOM-встреч с Екатериной.</p>
-      </div>
-      <div class="rule-card">
-        <div class="ic"><svg><use href="#ic-arrow"/></svg></div>
-        <h4>Строгая последовательность трека</h4>
-        <p>Курсы открываются строго по порядку вашего трека. Для доступа к следующему курсу нужно завершить текущий: пройти тестирование и выполнить более 50% заданий. Доступ к пройденным курсам сохраняется всё время пребывания в клубе.</p>
-      </div>
-      <div class="rule-card">
-        <div class="ic"><svg><use href="#ic-gem"/></svg></div>
-        <h4>Гибкий темп</h4>
-        <p>Если вы проходите обучение медленнее программы, по истечении рекомендованного времени на текущий курс вам всё равно откроется следующий.</p>
-      </div>
-    </div>
-    <div class="contact-cta reveal">
-      <div>
-        <h4>Остались вопросы по обучению?</h4>
-        <p>Проконсультироваться по вопросам обучения в клубе можно в Telegram или MAX.</p>
-      </div>
-      <div class="contact-buttons">
-        <a href="https://telegram.me/yakhontova_finance" target="_top" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
-        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_top" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="max-logo.png" alt="MAX">MAX</a>
-      </div>
+    <div class="tools-video reveal">
+      <video src="Видео экрана База инструментов клуб Яхонтова.mp4" autoplay loop muted playsinline></video>
     </div>
   </div>
 </section>
@@ -1368,13 +1417,15 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="period">Доступ к клубу на 1 месяц</div>
         <div class="price-now"><span class="val">5 000</span><span class="cur">₽ / мес.</span></div>
         <div class="price-permonth">&nbsp;</div>
-        <a href="https://t.me/m/ffTikRn4NGNi" target="_top" rel="noopener" class="btn btn-outline btn-block">Купить</a>
+        <button onclick="openPayment('start')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
-          <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
-          <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
+          <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
+          <li><svg><use href="#ic-check"/></svg>8 курсов — финучёт, автоматизация, клиенты, нейросети</li>
+          <li><svg><use href="#ic-check"/></svg>База из 80+ инструментов</li>
           <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
-          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+          <li><svg><use href="#ic-check"/></svg>4 созвона с разбором инструментов ежемесячно</li>
           <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
         </ul>
       </div>
 
@@ -1385,18 +1436,20 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="period">Доступ к клубу на 3 месяца</div>
         <div class="price-now"><span class="val">13 500</span><span class="cur">₽ / 3 мес.</span></div>
         <div class="price-permonth">≈ 4 500 ₽ / мес.</div>
-        <a href="https://t.me/m/ffTikRn4NGNi" target="_top" rel="noopener" class="btn btn-primary btn-block">Купить</a>
+        <button onclick="openPayment('growth')" class="btn btn-primary btn-block">Купить</button>
         <ul class="price-feats">
-          <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
-          <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
+          <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
+          <li><svg><use href="#ic-check"/></svg>8 курсов — финучёт, автоматизация, клиенты, нейросети</li>
+          <li><svg><use href="#ic-check"/></svg>База из 80+ инструментов</li>
           <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
-          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+          <li><svg><use href="#ic-check"/></svg>4 созвона с разбором инструментов ежемесячно</li>
           <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
         </ul>
         <ul class="price-feats bonus">
           <span class="bonus-label">Специальные возможности тарифа</span>
           <li><svg><use href="#ic-check"/></svg>Групповые разборы с Екатериной 2 раза в месяц</li>
-          <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов клуба</li>
+          <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов</li>
           <li><svg><use href="#ic-check"/></svg>Дорожная карта на 150 / 300 / 500 тыс. ₽</li>
           <li><svg><use href="#ic-check"/></svg>Мастер-класс «Из найма на аутсорс»</li>
           <li><svg><use href="#ic-check"/></svg>Сниженная стоимость месяца участия</li>
@@ -1410,21 +1463,23 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
         <div class="period">Доступ к клубу на 6 месяцев</div>
         <div class="price-now"><span class="val">25 000</span><span class="cur">₽ / 6 мес.</span></div>
         <div class="price-permonth">≈ 4 166 ₽ / мес.</div>
-        <a href="https://t.me/m/ffTikRn4NGNi" target="_top" rel="noopener" class="btn btn-outline btn-block">Купить</a>
+        <button onclick="openPayment('breakthrough')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
-          <li><svg><use href="#ic-check"/></svg>8 курсов — более 250 уроков и 400 инструментов</li>
-          <li><svg><use href="#ic-check"/></svg>Индивидуальный трек обучения</li>
+          <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
+          <li><svg><use href="#ic-check"/></svg>8 курсов — финучёт, автоматизация, клиенты, нейросети</li>
+          <li><svg><use href="#ic-check"/></svg>База из 80+ инструментов</li>
           <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
-          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+          <li><svg><use href="#ic-check"/></svg>4 созвона с разбором инструментов ежемесячно</li>
           <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
         </ul>
         <ul class="price-feats bonus">
           <span class="bonus-label">Специальные возможности тарифа</span>
           <li><svg><use href="#ic-check"/></svg>Групповые разборы с Екатериной 2 раза в месяц</li>
-          <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов клуба</li>
+          <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов</li>
           <li><svg><use href="#ic-check"/></svg>Дорожная карта на 150 / 300 / 500 тыс. ₽</li>
           <li><svg><use href="#ic-check"/></svg>Мастер-класс «Из найма на аутсорс»</li>
-          <li><svg><use href="#ic-check"/></svg>Максимально сниженная стоимость месяца участия</li>
+          <li><svg><use href="#ic-check"/></svg>Сниженная стоимость месяца участия</li>
         </ul>
       </div>
     </div>
@@ -1476,26 +1531,19 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
   <div class="container">
     <div class="section-head reveal">
       <div class="eyebrow" style="justify-content:center"><span></span>Отзывы</div>
-      <h2 class="section-title">Что говорят мои ученики курсов</h2>
+      <h2 class="section-title">Что говорят участники клуба?</h2>
     </div>
   </div>
   <div class="container reveal">
     <div class="reviews-scroller" id="reviewsScroller">
-      <div class="review-card"><img src="Отзывы/photo_2026-07-13_04-06-45.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-01-29_14-17-21 (2).jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-35-24.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-01-30_12-05-41 (2).jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-35-30.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-02-12_10-17-44 (2).jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-35-34.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-03-05_20-32-02 (2).jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-35-40.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-03-12_16-23-13 (2).jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-35-45.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-36-08.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-05-06_13-36-14.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-07-13_04-08-15.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
-      <div class="review-card"><img src="Отзывы/photo_2026-07-13_04-08-31.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-32-44-383_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-33-16-232_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-34-09-485_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-34-55-826_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-35-23-492_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-35-54-237_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-36-29-386_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="ОТЗЫВЫ клуб/Screenshot_2026-08-17-10-37-08-822_org.telegram.messenger-edit.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
     </div>
     <div class="reviews-controls">
       <button id="reviewsPrev" aria-label="Назад"><svg width="18" height="18" style="transform:rotate(180deg)"><use href="#ic-arrow"/></svg></button>
@@ -1547,6 +1595,10 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <div class="faq-item">
         <button class="faq-q"><span>Почему не открываются все 8 курсов сразу?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
         <div class="faq-a"><p>Когда есть доступ ко всем инструментам сразу — начинается хаос. Вы пытаетесь изучать всё и сразу, получаете переутомление и стресс из-за многозадачности и в конечном итоге всё бросаете. Индивидуальный трек с последовательным открытием курсов — это возможность пройти все необходимые обучения в комфортном режиме, без расфокуса, стресса и хаотичных действий.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>За какой срок я смогу пройти все 8 курсов и с какого курса начать?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Программа каждого курса рассчитана в среднем на 2 месяца. Соответственно — уйдёт больше года. Чтобы вы не запутались, на входе вы пройдёте тестирование, которое определит рекомендованный порядок изучения курсов.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Если не смогу присутствовать на мастер-классах и встречах — будет запись?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
@@ -1618,13 +1670,13 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.15;let
       <div class="footer-col">
         <h5>Навигация</h5>
         <a href="#club">Что входит</a>
-        <a href="#how-it-works">Как обучаться</a>
-        <a href="#courses">8 курсов в 1 клубе</a>
-        <a href="#pricing">Цены и тарифы</a>
+        <a href="#how-it-works">Ваш путь в клубе</a>
+        <a href="#courses">Курсы и инструменты</a>
+        <a href="#pricing">Цены и тариф</a>
       </div>
       <div class="footer-col">
         <h5>Клуб</h5>
-        <a href="#reviews">Отзывы</a>
+        <a href="#reviews">Результаты участников</a>
         <a href="#founder">Создатель клуба</a>
         <a href="#faq">Вопросы и ответы</a>
         <a href="#contacts">Контакты</a>
