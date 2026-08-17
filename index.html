@@ -465,6 +465,29 @@ section[id]{scroll-margin-top:96px}
 .price-feats.bonus li{color:var(--text)}
 .price-feats.bonus .bonus-label{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);font-weight:800;margin-bottom:10px;display:block}
 
+/* ============ ИНФО-МОДАЛКА ============ */
+.info-modal{
+  visibility:hidden;opacity:0;pointer-events:none;
+  position:fixed;inset:0;z-index:3000;
+  display:flex;align-items:flex-start;justify-content:center;padding:0 20px;
+  background:rgba(10,6,6,.88);backdrop-filter:blur(10px);
+  overflow-y:auto;
+  transition:opacity .3s ease, visibility .3s ease;
+}
+.info-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+.info-modal-panel{
+  position:relative;background:var(--bg);border:1px solid var(--border-soft);
+  border-radius:0 0 var(--radius-lg) var(--radius-lg);
+  max-width:880px;width:100%;padding:56px 50px 60px;margin-top:0;
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
+  transform:translateY(-30px);transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.info-modal.open .info-modal-panel{transform:translateY(0)}
+.info-modal-close{
+  position:absolute;top:18px;right:18px;background:var(--surface);border:1px solid var(--border-soft);width:36px;height:36px;
+  border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1;color:var(--text);
+}
+
 /* ============ ОПЛАТА ============ */
 .payment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:50px}
 .payment-card{border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:26px;text-align:center;background:var(--surface)}
@@ -579,6 +602,7 @@ section[id]{scroll-margin-top:96px}
 @media (max-width:680px){
   .section{padding:74px 0}
   .btn-wrap-mobile{white-space:normal;text-align:center;line-height:1.3;max-width:100%}
+  .info-modal-panel{padding:44px 22px 40px}
   .bento-grid{grid-template-columns:repeat(2,1fr)}
   .courses-grid{grid-template-columns:repeat(2,1fr)}
   .steps-row{grid-template-columns:1fr}
@@ -810,7 +834,7 @@ section[id]{scroll-margin-top:96px}
     </div>
 
     <div class="bento-grid bento-grid-3 reveal">
-      <div class="bento-card"><div class="bento-num">01</div><h4>Индивидуальная стратегия</h4><p>Которую я лично составляю под вас. После вступления в клуб вы заполняете анкету и в течение 72 часов получаете дорожную карту на 1 год, разбитую по этапам и действиям.</p></div>
+      <div class="bento-card"><div class="bento-num">01</div><h4>Индивидуальная стратегия</h4><p>Которую я лично составляю под вас. После вступления в клуб вы заполняете анкету и в течение 72 часов получаете дорожную карту на 1 год, разбитую по этапам и действиям.</p><a href="javascript:void(0)" onclick="openInfo('strategy')" class="btn btn-outline btn-sm">Подробнее</a></div>
       <div class="bento-card"><div class="bento-num">02</div><h4>8 обучающих курсов + трек изучения</h4><p>Финансовый учёт на таблицах и сервисах, финмодели, привлечение клиентов, нейросети. Все курсы открываются сразу после оплаты и теста на ваши навыки.</p><a href="#courses" class="btn btn-outline btn-sm">Изучить курсы</a></div>
       <div class="bento-card"><div class="bento-num">03</div><h4>База инструментов</h4><p>Шаблоны, калькуляторы, сервисы, примеры и инструкции клуба. 100+ инструментов, база пополняется каждый месяц. Удобный поиск и навигация.</p><a href="#tools" class="btn btn-outline btn-sm">Изучить базу инструментов</a></div>
       <div class="bento-card"><div class="bento-num">04</div><h4>Сообщество и канал в Телеграм</h4><p>В сообществе — поддерживающее окружение коллег, обмен опытом и взгляд со стороны на вашу ситуацию. Есть надёжное плечо рядом, можете попросить помощь и вам никто не откажет. На канале — эксклюзивные материалы, изнанка моих проектов, разборы кейсов.</p></div>
@@ -824,43 +848,6 @@ section[id]{scroll-margin-top:96px}
 </section>
 
 <!-- ============ БЛОК 3.1 ИНДИВИДУАЛЬНАЯ КАРЬЕРНАЯ СТРАТЕГИЯ ============ -->
-<section class="section" id="strategy" style="background:var(--bg-alt)">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow" style="justify-content:center"><span></span>Индивидуальная карьерная стратегия</div>
-      <h2 class="section-title">Инструмент, который превращает подписку на клуб в стабильный профессиональный рост</h2>
-      <p class="section-sub">С конкретными целями и измеримыми результатами на год</p>
-    </div>
-
-    <div class="module-grid reveal" style="grid-template-columns:repeat(2,1fr)">
-      <div class="module-item">
-        <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Формат</span></div>
-        <p class="m-result">Подробная PDF-дорожная карта с этапами, заданиями и перечнем необходимых инструментов. Всё индивидуально — под вашу точку А и точку Б, куда вы реально можете прийти через год.</p>
-      </div>
-      <div class="module-item">
-        <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Как составляется стратегия</span></div>
-        <p class="m-result">Последние 3 года я регулярно проводила групповые разборы и индивидуальные стратегические консультации. Весь свой опыт, компетенции, навыки и методологию я упаковала в готовый алгоритм по составлению стратегии. Ваша задача — заполнить анкету. Моя задача — предоставить необходимые вводные, а затем лично составить и скорректировать вашу стратегию, чтобы она была точной и работала именно на вас.</p>
-      </div>
-    </div>
-
-    <div class="subblock reveal">
-      <div class="subblock-head">
-        <h3>Как получить вашу персональную стратегию на год</h3>
-      </div>
-      <div class="steps-row steps-row-3">
-        <div class="step-card"><div class="num">01</div><h4>Вступить в клуб</h4></div>
-        <div class="step-card"><div class="num">02</div><h4>Заполнить анкету</h4><p>Подробно на обучающей платформе</p></div>
-        <div class="step-card"><div class="num">03</div><h4>Получить стратегию</h4><p>В течение 72 часов</p></div>
-      </div>
-    </div>
-
-    <div class="course-all-cta reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-      <a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
-      <a href="https://drive.google.com/file/d/1BxZL5mUaBXJkWqeSZk_xqA9nOqRhZdu_/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline btn-wrap-mobile">Пример стратегии</a>
-    </div>
-  </div>
-</section>
-
 <!-- ============ БЛОК 4. КАК ПРОХОДИТ ОБУЧЕНИЕ ============ -->
 <section class="section" id="how-it-works">
   <div class="container">
@@ -1293,29 +1280,30 @@ section[id]{scroll-margin-top:96px}
 
 <!-- ============ БЛОК 6. БАЗА ИНСТРУМЕНТОВ ============ -->
 <section class="section" id="tools" style="padding-top:70px">
-  <div class="container tools-section">
-    <div class="tools-text reveal">
-      <div class="eyebrow">База инструментов</div>
-      <h2 class="section-title" style="text-align:left">База инструментов финансиста</h2>
-      <p class="section-sub" style="text-align:left;margin:0 0 22px">Удобная платформа, где в одном месте собраны все основные инструменты, которые есть в клубе и которые потребуются вам для работы и построения карьеры.</p>
-      <ul class="check-list gain">
-        <li><svg><use href="#ic-check"/></svg>Более 80 инструментов</li>
-        <li><svg><use href="#ic-check"/></svg>Разбивка по категориям</li>
-        <li><svg><use href="#ic-check"/></svg>Удобная поисковая система</li>
-        <li><svg><use href="#ic-check"/></svg>К каждому инструменту — подробный урок по его применению</li>
-      </ul>
-
-      <div class="founder-quote reveal" style="margin-top:30px;padding:30px 32px">
-        <img src="Для круглешка.png" alt="Екатерина Яхонтова">
-        <div>
-          <blockquote>«Когда у вас десятки инструментов, но все они разбросаны по урокам, и вы не понимаете, что где находится — с вероятностью 99% вы не используете ни одного инструмента. А если что-то понадобится, потратите полдня на поиски. База инструментов — ваша возможность быстро и просто забрать тот инструмент, который нужен для решения рабочей задачи здесь и сейчас, изучить полный урок, как и зачем его применять. Результат — сэкономленное время и использование мощностей клуба на 100%».</blockquote>
-        </div>
+  <div class="container">
+    <div class="tools-section">
+      <div class="tools-text reveal">
+        <div class="eyebrow">База инструментов</div>
+        <h2 class="section-title" style="text-align:left">База инструментов финансиста</h2>
+        <p class="section-sub" style="text-align:left;margin:0 0 22px">Удобная платформа, где в одном месте собраны все основные инструменты, которые есть в клубе и которые потребуются вам для работы и построения карьеры.</p>
+        <ul class="check-list gain">
+          <li><svg><use href="#ic-check"/></svg>Более 80 инструментов</li>
+          <li><svg><use href="#ic-check"/></svg>Разбивка по категориям</li>
+          <li><svg><use href="#ic-check"/></svg>Удобная поисковая система</li>
+          <li><svg><use href="#ic-check"/></svg>К каждому инструменту — подробный урок по его применению</li>
+        </ul>
+        <div class="course-all-cta reveal" style="text-align:left;margin-top:26px"><a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить базу инструментов <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
       </div>
-
-      <div class="course-all-cta reveal" style="text-align:left;margin-top:26px"><a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить базу инструментов <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+      <div class="tools-video reveal">
+        <video src="Видео экрана База инструментов клуб Яхонтова.mp4" autoplay loop muted playsinline></video>
+      </div>
     </div>
-    <div class="tools-video reveal">
-      <video src="Видео экрана База инструментов клуб Яхонтова.mp4" autoplay loop muted playsinline></video>
+
+    <div class="founder-quote reveal" style="margin-top:40px">
+      <img src="Для круглешка.png" alt="Екатерина Яхонтова">
+      <div>
+        <blockquote>«Когда у вас десятки инструментов, но все они разбросаны по урокам, и вы не понимаете, что где находится — с вероятностью 99% вы не используете ни одного инструмента. А если что-то понадобится, потратите полдня на поиски. База инструментов — ваша возможность быстро и просто забрать тот инструмент, который нужен для решения рабочей задачи здесь и сейчас, изучить полный урок, как и зачем его применять. Результат — сэкономленное время и использование мощностей клуба на 100%».</blockquote>
+      </div>
     </div>
   </div>
 </section>
@@ -1709,6 +1697,45 @@ section[id]{scroll-margin-top:96px}
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </a>
 
+<!-- ============ ИНФО-МОДАЛКА: ИНДИВИДУАЛЬНАЯ СТРАТЕГИЯ ============ -->
+<div class="info-modal" id="modal-strategy" onclick="if(event.target===this)closeInfo('strategy')">
+  <div class="info-modal-panel">
+    <button class="info-modal-close" onclick="closeInfo('strategy')">✕</button>
+    <div class="section-head reveal" style="margin-bottom:36px">
+      <div class="eyebrow" style="justify-content:center"><span></span>Индивидуальная карьерная стратегия</div>
+      <h2 class="section-title">Инструмент, который превращает подписку на клуб в стабильный профессиональный рост</h2>
+      <p class="section-sub">С конкретными целями и измеримыми результатами на год</p>
+    </div>
+
+    <div class="module-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="module-item">
+        <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Формат</span></div>
+        <p class="m-result">Подробная PDF-дорожная карта с этапами, заданиями и перечнем необходимых инструментов. Всё индивидуально — под вашу точку А и точку Б, куда вы реально можете прийти через год.</p>
+      </div>
+      <div class="module-item">
+        <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Как составляется стратегия</span></div>
+        <p class="m-result">Последние 3 года я регулярно проводила групповые разборы и индивидуальные стратегические консультации. Весь свой опыт, компетенции, навыки и методологию я упаковала в готовый алгоритм по составлению стратегии. Ваша задача — заполнить анкету. Моя задача — предоставить необходимые вводные, а затем лично составить и скорректировать вашу стратегию, чтобы она была точной и работала именно на вас.</p>
+      </div>
+    </div>
+
+    <div class="subblock">
+      <div class="subblock-head">
+        <h3>Как получить вашу персональную стратегию на год</h3>
+      </div>
+      <div class="steps-row steps-row-3">
+        <div class="step-card"><div class="num">01</div><h4>Вступить в клуб</h4></div>
+        <div class="step-card"><div class="num">02</div><h4>Заполнить анкету</h4><p>Подробно на обучающей платформе</p></div>
+        <div class="step-card"><div class="num">03</div><h4>Получить стратегию</h4><p>В течение 72 часов</p></div>
+      </div>
+    </div>
+
+    <div class="course-all-cta" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+      <a href="#pricing" onclick="closeInfo('strategy')" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+      <a href="https://drive.google.com/file/d/1BxZL5mUaBXJkWqeSZk_xqA9nOqRhZdu_/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-outline btn-wrap-mobile">Пример стратегии</a>
+    </div>
+  </div>
+</div>
+
 <!-- ============ МОДАЛЬНЫЕ ОКНА ОПЛАТЫ (GetCourse) ============ -->
 <div class="payment-modal" id="pm-start" onclick="if(event.target===this)closePayment('start')">
   <div class="payment-modal-inner">
@@ -1759,8 +1786,21 @@ function closePayment(type){
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){ closePayment('start'); closePayment('growth'); closePayment('breakthrough'); }
+  if(e.key === 'Escape'){ closePayment('start'); closePayment('growth'); closePayment('breakthrough'); closeInfo('strategy'); }
 });
+
+/* ---------- Инфо-модалки ---------- */
+function openInfo(type){
+  var modal = document.getElementById('modal-' + type);
+  if(!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInfo(type){
+  var modal = document.getElementById('modal-' + type);
+  if(modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 /* ---------- Мобильное меню ---------- */
 const burgerBtn = document.getElementById('burgerBtn');
