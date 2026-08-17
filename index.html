@@ -284,23 +284,6 @@ section[id]{scroll-margin-top:96px}
 .subblock-head h3{font-size:26px}
 .subblock-head p{color:var(--text-secondary);max-width:520px;font-size:14.5px}
 
-.track-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
-.track-panel{display:none}
-.track-panel.active{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;animation:fadeUp .5s ease}
-.track-panel .desc{color:var(--text-secondary);font-size:15px;line-height:1.7}
-.track-panel .desc .track-name{color:var(--accent2);font-family:var(--font-display);font-size:22px;display:block;margin-bottom:14px}
-.course-sequence{counter-reset:seq}
-.course-sequence li{
-  counter-increment:seq;display:flex;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--border-soft);
-  border-radius:var(--radius-sm);margin-bottom:10px;font-size:14.5px;font-weight:600;background:rgba(255,255,255,.015);
-}
-.course-sequence li::before{
-  content:counter(seq);flex:none;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-  background:rgba(181,34,47,.18);color:var(--accent2);font-family:var(--font-display);font-weight:700;font-size:13px;
-}
-.course-sequence .note{background:none;border:none;padding:6px 0 0;font-weight:500;color:var(--text-muted);font-size:13px}
-.course-sequence .note::before{content:"※";background:none;color:var(--text-muted)}
-
 .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stat-tile{border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:26px;text-align:center;background:rgba(255,255,255,.015)}
 .stat-tile .n{font-family:var(--font-display);font-size:38px;color:var(--accent2);margin-bottom:6px}
@@ -569,7 +552,6 @@ section[id]{scroll-margin-top:96px}
   .header-ask-btn{display:none}
   .burger{display:flex}
   .audience-card{grid-template-columns:1fr}
-  .track-panel.active{grid-template-columns:1fr}
   .rules-grid{grid-template-columns:1fr}
   .unique-grid{grid-template-columns:1fr 1fr}
   .payment-grid{grid-template-columns:1fr 1fr}
@@ -880,85 +862,6 @@ section[id]{scroll-margin-top:96px}
       <div class="step-card"><div class="num">06</div><h4>Мастер-классы и созвоны</h4><p>Каждый вторник в 12 мск — тематический мастер-класс, каждый четверг — созвон по инструментам финучёта или ИИ. Расписание на месяц известно заранее, не получается прийти — посмотрите в записи.</p></div>
       <div class="step-card"><div class="num">07</div><h4>Групповые разборы ваших запросов</h4><p>Формат работы, где на встрече я выбираю 3–5 человек. Задача участника — сформулировать запрос. Моя задача — дать подробный план действий на ближайшие 2–3 недели. 2 раза в месяц для тарифов «Развитие» и «Прорыв».</p></div>
       <div class="step-card"><div class="num">08</div><h4>Участие в челленджах и марафонах</h4><p>Цель — получить навык или освоить инструмент, который ускорит ваш профессиональный рост. Пример: марафон привлечения клиентов, неделя применения ИИ, задание на упаковку услуг, разборы резюме.</p></div>
-    </div>
-
-    <!-- Этап 2 подробно -->
-    <div class="subblock reveal">
-      <div class="subblock-head">
-        <h3>Доступ к боту, каналу и сообществу клуба</h3>
-      </div>
-      <div class="module-grid" style="grid-template-columns:repeat(3,1fr)">
-        <div class="module-item">
-          <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Бот клуба</span></div>
-          <p class="m-result">Источник информации, напоминания о предстоящих событиях, быстрая обратная связь от эксперта, контроль доступов к обучению и другим ресурсам.</p>
-        </div>
-        <div class="module-item">
-          <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Канал</span></div>
-          <p class="m-result">Информационная среда, где каждый день выходят подкасты, разборы кейсов, экспертные публикации, статьи, анонсы мастер-классов и обновлений клуба.</p>
-        </div>
-        <div class="module-item">
-          <div class="m-head"><span class="m-name"><img class="m-icon" src="Камень Яхонт мини (фон удален).png" alt="">Сообщество</span></div>
-          <p class="m-result">Закрытый чат в Telegram, структурированный по разделам: обучение, общение, вакансии. Быстрые ответы на вопросы и энергия единомышленников.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Этап 4 — треки -->
-    <div class="subblock reveal">
-      <div class="subblock-head">
-        <h3>Обучение по вашему личному треку</h3>
-        <p>По итогам тестирования вы попадаете на 1 из 3 треков. Курсы открываются последовательно — согласно вашим навыкам, друг за другом, без хаоса и расфокуса.</p>
-      </div>
-      <div class="track-tabs" id="trackTabs">
-        <button class="tab-btn active" data-track="t1">Трек 1. Специалист</button>
-        <button class="tab-btn" data-track="t2">Трек 2. Профессионал</button>
-        <button class="tab-btn" data-track="t3">Трек 3. Эксперт</button>
-      </div>
-
-      <div class="track-panel active" id="t1">
-        <div class="desc">
-          <span class="track-name">Специалист</span>
-          Вы на старте пути в управленческий учёт. Возможно, вы бухгалтер, который хочет расти, или финансист без чёткой системы и сильной базы в отчётах. Ваша задача — выстроить фундамент, найти первых клиентов и начать зарабатывать на своих знаниях.
-        </div>
-        <ol class="course-sequence">
-          <li>Эксперт по оцифровке бизнеса</li>
-          <li>Системные продажи для финансиста</li>
-          <li>Нейросети для финансиста</li>
-          <li>Практикум по финансовому анализу</li>
-          <li>Создание финансовых моделей с 0</li>
-          <li>Автоматизация управленческого учёта</li>
-        </ol>
-      </div>
-
-      <div class="track-panel" id="t2">
-        <div class="desc">
-          <span class="track-name">Профессионал</span>
-          Вы уверенно работаете с управленческим учётом, но ИИ почти не используете. Именно здесь ваша точка роста — нейросети и автоматизация освободят время и увеличат количество клиентов без роста нагрузки.
-        </div>
-        <ol class="course-sequence">
-          <li>Нейросети для финансиста</li>
-          <li>Системные продажи для финансиста</li>
-          <li>Практикум по финансовому анализу</li>
-          <li>Создание финансовых моделей с 0</li>
-          <li>Автоматизация управленческого учёта</li>
-        </ol>
-      </div>
-
-      <div class="track-panel" id="t3">
-        <div class="desc">
-          <span class="track-name">Эксперт</span>
-          Вы — финансист с опытом, используете в работе нейросети. Ваша точка роста — повышение стоимости и количества проектов через систему привлечения клиентов, рост эффективности и готовность браться за сложные задачи.
-        </div>
-        <ol class="course-sequence">
-          <li>Практикум по финансовому анализу</li>
-          <li>Нейросети для финансиста</li>
-          <li>Системные продажи для финансиста</li>
-          <li>Создание финансовых моделей с 0</li>
-          <li>Автоматизация управленческого учёта</li>
-        </ol>
-      </div>
-      <p class="course-sequence" style="margin-top:6px"><span class="note">Курсы «Первые деньги без паники» и «Google-таблицы для финансистов» по умолчанию открываются сразу после оплаты клуба</span></p>
-      <div class="course-all-cta"><a href="#courses" class="btn btn-outline">Смотреть наполнение курсов</a></div>
     </div>
 
     <!-- Этап 5 -->
@@ -1808,16 +1711,6 @@ document.querySelectorAll('#audienceTabs .tab-btn').forEach(btn=>{
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(btn.dataset.tab).classList.add('active');
-  });
-});
-
-/* ---------- Табы треков обучения ---------- */
-document.querySelectorAll('#trackTabs .tab-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('#trackTabs .tab-btn').forEach(b=>b.classList.remove('active'));
-    document.querySelectorAll('.track-panel').forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.track).classList.add('active');
   });
 });
 
