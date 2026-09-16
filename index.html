@@ -562,7 +562,9 @@ section[id]{scroll-margin-top:96px}
 @media (max-width:680px){
   .section{padding:74px 0}
   .btn-wrap-mobile{white-space:normal;text-align:center;line-height:1.3;max-width:100%}
-  .bento-grid{grid-template-columns:repeat(2,1fr)}
+  .bento-grid{grid-template-columns:minmax(0,1fr)}
+  .bento-card{min-width:0;overflow-wrap:anywhere}
+  .bento-card .btn{max-width:100%;white-space:normal;text-align:center}
   .courses-grid{grid-template-columns:repeat(2,1fr)}
   .steps-row{grid-template-columns:1fr}
   .stat-strip{grid-template-columns:1fr}
@@ -1263,7 +1265,7 @@ section[id]{scroll-margin-top:96px}
         <div class="period">Доступ к клубу на 1 месяц</div>
         <div class="price-now"><span class="val">5 000</span><span class="cur">₽ / мес.</span></div>
         <div class="price-permonth">&nbsp;</div>
-        <button onclick="openPayment('start')" class="btn btn-outline btn-block">Оставить заявку</button>
+        <button onclick="openPayment('start')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>Карьерная стратегия от ИИ-бота, обученного по методологии Екатерины Яхонтовой</li>
           <li><svg><use href="#ic-check"/></svg>8 курсов — финучёт, автоматизация, клиенты, нейросети</li>
@@ -1282,7 +1284,7 @@ section[id]{scroll-margin-top:96px}
         <div class="period">Доступ к клубу на 3 месяца</div>
         <div class="price-now"><span class="val">13 500</span><span class="cur">₽ / 3 мес.</span></div>
         <div class="price-permonth">≈ 4 500 ₽ / мес.</div>
-        <button onclick="openPayment('growth')" class="btn btn-primary btn-block">Оставить заявку</button>
+        <button onclick="openPayment('growth')" class="btn btn-primary btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
           <li><svg><use href="#ic-check"/></svg>8 курсов — финучёт, автоматизация, клиенты, нейросети</li>
@@ -1309,7 +1311,7 @@ section[id]{scroll-margin-top:96px}
         <div class="period">Доступ к клубу на 6 месяцев</div>
         <div class="price-now"><span class="val">25 000</span><span class="cur">₽ / 6 мес.</span></div>
         <div class="price-permonth">≈ 4 166 ₽ / мес.</div>
-        <button onclick="openPayment('breakthrough')" class="btn btn-outline btn-block">Оставить заявку</button>
+        <button onclick="openPayment('breakthrough')" class="btn btn-outline btn-block">Купить</button>
         <ul class="price-feats">
           <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
           <li><svg><use href="#ic-check"/></svg>8 курсов — финучёт, автоматизация, клиенты, нейросети</li>
