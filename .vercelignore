@@ -8,3 +8,4 @@ tilda-t123-code.html
 telegram-cloud-photo-size-*.jpg
 .gitignore
 .git
+tests/
