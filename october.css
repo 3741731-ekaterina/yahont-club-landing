@@ -125,3 +125,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 .course-program-body .course-detail-inner{padding:0;border:0;border-radius:0;margin:0}
 .course-program-body .course-detail{max-height:none;overflow:visible}
 @media(max-width:680px){.course-program-modal{padding:12px}.course-program-dialog{padding:14px 18px 24px;max-height:calc(100dvh - 24px);border-radius:20px}.course-program-body .course-detail-top h3{font-size:23px}}
+
+.hero .scroll-cue{bottom:14px;gap:5px}
+.hero .scroll-cue .dot{height:24px}

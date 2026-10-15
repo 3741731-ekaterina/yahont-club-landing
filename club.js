@@ -100,6 +100,8 @@
   updateGallery();
 
   // Promotions: one display per tab session, counted only while the page is visible.
+  // Disabled: native tab/window close buttons cannot trigger a custom site dialog.
+  var autoPromotionsEnabled = false;
   var sessionKey = 'yahont-club-promos-v1';
   var buyerKey = 'yahont-club-purchase-clicked-v1';
   var state = {tourSeen: false, lessonSeen: false, finished: false, elapsed: 0};
@@ -141,7 +143,7 @@
     if (restoreFocus && trigger && trigger.isConnected) trigger.focus({preventScroll: true});
   }
   function show(kind, reason) {
-    if (state.finished || current || busy() || !visible()) return false;
+    if (!autoPromotionsEnabled || state.finished || current || busy() || !visible()) return false;
     if (kind === 'tour' && (state.tourSeen || state.lessonSeen)) return false;
     if (kind === 'lesson' && state.lessonSeen) return false;
     if (kind === 'tour') {
@@ -232,11 +234,7 @@
       parentVisible = event.data.visible;
       lastTick = performance.now();
     }
-    if (event.data.type === 'yahont:exit') show('tour', 'exit');
   });
   if (parentOrigin) window.parent.postMessage({type: 'yahont:ready'}, parentOrigin);
-  document.addEventListener('mouseout', function (event) {
-    if (window.parent === window && !event.relatedTarget && event.clientY <= 0 && matchMedia('(hover: hover) and (pointer: fine)').matches) show('tour', 'exit');
-  });
-  setInterval(tick, 1000);
+  if (autoPromotionsEnabled) setInterval(tick, 1000);
 })();

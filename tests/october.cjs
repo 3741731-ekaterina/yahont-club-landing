@@ -75,43 +75,15 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
       }
     });
-    await scenario('exit, immediate second prompt, finish and session deduplication', async page => {
-      await clock(page);await exit(page);
-      await page.locator('#promoTitle').waitFor({state:'visible'});
-      assert.equal(await page.locator('#promoTitle').textContent(),'Уже уходите?');
-      await page.locator('.promo-close').click();
-      assert.equal(await page.locator('#promoTitle').textContent(),'Заберите один урок из клуба бесплатно');
-      assert.equal(await page.locator('.promo-modal a').getAttribute('target'),'_blank');
-      await page.locator('.promo-close').click();
+    await scenario('no promotional popups on mouse exit, elapsed time, reload or unload', async page => {
+      await clock(page);
+      await exit(page);
       assert.equal(await promo(page).isVisible(),false);
-      await exit(page);await page.clock.fastForward(21*60000);
+      await page.clock.fastForward(21*60000);
+      assert.equal(await promo(page).isVisible(),false);
+      await page.evaluate(()=>window.dispatchEvent(new Event('beforeunload')));
       assert.equal(await promo(page).isVisible(),false);
       await page.reload();await exit(page);
-      assert.equal(await promo(page).isVisible(),false);
-    });
-    await scenario('10 minutes of visible time; no timer repeat; 20-minute lesson', async page => {
-      await clock(page);
-      await page.clock.fastForward(599000);
-      assert.equal(await promo(page).isVisible(),false);
-      await page.evaluate(()=>{window.testHidden=true;Object.defineProperty(document,'hidden',{configurable:true,get:()=>window.testHidden});document.dispatchEvent(new Event('visibilitychange'));});
-      await page.clock.fastForward(21*60000);
-      assert.equal(await promo(page).isVisible(),false);
-      await page.evaluate(()=>{window.testHidden=false;document.dispatchEvent(new Event('visibilitychange'));});
-      await page.clock.fastForward(2000);
-      assert.equal(await page.locator('#promoTitle').textContent(),'Посмотрите клуб изнутри');
-      await page.keyboard.press('Escape');
-      assert.equal(await promo(page).isVisible(),false);
-      await exit(page);assert.equal(await promo(page).isVisible(),false);
-      await page.clock.fastForward(600000);
-      assert.equal(await page.locator('#promoTitle').textContent(),'Заберите один урок из клуба бесплатно');
-    });
-    await scenario('invitation CTA never chains a prompt', async page => {
-      await clock(page);await exit(page);
-      await page.route('https://youtu.be/**',route=>route.fulfill({body:'Test only'}));
-      const opened=page.waitForEvent('popup');
-      await page.locator('.promo-modal a').click();
-      await (await opened).close();
-      await page.clock.fastForward(21*60000);
       assert.equal(await promo(page).isVisible(),false);
     });
     await scenario('buy suppresses prompts, persists on reload, all six modals open', async page => {
@@ -127,7 +99,7 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
       await page.reload();await exit(page);
       assert.equal(await promo(page).isVisible(),false);
     });
-    await scenario('Tilda bridge forwards UTM, trusts only its iframe, relays exit', async page => {
+    await scenario('Tilda bridge forwards UTM and cannot activate exit promotions', async page => {
       await page.route('**/qa-child*',route=>route.fulfill({contentType:'text/html',body:require('node:fs').readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8')}));
       await page.route('**/qa-embed*',route=>route.fulfill({contentType:'text/html',body:`<iframe id="yahontFrame" data-club-src="${base}/qa-child" style="width:100%;height:900px"></iframe><script src="/utm.js"></script>`}));
       await page.goto(base+'/qa-embed?utm_source=qa&utm_campaign=iframe',{waitUntil:'load'});
@@ -137,8 +109,9 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
       await frame.evaluate(()=>window.dispatchEvent(new MessageEvent('message',{data:{type:'yahont:exit'},origin:'https://untrusted.example',source:window.parent})));
       assert.equal(await frame.locator('.promo-modal').isVisible(),false);
       await exit(page);
-      await frame.locator('#promoTitle').waitFor({state:'visible'});
-      assert.equal(await frame.locator('#promoTitle').textContent(),'Уже уходите?');
+      await frame.evaluate(()=>window.parent.postMessage({type:'yahont:ready'},location.origin));
+      await page.evaluate(()=>document.querySelector('#yahontFrame').contentWindow.postMessage({type:'yahont:exit'},location.origin));
+      assert.equal(await frame.locator('.promo-modal').isVisible(),false);
     });
     console.log(`ALL ${count} SCENARIOS PASSED`);
   } finally { await browser.close(); }
