@@ -23,14 +23,21 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
     await scenario('nine courses, exclusive expansion, six buttons, mobile overflow', async page => {
       await open(page);
       assert.equal(await page.locator('.course-btn').count(),9);
-      assert.equal(await page.locator('.course-detail.open').count(),1);
-      assert.equal(await page.locator('.course-btn').first().getAttribute('aria-expanded'),'true');
+      assert.equal(await page.locator('.course-detail.open').count(),0);
+      assert.equal(await page.locator('.course-btn').first().getAttribute('aria-expanded'),'false');
       for(let i=1;i<=9;i++) {
-        await page.locator(`[data-course=c${i}]`).click();
-        if(i===1) { assert.equal(await page.locator('.course-detail.open').count(),0); continue; }
+        const card=page.locator(`[data-course=c${i}]`);
+        await card.click();
+        await page.locator('.course-program-modal').waitFor({state:'visible'});
         assert.equal(await page.locator('.course-detail.open').count(),1);
         assert.equal(await page.locator(`#detail-c${i}`).isVisible(),true);
-        assert.equal(await page.locator(`[data-course=c${i}] .course-toggle`).textContent(),'Свернуть программу ↑');
+        assert.equal(await card.getAttribute('aria-expanded'),'true');
+        if(i%3===1) await page.locator('.course-program-close').click();
+        else if(i%3===2) await page.keyboard.press('Escape');
+        else await page.locator('.course-program-modal').click({position:{x:5,y:5}});
+        assert.equal(await page.locator('.course-program-modal').isVisible(),false);
+        assert.equal(await page.locator('.course-detail.open').count(),0);
+        assert.equal(await card.getAttribute('aria-expanded'),'false');
       }
       assert.equal(await page.locator('#detail-c9 .module-item').count(),4);
       assert.equal(await page.locator('.purchase-options button').count(),6);
@@ -44,6 +51,28 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
         // Chromium rounds fractional scroll areas up by one CSS pixel.
         assert.ok(overflow.body<=overflow.width+1,JSON.stringify(overflow));
         if(width<=680) assert.equal(await page.locator('.bento-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),1);
+      }
+    });
+    await scenario('strategy gallery: one row, full images, arrows, keyboard, manual scrolling', async page => {
+      await open(page);
+      for(const width of [1440,390,320]) {
+        await page.setViewportSize({width,height:900});
+        await page.locator('#strategyReviews').evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));
+        await page.waitForFunction(()=>getComputedStyle(document.querySelector('#strategyReviews').closest('.subblock')).opacity==='1');
+        await page.locator('#strategyReviews').evaluate(e=>e.scrollTo({left:0,behavior:'instant'}));
+        await page.waitForFunction(()=>document.querySelector('#strategyReviewsCount').textContent==='1 / 4');
+        assert.equal(await page.locator('#strategyReviewsPrev').isDisabled(),true);
+        const positions=await page.locator('#strategyReviews a').evaluateAll(items=>items.map(e=>e.getBoundingClientRect().top));
+        assert.ok(positions.every(y=>Math.abs(y-positions[0])<1));
+        assert.equal(await page.locator('#strategyReviews img').first().evaluate(e=>getComputedStyle(e).objectFit),'contain');
+        await page.locator('#strategyReviewsNext').click();
+        await page.waitForFunction(()=>document.querySelector('#strategyReviewsCount').textContent==='2 / 4');
+        await page.locator('#strategyReviews').focus();await page.keyboard.press('ArrowRight');
+        await page.waitForFunction(()=>document.querySelector('#strategyReviewsCount').textContent==='3 / 4');
+        await page.locator('#strategyReviews').evaluate(e=>e.scrollTo({left:e.scrollWidth,behavior:'instant'}));
+        await page.waitForFunction(()=>document.querySelector('#strategyReviewsCount').textContent==='4 / 4');
+        assert.equal(await page.locator('#strategyReviewsNext').isDisabled(),true);
+        assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
       }
     });
     await scenario('exit, immediate second prompt, finish and session deduplication', async page => {

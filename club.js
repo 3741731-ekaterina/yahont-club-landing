@@ -1,49 +1,103 @@
 (function () {
   'use strict';
-  // Place the selected programme directly below its row (below its card on mobile).
+  // All courses start collapsed; a programme opens in a dismissible dialog.
   var grid = document.getElementById('coursesGrid');
-  // The expanded curriculum is taller than a viewport; don't hide its whole grid
-  // behind an intersection ratio which can never be reached on small screens.
-  grid.classList.remove('reveal');
   var cards = Array.from(grid.querySelectorAll('.course-btn'));
   var details = Array.from(document.querySelectorAll('.course-detail'));
-  var parking = document.createElement('div');
-  parking.hidden = true;
-  grid.after(parking);
-  var selected = 'c1';
-  function positionProgramme() {
-    details.forEach(function (detail) {
-      var open = detail.id === 'detail-' + selected;
-      detail.hidden = !open;
-      detail.classList.toggle('open', open);
-      parking.appendChild(detail);
-    });
+  var programme = document.createElement('div');
+  programme.className = 'course-program-modal';
+  programme.hidden = true;
+  programme.innerHTML = '<div class="course-program-dialog" role="dialog" aria-modal="true" tabindex="-1"><button type="button" class="course-program-close" aria-label="Закрыть программу курса">×</button><div class="course-program-body"></div></div>';
+  document.body.appendChild(programme);
+  var programmeBody = programme.querySelector('.course-program-body');
+  var programmeDialog = programme.querySelector('.course-program-dialog');
+  var programmeClose = programme.querySelector('.course-program-close');
+  var programmeTrigger = null;
+  var programmeOverflow = '';
+  function closeProgramme() {
+    if (programme.hidden) return;
+    programme.hidden = true;
+    document.body.style.overflow = programmeOverflow;
+    details.forEach(function (detail) { detail.hidden = true; detail.classList.remove('open'); });
     cards.forEach(function (card) {
-      var open = card.dataset.course === selected;
-      card.classList.toggle('active', open);
-      card.setAttribute('aria-expanded', String(open));
-      card.setAttribute('aria-controls', 'detail-' + card.dataset.course);
-      card.querySelector('.course-toggle').textContent = open ? 'Свернуть программу ↑' : 'Посмотреть программу ↓';
+      card.classList.remove('active');
+      card.setAttribute('aria-expanded', 'false');
+      card.querySelector('.course-toggle').textContent = 'Посмотреть программу ↓';
     });
-    if (!selected) return;
-    var index = cards.findIndex(function (card) { return card.dataset.course === selected; });
-    var columns = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-    var end = Math.min(cards.length - 1, Math.floor(index / columns) * columns + columns - 1);
-    cards[end].after(document.getElementById('detail-' + selected));
+    if (programmeTrigger) programmeTrigger.focus({preventScroll: true});
   }
+  details.forEach(function (detail) { detail.hidden = true; detail.classList.remove('open'); });
   cards.forEach(function (card) {
+    card.classList.remove('active');
+    card.setAttribute('aria-expanded', 'false');
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.setAttribute('aria-controls', 'detail-' + card.dataset.course);
+    card.querySelector('.course-toggle').textContent = 'Посмотреть программу ↓';
     card.addEventListener('click', function () {
-      selected = selected === card.dataset.course ? null : card.dataset.course;
-      positionProgramme();
-      if (selected) document.getElementById('detail-' + selected).scrollIntoView({behavior: 'smooth', block: 'start'});
+      closeProgramme();
+      var detail = document.getElementById('detail-' + card.dataset.course);
+      programmeTrigger = card;
+      programmeOverflow = document.body.style.overflow;
+      programmeBody.appendChild(detail);
+      detail.hidden = false;
+      detail.classList.add('open');
+      var heading = detail.querySelector('h3');
+      heading.id = 'programme-title-' + card.dataset.course;
+      programmeDialog.setAttribute('aria-labelledby', heading.id);
+      card.classList.add('active');
+      card.setAttribute('aria-expanded', 'true');
+      card.querySelector('.course-toggle').textContent = 'Программа открыта ↑';
+      document.body.style.overflow = 'hidden';
+      programme.hidden = false;
+      programmeDialog.scrollTop = 0;
+      programmeClose.focus({preventScroll: true});
     });
   });
-  positionProgramme();
-  var resizeFrame;
-  window.addEventListener('resize', function () {
-    cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(positionProgramme);
+  programmeClose.addEventListener('click', closeProgramme);
+  programme.addEventListener('click', function (event) { if (event.target === programme) closeProgramme(); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeProgramme(); });
+
+  // Strategy screenshots: one full, uncropped image per slide.
+  var gallery = document.getElementById('strategyReviews');
+  var slides = Array.from(gallery.querySelectorAll('a'));
+  var previous = document.getElementById('strategyReviewsPrev');
+  var next = document.getElementById('strategyReviewsNext');
+  var count = document.getElementById('strategyReviewsCount');
+  function currentSlide() {
+    return slides.reduce(function (closest, slide, index) {
+      return Math.abs(slide.offsetLeft - slides[0].offsetLeft - gallery.scrollLeft) <
+        Math.abs(slides[closest].offsetLeft - slides[0].offsetLeft - gallery.scrollLeft) ? index : closest;
+    }, 0);
+  }
+  function updateGallery() {
+    var index = currentSlide();
+    var image = slides[index].querySelector('img');
+    if (image.naturalWidth && image.naturalHeight) {
+      var maximum = matchMedia('(max-width: 680px)').matches ? 460 : 440;
+      var height = Math.max(120, Math.min(maximum, gallery.clientWidth * image.naturalHeight / image.naturalWidth));
+      gallery.style.setProperty('--strategy-gallery-height', Math.round(height) + 'px');
+    }
+    count.textContent = (index + 1) + ' / ' + slides.length;
+    previous.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+  }
+  function moveGallery(direction) {
+    var index = Math.max(0, Math.min(slides.length - 1, currentSlide() + direction));
+    gallery.scrollTo({left: slides[index].offsetLeft - slides[0].offsetLeft,
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  }
+  previous.addEventListener('click', function () { moveGallery(-1); });
+  next.addEventListener('click', function () { moveGallery(1); });
+  gallery.addEventListener('scroll', updateGallery, {passive: true});
+  slides.forEach(function (slide) { slide.querySelector('img').addEventListener('load', updateGallery); });
+  gallery.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      moveGallery(event.key === 'ArrowRight' ? 1 : -1);
+    }
   });
+  window.addEventListener('resize', updateGallery);
+  updateGallery();
 
   // Promotions: one display per tab session, counted only while the page is visible.
   var sessionKey = 'yahont-club-promos-v1';
@@ -78,7 +132,7 @@
   try { if (window.parent !== window) parentOrigin = new URL(document.referrer).origin; } catch (error) {}
 
   function visible() { return !document.hidden && parentVisible; }
-  function busy() { return document.querySelector('.payment-modal.open, .mobile-nav.open'); }
+  function busy() { return document.querySelector('.payment-modal.open, .mobile-nav.open, .course-program-modal:not([hidden])'); }
   function hide(restoreFocus) {
     if (!current) return;
     overlay.hidden = true;
@@ -131,7 +185,7 @@
       if (wasLesson) state.finished = true;
       save();
     }
-    var dialog = document.querySelector('.payment-modal.open') || (!overlay.hidden && overlay);
+    var dialog = document.querySelector('.payment-modal.open, .course-program-modal:not([hidden])') || (!overlay.hidden && overlay);
     if (dialog && event.key === 'Tab') {
       var stops = Array.from(dialog.querySelectorAll('button, a[href], iframe, input, select, textarea, [tabindex="0"]'))
         .filter(function (el) { return el.getClientRects().length; });

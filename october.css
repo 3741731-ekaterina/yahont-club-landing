@@ -108,3 +108,20 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 /* The embedded GetCourse loader sets inline overflow:hidden; retain form scrolling. */
 .payment-modal-inner{height:auto!important;overflow-y:auto!important;overflow-x:hidden!important}
 @media(max-width:680px){.founder-photo::before,.tools-video::before{inset:-16px}}
+
+/* A single slide keeps screenshots of different proportions in one gallery. */
+.strategy-reviews{display:flex;gap:16px;align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;padding-bottom:14px}
+.strategy-reviews a{flex:0 0 100%;min-width:0;height:var(--strategy-gallery-height,340px);display:flex;align-items:center;justify-content:center;scroll-snap-align:start;scroll-snap-stop:always;background:var(--bg-alt)}
+.strategy-reviews img{width:100%;height:100%;object-fit:contain}
+.strategy-review-controls{align-items:center;margin-top:12px}
+.strategy-review-controls span{min-width:54px;text-align:center;font-size:13px;color:var(--text-muted);font-variant-numeric:tabular-nums}
+.strategy-review-controls button:disabled{opacity:.3;cursor:default}
+
+/* Course programmes open above the page and do not stretch the catalogue. */
+.course-program-modal[hidden]{display:none}
+.course-program-modal{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(10,6,6,.88);backdrop-filter:blur(10px)}
+.course-program-dialog{width:100%;max-width:1060px;max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;background:var(--surface);border:1px solid rgba(227,184,115,.5);border-radius:var(--radius-lg);padding:20px 30px 30px;box-shadow:var(--shadow-soft)}
+.course-program-close{position:sticky;top:0;margin:0 0 12px auto;width:40px;height:40px;display:flex;align-items:center;justify-content:center;z-index:2;border:1px solid var(--border);border-radius:50%;background:var(--surface-2);font-size:28px;color:var(--text);box-shadow:0 0 12px var(--surface)}
+.course-program-body .course-detail-inner{padding:0;border:0;border-radius:0;margin:0}
+.course-program-body .course-detail{max-height:none;overflow:visible}
+@media(max-width:680px){.course-program-modal{padding:12px}.course-program-dialog{padding:14px 18px 24px;max-height:calc(100dvh - 24px);border-radius:20px}.course-program-body .course-detail-top h3{font-size:23px}}
