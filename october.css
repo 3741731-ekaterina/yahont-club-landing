@@ -1,0 +1,110 @@
+/* October 2026: tighter rhythm, a clear course catalogue and two access dates. */
+.section{padding:76px 0}
+.section-head{margin-bottom:36px}
+.hero{padding:130px 0 76px}
+.hero-grid{align-items:end;gap:44px}
+.hero-cta{margin-top:28px}
+.hero-portrait{max-width:390px}
+.hero-portrait img{height:410px;width:100%;object-fit:cover;object-position:center top}
+.hero-float-card{position:static;margin:0;max-width:none;width:100%;padding:18px 20px;text-align:center}
+.hero-float-card .name{font-size:21px}
+.hero-float-card .role{font-size:13px}
+.hero-badge-frame{display:block;max-width:none;margin-top:30px;font-size:15px;line-height:1.7}
+.main-nav{gap:18px}
+.main-nav a{font-size:13px;line-height:1.4}
+.header-inner{gap:20px}
+.header-actions .header-ask-btn{display:none}
+.header-actions .btn{padding:13px 22px;font-size:13px}
+.courses-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.course-btn{min-width:0;min-height:192px;border-width:2px;padding:24px;gap:12px}
+.course-btn .title{font-size:17px}
+.course-toggle{color:var(--accent2);font-size:13px;font-weight:800;margin-top:auto;padding-top:10px}
+.course-btn.active{border-color:var(--gold);background:linear-gradient(145deg,rgba(217,123,63,.18),var(--surface-2));box-shadow:0 0 0 2px rgba(227,184,115,.12);transform:none}
+.course-btn.active .course-toggle{color:var(--gold)}
+.courses-grid>.course-detail{grid-column:1/-1;min-width:0;margin-bottom:12px}
+.course-detail[hidden]{display:none}
+.course-detail.open{max-height:none;overflow:visible}
+.course-detail-inner{margin-top:0;padding:32px;border-color:rgba(227,184,115,.45)}
+.steps-row{margin-bottom:32px}
+.subblock{padding:32px;margin-bottom:22px}
+.strategy-examples{padding:24px;gap:12px}
+.strategy-reviews{gap:16px}
+#strategy .course-all-cta{margin-bottom:0}
+#tools{padding-top:76px!important}
+.price-card .purchase-options{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.price-card .purchase-options .btn{margin-bottom:0;padding:14px 12px;font-size:13px;line-height:1.5;white-space:normal;min-height:51px}
+.purchase-options .btn-outline{border-color:rgba(217,123,63,.65)}
+.case-card{padding:26px}
+.case-card h3{font-size:25px}
+.case-card a{border:1px solid var(--border);transition:border-color .2s}
+.case-card a:hover{border-color:var(--gold)}
+.payment-modal-close{z-index:5}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+.promo-modal[hidden]{display:none}
+.promo-modal{position:fixed;inset:0;z-index:3100;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(10,6,6,.87);backdrop-filter:blur(12px)}
+.promo-dialog{position:relative;width:100%;max-width:580px;max-height:calc(100dvh - 48px);overflow:auto;padding:48px;background:radial-gradient(90% 60% at 100% 0,rgba(181,34,47,.21),transparent),var(--surface);border:1px solid rgba(227,184,115,.5);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft)}
+.promo-close{position:absolute;right:16px;top:14px;width:36px;height:36px;border:1px solid var(--border);border-radius:50%;font-size:25px;line-height:1;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.promo-dialog h2{font-size:clamp(28px,4vw,38px);line-height:1.2;margin:8px 0 22px}
+.promo-dialog p{font-size:15px;line-height:1.75;margin-bottom:15px;color:var(--text-secondary)}
+.promo-dialog .btn{width:100%;white-space:normal;line-height:1.5;text-align:center;margin-top:12px}
+.promo-label{color:var(--gold);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.8px}
+@media(max-width:1080px){
+  .hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:26px}
+  .hero-visual{margin:0}
+  .hero-portrait img{height:340px;max-width:none}
+  .hero-float-card{max-width:none;margin:0}
+  .main-nav{gap:12px}
+  .main-nav a{font-size:12px}
+  .header-inner{gap:14px}
+  .header-actions .btn{padding:12px 16px}
+}
+@media(max-width:900px){.main-nav{display:none}.hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}.hero h1{font-size:42px}.hero p.lead{font-size:16px}.hero-cta .btn{padding:14px 20px;font-size:14px}.hero-portrait img{height:330px}.hero-float-card .name{font-size:19px}}
+@media(max-width:680px){
+  .section{padding:48px 0}
+  .section-head{margin-bottom:28px}
+  .hero{padding:110px 0 64px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero h1{font-size:clamp(38px,9vw,52px)}
+  .hero p.lead{font-size:16px}
+  .hero-visual{margin:0}
+  .hero-portrait{max-width:310px}
+  .hero-portrait img{height:300px;max-width:none}
+  .hero-float-card{padding:16px 18px;max-width:none}
+  .hero-badge-frame{margin-top:26px;padding:20px;font-size:14px}
+  .hero-cta{flex-direction:row;gap:12px}
+  .hero-cta .btn{width:auto;flex:1;padding:14px 18px;white-space:normal}
+  .courses-grid{grid-template-columns:1fr;gap:14px}
+  .course-btn{min-height:178px;padding:22px}
+  .course-detail-inner{padding:22px}
+  .subblock{padding:22px}
+  .subblock-head{gap:14px;margin-bottom:20px}
+  .subblock-head h3{font-size:23px}
+  .strategy-examples{padding:20px}
+  #tools{padding-top:48px!important}
+  .case-card{padding:22px}
+  .promo-modal{padding:16px}
+  .promo-dialog{padding:42px 24px 28px;max-height:calc(100dvh - 32px);border-radius:22px}
+  .promo-dialog p{font-size:14px}
+  .promo-dialog .btn{padding:15px 18px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.course-btn,.reveal{transition:none!important}}
+/* Keep the compact header inside narrow phones. */
+@media(max-width:400px){
+  .header-inner{gap:10px}
+  .logo{font-size:17px;gap:8px;letter-spacing:.3px}
+  .logo img{width:28px;height:28px}
+  .header-actions{gap:10px}
+  .header-actions .btn{font-size:11px;padding:11px 12px}
+}
+@media(max-width:680px){
+  .founder-section{grid-template-columns:minmax(0,1fr)}
+  .founder-photo,.founder-text{min-width:0}
+  .founder-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .founder-stats .stat{min-width:0;padding:14px 8px;overflow-wrap:anywhere}
+  .founder-stats .stat b{font-size:18px}
+  .review-card{width:min(300px,calc(100vw - 56px))}
+}
+.mobile-nav a{max-width:calc(100% - 48px);text-align:center;white-space:normal;overflow-wrap:anywhere}
+/* The embedded GetCourse loader sets inline overflow:hidden; retain form scrolling. */
+.payment-modal-inner{height:auto!important;overflow-y:auto!important;overflow-x:hidden!important}
+@media(max-width:680px){.founder-photo::before,.tools-video::before{inset:-16px}}

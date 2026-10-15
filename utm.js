@@ -28,6 +28,25 @@
     var target = new URL(frame.getAttribute('data-club-src'));
     Object.keys(tags).forEach(function (name) { target.searchParams.set(name, tags[name]); });
     frame.src = target.href;
+    // The club is embedded on Tilda: relay tab visibility and genuine page exit.
+    // Restrict every message to this frame and its exact origin.
+    if (window.addEventListener) {
+      function tellClub(type) {
+        if (frame.contentWindow) frame.contentWindow.postMessage({
+          type: type,
+          visible: !document.hidden
+        }, target.origin);
+      }
+      window.addEventListener('message', function (event) {
+        if (event.source === frame.contentWindow && event.origin === target.origin &&
+            event.data && event.data.type === 'yahont:ready') tellClub('yahont:visibility');
+      });
+      document.addEventListener('visibilitychange', function () { tellClub('yahont:visibility'); });
+      document.addEventListener('mouseout', function (event) {
+        if (!event.relatedTarget && event.clientY <= 0 &&
+            window.matchMedia('(hover: hover) and (pointer: fine)').matches) tellClub('yahont:exit');
+      });
+    }
   } else {
     // Runs before GetCourse scripts: their native widgets copy location.search.
     Object.keys(tags).forEach(function (name) { current.searchParams.set(name, tags[name]); });

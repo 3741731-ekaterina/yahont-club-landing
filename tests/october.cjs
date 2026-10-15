@@ -1,0 +1,116 @@
+// Run with Playwright installed: node tests/october.cjs (dev server on :8765).
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const assert = require('node:assert/strict');
+const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
+(async function () {
+  const browser = await chromium.launch({ headless: true });
+  let count = 0;
+  async function scenario(name, fn) {
+    const context = await browser.newContext({viewport:{width:1440,height:1000}});
+    const page = await context.newPage();
+    // Layout/promotion tests don't submit or depend on third-party forms.
+    await page.route('**/yahontovaschool.getcourse.ru/**', route => route.fulfill({body:''}));
+    const errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    try { await fn(page, context); assert.deepEqual(errors, []); count++; console.log('PASS', name); }
+    finally { await context.close(); }
+  }
+  async function open(page) { await page.goto(base, {waitUntil:'load'}); }
+  async function clock(page) { await page.clock.install(); await open(page); }
+  async function exit(page) { await page.evaluate(() => document.dispatchEvent(new MouseEvent('mouseout',{clientY:-1,relatedTarget:null}))); }
+  const promo = page => page.locator('.promo-modal');
+  try {
+    await scenario('nine courses, exclusive expansion, six buttons, mobile overflow', async page => {
+      await open(page);
+      assert.equal(await page.locator('.course-btn').count(),9);
+      assert.equal(await page.locator('.course-detail.open').count(),1);
+      assert.equal(await page.locator('.course-btn').first().getAttribute('aria-expanded'),'true');
+      for(let i=1;i<=9;i++) {
+        await page.locator(`[data-course=c${i}]`).click();
+        if(i===1) { assert.equal(await page.locator('.course-detail.open').count(),0); continue; }
+        assert.equal(await page.locator('.course-detail.open').count(),1);
+        assert.equal(await page.locator(`#detail-c${i}`).isVisible(),true);
+        assert.equal(await page.locator(`[data-course=c${i}] .course-toggle`).textContent(),'Свернуть программу ↑');
+      }
+      assert.equal(await page.locator('#detail-c9 .module-item').count(),4);
+      assert.equal(await page.locator('.purchase-options button').count(),6);
+      assert.equal(await page.locator('.case-card').count(),6);
+      assert.deepEqual(await page.locator('.main-nav a').allTextContents(),['Что входит','Индивидуальная стратегия','9 курсов','80+ инструментов','Тарифы','Кейсы и отзывы']);
+      assert.equal(await page.evaluate(()=>document.querySelector('#tools').compareDocumentPosition(document.querySelector('#how-it-works')) & Node.DOCUMENT_POSITION_FOLLOWING),4);
+      for(const width of [1440,1024,768,680,390,320]) {
+        await page.setViewportSize({width,height:900});
+        await page.waitForTimeout(60);
+        const overflow=await page.evaluate(()=>({width:innerWidth,body:document.documentElement.scrollWidth}));
+        // Chromium rounds fractional scroll areas up by one CSS pixel.
+        assert.ok(overflow.body<=overflow.width+1,JSON.stringify(overflow));
+        if(width<=680) assert.equal(await page.locator('.bento-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),1);
+      }
+    });
+    await scenario('exit, immediate second prompt, finish and session deduplication', async page => {
+      await clock(page);await exit(page);
+      await page.locator('#promoTitle').waitFor({state:'visible'});
+      assert.equal(await page.locator('#promoTitle').textContent(),'Уже уходите?');
+      await page.locator('.promo-close').click();
+      assert.equal(await page.locator('#promoTitle').textContent(),'Заберите один урок из клуба бесплатно');
+      assert.equal(await page.locator('.promo-modal a').getAttribute('target'),'_blank');
+      await page.locator('.promo-close').click();
+      assert.equal(await promo(page).isVisible(),false);
+      await exit(page);await page.clock.fastForward(21*60000);
+      assert.equal(await promo(page).isVisible(),false);
+      await page.reload();await exit(page);
+      assert.equal(await promo(page).isVisible(),false);
+    });
+    await scenario('10 minutes of visible time; no timer repeat; 20-minute lesson', async page => {
+      await clock(page);
+      await page.clock.fastForward(599000);
+      assert.equal(await promo(page).isVisible(),false);
+      await page.evaluate(()=>{window.testHidden=true;Object.defineProperty(document,'hidden',{configurable:true,get:()=>window.testHidden});document.dispatchEvent(new Event('visibilitychange'));});
+      await page.clock.fastForward(21*60000);
+      assert.equal(await promo(page).isVisible(),false);
+      await page.evaluate(()=>{window.testHidden=false;document.dispatchEvent(new Event('visibilitychange'));});
+      await page.clock.fastForward(2000);
+      assert.equal(await page.locator('#promoTitle').textContent(),'Посмотрите клуб изнутри');
+      await page.keyboard.press('Escape');
+      assert.equal(await promo(page).isVisible(),false);
+      await exit(page);assert.equal(await promo(page).isVisible(),false);
+      await page.clock.fastForward(600000);
+      assert.equal(await page.locator('#promoTitle').textContent(),'Заберите один урок из клуба бесплатно');
+    });
+    await scenario('invitation CTA never chains a prompt', async page => {
+      await clock(page);await exit(page);
+      await page.route('https://youtu.be/**',route=>route.fulfill({body:'Test only'}));
+      const opened=page.waitForEvent('popup');
+      await page.locator('.promo-modal a').click();
+      await (await opened).close();
+      await page.clock.fastForward(21*60000);
+      assert.equal(await promo(page).isVisible(),false);
+    });
+    await scenario('buy suppresses prompts, persists on reload, all six modals open', async page => {
+      await clock(page);
+      for(const id of ['start','growth','breakthrough','start-oct29','growth-oct29','breakthrough-oct29']) {
+        await page.locator(`[onclick="openPayment('${id}')"]`).click();
+        assert.equal(await page.locator('.payment-modal.open').count(),1);
+        await page.locator(`#pm-${id}`).waitFor({state:'visible'});
+        await page.locator(`#pm-${id} .payment-modal-close`).click();
+      }
+      await exit(page);await page.clock.fastForward(21*60000);
+      assert.equal(await promo(page).isVisible(),false);
+      await page.reload();await exit(page);
+      assert.equal(await promo(page).isVisible(),false);
+    });
+    await scenario('Tilda bridge forwards UTM, trusts only its iframe, relays exit', async page => {
+      await page.route('**/qa-child*',route=>route.fulfill({contentType:'text/html',body:require('node:fs').readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8')}));
+      await page.route('**/qa-embed*',route=>route.fulfill({contentType:'text/html',body:`<iframe id="yahontFrame" data-club-src="${base}/qa-child" style="width:100%;height:900px"></iframe><script src="/utm.js"></script>`}));
+      await page.goto(base+'/qa-embed?utm_source=qa&utm_campaign=iframe',{waitUntil:'load'});
+      const frame=await (await page.$('#yahontFrame')).contentFrame();
+      await frame.waitForSelector('.promo-modal',{state:'attached'});
+      assert.equal(new URL(frame.url()).searchParams.get('utm_source'),'qa');
+      await frame.evaluate(()=>window.dispatchEvent(new MessageEvent('message',{data:{type:'yahont:exit'},origin:'https://untrusted.example',source:window.parent})));
+      assert.equal(await frame.locator('.promo-modal').isVisible(),false);
+      await exit(page);
+      await frame.locator('#promoTitle').waitFor({state:'visible'});
+      assert.equal(await frame.locator('#promoTitle').textContent(),'Уже уходите?');
+    });
+    console.log(`ALL ${count} SCENARIOS PASSED`);
+  } finally { await browser.close(); }
+})().catch(error=>{console.error(error);process.exit(1)});
