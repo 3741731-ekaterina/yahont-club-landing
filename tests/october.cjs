@@ -75,16 +75,33 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
       }
     });
-    await scenario('no promotional popups on mouse exit, elapsed time, reload or unload', async page => {
-      await clock(page);
-      await exit(page);
+    await scenario('timers remain enabled, mouse exit ignored, hidden time excluded, close chains once', async page => {
+      await clock(page);await exit(page);
       assert.equal(await promo(page).isVisible(),false);
+      await page.clock.fastForward(599000);
+      assert.equal(await promo(page).isVisible(),false);
+      await page.evaluate(()=>{window.testHidden=true;Object.defineProperty(document,'hidden',{configurable:true,get:()=>window.testHidden});document.dispatchEvent(new Event('visibilitychange'));});
       await page.clock.fastForward(21*60000);
       assert.equal(await promo(page).isVisible(),false);
-      await page.evaluate(()=>window.dispatchEvent(new Event('beforeunload')));
+      await page.evaluate(()=>{window.testHidden=false;document.dispatchEvent(new Event('visibilitychange'));});
+      await page.clock.fastForward(2000);
+      assert.equal(await page.locator('#promoTitle').textContent(),'Посмотрите клуб изнутри');
+      await page.locator('.promo-close').click();
+      assert.equal(await page.locator('#promoTitle').textContent(),'Заберите один урок из клуба бесплатно');
+      await page.locator('.promo-close').click();
+      await page.clock.fastForward(21*60000);
       assert.equal(await promo(page).isVisible(),false);
       await page.reload();await exit(page);
       assert.equal(await promo(page).isVisible(),false);
+    });
+    await scenario('20-minute lesson remains available after dismissing tour with Escape', async page => {
+      await clock(page);await page.clock.fastForward(601000);
+      assert.equal(await page.locator('#promoTitle').textContent(),'Посмотрите клуб изнутри');
+      await page.keyboard.press('Escape');
+      assert.equal(await promo(page).isVisible(),false);
+      await exit(page);assert.equal(await promo(page).isVisible(),false);
+      await page.clock.fastForward(600000);
+      assert.equal(await page.locator('#promoTitle').textContent(),'Заберите один урок из клуба бесплатно');
     });
     await scenario('buy suppresses prompts, persists on reload, all six modals open', async page => {
       await clock(page);

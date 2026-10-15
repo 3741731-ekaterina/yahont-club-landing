@@ -100,8 +100,8 @@
   updateGallery();
 
   // Promotions: one display per tab session, counted only while the page is visible.
-  // Disabled: native tab/window close buttons cannot trigger a custom site dialog.
-  var autoPromotionsEnabled = false;
+  // Timed invitations remain enabled; moving toward browser controls is not a trigger.
+  var autoPromotionsEnabled = true;
   var sessionKey = 'yahont-club-promos-v1';
   var buyerKey = 'yahont-club-purchase-clicked-v1';
   var state = {tourSeen: false, lessonSeen: false, finished: false, elapsed: 0};
