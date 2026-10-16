@@ -1,0 +1,14 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const assert=require('node:assert/strict');
+(async()=>{const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}});const requests=[],errors=[];page.on('request',r=>requests.push(r.url()));page.on('pageerror',e=>errors.push(e.message));const url=process.env.CLUB_TEST_URL||'https://yahontovafinance.ru/club_tilda_check_20261016';
+await page.goto(url+'?utm_source=migration_test&utm_medium=qa&utm_campaign=tilda_native',{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);await page.locator('body#yahont-club').waitFor();
+assert.equal(requests.filter(u=>u.includes('vercel.app')).length,0);
+await page.waitForFunction(()=>document.querySelectorAll('.payment-modal iframe').length===6);
+const forms=await page.locator('.payment-modal iframe').evaluateAll(es=>es.map(e=>e.src));for(const f of forms){const u=new URL(f);assert.equal(u.searchParams.get('utm_source'),'migration_test');assert.equal(u.searchParams.get('utm_campaign'),'tilda_native');}
+assert.equal(await page.locator('.course-btn').count(),9);for(let i=0;i<9;i++){await page.locator('.course-btn').nth(i).click();await page.locator('.course-program-close').click();}
+await page.locator('#strategyReviews').scrollIntoViewIfNeeded();await page.locator('#strategyReviewsNext').click();await page.waitForFunction(()=>document.querySelector('#strategyReviewsCount').textContent==='2 / 4');
+for(const width of [1440,1024,768,390,320]){await page.setViewportSize({width,height:1000});await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(850);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));if(width===1440||width===390)await page.screenshot({path:`migration/tilda-${width}.png`});}
+await page.setViewportSize({width:1440,height:1000});await page.evaluate(async()=>{for(const im of document.images)im.loading='eager';await Promise.all(Array.from(document.images).map(im=>im.decode().catch(()=>{})));});
+const broken=await page.locator('img').evaluateAll(es=>es.filter(e=>!e.naturalWidth).map(e=>e.src));assert.deepEqual(broken,[]);
+await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(800);const align=await page.evaluate(()=>{const a=document.querySelector('.hero-badge-frame').getBoundingClientRect(),b=document.querySelector('.hero-float-card').getBoundingClientRect();return {note:a.bottom,expert:b.bottom};});assert.ok(Math.abs(align.note-align.expert)<2,JSON.stringify(align));
+assert.deepEqual(errors,[]);console.log(JSON.stringify({status:'PASS',forms:forms.length,images:await page.locator('img').count(),vercelRequests:0,viewports:5,heroAlignment:align}));await browser.close();})().catch(e=>{console.error(e);process.exit(1)});

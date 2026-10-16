@@ -1,0 +1,253 @@
+
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg style="display:none">
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-plus" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-telegram" viewBox="0 0 240 240">
+    <defs><linearGradient id="tgGrad" x1="120" y1="240" x2="120" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1d93d2"/><stop offset="1" stop-color="#38b0e3"/></linearGradient></defs>
+    <circle cx="120" cy="120" r="120" fill="url(#tgGrad)"/>
+    <path d="M81.229,128.772l14.237,39.406s1.78,3.687,3.686,3.687,30.255-29.492,30.255-29.492l31.525-60.89L81.737,118.6Z" fill="#c8daea"/>
+    <path d="M100.106,138.878l-2.733,29.046s-1.144,8.9,7.754,0,17.415-15.763,17.415-15.763" fill="#a9c6d8"/>
+    <path d="M81.486,130.178,52.2,120.636s-3.5-1.42-2.373-4.64c.232-.664.7-1.229,2.1-2.2,6.489-4.523,120.106-45.36,120.106-45.36s3.208-1.081,5.1-.362a2.766,2.766,0,0,1,1.885,2.055,9.357,9.357,0,0,1,.254,2.585c-.009.752-.1,1.449-.169,2.542-.692,11.165-21.4,94.493-21.4,94.493s-1.239,4.876-5.678,5.043A8.13,8.13,0,0,1,146.1,172.5c-8.711-7.493-38.819-27.727-45.472-32.177a1.27,1.27,0,0,1-.546-.9c-.093-.469.417-1.05.417-1.05s52.426-46.6,53.821-51.492c.108-.379-.3-.566-.848-.4-3.482,1.281-63.844,39.4-70.506,43.607A3.21,3.21,0,0,1,81.486,130.178Z" fill="#fff"/>
+  </symbol>
+  <symbol id="ic-card" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="ic-invoice" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h7M9 16h7M9 8h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="ic-split" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M8 6l-4 6 4 6M16 6l4 6-4 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-install" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 9-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-gem" viewBox="0 0 24 24" fill="none"><path d="M3 9l4-6h10l4 6-9 12L3 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M3 9h18M9 3L7 9l5 12 5-12-2-6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ============ ШАПКА ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#hero" class="logo">
+      <img src="https://static.tildacdn.com/tild3265-6365-4537-a338-366233633762/_.png" alt="ЯХОНТ">
+      <span>ЯХОНТ</span>
+    </a>
+    <nav class="main-nav"><a href="#club">Что входит</a>
+      <a href="#strategy">Индивидуальная стратегия</a>
+      <a href="#courses">9 курсов</a>
+      <a href="#tools">80+ инструментов</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#cases">Кейсы и отзывы</a></nav>
+    <div class="header-actions">
+      <a href="#contacts" class="btn btn-outline btn-sm header-ask-btn">Задать вопрос</a>
+      <a href="#pricing" class="btn btn-primary btn-sm">Вступить в клуб</a>
+      <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileCloseBtn" aria-label="Закрыть"><svg width="26" height="26"><use href="#ic-close"/></svg></button>
+<a href="#club">Что входит</a>
+      <a href="#strategy">Индивидуальная стратегия</a>
+      <a href="#courses">9 курсов</a>
+      <a href="#tools">80+ инструментов</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#cases">Кейсы и отзывы</a>
+</div>
+
+<!-- ============ БЛОК 1. HERO ============ -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Образовательный клуб финансового аутсорсинга</div>
+      <h1>Клуб <span class="grad-text">ЯХ<span class="brand-o">О<img class="gem-charm" src="https://static.tildacdn.com/tild3139-3632-4337-a364-333331336664/02-club.png" alt=""></span>НТ</span></h1>
+      <p class="lead">Профессиональная среда, где вы строите карьеру финансиста частной практики через индивидуальную стратегию, исчерпывающий набор курсов и инструментов, окружение коллег и поддержку для роста.</p>
+      <div class="hero-cta">
+        <a href="#pricing" class="btn btn-primary">Купить <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+        <a href="#club" class="btn btn-outline">Что входит?</a>
+      </div>
+      <div class="hero-badge-frame">Это не очередной курс или подписка для «галочки». Ваш результат — сильные услуги, система привлечения клиентов, растущий доход и управляемая нагрузка — без откатов, стресса и поиска следующего шага.</div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="hero-portrait">
+        <img src="https://static.tildacdn.com/tild6464-3231-4666-b563-666135626430/03-club.png" width="1145" height="1374" fetchpriority="high" alt="Екатерина Яхонтова">
+        <div class="hero-float-card">
+          <div class="name">Екатерина Яхонтова</div>
+          <div class="role">Финансист 18+ лет опыта, основатель клуба</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Листайте</span><span class="dot"></span></div>
+</section>
+
+<!-- ============ БЛОК 2. АУДИТОРИЯ ============ -->
+<section class="section" id="audience" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Для кого клуб</div>
+      <h2 class="section-title">Кому точно надо быть в клубе?</h2>
+      <p class="section-sub">Жмите по кнопкам ниже, чтобы узнать, что клуб даст конкретно вам</p>
+    </div>
+
+    <div class="tabs-switch reveal" id="audienceTabs">
+      <button class="tab-btn active" data-tab="a1">Бухгалтер, главбух, экономист</button>
+      <button class="tab-btn" data-tab="a2">Финансист в найме</button>
+      <button class="tab-btn" data-tab="a3">Финансист на аутсорсе</button>
+      <button class="tab-btn" data-tab="a4">Финансовый менеджер, финаналитик</button>
+    </div>
+
+    <div class="reveal">
+      <div class="tab-panel active" id="a1">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Бухгалтер, главбух, экономист</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Выгорели от скучных однотипных задач, доход не соответствует нагрузке и ответственности</li>
+              <li><svg><use href="#ic-arrow"/></svg>Хотите полностью или частично перейти в финучёт</li>
+              <li><svg><use href="#ic-arrow"/></svg>Не понимаете, с чего начать</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Переквалифицироваться в финансиста частной практики</li>
+              <li><svg><use href="#ic-check"/></svg>Получить твёрдые навыки финучёта и понимание, где найти первых клиентов</li>
+              <li><svg><use href="#ic-check"/></svg>Не сойти с дистанции из-за «а вдруг не получится» и «без большого опыта и кейсов никто не будет со мной работать»</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="a2">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Финансист в найме</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Устали работать за троих, а зарабатывать за одного</li>
+              <li><svg><use href="#ic-arrow"/></svg>Мечтаете перейти на аутсорс, но страшно потерять «стабильный доход» в найме</li>
+              <li><svg><use href="#ic-arrow"/></svg>Хотите подтянуть профессиональные навыки и разобраться, где и как найти клиентов</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Научиться самостоятельно вести проекты от подписания договора до итоговой встречи</li>
+              <li><svg><use href="#ic-check"/></svg>Выстроить систему привлечения клиентов и ежемесячно получать заявки</li>
+              <li><svg><use href="#ic-check"/></svg>Перейти на аутсорс с поддержкой от Екатерины и коллег на всём пути</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="a3">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Финансист на аутсорсе</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Клиентов то густо, то пусто</li>
+              <li><svg><use href="#ic-arrow"/></svg>Чувствуете себя слабее коллег по навыкам, качеству и скорости работы</li>
+              <li><svg><use href="#ic-arrow"/></svg>Не хватает профессионального окружения, где можно быстро получить ответ на любой вопрос и обменяться опытом</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Внедрить нейросети и автоматизацию в работу, чтобы выйти из операционки и заниматься тем, что приносит деньги вам и результат клиенту</li>
+              <li><svg><use href="#ic-check"/></svg>Повысить конкурентоспособность на рынке и стать специалистом, у которого всегда есть клиенты</li>
+              <li><svg><use href="#ic-check"/></svg>Развиваться в окружении коллег, с поддержкой и обратной связью</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="a4">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Финансовый менеджер, финаналитик</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Уперлись в потолок по доходу и должности</li>
+              <li><svg><use href="#ic-arrow"/></svg>Надоело быть «операционщиком», которого легко заменить</li>
+              <li><svg><use href="#ic-arrow"/></svg>Хотите дорасти до функционала финансиста и работать на себя</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Научиться профессионально внедрять финучёт в реальный бизнес</li>
+              <li><svg><use href="#ic-check"/></svg>Сформировать сильные услуги, за которые готовы дорого платить</li>
+              <li><svg><use href="#ic-check"/></svg>Использовать проверенные способы привлечения клиентов</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 3. ЧТО ТАКОЕ КЛУБ ============ -->
+<section class="section" id="club">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Что входит</div>
+      <h2 class="section-title">Что такое клуб финансового аутсорсинга «Яхонт»?</h2>
+    </div>
+    <div class="club-value club-value-hero reveal">
+      <p>Это место, где за <b>5000 ₽</b> в месяц вы получаете то, что на рынке стоит <b>сотни тысяч рублей</b>.</p>
+    </div>
+
+    <div class="bento-grid bento-grid-3 reveal">
+<div class="bento-card"><div class="bento-num">01</div><h4>Индивидуальная стратегия</h4><p>Личный карьерный план развития под ваши цели. На 3 и 6 месяцев — от Екатерины, на 1 месяц — от ИИ-бота по её методологии.</p><a href="#strategy" class="btn btn-outline btn-sm">Подробнее</a></div>
+<div class="bento-card"><div class="bento-num">02</div><h4>9 обучающих курсов</h4><p>Финучёт, финмодели, финанализ, привлечение клиентов, нейросети, команда. 250+ уроков с инструментами общей стоимостью 350+ тыс. руб.</p><a href="#courses" class="btn btn-outline btn-sm">Изучить курсы</a></div>
+<div class="bento-card"><div class="bento-num">03</div><h4>База 80+ инструментов</h4><p>Шаблоны таблиц и договоров, калькуляторы, инструкции, промты, руководства. Удобный поиск и навигация, новые инструменты каждый месяц.</p><a href="#tools" class="btn btn-outline btn-sm">Изучить базу инструментов</a></div>
+<div class="bento-card"><div class="bento-num">04</div><h4>Сообщество и канал в Telegram</h4><p>Поддержка коллег, обмен опытом и помощь в рабочих вопросах. В канале — эксклюзивные материалы и кейсы Екатерины.</p></div>
+<div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы</h4><p>Финучёт, продажи, HR, психология и другие темы. Записи доступны сразу, расписание встреч — заранее.</p></div>
+<div class="bento-card"><div class="bento-num">06</div><h4>Групповые разборы</h4><p>Разбираем ваш запрос и составляем план действий на 2–3 недели. Учитесь на своей ситуации и опыте коллег.</p></div>
+<div class="bento-card"><div class="bento-num">07</div><h4>Ветка вакансий</h4><p>Свежие вакансии для финансистов в одном месте — меньше времени на поиск работы и проектов.</p></div>
+<div class="bento-card"><div class="bento-num">08</div><h4>7 ИИ-агентов</h4><p>Помощники для финанализа, продаж, текстов, юридических вопросов и других рабочих задач.</p></div>
+<div class="bento-card"><div class="bento-num">09</div><h4>Новый месяц = 1 сильный навык</h4><p>Каждый месяц развиваем конкретный навык: от резюме до продаж и финанализа. Вы выполняете задание, Екатерина проверяет результат.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 3.1 ИНДИВИДУАЛЬНАЯ КАРЬЕРНАЯ СТРАТЕГИЯ ============ -->
+<section class="section" id="strategy" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Индивидуальная карьерная стратегия</div>
+      <h2 class="section-title">Инструмент, который превращает подписку на клуб в стабильный профессиональный рост</h2>
+      <p class="section-sub">С конкретными целями и измеримыми результатами на год</p>
+    </div>
+
+    <div class="module-item reveal" style="margin-bottom:40px">
+      <div class="m-head"><span class="m-name"><img class="m-icon" src="https://static.tildacdn.com/tild3139-3632-4337-a364-333331336664/02-club.png" alt="">Формат</span></div>
+      <p class="m-result">Подробная PDF-дорожная карта с этапами, заданиями и перечнем необходимых инструментов. Всё индивидуально — под вашу точку А и точку Б, куда вы реально можете прийти через год.</p>
+    </div>
+
+    <div class="subblock reveal">
+      <div class="subblock-head">
+        <h3>Как получить вашу персональную стратегию на год</h3>
+      </div>
+      <div class="steps-row steps-row-3">
+        <div class="step-card"><div class="num">01</div><h4>Вступить в клуб</h4><p>На 1, 3 или 6 месяцев</p></div>
+        <div class="step-card"><div class="num">02</div><h4>При вступлении на 1 месяц</h4><p>Заполнить данные в ИИ-боте, который составит краткую стратегию под вас.</p></div>
+        <div class="step-card"><div class="num">03</div><h4>При вступлении на 3 и 6 месяцев</h4><p>Заполнить на платформе анкету и в течение 3–4 рабочих дней получить стратегию, которую я ЛИЧНО ПОД ВАС СОСТАВИЛА.</p></div>
+      </div>
+    </div>
+
+<div class="strategy-examples subblock reveal"><a href="https://drive.google.com/file/d/1BxZL5mUaBXJkWqeSZk_xqA9nOqRhZdu_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Стратегия «Со 100 000 до 200 000 руб. через повышение чека» <svg width="16" height="16"><use href="#ic-arrow"/></svg></a><a href="https://drive.google.com/file/d/1TWhrxCO5RhaCrGv9g2MCFwR_Ny8JwHMf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Стратегия «Со 140 000 к 250 000 руб. без опыта на аутсорсе» <svg width="16" height="16"><use href="#ic-arrow"/></svg></a><a href="https://drive.google.com/file/d/1FjoJGQMyLg_dyCHudyLE5R22c0Jl0YGn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Стратегия «С 40 000 к 250 000 руб. через запуск каналов продаж» <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+
+<div class="subblock reveal"><div class="subblock-head"><h3>Что говорят те, кто уже получил стратегию?</h3></div><div class="strategy-reviews" id="strategyReviews" role="region" aria-label="Отзывы о персональной стратегии" tabindex="0"><a href="https://static.tildacdn.com/tild3663-6233-4465-b966-636339323036/04-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 1 в полном размере"><img src="https://static.tildacdn.com/tild3663-6233-4465-b966-636339323036/04-club.jpg" alt="Отзыв участницы о персональной стратегии — 1" loading="lazy"></a><a href="https://static.tildacdn.com/tild3363-3032-4464-a535-363937666361/05-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 2 в полном размере"><img src="https://static.tildacdn.com/tild3363-3032-4464-a535-363937666361/05-club.jpg" alt="Отзыв участницы о персональной стратегии — 2" loading="lazy"></a><a href="https://static.tildacdn.com/tild6261-3865-4531-a537-353138663435/06-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 3 в полном размере"><img src="https://static.tildacdn.com/tild6261-3865-4531-a537-353138663435/06-club.jpg" alt="Отзыв участницы о персональной стратегии — 3" loading="lazy"></a><a href="https://static.tildacdn.com/tild3362-6537-4233-b835-656263626435/07-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 4 в полном размере"><img src="https://static.tildacdn.com/tild3362-6537-4233-b835-656263626435/07-club.jpg" alt="Отзыв участницы о персональной стратегии — 4" loading="lazy"></a></div><div class="reviews-controls strategy-review-controls"><button type="button" id="strategyReviewsPrev" aria-label="Предыдущий отзыв о стратегии" aria-controls="strategyReviews"><svg width="18" height="18" style="transform:rotate(180deg)"><use href="#ic-arrow"/></svg></button><span id="strategyReviewsCount" aria-live="polite">1 / 4</span><button type="button" id="strategyReviewsNext" aria-label="Следующий отзыв о стратегии" aria-controls="strategyReviews"><svg width="18" height="18"><use href="#ic-arrow"/></svg></button></div></div>
+    <div class="course-all-cta reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px">
+      <a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 4. КАК ПРОХОДИТ ОБУЧЕНИЕ ============ -->
+<!-- ============ БЛОК 5. КУРСЫ ============ -->

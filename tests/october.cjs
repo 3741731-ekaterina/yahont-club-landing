@@ -16,7 +16,7 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
     finally { await context.close(); }
   }
   async function open(page) { await page.goto(base, {waitUntil:'load'}); }
-  async function clock(page) { await page.clock.install(); await open(page); }
+  async function clock(page) { await page.clock.install(); await page.clock.pauseAt(Date.now()+100); await open(page); }
   async function exit(page) { await page.evaluate(() => document.dispatchEvent(new MouseEvent('mouseout',{clientY:-1,relatedTarget:null}))); }
   const promo = page => page.locator('.promo-modal');
   try {
@@ -118,8 +118,8 @@ const base = process.env.CLUB_TEST_URL || 'http://127.0.0.1:8765';
     });
     await scenario('Tilda bridge forwards UTM and cannot activate exit promotions', async page => {
       await page.route('**/qa-child*',route=>route.fulfill({contentType:'text/html',body:require('node:fs').readFileSync(require('node:path').join(__dirname,'../index.html'),'utf8')}));
-      await page.route('**/qa-embed*',route=>route.fulfill({contentType:'text/html',body:`<iframe id="yahontFrame" data-club-src="${base}/qa-child" style="width:100%;height:900px"></iframe><script src="/utm.js"></script>`}));
-      await page.goto(base+'/qa-embed?utm_source=qa&utm_campaign=iframe',{waitUntil:'load'});
+      await page.route('**/qa-embed*',route=>route.fulfill({contentType:'text/html',body:`<iframe id="yahontFrame" data-club-src="${new URL(base).origin}/qa-child" style="width:100%;height:900px"></iframe><script src="/utm.js"></script>`}));
+      await page.goto(new URL(base).origin+'/qa-embed?utm_source=qa&utm_campaign=iframe',{waitUntil:'load'});
       const frame=await (await page.$('#yahontFrame')).contentFrame();
       await frame.waitForSelector('.promo-modal',{state:'attached'});
       assert.equal(new URL(frame.url()).searchParams.get('utm_source'),'qa');

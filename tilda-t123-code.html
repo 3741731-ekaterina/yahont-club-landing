@@ -1,3 +1,2115 @@
-<iframe id="yahontFrame" title="Клуб ЯХОНТ" data-club-src="https://klub-fawn.vercel.app/" style="width:100%;height:100vh;border:none;display:block;"></iframe>
-<script src="https://klub-fawn.vercel.app/utm.js" onerror="document.getElementById('yahontFrame').src='https://klub-fawn.vercel.app/'"></script>
-<noscript><iframe title="Клуб ЯХОНТ" src="https://klub-fawn.vercel.app/" style="width:100%;height:100vh;border:none;display:block;"></iframe></noscript>
+<script>document.body.id="yahont-club";</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#120B0B}body{overflow-x:hidden}#allrecords{overflow:visible!important}#yahont-club{min-height:100vh}#yahont-club a{color:inherit;text-decoration:none}#yahont-club .btn-primary{color:#fff}#yahont-club .grad-text{color:transparent}#yahont-club ul{padding:0;list-style:none}#yahont-club .t-records{font-family:inherit;color:inherit}#allrecords>.r:not([data-record-type="131"]){display:none!important}
+#yahont-club{
+  --bg:#120B0B;
+  --bg-alt:#170F0F;
+  --surface:#1E1414;
+  --surface-2:#241818;
+  --border:#3A2620;
+  --border-soft:#2A1C18;
+  --text:#F3E9E4;
+  --text-secondary:#EFE6E0;
+  --text-muted:#B7A79E;
+  --accent:#B5222F;
+  --accent-dark:#7A1522;
+  --accent-light:#D94C4C;
+  --accent2:#D97B3F;
+  --gold:#E3B873;
+  --radius-lg:28px;
+  --radius-md:18px;
+  --radius-sm:12px;
+  --container:1180px;
+  --shadow-soft:0 20px 60px rgba(0,0,0,.45);
+  --font-display:'Playfair Display', Georgia, serif;
+  --font-body:'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+#yahont-club *,#yahont-club *::before,#yahont-club *::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+#yahont-club{
+  background:
+    radial-gradient(70% 45% at 85% 0%, rgba(217,123,63,.10), transparent 60%),
+    radial-gradient(60% 40% at 10% 20%, rgba(181,34,47,.10), transparent 60%),
+    radial-gradient(55% 35% at 90% 65%, rgba(181,34,47,.08), transparent 60%),
+    radial-gradient(60% 40% at 5% 95%, rgba(217,123,63,.08), transparent 60%),
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+#yahont-club img{max-width:100%;display:block}
+#yahont-club a{color:inherit;text-decoration:none}
+#yahont-club ul{list-style:none}
+#yahont-club button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+#yahont-club svg{display:block}
+#yahont-club .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+#yahont-club h1,#yahont-club h2,#yahont-club h3,#yahont-club h4{font-family:var(--font-display);font-weight:700;line-height:1.15;letter-spacing:.2px}
+#yahont-club ::selection{background:var(--accent);color:#fff}
+#yahont-club ::-webkit-scrollbar{width:10px}
+#yahont-club ::-webkit-scrollbar-track{background:var(--bg)}
+#yahont-club ::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
+#yahont-club .eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--accent2);margin-bottom:16px;
+}
+#yahont-club .eyebrow::before{content:"";width:22px;height:1px;background:var(--accent2)}
+#yahont-club .section{padding:110px 0}
+#yahont-club .section-head{max-width:720px;margin:0 auto 56px;text-align:center}
+#yahont-club .section-head.left{margin:0 0 48px;text-align:left}
+#yahont-club .section-title{font-size:clamp(30px,4vw,46px);margin-bottom:18px}
+#yahont-club .section-sub{color:var(--text-secondary);font-size:17px}
+#yahont-club .grad-text{
+  background:linear-gradient(100deg,var(--gold),var(--accent2) 45%,var(--accent-light));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+#yahont-club .divider-gem{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 20px}
+#yahont-club .divider-gem .line{width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--border))}
+#yahont-club .divider-gem .line.r{background:linear-gradient(90deg,var(--border),transparent)}
+#yahont-club .btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 30px;border-radius:100px;font-weight:700;font-size:15px;
+  letter-spacing:.2px;white-space:nowrap;transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  position:relative;
+}
+#yahont-club .btn-primary{
+  background:linear-gradient(120deg,var(--accent-light),var(--accent) 55%,var(--accent-dark));
+  color:#fff;box-shadow:0 10px 30px -8px rgba(181,34,47,.65);
+}
+#yahont-club .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -8px rgba(217,76,76,.75)}
+#yahont-club .btn-outline{
+  border:1.5px solid rgba(217,123,63,.55);color:var(--text);background:rgba(255,255,255,.02);
+}
+#yahont-club .btn-outline:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-2px)}
+#yahont-club .btn-ghost{color:var(--text-secondary);padding:16px 8px}
+#yahont-club .btn-ghost:hover{color:var(--text)}
+#yahont-club .btn-sm{padding:11px 20px;font-size:13.5px}
+#yahont-club .btn-block{width:100%}
+#yahont-club .btn svg{width:16px;height:16px}
+#yahont-club .ic-img{width:16px;height:16px;border-radius:5px;display:block;flex:none;object-fit:cover}
+#yahont-club .contact-buttons{display:flex;flex-wrap:wrap;gap:14px}
+#yahont-club .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));width:0%;z-index:1000;transition:width .1s linear}
+#yahont-club .back-to-top{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;z-index:800;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(120deg,var(--accent-light),var(--accent) 55%,var(--accent-dark));
+  box-shadow:0 10px 26px -6px rgba(181,34,47,.7);
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s ease, transform .3s ease, box-shadow .25s ease;
+}
+#yahont-club .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+#yahont-club .back-to-top:hover{box-shadow:0 14px 32px -6px rgba(217,76,76,.8);transform:translateY(-3px)}
+#yahont-club .site-header{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:22px 0;transition:padding .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
+  border-bottom:1px solid transparent;
+}
+#yahont-club section[id]{scroll-margin-top:96px}
+#yahont-club .site-header.scrolled{
+  padding:13px 0;background:rgba(18,11,11,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border-soft);box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+#yahont-club .header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+#yahont-club .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:1px}
+#yahont-club .logo img{width:34px;height:34px;object-fit:contain;border-radius:8px}
+#yahont-club .logo span{background:linear-gradient(120deg,var(--gold),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+#yahont-club .brand-o{
+  position:relative;display:inline-block;
+  background:inherit;-webkit-background-clip:inherit;background-clip:inherit;color:inherit;
+}
+#yahont-club .gem-charm{
+  position:absolute;width:.72em;height:.72em;object-fit:contain;
+  left:50%;top:-.36em;transform:translateX(-50%) rotate(-4deg);
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.5)) drop-shadow(0 0 8px rgba(217,123,63,.55));
+}
+#yahont-club .main-nav{display:flex;align-items:center;gap:30px}
+#yahont-club .main-nav a{font-size:14.5px;font-weight:600;color:var(--text-secondary);transition:color .2s ease;position:relative}
+#yahont-club .main-nav a:hover{color:var(--text)}
+#yahont-club .header-actions{display:flex;align-items:center;gap:14px}
+#yahont-club .burger{display:none;flex-direction:column;gap:5px;width:26px;padding:6px 0}
+#yahont-club .burger span{height:2px;background:var(--text);border-radius:2px;transition:transform .3s ease, opacity .3s ease}
+#yahont-club .mobile-nav{
+  position:fixed;inset:0;background:rgba(10,6,6,.98);backdrop-filter:blur(10px);
+  z-index:950;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+#yahont-club .mobile-nav.open{opacity:1;pointer-events:auto}
+#yahont-club .mobile-nav a{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--text)}
+#yahont-club .mobile-nav .btn{margin-top:10px}
+#yahont-club .mobile-close{position:absolute;top:26px;right:24px}
+#yahont-club .hero{
+  position:relative;padding:180px 0 120px;overflow:hidden;
+  background:
+    radial-gradient(60% 55% at 82% 18%, rgba(217,123,63,.20), transparent 60%),
+    radial-gradient(55% 60% at 90% 55%, rgba(181,34,47,.28), transparent 65%),
+    radial-gradient(120% 90% at 10% 100%, rgba(122,21,34,.16), transparent 60%),
+    var(--bg);
+}
+#yahont-club .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:2}
+#yahont-club .hero-badge-frame{
+  display:inline-block;padding:16px 22px;margin-top:26px;border:1px solid var(--border);
+  border-radius:var(--radius-sm);background:rgba(255,255,255,.02);color:var(--text-secondary);font-size:15px;
+  max-width:520px;
+}
+#yahont-club .hero-badge-frame b{color:var(--accent2);font-weight:700}
+#yahont-club .hero h1{font-size:clamp(38px,5.4vw,64px);margin-bottom:22px}
+#yahont-club .hero p.lead{font-size:18px;color:var(--text-secondary);max-width:540px}
+#yahont-club .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+#yahont-club .hero-visual{position:relative;display:flex;justify-content:center}
+#yahont-club .hero-portrait{position:relative;z-index:1;width:100%;max-width:420px}
+#yahont-club .hero-portrait img{width:100%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+#yahont-club .hero-float-card{
+  position:absolute;left:-10px;bottom:26px;background:rgba(30,20,20,.85);backdrop-filter:blur(10px);
+  border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 22px;box-shadow:var(--shadow-soft);
+  max-width:270px;
+}
+#yahont-club .hero-float-card .name{font-family:var(--font-display);font-weight:700;font-size:17px;margin-bottom:4px}
+#yahont-club .hero-float-card .role{font-size:13px;color:var(--text-secondary);line-height:1.5}
+#yahont-club .hero-float-stat{
+  position:absolute;right:6px;top:18px;background:linear-gradient(120deg,var(--accent-light),var(--accent-dark));
+  border-radius:100px;padding:10px 18px;font-weight:800;font-size:14px;box-shadow:0 12px 24px -6px rgba(181,34,47,.6);
+}
+#yahont-club .scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text-muted);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+#yahont-club .scroll-cue .dot{width:1px;height:34px;background:linear-gradient(var(--accent2),transparent);position:relative}
+#yahont-club.js-ready .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+#yahont-club.js-ready .reveal.in-view{opacity:1;transform:translateY(0)}
+#yahont-club .reveal-delay-1{transition-delay:.08s}
+#yahont-club .reveal-delay-2{transition-delay:.16s}
+#yahont-club .reveal-delay-3{transition-delay:.24s}
+#yahont-club .reveal-delay-4{transition-delay:.32s}
+#yahont-club .club-value{
+  text-align:center;max-width:640px;margin:0 auto 50px;padding:22px 26px;border:1px solid var(--border);
+  border-radius:var(--radius-md);background:rgba(255,255,255,.02);
+}
+#yahont-club .club-value p{color:var(--text-secondary);font-size:15.5px}
+#yahont-club .club-value-hero{
+  padding:30px 34px;border:1px solid var(--accent2);
+  background:linear-gradient(135deg, rgba(181,34,47,.16), rgba(217,123,63,.08));
+  box-shadow:0 20px 45px -20px rgba(181,34,47,.5);
+}
+#yahont-club .club-value-hero p{font-size:19px;font-weight:600;line-height:1.5;color:var(--text)}
+#yahont-club .club-value-hero b{color:var(--accent2);font-family:var(--font-display);font-weight:700}
+#yahont-club .bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+#yahont-club .bento-grid-3{grid-template-columns:repeat(3,1fr)}
+#yahont-club .bento-card{
+  position:relative;background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-md);
+  padding:26px 22px 22px;overflow:hidden;
+}
+#yahont-club .bento-card .btn-sm{margin-top:14px}
+#yahont-club .bento-num{
+  width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:rgba(217,123,63,.12);color:var(--accent2);font-weight:800;font-size:14px;margin-bottom:16px;
+}
+#yahont-club .bento-card h4{font-family:var(--font-body);font-size:16.5px;font-weight:700;margin-bottom:8px;line-height:1.35}
+#yahont-club .bento-card p{font-size:13.8px;color:var(--text-secondary);line-height:1.5}
+#yahont-club .tabs-switch{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+#yahont-club .tab-btn{
+  padding:13px 22px;border-radius:100px;border:1px solid var(--border);font-weight:700;font-size:14px;
+  color:var(--text-secondary);transition:all .25s ease;
+}
+#yahont-club .tab-btn:hover{color:var(--text)}
+#yahont-club .tab-btn.active{background:linear-gradient(120deg,var(--accent-light),var(--accent-dark));border-color:transparent;color:#fff}
+#yahont-club .tab-panel{display:none}
+#yahont-club .tab-panel.active{display:block;animation:fadeUp .5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+#yahont-club .audience-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border-soft);border-radius:var(--radius-lg);overflow:hidden;
+}
+#yahont-club .audience-pains,#yahont-club .audience-gains{padding:44px 40px}
+#yahont-club .audience-pains{background:var(--surface)}
+#yahont-club .audience-gains{background:linear-gradient(160deg, rgba(181,34,47,.12), rgba(217,123,63,.05))}
+#yahont-club .audience-card h3{font-size:24px;margin-bottom:22px}
+#yahont-club .audience-card .kicker{font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:16px}
+#yahont-club .audience-gains .kicker{color:var(--accent2)}
+#yahont-club .check-list li{display:flex;gap:12px;margin-bottom:14px;font-size:15px;color:var(--text-secondary);line-height:1.55}
+#yahont-club .check-list li:last-child{margin-bottom:0}
+#yahont-club .check-list svg{flex:none;width:19px;height:19px;margin-top:2px}
+#yahont-club .check-list.pain svg{color:var(--accent-light)}
+#yahont-club .check-list.gain svg{color:var(--accent2)}
+#yahont-club .check-list.gain li{color:var(--text)}
+#yahont-club .steps-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:56px}
+#yahont-club .steps-row-4{grid-template-columns:repeat(4,1fr)}
+#yahont-club .steps-row-3{grid-template-columns:repeat(3,1fr)}
+#yahont-club .step-card{
+  background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:26px 20px;
+  position:relative;transition:transform .3s ease, border-color .3s ease;
+}
+#yahont-club .step-card:hover{transform:translateY(-6px);border-color:var(--accent2)}
+#yahont-club .step-card .num{
+  font-family:var(--font-display);font-size:34px;font-weight:700;color:transparent;
+  -webkit-text-stroke:1.5px var(--accent2);margin-bottom:14px;
+}
+#yahont-club .step-card h4{font-size:16px;margin-bottom:8px}
+#yahont-club .step-card p{font-size:13.3px;color:var(--text-secondary);line-height:1.5}
+#yahont-club .subblock{
+  border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:44px;background:var(--surface);margin-bottom:26px;
+}
+#yahont-club .subblock-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:28px}
+#yahont-club .subblock-head h3{font-size:26px}
+#yahont-club .subblock-head p{color:var(--text-secondary);max-width:520px;font-size:14.5px}
+#yahont-club .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#yahont-club .stat-tile{border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:26px;text-align:center;background:rgba(255,255,255,.015)}
+#yahont-club .stat-tile .n{font-family:var(--font-display);font-size:38px;color:var(--accent2);margin-bottom:6px}
+#yahont-club .stat-tile p{font-size:13.5px;color:var(--text-secondary)}
+#yahont-club .schedule-note{margin-top:18px;text-align:center;font-size:13.5px;color:var(--text-muted)}
+#yahont-club .founder-quote{
+  display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:flex-start;background:linear-gradient(160deg, rgba(181,34,47,.14), rgba(217,123,63,.05));
+  border:1px solid rgba(217,123,63,.4);border-radius:var(--radius-lg);padding:40px 44px;margin-bottom:60px;
+}
+#yahont-club .founder-quote img{width:74px;height:74px;border-radius:50%;object-fit:cover;border:2px solid var(--accent2)}
+#yahont-club .founder-quote blockquote{font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.55;margin-bottom:14px}
+#yahont-club .founder-quote cite{font-style:normal;font-size:14px;color:var(--text-secondary);font-weight:700}
+#yahont-club .courses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
+#yahont-club .course-btn{
+  display:flex;flex-direction:column;gap:14px;text-align:left;background:var(--surface);border:1px solid var(--border-soft);
+  border-radius:var(--radius-md);padding:22px;transition:all .3s ease;position:relative;
+}
+#yahont-club .course-btn:hover,#yahont-club .course-btn.active{border-color:var(--accent2);transform:translateY(-4px)}
+#yahont-club .course-btn.active{background:var(--surface-2)}
+#yahont-club .course-btn .tag{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--accent2)}
+#yahont-club .course-btn .title{font-weight:700;font-size:15px;line-height:1.35}
+#yahont-club .course-btn .meta{font-size:12.5px;color:var(--text-muted);display:flex;align-items:center;gap:6px}
+#yahont-club .course-btn .plus{
+  position:absolute;top:20px;right:18px;width:26px;height:26px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;transition:transform .3s ease, background .3s ease, border-color .3s ease;
+}
+#yahont-club .course-btn.active .plus{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
+#yahont-club .course-btn .plus svg{width:12px;height:12px}
+#yahont-club .course-detail{
+  max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.2,1);
+}
+#yahont-club .course-detail.open{max-height:4000px}
+#yahont-club .course-detail-inner{
+  border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:40px;margin-top:6px;background:var(--surface);
+}
+#yahont-club .course-detail-top{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid var(--border-soft)}
+#yahont-club .course-detail-top h3{font-size:26px;max-width:560px;margin-bottom:10px}
+#yahont-club .course-detail-top .result{color:var(--text-secondary);font-size:14.5px;max-width:560px}
+#yahont-club .course-duration{
+  flex:none;text-align:center;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 22px;background:rgba(255,255,255,.02);
+}
+#yahont-club .course-duration .val{font-family:var(--font-display);font-size:20px;color:var(--accent2)}
+#yahont-club .course-duration .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+#yahont-club .module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+#yahont-club .module-item{border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:18px 20px;background:rgba(255,255,255,.015)}
+#yahont-club .module-item .m-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}
+#yahont-club .module-item .m-name{font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px}
+#yahont-club .module-item .m-icon{width:20px;height:20px;object-fit:contain;flex:none}
+#yahont-club .module-item .m-count{flex:none;font-size:11.5px;color:var(--text-muted);white-space:nowrap}
+#yahont-club .module-item .m-lessons,#yahont-club .module-item .m-tools{margin-bottom:12px}
+#yahont-club .module-item .m-lessons b,#yahont-club .module-item .m-tools b{color:var(--accent2);font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.4px;display:block;margin-bottom:6px}
+#yahont-club .module-item .m-lessons ul,#yahont-club .module-item .m-tools ul{list-style:none;margin:0;padding:0}
+#yahont-club .module-item .m-lessons li,#yahont-club .module-item .m-tools li{
+  position:relative;padding-left:14px;font-size:13.3px;color:var(--text-secondary);line-height:1.55;margin-bottom:5px;
+}
+#yahont-club .module-item .m-lessons li::before,#yahont-club .module-item .m-tools li::before{content:"–";position:absolute;left:0;color:var(--text-muted)}
+#yahont-club .module-item .m-result{font-size:13.3px;color:var(--text-secondary);line-height:1.5;padding-top:10px;border-top:1px dashed var(--border-soft)}
+#yahont-club .module-item .m-result b{color:var(--accent2);font-weight:700}
+#yahont-club .course-all-cta{text-align:center;margin-top:20px}
+#yahont-club .rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
+#yahont-club .rule-card{border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:28px;background:var(--surface)}
+#yahont-club .rule-card .ic{width:42px;height:42px;border-radius:12px;background:rgba(181,34,47,.16);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--accent2)}
+#yahont-club .rule-card .ic svg{width:20px;height:20px}
+#yahont-club .rule-card h4{font-size:15.5px;margin-bottom:10px}
+#yahont-club .rule-card p{font-size:13.6px;color:var(--text-secondary);line-height:1.55}
+#yahont-club .contact-cta{
+  display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;
+  border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:30px 36px;background:linear-gradient(140deg, rgba(217,123,63,.08), transparent);
+}
+#yahont-club .contact-cta p{color:var(--text-secondary);font-size:14.5px;max-width:420px}
+#yahont-club .contact-cta h4{font-size:17px;margin-bottom:6px}
+#yahont-club .unique-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+#yahont-club .unique-card{border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:30px;background:var(--surface);transition:border-color .3s ease, transform .3s ease}
+#yahont-club .unique-card:hover{border-color:var(--accent2);transform:translateY(-5px)}
+#yahont-club .unique-card .n-badge{
+  display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(120deg,var(--accent-light),var(--accent-dark));font-weight:800;font-size:13.5px;margin-bottom:18px;
+}
+#yahont-club .unique-card h4{font-size:17.5px;margin-bottom:6px}
+#yahont-club .unique-card .subtitle{color:var(--accent2);font-size:13px;font-weight:700;margin-bottom:16px}
+#yahont-club .unique-card ul{margin-bottom:16px}
+#yahont-club .unique-card ul li{display:flex;gap:9px;font-size:13.6px;color:var(--text-secondary);margin-bottom:9px;line-height:1.5}
+#yahont-club .unique-card ul li svg{flex:none;width:15px;height:15px;margin-top:3px;color:var(--accent2)}
+#yahont-club .unique-card .bottom-line{font-size:13.2px;font-style:italic;color:var(--text-muted);border-top:1px solid var(--border-soft);padding-top:14px}
+#yahont-club .benefit-banner{
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:48px;
+  background:linear-gradient(135deg, rgba(181,34,47,.20), rgba(217,123,63,.08));
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;margin-bottom:70px;
+}
+#yahont-club .benefit-banner h3{font-size:28px;margin-bottom:14px}
+#yahont-club .benefit-banner > div:first-child p{color:var(--text-secondary);font-size:15px}
+#yahont-club .benefit-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#yahont-club .benefit-list li{display:flex;gap:10px;font-size:13.8px;background:rgba(0,0,0,.18);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:14px 16px;line-height:1.5}
+#yahont-club .benefit-list li svg{flex:none;width:17px;height:17px;color:var(--accent2);margin-top:2px}
+#yahont-club .countdown-box{
+  display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;
+  border:1px solid var(--border);border-radius:100px;padding:14px 30px;margin:0 auto 56px;max-width:720px;
+  background:rgba(255,255,255,.02);
+}
+#yahont-club .countdown-box .cd-label{font-size:13.5px;color:var(--text-secondary)}
+#yahont-club .countdown-timer{display:flex;gap:8px}
+#yahont-club .countdown-timer .unit{
+  display:flex;flex-direction:column;align-items:center;background:var(--surface-2);border-radius:8px;padding:6px 10px;min-width:46px;
+}
+#yahont-club .countdown-timer .unit b{font-family:var(--font-display);font-size:17px;color:var(--accent2)}
+#yahont-club .countdown-timer .unit span{font-size:9px;color:var(--text-muted);text-transform:uppercase}
+#yahont-club .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+#yahont-club .price-card{
+  position:relative;border:1px solid var(--border-soft);border-radius:var(--radius-lg);padding:38px 32px;background:var(--surface);
+  display:flex;flex-direction:column;transition:transform .3s ease, border-color .3s ease;
+}
+#yahont-club .price-card:hover{transform:translateY(-6px)}
+#yahont-club .price-card.popular{
+  border-color:var(--accent2);background:linear-gradient(170deg, rgba(217,123,63,.10), var(--surface) 40%);
+  box-shadow:0 30px 60px -20px rgba(181,34,47,.4);
+}
+#yahont-club .price-badge{
+  position:absolute;top:-14px;left:32px;background:linear-gradient(120deg,var(--accent-light),var(--accent-dark));
+  padding:7px 16px;border-radius:100px;font-size:12px;font-weight:800;letter-spacing:.3px;
+}
+#yahont-club .price-card h3{font-size:22px;margin-bottom:6px}
+#yahont-club .price-card .period{font-size:13.5px;color:var(--text-secondary);margin-bottom:22px}
+#yahont-club .price-old{font-size:14px;color:var(--text-muted);text-decoration:line-through}
+#yahont-club .price-now{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+#yahont-club .price-now .val{font-family:var(--font-display);font-size:40px;color:var(--text)}
+#yahont-club .price-now .cur{font-size:20px;color:var(--text-secondary)}
+#yahont-club .price-permonth{font-size:12.5px;color:var(--accent2);font-weight:700;margin-bottom:26px}
+#yahont-club .price-card .btn{margin-bottom:26px}
+#yahont-club .payment-modal{
+  visibility:hidden;opacity:0;pointer-events:none;
+  position:fixed;inset:0;z-index:3000;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(10,6,6,.88);backdrop-filter:blur(10px);
+  transition:opacity .3s ease, visibility .3s ease;
+}
+#yahont-club .payment-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+#yahont-club .payment-modal-inner{
+  position:relative;background:#fff;border-radius:20px;padding:12px;max-width:560px;width:100%;
+  max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.6);
+}
+#yahont-club .payment-modal-close{
+  color:#222;
+  position:absolute;top:10px;right:14px;background:rgba(0,0,0,.08);border:none;width:32px;height:32px;
+  border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1;
+}
+#yahont-club .price-feats{margin-bottom:18px}
+#yahont-club .price-feats li{display:flex;gap:10px;font-size:13.6px;margin-bottom:12px;line-height:1.5;color:var(--text-secondary)}
+#yahont-club .price-feats li svg{flex:none;width:16px;height:16px;color:var(--accent2);margin-top:2px}
+#yahont-club .price-feats.bonus{border-top:1px dashed var(--border);padding-top:16px;margin-top:4px}
+#yahont-club .price-feats.bonus li{color:var(--text)}
+#yahont-club .price-feats.bonus .bonus-label{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);font-weight:800;margin-bottom:10px;display:block}
+#yahont-club .payment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:50px}
+#yahont-club .payment-card{border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:26px;text-align:center;background:var(--surface)}
+#yahont-club .payment-card .ic{width:44px;height:44px;border-radius:12px;background:rgba(217,123,63,.14);color:var(--accent2);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+#yahont-club .payment-card .ic svg{width:22px;height:22px}
+#yahont-club .payment-card h4{font-size:14.5px;margin-bottom:6px}
+#yahont-club .payment-card p{font-size:12.5px;color:var(--text-muted)}
+#yahont-club .reviews-scroller{
+  display:flex;gap:20px;overflow-x:auto;padding:8px 4px 26px;scroll-snap-type:x mandatory;
+}
+#yahont-club .reviews-scroller::-webkit-scrollbar{height:8px}
+#yahont-club .review-card{
+  flex:none;width:300px;scroll-snap-align:start;border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--border-soft);box-shadow:var(--shadow-soft);background:var(--surface);
+}
+#yahont-club .review-card img{width:100%;height:auto}
+#yahont-club .reviews-controls{display:flex;gap:12px;justify-content:center}
+#yahont-club .reviews-controls button{
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s ease, color .2s ease;
+}
+#yahont-club .reviews-controls button:hover{border-color:var(--accent2);color:var(--accent2)}
+#yahont-club .founder-section{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+#yahont-club .founder-photo{position:relative}
+#yahont-club .founder-photo img{border-radius:var(--radius-lg);width:100%}
+#yahont-club .founder-photo::before{
+  content:"";position:absolute;inset:-24px;background:radial-gradient(circle at 30% 20%, rgba(181,34,47,.28), transparent 60%);z-index:-1;filter:blur(20px);
+}
+#yahont-club .founder-stats{display:flex;gap:16px;margin-top:26px}
+#yahont-club .founder-stats .stat{flex:1;border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:16px;text-align:center;background:rgba(255,255,255,.02)}
+#yahont-club .founder-stats .stat b{display:block;font-family:var(--font-display);font-size:22px;color:var(--accent2)}
+#yahont-club .founder-stats .stat span{font-size:11.5px;color:var(--text-muted)}
+#yahont-club .founder-text h2{margin-bottom:20px}
+#yahont-club .founder-text p{color:var(--text-secondary);margin-bottom:16px;font-size:15.5px;line-height:1.75}
+#yahont-club .founder-blockquote{
+  margin:26px 0;padding:22px 26px;border-left:3px solid var(--accent2);background:rgba(217,123,63,.06);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-family:var(--font-display);font-style:italic;font-size:16.5px;line-height:1.6;
+}
+#yahont-club .tools-section{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+#yahont-club .tools-video{position:relative}
+#yahont-club .tools-video video{width:100%;border-radius:var(--radius-lg);border:1px solid var(--border-soft);display:block}
+#yahont-club .tools-video::before{
+  content:"";position:absolute;inset:-24px;background:radial-gradient(circle at 70% 20%, rgba(181,34,47,.28), transparent 60%);z-index:-1;filter:blur(20px);
+}
+#yahont-club .faq-list{max-width:820px;margin:0 auto}
+#yahont-club .faq-item{border-bottom:1px solid var(--border-soft)}
+#yahont-club .faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 6px;text-align:left;
+  font-family:var(--font-display);font-size:18px;font-weight:600;
+}
+#yahont-club .faq-q .qic{
+  flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  transition:transform .3s ease, background .3s ease, border-color .3s ease;
+}
+#yahont-club .faq-item.open .qic{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
+#yahont-club .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+#yahont-club .faq-item.open .faq-a{max-height:400px}
+#yahont-club .faq-a p{padding:0 6px 26px;color:var(--text-secondary);font-size:15px;max-width:700px;line-height:1.7}
+#yahont-club .final-cta{
+  text-align:center;border:1px solid var(--border);border-radius:var(--radius-lg);padding:70px 40px;
+  background:radial-gradient(60% 100% at 50% 0%, rgba(181,34,47,.20), transparent 70%), var(--surface);
+  position:relative;overflow:hidden;
+}
+#yahont-club .final-cta h2{margin-bottom:16px}
+#yahont-club .final-cta p{max-width:520px;margin:0 auto 34px;color:var(--text-secondary);font-size:15.5px}
+#yahont-club .final-cta .contact-buttons{justify-content:center}
+#yahont-club .site-footer{border-top:1px solid var(--border-soft);padding:60px 0 34px;background:var(--bg-alt)}
+#yahont-club .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+#yahont-club .footer-col h5{font-size:12.5px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:16px}
+#yahont-club .footer-col a{display:block;font-size:14px;color:var(--text-secondary);margin-bottom:10px;transition:color .2s ease}
+#yahont-club .footer-col a:hover{color:var(--accent2)}
+#yahont-club .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid var(--border-soft);padding-top:26px;font-size:12.5px;color:var(--text-muted)}
+#yahont-club .footer-requisites{display:flex;flex-direction:column;gap:6px}
+#yahont-club .footer-legal{display:flex;gap:18px;flex-wrap:wrap}
+@media (max-width:1080px){#yahont-club .hero-grid{grid-template-columns:1fr}
+#yahont-club .hero-visual{margin:28px auto 0}
+#yahont-club .hero-portrait img{max-width:280px;margin:0 auto;display:block}
+#yahont-club .hero-float-card{max-width:340px;margin:16px auto 0}
+#yahont-club .steps-row{grid-template-columns:repeat(3,1fr)}
+#yahont-club .founder-section{grid-template-columns:1fr}
+#yahont-club .tools-section{grid-template-columns:1fr}
+#yahont-club .tools-video{order:-1}
+#yahont-club .benefit-banner{grid-template-columns:1fr}
+
+}
+@media (max-width:900px){#yahont-club .main-nav{display:none}
+#yahont-club .header-ask-btn{display:none}
+#yahont-club .burger{display:flex}
+#yahont-club .audience-card{grid-template-columns:1fr}
+#yahont-club .rules-grid{grid-template-columns:1fr}
+#yahont-club .unique-grid{grid-template-columns:1fr 1fr}
+#yahont-club .payment-grid{grid-template-columns:1fr 1fr}
+#yahont-club .pricing-grid{grid-template-columns:1fr}
+#yahont-club .founder-quote{grid-template-columns:1fr;text-align:left}
+
+}
+@media (max-width:680px){#yahont-club .section{padding:74px 0}
+#yahont-club .btn-wrap-mobile{white-space:normal;text-align:center;line-height:1.3;max-width:100%}
+#yahont-club .bento-grid{grid-template-columns:minmax(0,1fr)}
+#yahont-club .bento-card{min-width:0;overflow-wrap:anywhere}
+#yahont-club .bento-card .btn{max-width:100%;white-space:normal;text-align:center}
+#yahont-club .courses-grid{grid-template-columns:repeat(2,1fr)}
+#yahont-club .steps-row{grid-template-columns:1fr}
+#yahont-club .stat-strip{grid-template-columns:1fr}
+#yahont-club .module-grid{grid-template-columns:1fr !important}
+#yahont-club .unique-grid{grid-template-columns:1fr}
+#yahont-club .benefit-list{grid-template-columns:1fr}
+#yahont-club .footer-top{flex-direction:column;gap:26px}
+#yahont-club .hero-float-card{position:static;margin:16px auto 0;max-width:280px}
+#yahont-club .hero-float-stat{position:static;display:inline-flex;margin-bottom:10px}
+#yahont-club .hero-visual{margin:20px auto 0}
+#yahont-club .hero-portrait{max-width:none}
+#yahont-club .hero-portrait img{max-width:150px;margin:0 auto;display:block}
+#yahont-club .hero-cta{flex-direction:column}
+#yahont-club .hero-cta .btn{width:100%}
+#yahont-club .contact-cta{flex-direction:column;align-items:flex-start}
+#yahont-club .payment-grid{grid-template-columns:1fr}
+#yahont-club .course-detail-inner{padding:24px}
+#yahont-club .course-detail-top{flex-direction:column}
+#yahont-club .founder-quote blockquote{font-size:15px;line-height:1.5}
+#yahont-club .founder-quote{padding:26px 24px}
+
+}
+#yahont-club .strategy-examples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#yahont-club .strategy-examples .btn{border-radius:var(--radius-md);white-space:normal;text-align:left;justify-content:space-between;line-height:1.6;padding:22px}
+#yahont-club .strategy-examples svg{flex:none}
+#yahont-club .strategy-reviews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+#yahont-club .strategy-reviews a{display:block;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden}
+#yahont-club .strategy-reviews img{display:block;width:100%;height:auto}
+#yahont-club .cases-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#yahont-club .case-card{min-width:0;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);display:flex;flex-direction:column}
+#yahont-club .case-card h3{font-size:24px;margin-bottom:6px}
+#yahont-club .case-role{font-size:13px;color:var(--text-muted);margin-bottom:22px}
+#yahont-club .case-result{color:var(--gold);font-size:18px;line-height:1.6;margin-bottom:18px}
+#yahont-club .case-action{font-size:14px;line-height:1.75;margin-bottom:24px}
+#yahont-club .case-card a{display:block;margin-top:auto;border-radius:10px;overflow:hidden}
+#yahont-club .case-card img{display:block;width:100%;height:auto}
+@media(max-width:800px){#yahont-club .strategy-examples,#yahont-club .cases-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){#yahont-club .strategy-reviews{grid-template-columns:1fr}
+#yahont-club .case-card{padding:22px}
+}
+#yahont-club .section{padding:76px 0}
+#yahont-club .section-head{margin-bottom:36px}
+#yahont-club .hero{padding:130px 0 76px}
+#yahont-club .hero-grid{align-items:end;gap:44px}
+#yahont-club .hero-cta{margin-top:28px}
+#yahont-club .hero-portrait{max-width:390px}
+#yahont-club .hero-portrait img{height:410px;width:100%;object-fit:cover;object-position:center top}
+#yahont-club .hero-float-card{position:static;margin:0;max-width:none;width:100%;padding:18px 20px;text-align:center}
+#yahont-club .hero-float-card .name{font-size:21px}
+#yahont-club .hero-float-card .role{font-size:13px}
+#yahont-club .hero-badge-frame{display:block;max-width:none;margin-top:30px;font-size:15px;line-height:1.7}
+#yahont-club .main-nav{gap:18px}
+#yahont-club .main-nav a{font-size:13px;line-height:1.4}
+#yahont-club .header-inner{gap:20px}
+#yahont-club .header-actions .header-ask-btn{display:none}
+#yahont-club .header-actions .btn{padding:13px 22px;font-size:13px}
+#yahont-club .courses-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#yahont-club .course-btn{min-width:0;min-height:192px;border-width:2px;padding:24px;gap:12px}
+#yahont-club .course-btn .title{font-size:17px}
+#yahont-club .course-toggle{color:var(--accent2);font-size:13px;font-weight:800;margin-top:auto;padding-top:10px}
+#yahont-club .course-btn.active{border-color:var(--gold);background:linear-gradient(145deg,rgba(217,123,63,.18),var(--surface-2));box-shadow:0 0 0 2px rgba(227,184,115,.12);transform:none}
+#yahont-club .course-btn.active .course-toggle{color:var(--gold)}
+#yahont-club .courses-grid>.course-detail{grid-column:1/-1;min-width:0;margin-bottom:12px}
+#yahont-club .course-detail[hidden]{display:none}
+#yahont-club .course-detail.open{max-height:none;overflow:visible}
+#yahont-club .course-detail-inner{margin-top:0;padding:32px;border-color:rgba(227,184,115,.45)}
+#yahont-club .steps-row{margin-bottom:32px}
+#yahont-club .subblock{padding:32px;margin-bottom:22px}
+#yahont-club .strategy-examples{padding:24px;gap:12px}
+#yahont-club .strategy-reviews{gap:16px}
+#yahont-club #strategy .course-all-cta{margin-bottom:0}
+#yahont-club #tools{padding-top:76px!important}
+#yahont-club .price-card .purchase-options{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+#yahont-club .price-card .purchase-options .btn{margin-bottom:0;padding:14px 12px;font-size:13px;line-height:1.5;white-space:normal;min-height:51px}
+#yahont-club .purchase-options .btn-outline{border-color:rgba(217,123,63,.65)}
+#yahont-club .case-card{padding:26px}
+#yahont-club .case-card h3{font-size:25px}
+#yahont-club .case-card a{border:1px solid var(--border);transition:border-color .2s}
+#yahont-club .case-card a:hover{border-color:var(--gold)}
+#yahont-club .payment-modal-close{z-index:5}
+#yahont-club button:focus-visible,#yahont-club a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+#yahont-club .promo-modal[hidden]{display:none}
+#yahont-club .promo-modal{position:fixed;inset:0;z-index:3100;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(10,6,6,.87);backdrop-filter:blur(12px)}
+#yahont-club .promo-dialog{position:relative;width:100%;max-width:580px;max-height:calc(100dvh - 48px);overflow:auto;padding:48px;background:radial-gradient(90% 60% at 100% 0,rgba(181,34,47,.21),transparent),var(--surface);border:1px solid rgba(227,184,115,.5);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft)}
+#yahont-club .promo-close{position:absolute;right:16px;top:14px;width:36px;height:36px;border:1px solid var(--border);border-radius:50%;font-size:25px;line-height:1;display:flex;align-items:center;justify-content:center;color:var(--text)}
+#yahont-club .promo-dialog h2{font-size:clamp(28px,4vw,38px);line-height:1.2;margin:8px 0 22px}
+#yahont-club .promo-dialog p{font-size:15px;line-height:1.75;margin-bottom:15px;color:var(--text-secondary)}
+#yahont-club .promo-dialog .btn{width:100%;white-space:normal;line-height:1.5;text-align:center;margin-top:12px}
+#yahont-club .promo-label{color:var(--gold);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.8px}
+@media(max-width:1080px){#yahont-club .hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:26px}
+#yahont-club .hero-visual{margin:0}
+#yahont-club .hero-portrait img{height:340px;max-width:none}
+#yahont-club .hero-float-card{max-width:none;margin:0}
+#yahont-club .main-nav{gap:12px}
+#yahont-club .main-nav a{font-size:12px}
+#yahont-club .header-inner{gap:14px}
+#yahont-club .header-actions .btn{padding:12px 16px}
+
+}
+@media(max-width:900px){#yahont-club .main-nav{display:none}
+#yahont-club .hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+#yahont-club .hero h1{font-size:42px}
+#yahont-club .hero p.lead{font-size:16px}
+#yahont-club .hero-cta .btn{padding:14px 20px;font-size:14px}
+#yahont-club .hero-portrait img{height:330px}
+#yahont-club .hero-float-card .name{font-size:19px}
+}
+@media(max-width:680px){#yahont-club .section{padding:48px 0}
+#yahont-club .section-head{margin-bottom:28px}
+#yahont-club .hero{padding:110px 0 64px}
+#yahont-club .hero-grid{grid-template-columns:1fr;gap:28px}
+#yahont-club .hero h1{font-size:clamp(38px,9vw,52px)}
+#yahont-club .hero p.lead{font-size:16px}
+#yahont-club .hero-visual{margin:0}
+#yahont-club .hero-portrait{max-width:310px}
+#yahont-club .hero-portrait img{height:300px;max-width:none}
+#yahont-club .hero-float-card{padding:16px 18px;max-width:none}
+#yahont-club .hero-badge-frame{margin-top:26px;padding:20px;font-size:14px}
+#yahont-club .hero-cta{flex-direction:row;gap:12px}
+#yahont-club .hero-cta .btn{width:auto;flex:1;padding:14px 18px;white-space:normal}
+#yahont-club .courses-grid{grid-template-columns:1fr;gap:14px}
+#yahont-club .course-btn{min-height:178px;padding:22px}
+#yahont-club .course-detail-inner{padding:22px}
+#yahont-club .subblock{padding:22px}
+#yahont-club .subblock-head{gap:14px;margin-bottom:20px}
+#yahont-club .subblock-head h3{font-size:23px}
+#yahont-club .strategy-examples{padding:20px}
+#yahont-club #tools{padding-top:48px!important}
+#yahont-club .case-card{padding:22px}
+#yahont-club .promo-modal{padding:16px}
+#yahont-club .promo-dialog{padding:42px 24px 28px;max-height:calc(100dvh - 32px);border-radius:22px}
+#yahont-club .promo-dialog p{font-size:14px}
+#yahont-club .promo-dialog .btn{padding:15px 18px}
+
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+#yahont-club .course-btn,#yahont-club .reveal{transition:none!important}
+}
+@media(max-width:400px){#yahont-club .header-inner{gap:10px}
+#yahont-club .logo{font-size:17px;gap:8px;letter-spacing:.3px}
+#yahont-club .logo img{width:28px;height:28px}
+#yahont-club .header-actions{gap:10px}
+#yahont-club .header-actions .btn{font-size:11px;padding:11px 12px}
+
+}
+@media(max-width:680px){#yahont-club .founder-section{grid-template-columns:minmax(0,1fr)}
+#yahont-club .founder-photo,#yahont-club .founder-text{min-width:0}
+#yahont-club .founder-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#yahont-club .founder-stats .stat{min-width:0;padding:14px 8px;overflow-wrap:anywhere}
+#yahont-club .founder-stats .stat b{font-size:18px}
+#yahont-club .review-card{width:min(300px,calc(100vw - 56px))}
+
+}
+#yahont-club .mobile-nav a{max-width:calc(100% - 48px);text-align:center;white-space:normal;overflow-wrap:anywhere}
+#yahont-club .payment-modal-inner{height:auto!important;overflow-y:auto!important;overflow-x:hidden!important}
+@media(max-width:680px){#yahont-club .founder-photo::before,#yahont-club .tools-video::before{inset:-16px}
+}
+#yahont-club .strategy-reviews{display:flex;gap:16px;align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;padding-bottom:14px}
+#yahont-club .strategy-reviews a{flex:0 0 100%;min-width:0;height:var(--strategy-gallery-height,340px);display:flex;align-items:center;justify-content:center;scroll-snap-align:start;scroll-snap-stop:always;background:var(--bg-alt)}
+#yahont-club .strategy-reviews img{width:100%;height:100%;object-fit:contain}
+#yahont-club .strategy-review-controls{align-items:center;margin-top:12px}
+#yahont-club .strategy-review-controls span{min-width:54px;text-align:center;font-size:13px;color:var(--text-muted);font-variant-numeric:tabular-nums}
+#yahont-club .strategy-review-controls button:disabled{opacity:.3;cursor:default}
+#yahont-club .course-program-modal[hidden]{display:none}
+#yahont-club .course-program-modal{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(10,6,6,.88);backdrop-filter:blur(10px)}
+#yahont-club .course-program-dialog{width:100%;max-width:1060px;max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;background:var(--surface);border:1px solid rgba(227,184,115,.5);border-radius:var(--radius-lg);padding:20px 30px 30px;box-shadow:var(--shadow-soft)}
+#yahont-club .course-program-close{position:sticky;top:0;margin:0 0 12px auto;width:40px;height:40px;display:flex;align-items:center;justify-content:center;z-index:2;border:1px solid var(--border);border-radius:50%;background:var(--surface-2);font-size:28px;color:var(--text);box-shadow:0 0 12px var(--surface)}
+#yahont-club .course-program-body .course-detail-inner{padding:0;border:0;border-radius:0;margin:0}
+#yahont-club .course-program-body .course-detail{max-height:none;overflow:visible}
+@media(max-width:680px){#yahont-club .course-program-modal{padding:12px}
+#yahont-club .course-program-dialog{padding:14px 18px 24px;max-height:calc(100dvh - 24px);border-radius:20px}
+#yahont-club .course-program-body .course-detail-top h3{font-size:23px}
+}
+#yahont-club .hero .scroll-cue{bottom:14px;gap:5px}
+#yahont-club .hero .scroll-cue .dot{height:24px}
+
+</style>
+<script>
+/* Keep the latest tagged visit within this tab; never mix different campaigns. */
+(function () {
+  'use strict';
+  var key = 'yahont-club-utm-v1';
+  var current = new URL(window.location.href);
+  var tags = {};
+  current.searchParams.forEach(function (value, name) {
+    if (/^utm_[a-z0-9_]+$/.test(name) && value) tags[name] = value;
+  });
+  try {
+    if (Object.keys(tags).length) {
+      window.sessionStorage.setItem(key, JSON.stringify(tags));
+    } else {
+      var saved = JSON.parse(window.sessionStorage.getItem(key) || '{}');
+      if (saved && typeof saved === 'object') {
+        Object.keys(saved).forEach(function (name) {
+          if (/^utm_[a-z0-9_]+$/.test(name) && typeof saved[name] === 'string' && saved[name]) {
+            tags[name] = saved[name];
+          }
+        });
+      }
+    }
+  } catch (error) { /* Tracking still works when browser storage is unavailable. */ }
+
+  var frame = document.getElementById('yahontFrame');
+  if (frame && frame.hasAttribute('data-club-src')) {
+    // Runs on Tilda: transfer only campaign parameters, not arbitrary visitor data.
+    var target = new URL(frame.getAttribute('data-club-src'));
+    Object.keys(tags).forEach(function (name) { target.searchParams.set(name, tags[name]); });
+    frame.src = target.href;
+    // The club is embedded on Tilda: relay tab visibility.
+    // Restrict every message to this frame and its exact origin.
+    if (window.addEventListener) {
+      function tellClub(type) {
+        if (frame.contentWindow) frame.contentWindow.postMessage({
+          type: type,
+          visible: !document.hidden
+        }, target.origin);
+      }
+      window.addEventListener('message', function (event) {
+        if (event.source === frame.contentWindow && event.origin === target.origin &&
+            event.data && event.data.type === 'yahont:ready') tellClub('yahont:visibility');
+      });
+      document.addEventListener('visibilitychange', function () { tellClub('yahont:visibility'); });
+    }
+  } else {
+    // Runs before GetCourse scripts: their native widgets copy location.search.
+    Object.keys(tags).forEach(function (name) { current.searchParams.set(name, tags[name]); });
+    if (current.href !== window.location.href) {
+      window.history.replaceState(window.history.state, '', current.href);
+    }
+  }
+})();
+
+</script>
+
+
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg style="display:none">
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-plus" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-telegram" viewBox="0 0 240 240">
+    <defs><linearGradient id="tgGrad" x1="120" y1="240" x2="120" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1d93d2"/><stop offset="1" stop-color="#38b0e3"/></linearGradient></defs>
+    <circle cx="120" cy="120" r="120" fill="url(#tgGrad)"/>
+    <path d="M81.229,128.772l14.237,39.406s1.78,3.687,3.686,3.687,30.255-29.492,30.255-29.492l31.525-60.89L81.737,118.6Z" fill="#c8daea"/>
+    <path d="M100.106,138.878l-2.733,29.046s-1.144,8.9,7.754,0,17.415-15.763,17.415-15.763" fill="#a9c6d8"/>
+    <path d="M81.486,130.178,52.2,120.636s-3.5-1.42-2.373-4.64c.232-.664.7-1.229,2.1-2.2,6.489-4.523,120.106-45.36,120.106-45.36s3.208-1.081,5.1-.362a2.766,2.766,0,0,1,1.885,2.055,9.357,9.357,0,0,1,.254,2.585c-.009.752-.1,1.449-.169,2.542-.692,11.165-21.4,94.493-21.4,94.493s-1.239,4.876-5.678,5.043A8.13,8.13,0,0,1,146.1,172.5c-8.711-7.493-38.819-27.727-45.472-32.177a1.27,1.27,0,0,1-.546-.9c-.093-.469.417-1.05.417-1.05s52.426-46.6,53.821-51.492c.108-.379-.3-.566-.848-.4-3.482,1.281-63.844,39.4-70.506,43.607A3.21,3.21,0,0,1,81.486,130.178Z" fill="#fff"/>
+  </symbol>
+  <symbol id="ic-card" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="ic-invoice" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h7M9 16h7M9 8h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="ic-split" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M8 6l-4 6 4 6M16 6l4 6-4 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-install" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 9-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-gem" viewBox="0 0 24 24" fill="none"><path d="M3 9l4-6h10l4 6-9 12L3 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M3 9h18M9 3L7 9l5 12 5-12-2-6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ============ ШАПКА ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#hero" class="logo">
+      <img src="https://static.tildacdn.com/tild3265-6365-4537-a338-366233633762/_.png" alt="ЯХОНТ">
+      <span>ЯХОНТ</span>
+    </a>
+    <nav class="main-nav"><a href="#club">Что входит</a>
+      <a href="#strategy">Индивидуальная стратегия</a>
+      <a href="#courses">9 курсов</a>
+      <a href="#tools">80+ инструментов</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#cases">Кейсы и отзывы</a></nav>
+    <div class="header-actions">
+      <a href="#contacts" class="btn btn-outline btn-sm header-ask-btn">Задать вопрос</a>
+      <a href="#pricing" class="btn btn-primary btn-sm">Вступить в клуб</a>
+      <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileCloseBtn" aria-label="Закрыть"><svg width="26" height="26"><use href="#ic-close"/></svg></button>
+<a href="#club">Что входит</a>
+      <a href="#strategy">Индивидуальная стратегия</a>
+      <a href="#courses">9 курсов</a>
+      <a href="#tools">80+ инструментов</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#cases">Кейсы и отзывы</a>
+</div>
+
+<!-- ============ БЛОК 1. HERO ============ -->
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Образовательный клуб финансового аутсорсинга</div>
+      <h1>Клуб <span class="grad-text">ЯХ<span class="brand-o">О<img class="gem-charm" src="https://static.tildacdn.com/tild3139-3632-4337-a364-333331336664/02-club.png" alt=""></span>НТ</span></h1>
+      <p class="lead">Профессиональная среда, где вы строите карьеру финансиста частной практики через индивидуальную стратегию, исчерпывающий набор курсов и инструментов, окружение коллег и поддержку для роста.</p>
+      <div class="hero-cta">
+        <a href="#pricing" class="btn btn-primary">Купить <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+        <a href="#club" class="btn btn-outline">Что входит?</a>
+      </div>
+      <div class="hero-badge-frame">Это не очередной курс или подписка для «галочки». Ваш результат — сильные услуги, система привлечения клиентов, растущий доход и управляемая нагрузка — без откатов, стресса и поиска следующего шага.</div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="hero-portrait">
+        <img src="https://static.tildacdn.com/tild6464-3231-4666-b563-666135626430/03-club.png" width="1145" height="1374" fetchpriority="high" alt="Екатерина Яхонтова">
+        <div class="hero-float-card">
+          <div class="name">Екатерина Яхонтова</div>
+          <div class="role">Финансист 18+ лет опыта, основатель клуба</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Листайте</span><span class="dot"></span></div>
+</section>
+
+<!-- ============ БЛОК 2. АУДИТОРИЯ ============ -->
+<section class="section" id="audience" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Для кого клуб</div>
+      <h2 class="section-title">Кому точно надо быть в клубе?</h2>
+      <p class="section-sub">Жмите по кнопкам ниже, чтобы узнать, что клуб даст конкретно вам</p>
+    </div>
+
+    <div class="tabs-switch reveal" id="audienceTabs">
+      <button class="tab-btn active" data-tab="a1">Бухгалтер, главбух, экономист</button>
+      <button class="tab-btn" data-tab="a2">Финансист в найме</button>
+      <button class="tab-btn" data-tab="a3">Финансист на аутсорсе</button>
+      <button class="tab-btn" data-tab="a4">Финансовый менеджер, финаналитик</button>
+    </div>
+
+    <div class="reveal">
+      <div class="tab-panel active" id="a1">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Бухгалтер, главбух, экономист</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Выгорели от скучных однотипных задач, доход не соответствует нагрузке и ответственности</li>
+              <li><svg><use href="#ic-arrow"/></svg>Хотите полностью или частично перейти в финучёт</li>
+              <li><svg><use href="#ic-arrow"/></svg>Не понимаете, с чего начать</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Переквалифицироваться в финансиста частной практики</li>
+              <li><svg><use href="#ic-check"/></svg>Получить твёрдые навыки финучёта и понимание, где найти первых клиентов</li>
+              <li><svg><use href="#ic-check"/></svg>Не сойти с дистанции из-за «а вдруг не получится» и «без большого опыта и кейсов никто не будет со мной работать»</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="a2">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Финансист в найме</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Устали работать за троих, а зарабатывать за одного</li>
+              <li><svg><use href="#ic-arrow"/></svg>Мечтаете перейти на аутсорс, но страшно потерять «стабильный доход» в найме</li>
+              <li><svg><use href="#ic-arrow"/></svg>Хотите подтянуть профессиональные навыки и разобраться, где и как найти клиентов</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Научиться самостоятельно вести проекты от подписания договора до итоговой встречи</li>
+              <li><svg><use href="#ic-check"/></svg>Выстроить систему привлечения клиентов и ежемесячно получать заявки</li>
+              <li><svg><use href="#ic-check"/></svg>Перейти на аутсорс с поддержкой от Екатерины и коллег на всём пути</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="a3">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Финансист на аутсорсе</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Клиентов то густо, то пусто</li>
+              <li><svg><use href="#ic-arrow"/></svg>Чувствуете себя слабее коллег по навыкам, качеству и скорости работы</li>
+              <li><svg><use href="#ic-arrow"/></svg>Не хватает профессионального окружения, где можно быстро получить ответ на любой вопрос и обменяться опытом</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Внедрить нейросети и автоматизацию в работу, чтобы выйти из операционки и заниматься тем, что приносит деньги вам и результат клиенту</li>
+              <li><svg><use href="#ic-check"/></svg>Повысить конкурентоспособность на рынке и стать специалистом, у которого всегда есть клиенты</li>
+              <li><svg><use href="#ic-check"/></svg>Развиваться в окружении коллег, с поддержкой и обратной связью</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="a4">
+        <div class="audience-card">
+          <div class="audience-pains">
+            <div class="kicker">Знакомо?</div>
+            <h3>Финансовый менеджер, финаналитик</h3>
+            <ul class="check-list pain">
+              <li><svg><use href="#ic-arrow"/></svg>Уперлись в потолок по доходу и должности</li>
+              <li><svg><use href="#ic-arrow"/></svg>Надоело быть «операционщиком», которого легко заменить</li>
+              <li><svg><use href="#ic-arrow"/></svg>Хотите дорасти до функционала финансиста и работать на себя</li>
+            </ul>
+          </div>
+          <div class="audience-gains">
+            <div class="kicker">В клубе вы сможете</div>
+            <ul class="check-list gain">
+              <li><svg><use href="#ic-check"/></svg>Научиться профессионально внедрять финучёт в реальный бизнес</li>
+              <li><svg><use href="#ic-check"/></svg>Сформировать сильные услуги, за которые готовы дорого платить</li>
+              <li><svg><use href="#ic-check"/></svg>Использовать проверенные способы привлечения клиентов</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 3. ЧТО ТАКОЕ КЛУБ ============ -->
+<section class="section" id="club">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Что входит</div>
+      <h2 class="section-title">Что такое клуб финансового аутсорсинга «Яхонт»?</h2>
+    </div>
+    <div class="club-value club-value-hero reveal">
+      <p>Это место, где за <b>5000 ₽</b> в месяц вы получаете то, что на рынке стоит <b>сотни тысяч рублей</b>.</p>
+    </div>
+
+    <div class="bento-grid bento-grid-3 reveal">
+<div class="bento-card"><div class="bento-num">01</div><h4>Индивидуальная стратегия</h4><p>Личный карьерный план развития под ваши цели. На 3 и 6 месяцев — от Екатерины, на 1 месяц — от ИИ-бота по её методологии.</p><a href="#strategy" class="btn btn-outline btn-sm">Подробнее</a></div>
+<div class="bento-card"><div class="bento-num">02</div><h4>9 обучающих курсов</h4><p>Финучёт, финмодели, финанализ, привлечение клиентов, нейросети, команда. 250+ уроков с инструментами общей стоимостью 350+ тыс. руб.</p><a href="#courses" class="btn btn-outline btn-sm">Изучить курсы</a></div>
+<div class="bento-card"><div class="bento-num">03</div><h4>База 80+ инструментов</h4><p>Шаблоны таблиц и договоров, калькуляторы, инструкции, промты, руководства. Удобный поиск и навигация, новые инструменты каждый месяц.</p><a href="#tools" class="btn btn-outline btn-sm">Изучить базу инструментов</a></div>
+<div class="bento-card"><div class="bento-num">04</div><h4>Сообщество и канал в Telegram</h4><p>Поддержка коллег, обмен опытом и помощь в рабочих вопросах. В канале — эксклюзивные материалы и кейсы Екатерины.</p></div>
+<div class="bento-card"><div class="bento-num">05</div><h4>Мастер-классы</h4><p>Финучёт, продажи, HR, психология и другие темы. Записи доступны сразу, расписание встреч — заранее.</p></div>
+<div class="bento-card"><div class="bento-num">06</div><h4>Групповые разборы</h4><p>Разбираем ваш запрос и составляем план действий на 2–3 недели. Учитесь на своей ситуации и опыте коллег.</p></div>
+<div class="bento-card"><div class="bento-num">07</div><h4>Ветка вакансий</h4><p>Свежие вакансии для финансистов в одном месте — меньше времени на поиск работы и проектов.</p></div>
+<div class="bento-card"><div class="bento-num">08</div><h4>7 ИИ-агентов</h4><p>Помощники для финанализа, продаж, текстов, юридических вопросов и других рабочих задач.</p></div>
+<div class="bento-card"><div class="bento-num">09</div><h4>Новый месяц = 1 сильный навык</h4><p>Каждый месяц развиваем конкретный навык: от резюме до продаж и финанализа. Вы выполняете задание, Екатерина проверяет результат.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 3.1 ИНДИВИДУАЛЬНАЯ КАРЬЕРНАЯ СТРАТЕГИЯ ============ -->
+<section class="section" id="strategy" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Индивидуальная карьерная стратегия</div>
+      <h2 class="section-title">Инструмент, который превращает подписку на клуб в стабильный профессиональный рост</h2>
+      <p class="section-sub">С конкретными целями и измеримыми результатами на год</p>
+    </div>
+
+    <div class="module-item reveal" style="margin-bottom:40px">
+      <div class="m-head"><span class="m-name"><img class="m-icon" src="https://static.tildacdn.com/tild3139-3632-4337-a364-333331336664/02-club.png" alt="">Формат</span></div>
+      <p class="m-result">Подробная PDF-дорожная карта с этапами, заданиями и перечнем необходимых инструментов. Всё индивидуально — под вашу точку А и точку Б, куда вы реально можете прийти через год.</p>
+    </div>
+
+    <div class="subblock reveal">
+      <div class="subblock-head">
+        <h3>Как получить вашу персональную стратегию на год</h3>
+      </div>
+      <div class="steps-row steps-row-3">
+        <div class="step-card"><div class="num">01</div><h4>Вступить в клуб</h4><p>На 1, 3 или 6 месяцев</p></div>
+        <div class="step-card"><div class="num">02</div><h4>При вступлении на 1 месяц</h4><p>Заполнить данные в ИИ-боте, который составит краткую стратегию под вас.</p></div>
+        <div class="step-card"><div class="num">03</div><h4>При вступлении на 3 и 6 месяцев</h4><p>Заполнить на платформе анкету и в течение 3–4 рабочих дней получить стратегию, которую я ЛИЧНО ПОД ВАС СОСТАВИЛА.</p></div>
+      </div>
+    </div>
+
+<div class="strategy-examples subblock reveal"><a href="https://drive.google.com/file/d/1BxZL5mUaBXJkWqeSZk_xqA9nOqRhZdu_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Стратегия «Со 100 000 до 200 000 руб. через повышение чека» <svg width="16" height="16"><use href="#ic-arrow"/></svg></a><a href="https://drive.google.com/file/d/1TWhrxCO5RhaCrGv9g2MCFwR_Ny8JwHMf/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Стратегия «Со 140 000 к 250 000 руб. без опыта на аутсорсе» <svg width="16" height="16"><use href="#ic-arrow"/></svg></a><a href="https://drive.google.com/file/d/1FjoJGQMyLg_dyCHudyLE5R22c0Jl0YGn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Стратегия «С 40 000 к 250 000 руб. через запуск каналов продаж» <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+
+<div class="subblock reveal"><div class="subblock-head"><h3>Что говорят те, кто уже получил стратегию?</h3></div><div class="strategy-reviews" id="strategyReviews" role="region" aria-label="Отзывы о персональной стратегии" tabindex="0"><a href="https://static.tildacdn.com/tild3663-6233-4465-b966-636339323036/04-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 1 в полном размере"><img src="https://static.tildacdn.com/tild3663-6233-4465-b966-636339323036/04-club.jpg" alt="Отзыв участницы о персональной стратегии — 1" loading="lazy"></a><a href="https://static.tildacdn.com/tild3363-3032-4464-a535-363937666361/05-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 2 в полном размере"><img src="https://static.tildacdn.com/tild3363-3032-4464-a535-363937666361/05-club.jpg" alt="Отзыв участницы о персональной стратегии — 2" loading="lazy"></a><a href="https://static.tildacdn.com/tild6261-3865-4531-a537-353138663435/06-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 3 в полном размере"><img src="https://static.tildacdn.com/tild6261-3865-4531-a537-353138663435/06-club.jpg" alt="Отзыв участницы о персональной стратегии — 3" loading="lazy"></a><a href="https://static.tildacdn.com/tild3362-6537-4233-b835-656263626435/07-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв о стратегии 4 в полном размере"><img src="https://static.tildacdn.com/tild3362-6537-4233-b835-656263626435/07-club.jpg" alt="Отзыв участницы о персональной стратегии — 4" loading="lazy"></a></div><div class="reviews-controls strategy-review-controls"><button type="button" id="strategyReviewsPrev" aria-label="Предыдущий отзыв о стратегии" aria-controls="strategyReviews"><svg width="18" height="18" style="transform:rotate(180deg)"><use href="#ic-arrow"/></svg></button><span id="strategyReviewsCount" aria-live="polite">1 / 4</span><button type="button" id="strategyReviewsNext" aria-label="Следующий отзыв о стратегии" aria-controls="strategyReviews"><svg width="18" height="18"><use href="#ic-arrow"/></svg></button></div></div>
+    <div class="course-all-cta reveal" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px">
+      <a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить карьерную стратегию на 1 год <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 4. КАК ПРОХОДИТ ОБУЧЕНИЕ ============ -->
+<!-- ============ БЛОК 5. КУРСЫ ============ -->
+
+<section class="section" id="courses" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>9 курсов в 1 клубе</div>
+      <h2 class="section-title">1 клуб = 9 курсов</h2>
+      <p class="section-sub">Нажмите на карточку, чтобы посмотреть программу курса</p>
+    </div>
+
+
+
+    <div class="courses-grid reveal" id="coursesGrid">
+      <button class="course-btn" data-course="c1"><span class="tag">Курс 01</span><span class="title">Эксперт по оцифровке бизнеса</span><span class="meta">8 недель</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c2"><span class="tag">Курс 02</span><span class="title">Системные продажи для финансиста</span><span class="meta">6 недель</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c3"><span class="tag">Курс 03</span><span class="title">Нейросети для финансиста</span><span class="meta">6 недель</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c4"><span class="tag">Курс 04</span><span class="title">Практикум по финансовому анализу</span><span class="meta">2 недели</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c5"><span class="tag">Курс 05</span><span class="title">Создание финансовых моделей с 0</span><span class="meta">2 недели</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c6"><span class="tag">Курс 06</span><span class="title">Автоматизация в Финтабло и ПланФакт</span><span class="meta">8 недель</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c7"><span class="tag">Курс 07</span><span class="title">Google-таблицы для финансистов</span><span class="meta">1 неделя</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+      <button class="course-btn" data-course="c8"><span class="tag">Курс 08</span><span class="title">Первые деньги без паники</span><span class="meta">2 недели</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+<button class="course-btn" data-course="c9"><span class="tag">Мини-курс 09</span><span class="title">Команда и делегирование</span><span class="meta">4 урока</span><span class="course-toggle">Посмотреть программу ↓</span></button>
+    </div>
+
+    <!-- ДЕТАЛИ КУРСОВ -->
+    <div class="course-detail" id="detail-c1" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Эксперт по оцифровке бизнеса</h3><p class="result">Вы профессионально внедряете отчёты ДДС, ОПиУ, Баланс на Google-таблицах, умеете анализировать показатели и на основе их давать рекомендации клиенту. Ваших навыков достаточно, чтобы брать клиентов на услугу внедрения управленческого учёта.</p></div>
+          <div class="course-duration"><div class="val">8 недель</div><div class="lbl">срок обучения</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Зачем нужен финдир и услуги финучёта</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Роль финансового директора на аутсорсе</li><li>Диагностика клиента как первый этап продажи</li><li>Как продать услугу управленческого учёта через боли и потребности клиента</li><li>Организация работы на удалёнке</li><li>О чём договориться с клиентом до начала работы</li></ul></div>
+            <p class="m-result"><b>Результат:</b> знаете, зачем клиенту услуги финучёта, как эти услуги продать и как выстроить работу на этапе оказания услуг. Готовы получать твёрдую базу, чтобы потом её применить на реальных проектах.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Отчёт ДДС</span><span class="m-count">4 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Составление справочника для ДДС (теория)</li><li>Платёжный календарь: внедрение и назначение</li><li>Подробные шаги внедрения отчёта клиенту</li><li>Настройка взаимосвязи платёжного календаря с ДДС</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык ведения ДДС и организации его сбора. Навык формирования платёжного календаря и понимание, какие боли можно закрыть платёжным календарём.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Отчёт о прибылях и убытках</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Отчёт ОПиУ (PnL) и его назначение</li><li>Учёт кредитов и налогов</li><li>Окончательная сборка ОПиУ</li><li>Зарплатная ведомость и учёт основных средств</li><li>Учёт сделок: ДДС как источник информации</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык составления Отчёта о прибылях и убытках. Понимание, какие цели и задачи решает ОПиУ.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. Управленческий баланс</span><span class="m-count">4 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Зачем управленческий баланс бизнесу и его источники информации</li><li>Как добиться сходимости баланса</li><li>Сбор первого управленческого баланса</li><li>Оборотный капитал: что это и как им управлять</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык составления управленческого баланса.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Финансовый анализ + ИИ-технологии</span><span class="m-count">8 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Виды финансового анализа: вертикальный и горизонтальный</li><li>Показатели ликвидности и финансовой устойчивости</li><li>Структура промпта для финансового анализа</li><li>Gamma: краткий обзор инструмента</li><li>Факторный и план-фактный анализ. Практика выполнения</li><li>Презентация итогов финансового анализа клиенту</li><li>Практикум: анализ отчёта</li><li>Практикум: собираем презентацию под клиента</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык проведения финансового анализа по всем отчётам и во всех вариантах. Навык проводить финанализ при помощи ИИ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c2" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Системные продажи для финансиста</h3><p class="result">У вас сформированы сильные и понятные услуги, упакована экспертность (соцсети, резюме, анкета на HH.ru, коммерческое предложение) и кейсы. Вы получаете 3–5 заявок в месяц, а переговоры в 8 из 10 случаев заканчиваются подписанием договора.</p></div>
+          <div class="course-duration"><div class="val">6 недель</div><div class="lbl">срок обучения</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Вводный</span><span class="m-count">4 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Приветствие от автора</li><li>Точка А. Постановка цели</li><li>Зачем финансист нужен бизнесу? Глазами предпринимателя</li><li>Зачем бухгалтер нужен бизнесу? Глазами предпринимателя</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Чек-лист самодиагностики «Точка А»</li><li>Конспекты уроков</li><li>Чек-лист «Зачем финдир бизнесу»</li><li>Чек-лист «Зачем бухгалтер бизнесу»</li></ul></div>
+            <p class="m-result"><b>Результат:</b> оцифрована точка А, поставлена понятная достижимая цель, настроены работать на результат.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Услуги, упаковка, цены</span><span class="m-count">8 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Зачем финансисту личный бренд</li><li>Как подготовиться к привлечению клиентов</li><li>Анализ рынка и целевой аудитории с ИИ</li><li>Формирование услуг</li><li>Упаковка экспертности</li><li>Упаковка экспертности с ИИ</li><li>Упаковка услуг с ИИ</li><li>Ценообразование</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Промт для продающего резюме</li><li>Промт для описания профиля и постов</li><li>Промт для упаковки кейсов</li><li>Промт для структуры продающей презентации</li><li>Инструкция по оформлению презентации в Gamma</li><li>Промты для упаковки услуг</li><li>Образец упаковки услуг</li><li>Презентация упакованных услуг в Gamma</li><li>Калькулятор стоимости услуг финансиста</li></ul></div>
+            <p class="m-result"><b>Результат:</b> вы понятны и заметны потенциальным клиентам. Ваши услуги нужны рынку, и за них готовы достойно платить, без «а почему такая цена».</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Продажи: базовый пакет инструментов</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Юридические аспекты работы на аутсорсе</li><li>Проведение диагностики и переговоры с ИИ</li><li>Скрипт продаж для входящих заявок по телефону и в переписке</li><li>Скрипт привлечения клиентов по партнёрке</li><li>Страхи и ошибки в продажах</li><li>Отработка возражений</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Шаблон договора с инструкцией</li><li>Регистрация ИП через Тинькофф</li><li>Образец диагностической карты (2 шт)</li><li>Чек-лист для диагностики клиента</li><li>Скрипт продаж для входящих заявок</li><li>Скрипт привлечения клиентов по партнёрке</li><li>Таблица отработки возражений</li></ul></div>
+            <p class="m-result"><b>Результат:</b> уверенность на продающих встречах и в переписке, знание юридически безопасных условий сотрудничества.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. Поиск клиентов: с 0 до 3–5 заявок в месяц</span><span class="m-count">8 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>HH.ru</li><li>Сарафанное радио</li><li>Партнёрская программа</li><li>Привлечение клиентов в соцсетях</li><li>Чаты в Telegram</li><li>Запуск Telegram-канала с 0</li><li>Как с 0 набрать аудиторию в соцсетях и превратить её в клиентов</li><li>Организация привлечения клиентов: от хаоса к ежедневным действиям</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Промт для упаковки профиля на HH.ru</li><li>Скрипт отклика на вакансию</li><li>Пример резюме</li><li>Шаблон договора о передаче клиентов по партнёрке</li><li>Шаблон базы партнёров</li><li>КП для партнёров</li><li>Промты для продающих постов</li><li>Контент-стратегия для Telegram-канала с ИИ</li><li>ИИ для фотосессии</li><li>Схема прогрева от подписки до заявки</li><li>Список чатов с потенциальными клиентами</li><li>Скрипт первого сообщения клиенту</li><li>Пример встраивания привлечения клиентов в рабочий график</li></ul></div>
+            <p class="m-result"><b>Результат:</b> запущено 4–5 каналов привлечения клиентов, стабильно 5–6 заявок в месяц. Привлечение клиентов занимает 1 час в день, основную часть работы делает ИИ.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Клиенты через личный бренд</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Статьи и публикации с ИИ</li><li>Воронка клиентов с Инстаграм*</li><li>Взаимная реклама</li><li>Бизнес-мероприятия</li><li>Бизнес-сообщества и клубы по подписке</li><li>Выступления с ИИ</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Гайд по созданию статей</li><li>Промты для написания статей</li><li>Схема воронки в Нельзяграм</li><li>Инструкция «Как создавать Reels»</li><li>Список источников бизнес-мероприятий</li><li>Промты для сценария выступления</li></ul></div>
+            <p class="m-result"><b>Результат:</b> клиенты идут на ваше имя и доверяют с первых секунд, готовы платить дороже, чем «ноу-нейм» коллегам.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 6. Техники переговоров</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Как просить долг за неоплаченный труд</li><li>Запрос на повышение оплаты в найме и на аутсорсе</li><li>Работа на износ и переработки</li><li>Холодные продажи: как написать клиенту первым</li><li>Как договориться на аутсорс, если в вакансии написано «найм»</li><li>Клиент на встрече сказал «да», после встречи молчит — что делать</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>11 готовых скриптов переговоров: от «призыва закрыть финансовые обязательства» до «сотрудничества на ваших условиях»</li></ul></div>
+            <p class="m-result"><b>Результат:</b> умеете отстаивать свои условия, согласовывать повышение оплаты и расставлять границы с клиентом.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c3" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Нейросети для финансиста</h3><p class="result">Вы применяете ИИ в работе ежедневно на уровне привычки и делегируете ему всю операционку, освобождая 4 часа рабочего времени. За счёт эффективности клиенты выбирают вас, а не коллег без навыков ИИ.</p></div>
+          <div class="course-duration"><div class="val">6 недель</div><div class="lbl">срок обучения</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Базовые возможности ИИ</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Обзор инструментов GPT, Машарпт, Gemini</li><li>Безопасность, конфиденциальность, этика</li><li>Что такое промпт: анатомия запроса</li><li>Диагностика: где рутинные задачи?</li><li>Промпты под задачи финансиста: отчёт, КП, пост</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Чек-лист нейросетей</li><li>Чек-лист хорошего промпта</li><li>Шаблон для анализа рутинных задач</li><li>Таблица шаблонов готовых промптов</li></ul></div>
+            <p class="m-result"><b>Результат:</b> чёткая структура работы с ИИ — безопасно, без риска слить данные. Свобода от задач, которые никто не любит.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Работа с документацией</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Работа с шаблонами документа</li><li>Проверка договоров и выявление рисков</li><li>Проведение сверок при помощи ИИ</li><li>Сверка ЕНС при помощи ИИ</li><li>Обработка требований ИФНС через ИИ</li><li>Сверка актов взаиморасчётов с ИИ</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Промт «ИИ-операционист для работы с шаблонами»</li><li>Шаблон документа в .docx</li><li>ИИ-юрист для проверки договоров</li><li>Промт агента для проверки договоров</li></ul></div>
+            <p class="m-result"><b>Результат:</b> обработка документов за минуты, сверка актов и составление договоров — за секунды, минимум ошибок.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Финансовый анализ и отчёты с ИИ</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Как GPT «читает» отчёт: логика и порядок</li><li>Написание формул для Google и Excel с ИИ</li><li>Работа с массивами: отчёт за 10 минут, не 3 часа</li><li>Структура промпта для финансового анализа</li><li>Практикум: анализ отчёта</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Инструкция финансового анализа с ИИ</li><li>Промт для написания формул</li><li>Промт для финанализа с примерами</li><li>ИИ-агент для анализа отчётности</li><li>Промт для обработки данных в отчётах</li></ul></div>
+            <p class="m-result"><b>Результат:</b> финансовый анализ в 5 раз быстрее. Из операциониста — в надёжного партнёра.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. ИИ-маркетинг для финансиста</span><span class="m-count">7 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Анализ аудитории с ИИ</li><li>Стратегия привлечения клиентов</li><li>Gamma: краткий обзор инструмента</li><li>Как работает связка GPT + Gamma</li><li>Упаковка экспертности</li><li>Упаковка услуг с ИИ</li><li>Упаковка кейсов</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>ИИ-копирайтер</li><li>ИИ-ассистент «Упаковка кейсов»</li><li>Промт для анализа аудитории</li><li>Промты для упаковки кейсов и услуг</li><li>Промт по упаковке экспертности</li></ul></div>
+            <p class="m-result"><b>Результат:</b> услуги упакованы. По первому взгляду на соцсети и профиль предприниматель считывает в вас профессионала.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Клиенты с соцсетей с ИИ</span><span class="m-count">8 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Как вести соцсети с помощью ИИ</li><li>Контент-стратегия для Telegram-канала</li><li>Продающие посты с ИИ</li><li>Обзор нейросети для нейрофотосессии</li><li>Структура промпта для нужного результата</li><li>Создаём свой ИИ-аватар</li><li>Как улучшить качество фото</li><li>Как оживить фотографию</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Промт для контент-стратегии</li><li>Промпты для постов и сценариев выступлений</li><li>Инструкции по созданию фото и видео с ИИ</li></ul></div>
+            <p class="m-result"><b>Результат:</b> регулярные заявки с соцсетей. На контент уходит не более 40 минут в день.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 6. Продажи услуг с ИИ</span><span class="m-count">4 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Персональный AI-ассистент для операционных задач и продаж</li><li>Расшифровка встречи и выявление сути</li><li>Создаём своё КП при помощи ИИ</li><li>Продающее выступление: структура</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Готовые промты для КП и презентации</li><li>Порядок создания AI-ассистентов для переговоров</li><li>ИИ-тренер по продажам</li><li>Примеры решения задач с AI-ассистентом</li></ul></div>
+            <p class="m-result"><b>Результат:</b> продающие встречи заканчиваются подписанием договора и оплатой.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 7. Автоматизация управленки с ИИ</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Парсинг выписок через скрипт ИИ</li><li>Создание приложения по обработке документов</li><li>Автоматическая генерация аналитической записки через Telegram</li><li>Настройка правил для автоматического разнесения операций</li><li>Настройка автоматизации через ИИ-сервис</li></ul></div>
+            <div class="m-lessons"><b>Инструменты</b><ul><li>Промт для аналитической записки</li><li>Шаблон «Журнал операций»</li><li>Промты для автоматизации Excel и Google Таблиц</li><li>Инструкции для автоматического разнесения операций</li></ul></div>
+            <p class="m-result"><b>Результат:</b> отчёты заполняются автоматически, ручное разнесение операций — в прошлом.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c4" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Практикум по финансовому анализу</h3><p class="result">Вы не просто «строите таблички с показателями», а выявляете финансовые риски, предлагаете правильные управленческие решения и строите точные прогнозы развития бизнеса.</p></div>
+          <div class="course-duration"><div class="val">2 недели</div><div class="lbl">срок обучения</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 1. Вертикальный и горизонтальный анализ</span></div>
+            <p class="m-result"><b>Результат:</b> владеете основными видами анализа, умеете анализировать показатели, а не просто «называть цифры».</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 2. Факторный и план-фактный анализ</span></div>
+            <p class="m-result"><b>Результат:</b> владеете продвинутыми видами финансового анализа, умеете делать точные прогнозы развития бизнеса и оценивать риски.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 3. Показатели ликвидности и устойчивости</span></div>
+            <p class="m-result"><b>Результат:</b> оцениваете финансовую устойчивость компании и видите, за счёт чего её стабилизировать.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 4. Презентация итогов клиенту</span></div>
+            <p class="m-result"><b>Результат:</b> уверенно презентуете итоги анализа, говорите на одном языке с предпринимателем, в вас видят сильного специалиста-партнёра.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Урок 5. Анализ отчётности с Claude Cowork</span></div>
+            <p class="m-lessons"><b>Также в уроке</b>Структура промта для финансового анализа · Практикум: анализ отчёта · Gamma: краткий обзор инструмента для презентации финанализа · Практикум: собираем презентацию под клиента</p>
+            <p class="m-result"><b>Результат:</b> сокращаете время на анализ в 5 раз, делегируя процессы нейросетям. Владение базой финанализа обязательно.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c5" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Создание финансовых моделей с 0</h3><p class="result">Вы строите финансовые модели, отражающие реальную картину бизнеса. В продуктовой линейке появляется услуга разработки финмодели стоимостью от 70 000 ₽, а её включение в сопровождение увеличивает чек на 20–30%.</p></div>
+          <div class="course-duration"><div class="val">2 недели</div><div class="lbl">14 уроков</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 1. Знакомство с финансовой моделью</span></div><p class="m-result"><b>Результат:</b> понимаете, что такое финансовая модель, как она становится инструментом бизнеса и какие вопросы раскрывает.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 2. Сбор данных для финмодели</span></div><p class="m-result"><b>Результат:</b> умеете проводить интервью с клиентом и собирать данные, даже если кажется, что их нет.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 3. Воронка продаж</span></div><p class="m-result"><b>Результат:</b> умеете строить и визуализировать структуру выручки.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 4. Переменные и постоянные расходы</span></div><p class="m-result"><b>Результат:</b> проходите путь от переменных расходов до чистой прибыли, распределяете затраты и определяете ключевые факторы влияния на прибыль.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 5. Оборотный капитал и точка безубыточности</span></div><p class="m-result"><b>Результат:</b> понимаете влияние оборотного капитала и умеете считать точку безубыточности.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 6. Отчёт о движении денег</span></div><p class="m-result"><b>Результат:</b> составляете ДДС и определяете вероятность кассовых разрывов.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 7. Сборка баланса</span></div><p class="m-result"><b>Результат:</b> используете формулы для автоматизации, точности и актуальности данных.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 8. Поиск точек роста</span></div><p class="m-result"><b>Результат:</b> учитесь «играть» с финансовой моделью, видеть скрытые возможности и давать клиенту ценные рекомендации.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 9. Аналитическая записка</span></div><p class="m-result"><b>Результат:</b> составляете понятную аналитическую записку к финансовой модели по шаблонам и техникам курса.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 10. Инвестиционные показатели</span></div><p class="m-result"><b>Результат:</b> разбираетесь в инвестиционных показателях и понимаете, как применять их при построении инвестиционной финмодели.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 11. Практика расчёта инвестиционных показателей</span></div><p class="m-result"><b>Результат:</b> строите инвестиционные модели и решаете запросы бизнеса, связанные с финансовым моделированием.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 12. Графики</span></div><p class="m-result"><b>Результат:</b> отображаете данные в понятном виде, показываете перспективу развития бизнеса и усиливаете услугу наглядной картинкой.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 13. Ценообразование услуг финмоделирования</span></div><p class="m-result"><b>Результат:</b> понимаете, как установить цену на услугу построения финансовой модели и как донести ценность клиенту.</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">Урок 14. Презентация финансовой модели</span></div><p class="m-result"><b>Результат:</b> презентуете финансовую модель клиенту так, чтобы он видел важность и ценность вашей аналитической работы.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c6" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Автоматизация учёта в Финтабло и ПланФакт</h3><p class="result">Вы внедряете финучёт на Финтабло и ПланФакт, 50%+ задач автоматизированы. В результате высвобождается 3–4 часа времени в день на привлечение и работу с клиентами.</p></div>
+          <div class="course-duration"><div class="val">8 недель</div><div class="lbl">срок обучения</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Зачем нужен финдир и услуги финучёта</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Роль финансового директора на аутсорсе</li><li>Диагностика клиента как первый этап продажи</li><li>Как обосновать стоимость сервиса и услуги внедрения</li><li>Зачем бизнесу сервисы, если у клиента уже есть 1С</li><li>О чём договориться с клиентом до начала работы</li><li>Партнёрские программы Финтабло и ПланФакта</li></ul></div>
+            <p class="m-result"><b>Результат:</b> знаете, зачем клиенту услуги финучёта, как их продать и как выстроить работу. Умеете доносить ценность ведения проектов на базе сервисов.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Отчёт ДДС в сервисах</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Что такое ДДС и его источники информации</li><li>ДДС в Финтабло: порядок построения</li><li>Настройка и логика работы сервиса ПланФакт</li><li>Настройка и логика работы сервиса Финтабло</li><li>Автоматическая сверка оборотов, реализация ДДС в ПланФакт</li><li>ДДС в ПланФакт: порядок построения</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык сборки отчёта ДДС на базе сервисов Финтабло и ПланФакт.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Платёжный календарь</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Что такое платёжный календарь и его назначение</li><li>Как на основании факта спланировать данные и собрать инфо от клиента</li><li>Практика внедрения ПК в ПланФакт</li><li>Как проанализировать денежные потоки при помощи ИИ</li><li>Практика внедрения ПК в Финтабло</li></ul></div>
+            <p class="m-result"><b>Результат:</b> помогаете клиенту управлять деньгами на опережение, а не только учитывать факт.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. ОПиУ в сервисах</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Источники и логика признания: кассовый и начисленный метод</li><li>Основные средства и НДС, амортизация, начисление налогов</li><li>Практика построения ОПиУ в ПланФакт</li><li>Расходы и зарплата: отражение, учёт, налоги</li><li>Практика построения ОПиУ в Финтабло</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык формирования ОПиУ в сервисах Финтабло и ПланФакт.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Отчёт Баланс в сервисах</span><span class="m-count">5 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Зачем бизнесу управленческий баланс</li><li>Логика отражения активов и обязательств</li><li>Типовые ошибки и проверка корректности</li><li>Как баланс связан с ДДС и ОПиУ</li><li>Настройка баланса в Финтабло и ПланФакт</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык построения и работы с отчётом Баланс в сервисах.</p>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 6. Финансовое планирование</span><span class="m-count">4 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Что такое БДДС и БДР</li><li>БДР в Финтабло и ПланФакт</li><li>БДДС в Финтабло и ПланФакт</li><li>Заявки на оплату</li></ul></div>
+            <p class="m-result"><b>Результат:</b> навык составления БДДС и БДР в соответствии с целями бизнеса.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c7" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Google-таблицы для финансистов</h3><p class="result">Уверенно работаете в Google-таблицах и не сидите часами над формулами.</p></div>
+          <div class="course-duration"><div class="val">1 неделя</div><div class="lbl">срок обучения</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 1. Введение в Google-таблицы</span><span class="m-count">2 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Приветствие от автора</li><li>Интерфейс Google Таблиц</li></ul></div>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 2. Основы работы с данными</span><span class="m-count">9 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Перенос данных из Excel в Google Таблицы и наоборот</li><li>Как сделать копию файла на свой диск</li><li>Создание нового листа, формат ячеек</li><li>Как быстро удалить ненужные знаки, которые мешают работе</li><li>Перенос ячеек/столбцов и их группировка</li><li>Выпадающие списки в таблице</li><li>Ошибка в выпадающих списках</li><li>Фильтрация данных</li><li>Примечания и чем они отличаются от комментариев</li></ul></div>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 3. Формулы и функции</span><span class="m-count">6 уроков</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Функции ВПР и ИНДЕКС+ПОИСКПОЗ</li><li>Условное форматирование</li><li>Функции UNIQUE и FILTER</li><li>Формула ЕСЛИ и МЕСЯЦ</li><li>Функция СУММЕСЛИМН</li><li>Функция ТРАНСП</li></ul></div>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 4. Анализ данных и визуализация</span><span class="m-count">2 урока</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Сводные таблицы</li><li>Графики и диаграммы</li></ul></div>
+          </div>
+          <div class="module-item">
+            <div class="m-head"><span class="m-name">Модуль 5. Автоматизация</span><span class="m-count">1 урок</span></div>
+            <div class="m-lessons"><b>Уроки</b><ul><li>Функция IMPORTRANGE</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-detail" id="detail-c8" hidden>
+      <div class="course-detail-inner">
+        <div class="course-detail-top">
+          <div><h3>Первые деньги без паники</h3><p class="result">Вы умеете продавать услуги на встрече, рассчитывать стоимость работы и без стеснения называть цену. Быстро продаёте услуги 1–2 клиентам, закрываете базовые финансовые потребности и развиваетесь дальше без «денег нет, клиент нужен ещё вчера».</p></div>
+          <div class="course-duration"><div class="val">2 недели</div><div class="lbl">7 инструментов</div></div>
+        </div>
+        <div class="module-grid">
+          <div class="module-item"><div class="m-head"><span class="m-name">1. Шаблоны договоров</span></div><p class="m-lessons"><b>Внутри</b>структура · формулировки · защита границ ответственности</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">2. Калькулятор стоимости + видео-разбор</span></div><p class="m-lessons"><b>Внутри</b>как считать цену · как аргументировать · как не демпинговать</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">3. Сценарий первой продающей встречи + урок</span></div><p class="m-lessons"><b>Внутри</b>какие вопросы задавать · что не спрашивать · как выявлять «боль»</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">4. Чек-лист диагностики клиента</span></div><p class="m-lessons"><b>Внутри</b>структура разговора · логика сбора данных · фиксация выводов</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">5. Примеры коммерческих предложений</span></div><p class="m-lessons"><b>Внутри</b>структура · формулировки · акценты на ценности</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">6. Урок по упаковке кейсов</span></div><p class="m-lessons"><b>Внутри</b>как описывать результаты · как формулировать ценность · как усиливать доверие</p></div>
+          <div class="module-item"><div class="m-head"><span class="m-name">7. Бонус: ИИ для быстрого КП</span></div><p class="m-lessons"><b>Внутри</b>как за 15–20 минут собрать сильное коммерческое предложение · готовые промты</p></div>
+        </div>
+      </div>
+    </div>
+
+<div class="course-detail" id="detail-c9" hidden><div class="course-detail-inner"><div class="course-detail-top"><div><h3>Мини-курс. Команда и делегирование</h3><p class="result">Обучение работе с исполнителями, расчёту финансовой модели команды, разработке своей методики работы и её передаче коллегам.</p></div><div class="course-duration"><div class="val">4 урока</div><div class="lbl">Команда и делегирование</div></div></div><div class="module-grid"><div class="module-item"><div class="m-head"><span class="m-name">Урок №0</span></div><p class="m-result">Финмодель команды, или как не остаться без денег при найме сотрудников</p></div><div class="module-item"><div class="m-head"><span class="m-name">Урок №1</span></div><p class="m-result">Структура команды</p></div><div class="module-item"><div class="m-head"><span class="m-name">Урок №2</span></div><p class="m-result">Как упаковать ваши знания в методологию</p></div><div class="module-item"><div class="m-head"><span class="m-name">Урок №3</span></div><p class="m-result">Поиск помощника/сотрудника. Коммуникация команды и клиента</p></div></div></div></div>
+    <div class="course-all-cta reveal"><a href="#pricing" class="btn btn-primary">Забрать все 9 курсов <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<section class="section" id="tools" style="padding-top:70px">
+  <div class="container">
+    <div class="tools-section">
+      <div class="tools-text reveal">
+        <div class="eyebrow">База инструментов</div>
+        <h2 class="section-title" style="text-align:left">База инструментов финансиста</h2>
+        <p class="section-sub" style="text-align:left;margin:0 0 22px">Удобная платформа, где в одном месте собраны все основные инструменты, которые есть в клубе и которые потребуются вам для работы и построения карьеры.</p>
+        <ul class="check-list gain">
+          <li><svg><use href="#ic-check"/></svg>Более 80 инструментов</li>
+          <li><svg><use href="#ic-check"/></svg>Разбивка по категориям</li>
+          <li><svg><use href="#ic-check"/></svg>Удобная поисковая система</li>
+          <li><svg><use href="#ic-check"/></svg>К каждому инструменту — подробный урок по его применению</li>
+        </ul>
+        <div class="course-all-cta reveal" style="text-align:left;margin-top:26px"><a href="#pricing" class="btn btn-primary btn-wrap-mobile">Получить базу инструментов <svg width="16" height="16"><use href="#ic-arrow"/></svg></a></div>
+      </div>
+      <div class="tools-video reveal">
+        <video src="https://static.tildacdn.com/vide6561-6362-4537-b531-326262653831/08-club.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </div>
+
+    <div class="founder-quote reveal" style="margin-top:40px">
+      <img src="https://static.tildacdn.com/tild3136-6565-4139-b062-383236613737/09-club.png" alt="Екатерина Яхонтова">
+      <div>
+        <blockquote>«Когда у вас десятки инструментов, но все они разбросаны по урокам, и вы не понимаете, что где находится — с вероятностью 99% вы не используете ни одного инструмента. А если что-то понадобится, потратите полдня на поиски. База инструментов — ваша возможность быстро и просто забрать тот инструмент, который нужен для решения рабочей задачи здесь и сейчас, изучить полный урок, как и зачем его применять. Результат — сэкономленное время и использование мощностей клуба на 100%».</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 6. БАЗА ИНСТРУМЕНТОВ ============ -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Вы оплатили подписку, что дальше?</div>
+      <h2 class="section-title">Ваш путь в клубе</h2>
+    </div>
+
+    <div class="steps-row steps-row-4 reveal">
+<div class="step-card"><div class="num">01</div><h4>Доступы к ресурсам клуба</h4><p>Получите инструкцию, вступите в Telegram-канал и чат, откройте личный кабинет.</p></div><div class="step-card"><div class="num">02</div><h4>Трек обучения</h4><p>Пройдите тест и получите порядок обучения. Все курсы и инструменты откроются сразу.</p></div><div class="step-card"><div class="num">03</div><h4>Индивидуальная стратегия на год</h4><p>Заполните анкету или пройдите ИИ-бота — получите личный план развития.</p></div><div class="step-card"><div class="num">04</div><h4>Режим обучения и дисциплина</h4><p>Выделяйте 4–5 часов в неделю на обучение и выполнение своего плана.</p></div><div class="step-card"><div class="num">05</div><h4>Участие в сообществе</h4><p>Задавайте вопросы, делитесь опытом и получайте поддержку Екатерины и коллег.</p></div><div class="step-card"><div class="num">06</div><h4>Мастер-классы и созвоны</h4><p>Участвуйте во встречах по расписанию или смотрите записи.</p></div><div class="step-card"><div class="num">07</div><h4>Групповые разборы ваших запросов</h4><p>Получайте план действий по своему запросу. Дважды в месяц на тарифах «Развитие» и «Прорыв».</p></div><div class="step-card"><div class="num">08</div><h4>Участие в челленджах и марафонах</h4><p>Выполняйте практические задания: находите клиентов, осваивайте ИИ, упаковывайте услуги.</p></div>
+    </div>
+
+    <!-- Этап 5 -->
+    <div class="subblock reveal">
+      <div class="subblock-head">
+        <h3>Мастер-классы, разборы, эфиры</h3>
+        <p>Каждый месяц вы получаете:</p>
+      </div>
+      <div class="stat-strip">
+        <div class="stat-tile"><div class="n"><span class="counter" data-target="4">0</span></div><p>мастер-класса с приглашёнными экспертами</p></div>
+        <div class="stat-tile"><div class="n"><span class="counter" data-target="4">0</span></div><p>встречи с Екатериной на курсах</p></div>
+        <div class="stat-tile"><div class="n"><span class="counter" data-target="2">0</span></div><p>разбора с Екатериной на тарифах «Развитие» (3 мес.) и «Прорыв» (6 мес.)</p></div>
+      </div>
+      <p class="schedule-note">График мероприятий вы получаете заранее, 1-го числа месяца. События проходят в одни и те же дни и время — легко внести их в расписание.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 7. УНИКАЛЬНОСТЬ ============ -->
+<!-- ============ БЛОК 8 + ЦЕНЫ ============ -->
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Цены и тарифы</div>
+      <h2 class="section-title">Выберите период вступления</h2>
+    </div>
+
+    <div class="pricing-grid reveal">
+      <!-- СТАРТ -->
+      <div class="price-card">
+        <h3>Старт</h3>
+        <div class="period">Доступ к клубу на 1 месяц</div>
+        <div class="price-now"><span class="val">5 000</span><span class="cur">₽ / мес.</span></div>
+        <div class="price-permonth">&nbsp;</div>
+        <div class="purchase-options"><button onclick="openPayment('start')" class="btn btn-primary btn-block">Купить — доступ сразу</button><button onclick="openPayment('start-oct29')" class="btn btn-outline btn-block">Купить — доступ с 29 октября</button></div>
+        <ul class="price-feats">
+          <li><svg><use href="#ic-check"/></svg>Карьерная стратегия от ИИ-бота, обученного по методологии Екатерины Яхонтовой</li>
+          <li><svg><use href="#ic-check"/></svg>9 курсов</li>
+          <li><svg><use href="#ic-check"/></svg>База из 80+ инструментов</li>
+          <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
+          <li><svg><use href="#ic-check"/></svg>2 созвона с разбором инструментов ежемесячно</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+        </ul>
+      </div>
+
+      <!-- РАЗВИТИЕ -->
+      <div class="price-card popular">
+        <div class="price-badge">Популярный выбор</div>
+        <h3>Развитие</h3>
+        <div class="period">Доступ к клубу на 3 месяца</div>
+        <div class="price-now"><span class="val">13 500</span><span class="cur">₽ / 3 мес.</span></div>
+        <div class="price-permonth">≈ 4 500 ₽ / мес.</div>
+        <div class="purchase-options"><button onclick="openPayment('growth')" class="btn btn-primary btn-block">Купить — доступ сразу</button><button onclick="openPayment('growth-oct29')" class="btn btn-outline btn-block">Купить — доступ с 29 октября</button></div>
+        <ul class="price-feats">
+          <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
+          <li><svg><use href="#ic-check"/></svg>9 курсов</li>
+          <li><svg><use href="#ic-check"/></svg>База из 80+ инструментов</li>
+          <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
+          <li><svg><use href="#ic-check"/></svg>2 созвона с разбором инструментов ежемесячно</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+        </ul>
+        <ul class="price-feats bonus">
+          <span class="bonus-label">Специальные возможности тарифа</span>
+          <li><svg><use href="#ic-check"/></svg>Групповые разборы с Екатериной 2 раза в месяц</li>
+          <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов</li>
+          <li><svg><use href="#ic-check"/></svg>Карьерная стратегия на год, составленная Екатериной лично под вас</li>
+          <li><svg><use href="#ic-check"/></svg>Мастер-класс «Из найма на аутсорс»</li>
+          <li><svg><use href="#ic-check"/></svg>Сниженная стоимость месяца участия</li>
+        </ul>
+      </div>
+
+      <!-- ПРОРЫВ -->
+      <div class="price-card">
+        <div class="price-badge">Максимальная выгода</div>
+        <h3>Прорыв</h3>
+        <div class="period">Доступ к клубу на 6 месяцев</div>
+        <div class="price-now"><span class="val">25 000</span><span class="cur">₽ / 6 мес.</span></div>
+        <div class="price-permonth">≈ 4 166 ₽ / мес.</div>
+        <div class="purchase-options"><button onclick="openPayment('breakthrough')" class="btn btn-primary btn-block">Купить — доступ сразу</button><button onclick="openPayment('breakthrough-oct29')" class="btn btn-outline btn-block">Купить — доступ с 29 октября</button></div>
+        <ul class="price-feats">
+          <li><svg><use href="#ic-check"/></svg>Индивидуальная карьерная стратегия на 1 год</li>
+          <li><svg><use href="#ic-check"/></svg>9 курсов</li>
+          <li><svg><use href="#ic-check"/></svg>База из 80+ инструментов</li>
+          <li><svg><use href="#ic-check"/></svg>4 мастер-класса ежемесячно</li>
+          <li><svg><use href="#ic-check"/></svg>2 созвона с разбором инструментов ежемесячно</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытое сообщество в формате Telegram-чата</li>
+          <li><svg><use href="#ic-check"/></svg>Закрытый Telegram-канал</li>
+        </ul>
+        <ul class="price-feats bonus">
+          <span class="bonus-label">Специальные возможности тарифа</span>
+          <li><svg><use href="#ic-check"/></svg>Групповые разборы с Екатериной 2 раза в месяц</li>
+          <li><svg><use href="#ic-check"/></svg>7 ИИ-агентов</li>
+          <li><svg><use href="#ic-check"/></svg>Карьерная стратегия на год, составленная Екатериной лично под вас</li>
+          <li><svg><use href="#ic-check"/></svg>Мастер-класс «Из найма на аутсорс»</li>
+          <li><svg><use href="#ic-check"/></svg>Сниженная стоимость месяца участия</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="benefit-banner reveal"><div><div class="eyebrow">Вступая на 3 или 6 месяцев</div><h3>Больше срок — больше выгоды</h3><p>При вступлении на 3 или 6 месяцев вы дополнительно получаете:</p></div><ul class="benefit-list"><li><svg><use href="#ic-check"/></svg>Разборы с Екатериной — дважды в месяц.</li><li><svg><use href="#ic-check"/></svg>7 ИИ-агентов — для анализа, продаж и рабочих задач.</li><li><svg><use href="#ic-check"/></svg>Личную стратегию на год — Екатерина составит её под ваши цели.</li><li><svg><use href="#ic-check"/></svg>Мастер-класс о первых клиентах — где их найти и как выйти на 200–300 тыс. рублей.</li></ul></div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 9. ОПЛАТА ============ -->
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Оплата</div>
+      <h2 class="section-title">Как оплатить?</h2>
+    </div>
+    <div class="payment-grid reveal">
+      <div class="payment-card"><div class="ic"><svg><use href="#ic-card"/></svg></div><h4>По карте</h4><p>Оплата картой онлайн</p></div>
+      <div class="payment-card"><div class="ic"><svg><use href="#ic-invoice"/></svg></div><h4>По счёту</h4><p>Для ИП и юрлиц</p></div>
+      <div class="payment-card"><div class="ic"><svg><use href="#ic-split"/></svg></div><h4>Долями</h4><p>Яндекс Сплит</p></div>
+      <div class="payment-card"><div class="ic"><svg><use href="#ic-install"/></svg></div><h4>Внутренняя рассрочка</h4><p>2 платежа для тарифа на 6 месяцев: 50% сразу, 50% через месяц</p></div>
+    </div>
+    <div class="contact-cta reveal">
+      <div>
+        <h4>Нужна помощь с оплатой?</h4>
+        <p>Напишите мне — помогу во всём разобраться.</p>
+      </div>
+      <div class="contact-buttons">
+        <a href="https://telegram.me/yakhontova_finance" target="_top" rel="noopener" class="btn btn-outline btn-sm"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_top" rel="noopener" class="btn btn-outline btn-sm"><img class="ic-img" src="https://static.tildacdn.com/tild3730-6462-4331-b136-336137336463/10-club.png" alt="MAX">MAX</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Почему именно «Яхонт»</div>
+      <h2 class="section-title">В чём уникальность клуба «Яхонт»</h2>
+      <p class="section-sub">Это не очередная подписка с десятками уроков, которые вы когда-нибудь посмотрите. Это продуманная система профессионального роста: понятный маршрут, сильное окружение, экспертная поддержка и возможности для развития в профессии и доходе.</p>
+    </div>
+
+    <div class="unique-grid reveal">
+      <div class="unique-card">
+        <div class="n-badge">01</div>
+        <h4>Индивидуальная карьерная стратегия</h4>
+        <div class="subtitle">Ваш личный план на год с понятными действиями</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>План на год, составлен персонально под вас</li>
+          <li><svg><use href="#ic-check"/></svg>Вы знаете, как каждое действие влияет на ваши результаты в количестве клиентов, деньгах и экспертизе</li>
+          <li><svg><use href="#ic-check"/></svg>Достижение цели без откатов и хаоса</li>
+          <li><svg><use href="#ic-check"/></svg>Видите свой прогресс и следующую точку роста</li>
+        </ul>
+        <div class="bottom-line">Вы двигаетесь по своему плану, а не наугад.</div>
+      </div>
+      <div class="unique-card">
+        <div class="n-badge">02</div>
+        <h4>Профессиональное сообщество</h4>
+        <div class="subtitle">Больше не решать рабочие вопросы в одиночку</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Быстрые ответы на вопросы</li>
+          <li><svg><use href="#ic-check"/></svg>Обсуждение сложных ситуаций с коллегами</li>
+          <li><svg><use href="#ic-check"/></svg>Экологичное общение</li>
+          <li><svg><use href="#ic-check"/></svg>Единый Telegram-чат без лишних групп</li>
+        </ul>
+        <div class="bottom-line">Сильное окружение, которое помогает быстрее находить решения.</div>
+      </div>
+      <div class="unique-card">
+        <div class="n-badge">03</div>
+        <h4>Развитие личного бренда</h4>
+        <div class="subtitle">Ваша экспертность становится заметной</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Возможность выступить спикером на мастер-классах</li>
+          <li><svg><use href="#ic-check"/></svg>Повысить узнаваемость среди коллег</li>
+          <li><svg><use href="#ic-check"/></svg>Продемонстрировать профессионализм</li>
+          <li><svg><use href="#ic-check"/></svg>Получить новые знакомства и сотрудничество</li>
+        </ul>
+        <div class="bottom-line">В клубе можно не только учиться, но и заявить о себе.</div>
+      </div>
+      <div class="unique-card">
+        <div class="n-badge">04</div>
+        <h4>Групповые разборы</h4>
+        <div class="subtitle">Решение вашей ситуации, а не общие советы</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>2 раза в месяц на тарифах 3 и 6 месяцев</li>
+          <li><svg><use href="#ic-check"/></svg>Профессиональный взгляд со стороны</li>
+          <li><svg><use href="#ic-check"/></svg>Конкретные рекомендации и пошаговый план</li>
+          <li><svg><use href="#ic-check"/></svg>То, что обычно дают на платной консультации</li>
+        </ul>
+        <div class="bottom-line">После разбора вы точно понимаете, что делать дальше.</div>
+      </div>
+      <div class="unique-card">
+        <div class="n-badge">05</div>
+        <h4>Бонусная система</h4>
+        <div class="subtitle">Активность приносит реальную выгоду</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Бонусы за приглашение участников</li>
+          <li><svg><use href="#ic-check"/></svg>Поощрение за достижения и активность</li>
+          <li><svg><use href="#ic-check"/></svg>Оплата бонусами продления клуба</li>
+        </ul>
+        <div class="bottom-line">Чем активнее вы развиваетесь, тем больше возможностей получаете.</div>
+      </div>
+      <div class="unique-card">
+        <div class="n-badge">06</div>
+        <h4>Понятная система обучения</h4>
+        <div class="subtitle">Всё выстроено в единую систему — от плана до поддержки</div>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg>Действуете согласно плану</li>
+          <li><svg><use href="#ic-check"/></svg>Применяете инструменты из базы</li>
+          <li><svg><use href="#ic-check"/></svg>Получаете навыки на курсах</li>
+          <li><svg><use href="#ic-check"/></svg>Карьерный рост стал частью вашей жизни</li>
+          <li><svg><use href="#ic-check"/></svg>Есть поддерживающее профессиональное окружение</li>
+          <li><svg><use href="#ic-check"/></svg>Быстрые ответы на любой вопрос = исчезает страх «а вдруг я чего-то не знаю»</li>
+          <li><svg><use href="#ic-check"/></svg>Рост через групповую динамику</li>
+        </ul>
+        <div class="bottom-line">Обучение становится частью жизни, а не хаотичной нагрузкой.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cases"><div class="container"><div class="section-head reveal"><div class="eyebrow" style="justify-content:center"><span></span>Кейсы клуба</div><h2 class="section-title">Результаты участниц клуба</h2></div><div class="cases-grid"><article class="case-card reveal"><h3>Ирина</h3><p class="case-role">финансовый директор, собственник консалтинговой компании</p><p class="case-result"><b>Результат:</b> +120 000 рублей за 14 дней</p><p class="case-action"><b>Что сделала:</b> Запустила привлечение клиентов в бизнес-сообществах через дарение подарочных сертификатов.</p><a href="https://static.tildacdn.com/tild6465-3733-4930-b266-383964306139/11-club.png" target="_blank" rel="noopener" aria-label="Открыть отзыв: Ирина"><img src="https://static.tildacdn.com/tild6465-3733-4930-b266-383964306139/11-club.png" alt="Кейс участницы клуба — Ирина" loading="lazy"></a></article><article class="case-card reveal"><h3>Карина</h3><p class="case-role">финансовый директор с командой</p><p class="case-result"><b>Результат:</b> Закрыла клиента на 250 000 руб., хотя он не был готов платить больше 150 000 руб.</p><p class="case-action"><b>Что сделала:</b> Получила обратную связь от коллег по ценнику, освоила технику ведения переговоров.</p><a href="https://static.tildacdn.com/tild6563-6463-4361-b962-313934363739/12-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв: Карина"><img src="https://static.tildacdn.com/tild6563-6463-4361-b962-313934363739/12-club.jpg" alt="Кейс участницы клуба — Карина" loading="lazy"></a></article><article class="case-card reveal"><h3>Эльмира</h3><p class="case-role">финансист / финменеджер</p><p class="case-result"><b>Результат:</b> Получила вакансию финансиста в крупной аутсорсинговой компании</p><p class="case-action"><b>Что сделала:</b> Переупаковала резюме согласно рекомендациям Екатерины, успешно выполнила тестовые задания, используя инструменты и уроки клуба.</p><a href="https://static.tildacdn.com/tild6365-3037-4665-b434-616536653264/13-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв: Эльмира"><img src="https://static.tildacdn.com/tild6365-3037-4665-b434-616536653264/13-club.jpg" alt="Кейс участницы клуба — Эльмира" loading="lazy"></a></article><article class="case-card reveal"><h3>Наталья</h3><p class="case-role">Новая услуга из существующего навыка</p><p class="case-result"><b>Результат:</b> Проект на аудит за 150 000 ₽</p><p class="case-action"><b>Что сделала:</b> На индивидуальной стратегии увидела ценность своего навыка аудита, упаковала его в отдельную услугу и продала клиенту.</p><a href="https://static.tildacdn.com/tild3435-3463-4061-a331-333630643366/14-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв: Наталья"><img src="https://static.tildacdn.com/tild3435-3463-4061-a331-333630643366/14-club.jpg" alt="Скриншот результата участницы — Наталья" loading="lazy"></a></article><article class="case-card reveal"><h3>Светлана</h3><p class="case-role">Рост дохода в найме</p><p class="case-result"><b>Результат:</b> +74 000 ₽ к ежемесячному доходу</p><p class="case-action"><b>Что сделала:</b> Скорректировала резюме с Екатериной и получила карьерную стратегию. Устроилась на более высокооплачиваемую работу: доход вырос со 156 000 до 230 000 ₽ на руки.</p><a href="https://static.tildacdn.com/tild3930-3863-4261-a565-303938356661/15-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв: Светлана"><img src="https://static.tildacdn.com/tild3930-3863-4261-a565-303938356661/15-club.jpg" alt="Скриншот результата участницы — Светлана" loading="lazy"></a></article><article class="case-card reveal"><h3>Юлия</h3><p class="case-role">Нейросети и привлечение клиентов</p><p class="case-result"><b>Результат:</b> Новый клиент на 55 000 ₽</p><p class="case-action"><b>Что сделала:</b> Применила уроки по нейросетям и инструменты продаж: создала свой сайт, нашла клиента на услугу с помощью ИИ и получила предоплату 15 000 ₽.</p><a href="https://static.tildacdn.com/tild3331-6538-4564-a563-666331666131/16-club.jpg" target="_blank" rel="noopener" aria-label="Открыть отзыв: Юлия"><img src="https://static.tildacdn.com/tild3331-6538-4564-a563-666331666131/16-club.jpg" alt="Скриншот результата участницы — Юлия" loading="lazy"></a></article></div></div></section>
+
+<!-- ============ БЛОК 10. ОТЗЫВЫ ============ -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Отзывы</div>
+      <h2 class="section-title">Что говорят участники клуба?</h2>
+    </div>
+  </div>
+  <div class="container reveal">
+    <div class="reviews-scroller" id="reviewsScroller">
+      <div class="review-card"><img src="https://static.tildacdn.com/tild6564-6539-4532-b030-386562656364/17-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild6332-3736-4661-b462-653231643661/18-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild3734-3666-4161-b132-633265376466/19-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild3762-3234-4039-b137-623439333064/20-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild3335-3837-4232-b166-653931636336/21-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild6563-6265-4633-b962-386462386434/22-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild3338-6462-4433-a636-633461306233/23-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+      <div class="review-card"><img src="https://static.tildacdn.com/tild6432-6661-4938-a161-646237376662/24-club.jpg" alt="Отзыв участницы клуба" loading="lazy"></div>
+    </div>
+    <div class="reviews-controls">
+      <button id="reviewsPrev" aria-label="Назад"><svg width="18" height="18" style="transform:rotate(180deg)"><use href="#ic-arrow"/></svg></button>
+      <button id="reviewsNext" aria-label="Вперёд"><svg width="18" height="18"><use href="#ic-arrow"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 11. СОЗДАТЕЛЬ КЛУБА ============ -->
+<section class="section" id="founder" style="background:var(--bg-alt)">
+  <div class="container founder-section">
+    <div class="founder-photo reveal">
+      <img src="https://static.tildacdn.com/tild6361-6339-4163-a663-313661626562/25-club.png" alt="Екатерина Яхонтова">
+      <div class="founder-stats">
+        <div class="stat"><b><span class="counter" data-target="18">0</span> лет</b><span>в финансах и экономике</span></div>
+        <div class="stat"><b><span class="counter" data-target="1000" data-suffix="+">0</span></b><span>обученных специалистов</span></div>
+        <div class="stat"><b><span class="counter" data-target="500000" data-suffix=" ₽+" data-thousands="true">0</span></b><span>доход на услугах финучёта</span></div>
+      </div>
+    </div>
+    <div class="founder-text reveal">
+      <div class="eyebrow">Создатель клуба</div>
+      <h2>Екатерина Яхонтова</h2>
+      <p>Финансист с 18-летним опытом в финансах и экономике, основатель клуба финансового аутсорсинга «Яхонт», автор обучений, которые прошли 1000+ специалистов.</p>
+      <p>За 7 лет прошла путь от главного бухгалтера в найме до финансиста на аутсорсе с доходом более 500 000 рублей на услугах финучёта со своей командой — и передала этот опыт тысяче специалистов.</p>
+      <div class="founder-blockquote">
+        «Весь этот опыт и знания нельзя уместить в 1 курс. Поэтому в клубе вы получаете доступ ко всем моим курсам — каждый закрывает 1 конкретный этап развития в финансовом аутсорсинге».
+      </div>
+      <a href="#pricing" class="btn btn-primary">Вступить в клуб <svg width="16" height="16"><use href="#ic-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 12. FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center"><span></span>Вопросы и ответы</div>
+      <h2 class="section-title">Часто задаваемые вопросы</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q"><span>Чем клуб отличается от курсов?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Курс — это разовое обучение на 1–3 месяца по одному из направлений. Клуб — доступ в формате ежемесячной подписки к 9 курсам с доступом ко всем материалам, мастер-классам и сообществу коллег. У вас нет необходимости тратить деньги на новые курсы — всё необходимое для построения карьеры в финансовом аутсорсинге вы получаете в одном месте.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Я оплатил(а) клуб, что дальше?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>После оплаты вы попадаете в бот для активации подписки, вступаете в закрытый канал и закрытое сообщество в Telegram. Далее на обучающей платформе вы знакомитесь с правилами прохождения обучения и проходите обязательное тестирование, по итогам которого определяется трек вашего обучения в клубе на ближайшие 6–12 месяцев.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>За какой срок я смогу пройти все 9 курсов и с какого курса начать?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Программа каждого курса рассчитана в среднем на 2 месяца. Соответственно — уйдёт больше года. Чтобы вы не запутались, на входе вы пройдёте тестирование, которое определит рекомендованный порядок изучения курсов.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Если не смогу присутствовать на мастер-классах и встречах — будет запись?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да, все мастер-классы и созвоны будут в записи на обучающей платформе. Расписание событий вы будете знать заранее и при желании сможете адаптировать ваш график под мастер-классы, которые для вас наиболее важны.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>У меня нет времени на ежедневное обучение. Мне подойдёт клуб?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Программа клуба построена для работающих специалистов, а не для тех, кто готов по 8 часов в день уделять обучению. 4 часа в неделю на обучение будет более чем достаточно.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Я пока не финансист, но очень хочу им стать. Мне подойдёт клуб?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да, клуб рассчитан на специалистов любого уровня. После тестирования на входе вам откроется трек «Специалист», где вы сначала освоите базу в управленческом учёте и только потом займётесь привлечением клиентов, освоением нейросетей, финмоделирования и автоматизации.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Я финансист с опытом, не первый год на рынке. Я найду в клубе для себя что-то новое и ценное?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да, в клубе для специалистов вашего уровня предложены обучения по привлечению клиентов и продажам, нейросетям, автоматизации учёта, финанализу и финмоделям. Ваш результат от клуба — оптимизация рабочей нагрузки за счёт автоматизации и ИИ, усиленные услуги, выстроенная система привлечения клиентов.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Мне 50+ лет, смогу ли я в этом возрасте осилить обучение в клубе?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Да! В финансовом аутсорсинге возраст не показатель. Обучения не направлены на конкретный возраст. Строить карьеру финансиста частной практики может кто угодно вне зависимости от цифры в паспорте.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Какие способы оплаты доступны?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Доступна оплата по карте (принимаем карты со всех стран мира), по счёту (для российских ИП и ООО), долями Яндекс Сплит. При оплате тарифа на 6 месяцев возможна внутренняя рассрочка на 2 части — 1 платёж сразу, второй через месяц.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Будет ли автосписание оплаты?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>В личном кабинете вы сможете выбрать опцию автосписания. Как её подключить и отключить, расскажем в клубе.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Как отменить подписку?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Для этого достаточно не оплачивать следующий период. Если не уверены, что у вас отключена автооплата, напишите мне в Telegram или MAX (контакты ниже) — и я вам помогу.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Что будет, если я забуду продлить подписку?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Вы вылетите из клуба, повторное вступление возможно при следующем окне продаж клуба. Чтобы этого не случилось, мы заранее отправляем уведомление о необходимости продлить подписку посредством оплаты.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Почему нет рассрочки от банка?</span><span class="qic"><svg width="14" height="14"><use href="#ic-plus"/></svg></span></button>
+        <div class="faq-a"><p>Вы покупаете клуб с ежемесячной подпиской — растягивать оплату ежемесячной подписки на несколько месяцев некорректно. Пакеты на 3 и 6 месяцев также предполагают единоразовую оплату, за счёт этого вы получаете сниженную цену и уникальные бонусы. При оплате 6 месяцев допустимо взять внутреннюю рассрочку на 2 части (50% сразу, 50% через 4 недели).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БЛОК 13. ФИНАЛЬНЫЙ CTA ============ -->
+<section class="section" id="contacts">
+  <div class="container">
+    <div class="final-cta reveal">
+      <div class="divider-gem"><span class="line"></span><svg width="20" height="20" style="color:var(--accent2)"><use href="#ic-gem"/></svg><span class="line r"></span></div>
+      <h2>Остались вопросы?</h2>
+      <p>Напишите мне в личные сообщения — помогу разобраться, какой период участия в клубе вам выбрать, как эффективно проходить обучение, отвечу на все вопросы и помогу с оформлением.</p>
+      <div class="contact-buttons">
+        <a href="https://telegram.me/yakhontova_finance" target="_top" rel="noopener" class="btn btn-primary"><svg width="16" height="16"><use href="#ic-telegram"/></svg>Написать в Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_top" rel="noopener" class="btn btn-outline"><img class="ic-img" src="https://static.tildacdn.com/tild3730-6462-4331-b136-336137336463/10-club.png" alt="MAX">Написать в MAX</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col" style="max-width:280px">
+        <a href="#hero" class="logo"><img src="https://static.tildacdn.com/tild3265-6365-4537-a338-366233633762/_.png" alt="ЯХОНТ"><span>ЯХОНТ</span></a>
+        <p style="color:var(--text-muted);font-size:13px;margin-top:14px;line-height:1.6">Образовательный клуб финансового аутсорсинга для бухгалтеров, финансистов и финансовых менеджеров.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Навигация</h5>
+        <a href="#club">Что входит</a>
+        <a href="#how-it-works">Ваш путь в клубе</a>
+        <a href="#courses">Курсы и инструменты</a>
+        <a href="#pricing">Цены и тариф</a>
+      </div>
+      <div class="footer-col">
+        <h5>Клуб</h5>
+        <a href="#reviews">Результаты участников</a>
+        <a href="#founder">Создатель клуба</a>
+        <a href="#faq">Вопросы и ответы</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="footer-col">
+        <h5>Связаться</h5>
+        <a href="https://telegram.me/yakhontova_finance" target="_top" rel="noopener">Telegram</a>
+        <a href="https://max.ru/u/f9LHodD0cOK4FCCehXDnZVD9DPEf3Pur_Rgmnral_wmHP9O1MFHvQz7C16o" target="_top" rel="noopener">MAX</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-requisites">
+        <span>ИП Яхонтова Екатерина Владимировна · ОГРНИП 319028000105642 · ИНН 025803729988</span>
+        <span>© 2026 Екатерина Яхонтова · Все права защищены</span>
+      </div>
+      <div class="footer-legal">
+        <a href="https://disk.yandex.ru/i/cmz36rgtz848UA" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+        <a href="https://disk.yandex.ru/i/hG8EL0jriKnSLA" target="_blank" rel="noopener">Согласие на обработку данных</a>
+        <a href="https://disk.yandex.ru/i/2Yby1XfgYDg7fw" target="_blank" rel="noopener">Согласие на рассылку</a>
+        <a href="https://docs.google.com/document/d/11xCZ6EPjeCHF3COyhzJj5E2CJygzFyJuGrDh_gkDl2o/edit?usp=sharing" target="_blank" rel="noopener">Оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#hero" class="back-to-top" id="backToTop" aria-label="Наверх">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+
+<!-- ============ МОДАЛЬНЫЕ ОКНА ОПЛАТЫ (GetCourse) ============ -->
+<div class="payment-modal" role="dialog" aria-modal="true" aria-label="Купить Старт — доступ сразу" id="pm-start" onclick="if(event.target===this)closePayment('start')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" aria-label="Закрыть форму" onclick="closePayment('start')">✕</button>
+    <script id="1c1c40acf1b7374c5d6f9da9ce74620260bc7cbc" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629607"></script>
+  </div>
+</div>
+<div class="payment-modal" role="dialog" aria-modal="true" aria-label="Купить Развитие — доступ сразу" id="pm-growth" onclick="if(event.target===this)closePayment('growth')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" aria-label="Закрыть форму" onclick="closePayment('growth')">✕</button>
+    <script id="e49eb80ebb89a0414f33947a337ae6f36d5c75d7" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629608"></script>
+  </div>
+</div>
+<div class="payment-modal" role="dialog" aria-modal="true" aria-label="Купить Прорыв — доступ сразу" id="pm-breakthrough" onclick="if(event.target===this)closePayment('breakthrough')">
+  <div class="payment-modal-inner">
+    <button class="payment-modal-close" aria-label="Закрыть форму" onclick="closePayment('breakthrough')">✕</button>
+    <script id="007051fa695a6622d0b58be8ce87a73a55850e8b" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1629611"></script>
+  </div>
+</div>
+
+<div class="payment-modal" id="pm-start-oct29" role="dialog" aria-modal="true" aria-label="Покупка участия с 29 октября" onclick="if(event.target===this)closePayment('start-oct29')"><div class="payment-modal-inner"><button class="payment-modal-close" aria-label="Закрыть форму" onclick="closePayment('start-oct29')">✕</button><script id="c98ee37a4db3f8d3c048a5ee0da1457ea770f899" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1669110"></script></div></div>
+<div class="payment-modal" id="pm-growth-oct29" role="dialog" aria-modal="true" aria-label="Покупка участия с 29 октября" onclick="if(event.target===this)closePayment('growth-oct29')"><div class="payment-modal-inner"><button class="payment-modal-close" aria-label="Закрыть форму" onclick="closePayment('growth-oct29')">✕</button><script id="8fb66f5ee98ce915ce648c6b67dc8cd7baa19cf4" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1669111"></script></div></div>
+<div class="payment-modal" id="pm-breakthrough-oct29" role="dialog" aria-modal="true" aria-label="Покупка участия с 29 октября" onclick="if(event.target===this)closePayment('breakthrough-oct29')"><div class="payment-modal-inner"><button class="payment-modal-close" aria-label="Закрыть форму" onclick="closePayment('breakthrough-oct29')">✕</button><script id="38b6e2428dea7b6545fdc34d9243cd0c9609126c" src="https://yahontovaschool.getcourse.ru/pl/lite/widget/script?id=1669113"></script></div></div>
+
+<script>
+document.getElementById('yahont-club').classList.add('js-ready');
+
+/* ---------- Прогресс-бар скролла + шапка + кнопка «наверх» ---------- */
+const progressBar = document.getElementById('progressBar');
+const header = document.getElementById('siteHeader');
+const backToTop = document.getElementById('backToTop');
+function onScroll(){
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progressBar.style.width = scrolled + '%';
+  header.classList.toggle('scrolled', h.scrollTop > 40);
+  backToTop.classList.toggle('visible', h.scrollTop > 600);
+}
+document.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ---------- Модалки оплаты GetCourse ---------- */
+let paymentTrigger = null;
+function openPayment(type){
+  const modal = document.getElementById('pm-' + type);
+  if(!modal) return;
+  window.dispatchEvent(new Event('yahont:purchase'));
+  paymentTrigger = document.activeElement;
+  document.querySelectorAll('.payment-modal.open').forEach(m => m.classList.remove('open'));
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.payment-modal-close').focus({preventScroll:true});
+}
+function closePayment(type){
+  const modal = document.getElementById('pm-' + type);
+  if(!modal || !modal.classList.contains('open')) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  if(paymentTrigger) paymentTrigger.focus({preventScroll:true});
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') document.querySelectorAll('.payment-modal.open').forEach(m=>closePayment(m.id.slice(3)));
+});
+
+/* ---------- Мобильное меню ---------- */
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+burgerBtn.addEventListener('click', ()=> mobileNav.classList.add('open'));
+mobileCloseBtn.addEventListener('click', ()=> mobileNav.classList.remove('open'));
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> mobileNav.classList.remove('open')));
+
+/* ---------- Reveal on scroll ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+  });
+}, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+revealEls.forEach(el => io.observe(el));
+
+/* ---------- Счётчики чисел ---------- */
+function animateCounter(el){
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const thousands = el.dataset.thousands === 'true';
+  const duration = 1400;
+  const start = performance.now();
+  function fmt(n){ return thousands ? Math.round(n).toLocaleString('ru-RU') : Math.round(n); }
+  function tick(now){
+    const p = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt(target * eased) + suffix;
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const counterIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ animateCounter(e.target); counterIO.unobserve(e.target); }
+  });
+}, {threshold:0.4});
+document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
+
+/* ---------- Табы аудитории ---------- */
+document.querySelectorAll('#audienceTabs .tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#audienceTabs .tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ---------- FAQ ---------- */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click', ()=>{
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+/* ---------- Отзывы: карусель ---------- */
+const scroller = document.getElementById('reviewsScroller');
+document.getElementById('reviewsPrev').addEventListener('click', ()=> scroller.scrollBy({left:-320, behavior:'smooth'}));
+document.getElementById('reviewsNext').addEventListener('click', ()=> scroller.scrollBy({left:320, behavior:'smooth'}));
+
+</script>
+<script>
+(function () {
+  'use strict';
+  // All courses start collapsed; a programme opens in a dismissible dialog.
+  var grid = document.getElementById('coursesGrid');
+  var cards = Array.from(grid.querySelectorAll('.course-btn'));
+  var details = Array.from(document.querySelectorAll('.course-detail'));
+  var programme = document.createElement('div');
+  programme.className = 'course-program-modal';
+  programme.hidden = true;
+  programme.innerHTML = '<div class="course-program-dialog" role="dialog" aria-modal="true" tabindex="-1"><button type="button" class="course-program-close" aria-label="Закрыть программу курса">×</button><div class="course-program-body"></div></div>';
+  document.getElementById('yahont-club').appendChild(programme);
+  var programmeBody = programme.querySelector('.course-program-body');
+  var programmeDialog = programme.querySelector('.course-program-dialog');
+  var programmeClose = programme.querySelector('.course-program-close');
+  var programmeTrigger = null;
+  var programmeOverflow = '';
+  function closeProgramme() {
+    if (programme.hidden) return;
+    programme.hidden = true;
+    document.body.style.overflow = programmeOverflow;
+    details.forEach(function (detail) { detail.hidden = true; detail.classList.remove('open'); });
+    cards.forEach(function (card) {
+      card.classList.remove('active');
+      card.setAttribute('aria-expanded', 'false');
+      card.querySelector('.course-toggle').textContent = 'Посмотреть программу ↓';
+    });
+    if (programmeTrigger) programmeTrigger.focus({preventScroll: true});
+  }
+  details.forEach(function (detail) { detail.hidden = true; detail.classList.remove('open'); });
+  cards.forEach(function (card) {
+    card.classList.remove('active');
+    card.setAttribute('aria-expanded', 'false');
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.setAttribute('aria-controls', 'detail-' + card.dataset.course);
+    card.querySelector('.course-toggle').textContent = 'Посмотреть программу ↓';
+    card.addEventListener('click', function () {
+      closeProgramme();
+      var detail = document.getElementById('detail-' + card.dataset.course);
+      programmeTrigger = card;
+      programmeOverflow = document.body.style.overflow;
+      programmeBody.appendChild(detail);
+      detail.hidden = false;
+      detail.classList.add('open');
+      var heading = detail.querySelector('h3');
+      heading.id = 'programme-title-' + card.dataset.course;
+      programmeDialog.setAttribute('aria-labelledby', heading.id);
+      card.classList.add('active');
+      card.setAttribute('aria-expanded', 'true');
+      card.querySelector('.course-toggle').textContent = 'Программа открыта ↑';
+      document.body.style.overflow = 'hidden';
+      programme.hidden = false;
+      programmeDialog.scrollTop = 0;
+      programmeClose.focus({preventScroll: true});
+    });
+  });
+  programmeClose.addEventListener('click', closeProgramme);
+  programme.addEventListener('click', function (event) { if (event.target === programme) closeProgramme(); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeProgramme(); });
+
+  // Strategy screenshots: one full, uncropped image per slide.
+  var gallery = document.getElementById('strategyReviews');
+  var slides = Array.from(gallery.querySelectorAll('a'));
+  var previous = document.getElementById('strategyReviewsPrev');
+  var next = document.getElementById('strategyReviewsNext');
+  var count = document.getElementById('strategyReviewsCount');
+  function currentSlide() {
+    return slides.reduce(function (closest, slide, index) {
+      return Math.abs(slide.offsetLeft - slides[0].offsetLeft - gallery.scrollLeft) <
+        Math.abs(slides[closest].offsetLeft - slides[0].offsetLeft - gallery.scrollLeft) ? index : closest;
+    }, 0);
+  }
+  function updateGallery() {
+    var index = currentSlide();
+    var image = slides[index].querySelector('img');
+    if (image.naturalWidth && image.naturalHeight) {
+      var maximum = matchMedia('(max-width: 680px)').matches ? 460 : 440;
+      var height = Math.max(120, Math.min(maximum, gallery.clientWidth * image.naturalHeight / image.naturalWidth));
+      gallery.style.setProperty('--strategy-gallery-height', Math.round(height) + 'px');
+    }
+    count.textContent = (index + 1) + ' / ' + slides.length;
+    previous.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+  }
+  function moveGallery(direction) {
+    var index = Math.max(0, Math.min(slides.length - 1, currentSlide() + direction));
+    gallery.scrollTo({left: slides[index].offsetLeft - slides[0].offsetLeft,
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  }
+  previous.addEventListener('click', function () { moveGallery(-1); });
+  next.addEventListener('click', function () { moveGallery(1); });
+  gallery.addEventListener('scroll', updateGallery, {passive: true});
+  slides.forEach(function (slide) { slide.querySelector('img').addEventListener('load', updateGallery); });
+  gallery.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      moveGallery(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  window.addEventListener('resize', updateGallery);
+  updateGallery();
+
+  // Promotions: one display per tab session, counted only while the page is visible.
+  // Timed invitations remain enabled; moving toward browser controls is not a trigger.
+  var autoPromotionsEnabled = true;
+  var sessionKey = 'yahont-club-promos-v1';
+  var buyerKey = 'yahont-club-purchase-clicked-v1';
+  var state = {tourSeen: false, lessonSeen: false, finished: false, elapsed: 0};
+  try {
+    var saved = JSON.parse(sessionStorage.getItem(sessionKey) || 'null');
+    if (saved && typeof saved === 'object') {
+      ['tourSeen', 'lessonSeen', 'finished'].forEach(function (key) { state[key] = saved[key] === true; });
+      if (Number.isFinite(saved.elapsed) && saved.elapsed >= 0) state.elapsed = saved.elapsed;
+    }
+    if (localStorage.getItem(buyerKey) === '1') state.finished = true;
+  } catch (error) { /* In-memory state works if storage is unavailable. */ }
+  function save() {
+    try { sessionStorage.setItem(sessionKey, JSON.stringify(state)); } catch (error) {}
+  }
+  var overlay = document.createElement('div');
+  overlay.className = 'promo-modal';
+  overlay.hidden = true;
+  overlay.innerHTML = '<div class="promo-dialog" role="dialog" aria-modal="true" aria-labelledby="promoTitle" aria-describedby="promoText" tabindex="-1"><button class="promo-close" type="button" aria-label="Закрыть предложение">×</button><div class="promo-label">Клуб «Яхонт»</div><h2 id="promoTitle"></h2><div id="promoText"></div><a class="btn btn-primary" target="_blank" rel="noopener noreferrer"></a></div>';
+  document.getElementById('yahont-club').appendChild(overlay);
+  var close = overlay.querySelector('.promo-close');
+  var title = overlay.querySelector('h2');
+  var text = overlay.querySelector('#promoText');
+  var action = overlay.querySelector('a');
+  var current = null;
+  var trigger = null;
+  var previousOverflow = '';
+  var parentVisible = true;
+  var lastTick = performance.now();
+  var parentOrigin = null;
+  try { if (window.parent !== window) parentOrigin = new URL(document.referrer).origin; } catch (error) {}
+
+  function visible() { return !document.hidden && parentVisible; }
+  function busy() { return document.querySelector('.payment-modal.open, .mobile-nav.open, .course-program-modal:not([hidden])'); }
+  function hide(restoreFocus) {
+    if (!current) return;
+    overlay.hidden = true;
+    current = null;
+    document.body.style.overflow = previousOverflow;
+    if (restoreFocus && trigger && trigger.isConnected) trigger.focus({preventScroll: true});
+  }
+  function show(kind, reason) {
+    if (!autoPromotionsEnabled || state.finished || current || busy() || !visible()) return false;
+    if (kind === 'tour' && (state.tourSeen || state.lessonSeen)) return false;
+    if (kind === 'lesson' && state.lessonSeen) return false;
+    if (kind === 'tour') {
+      state.tourSeen = true;
+      title.textContent = reason === 'exit' ? 'Уже уходите?' : 'Посмотрите клуб изнутри';
+      text.innerHTML = '<p>Ещё не оставили заявку на вступление? Приглашаю вас на онлайн-экскурсию в клуб «Яхонт».</p><p>За 20 минут вы увидите, как устроен клуб изнутри, познакомитесь с его возможностями и поймёте, подходит ли он вам.</p>';
+      action.textContent = 'Онлайн-экскурсия в клуб';
+      action.href = 'https://youtu.be/kokOmS5_dXg';
+    } else {
+      state.lessonSeen = true;
+      title.textContent = 'Заберите один урок из клуба бесплатно';
+      text.innerHTML = '<p>Хотите оценить качество материалов клуба? Открываю бесплатный доступ к уроку «Финансовый дашборд с ИИ за 30 минут».</p><p>На практике вы научитесь создавать финансовый дашборд с помощью нейросетей.</p><p>Нажмите «Смотреть урок», чтобы перейти в Telegram-бот и получить доступ.</p>';
+      action.textContent = 'Смотреть урок';
+      action.href = 'https://t.me/finyahontovaBot?start=dl-1791200473287672dc770a';
+    }
+    current = kind;
+    trigger = document.activeElement;
+    previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    overlay.hidden = false;
+    close.focus({preventScroll: true});
+    save();
+    return true;
+  }
+  close.addEventListener('click', function () {
+    var wasTour = current === 'tour';
+    hide(true);
+    if (wasTour) show('lesson', 'close');
+    else { state.finished = true; save(); }
+  });
+  action.addEventListener('click', function () {
+    // Clicking the invitation must not start another invitation.
+    state.finished = true;
+    save();
+    hide(true);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (current && event.key === 'Escape') {
+      var wasLesson = current === 'lesson';
+      hide(true);
+      if (wasLesson) state.finished = true;
+      save();
+    }
+    var dialog = document.querySelector('.payment-modal.open, .course-program-modal:not([hidden])') || (!overlay.hidden && overlay);
+    if (dialog && event.key === 'Tab') {
+      var stops = Array.from(dialog.querySelectorAll('button, a[href], iframe, input, select, textarea, [tabindex="0"]'))
+        .filter(function (el) { return el.getClientRects().length; });
+      if (!stops.length) return;
+      var first = stops[0], last = stops[stops.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+  function suppressForPurchase() {
+    state.finished = true;
+    save();
+    try { localStorage.setItem(buyerKey, '1'); } catch (error) {}
+    hide(false);
+  }
+  window.addEventListener('yahont:purchase', suppressForPurchase);
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('a.btn[href="#pricing"]')) suppressForPurchase();
+  });
+  function accountTime() {
+    var now = performance.now();
+    if (visible()) state.elapsed += Math.max(0, now - lastTick);
+    lastTick = now;
+  }
+  function tick() {
+    accountTime();
+    save();
+    if (!visible() || state.finished) return;
+    if (state.elapsed >= 20 * 60 * 1000) show('lesson', 'timer');
+    else if (state.elapsed >= 10 * 60 * 1000) show('tour', 'timer');
+  }
+  document.addEventListener('visibilitychange', function () {
+    // Charge the just-ended visible segment, not the entire hidden interval.
+    var now = performance.now();
+    if (document.hidden && parentVisible) state.elapsed += Math.max(0, now - lastTick);
+    lastTick = now;
+    save();
+  });
+  window.addEventListener('pagehide', function () { accountTime(); save(); });
+  window.addEventListener('message', function (event) {
+    if (!parentOrigin || event.source !== window.parent || event.origin !== parentOrigin || !event.data) return;
+    if (event.data.type === 'yahont:visibility' && typeof event.data.visible === 'boolean') {
+      accountTime();
+      parentVisible = event.data.visible;
+      lastTick = performance.now();
+    }
+  });
+  if (parentOrigin) window.parent.postMessage({type: 'yahont:ready'}, parentOrigin);
+  if (autoPromotionsEnabled) setInterval(tick, 1000);
+})();
+
+</script>
